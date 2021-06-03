@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const create = () => {
   const [values, setValues] = useState({
@@ -24,6 +25,13 @@ const create = () => {
       category: "",
       twitter_handle: "",
     });
+
+    if (cheetsheet_name && website_url && category && twitter_handle) {
+      // TODO: Add new Cheetsheet
+      toast.success("Successfully toasted!");
+    } else {
+      toast.error("This didn't work.");
+    }
   };
 
   const categories = [
@@ -44,6 +52,7 @@ const create = () => {
 
   return (
     <div className="h-full min-h-screen text-[#ECF2F5] w-full bg-image p-3 flex items-center justify-center flex-col">
+      <Toaster position="bottom-right" reverseOrder={false} />
       <h1 className="text-4xl font-bold mb-3">Create New Cheetsheet</h1>
       <div className="w-7/12 h-full bg-white rounded-xl m-1">
         <form
@@ -73,7 +82,7 @@ const create = () => {
               placeholder="https://hashnode.com/"
             />
           </div>
-          <div className="mb-4 pr-8">
+          <div className="mb-6 pr-8">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Category
             </label>
@@ -95,7 +104,7 @@ const create = () => {
           </div>
           <div className="mb-2">
             <label className="block text-gray-700 text-sm font-bold mb-2">
-              Twitter Handle (optional)
+              Your Twitter Handle (optional)
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
