@@ -30,3 +30,13 @@ body {
 .bg-app-gradient:hover {
   background: #25235d;
 }
+.bg-text-gradient {
+  background: linear-gradient(
+    287.43deg,
+    rgb(119, 77, 255) 33.27%,
+    rgb(35, 158, 185) 61.72%,
+    rgb(215, 62, 135) 82.93%
+  );
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+}
