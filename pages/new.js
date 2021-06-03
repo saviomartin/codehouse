@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // toaster
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const create = () => {
   const [values, setValues] = useState({
@@ -59,7 +59,6 @@ const create = () => {
 
   return (
     <div className="h-full min-h-screen text-[#ECF2F5] w-full bg-image p-3 flex items-center justify-center flex-col">
-      <Toaster position="bottom-right" reverseOrder={false} />
       <h1 className="text-4xl font-bold mb-3">Create New Cheetsheet</h1>
       <div className="w-7/12 h-full bg-white rounded-xl m-1">
         <form
