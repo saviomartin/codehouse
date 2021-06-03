@@ -57,8 +57,15 @@ body {
     rgb(215, 62, 135) 82.93%
   );
   -webkit-background-clip: text !important;
+  background-size: cover;
   -webkit-text-fill-color: transparent;
 }
 .poppins {
   font-family: "Poppins", sans-serif;
+}
+.glassmorphism {
+  background: #ffffff20;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-bottom: 1px solid #eeeeee30;
 }
