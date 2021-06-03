@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 const create = () => {
   const [values, setValues] = useState({
-    cheetsheet_name: "Awesome React CheetSheet",
-    website_url: "https://hashnode.com/",
-    category: "react",
-    twitter_handle: "@SavioMartin7",
+    cheetsheet_name: "",
+    website_url: "",
+    category: "",
+    twitter_handle: "",
   });
 
   const { cheetsheet_name, website_url, category, twitter_handle } = values;
@@ -21,7 +21,7 @@ const create = () => {
     setValues({
       cheetsheet_name: "",
       website_url: "",
-      category: "react",
+      category: "",
       twitter_handle: "",
     });
   };
@@ -43,11 +43,11 @@ const create = () => {
   ];
 
   return (
-    <div className="h-full min-h-screen text-[#ECF2F5] w-full bg-image p-3">
-      <h1 className="text-4xl font-bold">Create New Cheetsheet</h1>
-      <div className="w-7/12 h-full bg-white rounded-md m-1">
+    <div className="h-full min-h-screen text-[#ECF2F5] w-full bg-image p-3 flex items-center justify-center flex-col">
+      <h1 className="text-4xl font-bold mb-3">Create New Cheetsheet</h1>
+      <div className="w-7/12 h-full bg-white rounded-xl m-1">
         <form
-          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          className="bg-white rounded-xl h-full px-8 pt-6 pb-8 mb-4"
           onSubmit={onSubmit}
         >
           <div className="mb-4">
@@ -81,17 +81,15 @@ const create = () => {
               <input
                 type="text"
                 list="alist"
-                name="category"
                 value={category}
                 onChange={handleChange("category")}
+                placeholder="react"
                 className="w-full"
               />
               <datalist id="alist" className="w-full text-black">
-                <option value="A Royal Affair" />
-                <option value="A Sound of Thunder" />
-                <option value="A Walk to Remember" />
-                <option value="A Women, a Gun and a Noodle" />
-                <option value="Artificial Intelligence" />
+                {categories.map((category, key) => (
+                  <option value={category} key={key} className="capitalize" />
+                ))}
               </datalist>
             </span>
           </div>
@@ -108,10 +106,10 @@ const create = () => {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-app-gradient hover:text-xl text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-app-gradient border border-[#391637] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
-              Sign In
+              Add New CheetSheet
             </button>
           </div>
         </form>

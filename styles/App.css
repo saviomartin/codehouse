@@ -27,3 +27,6 @@ body {
 .bg-app-gradient {
   background: linear-gradient(to left, #391637, #25235d);
 }
+.bg-app-gradient:hover {
+  background: #25235d;
+}
