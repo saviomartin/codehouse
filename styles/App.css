@@ -13,6 +13,17 @@
 /* App */
 #root,
 body {
+  min-height: 100vh;
   overflow-x: hidden !important;
   scroll-behavior: smooth;
+}
+
+/* Styles */
+.bg-image {
+  background: url(../public/assets/background.png) center;
+  background-size: cover;
+}
+
+.bg-app-gradient {
+  background: linear-gradient(to left, #391637, #25235d);
 }
