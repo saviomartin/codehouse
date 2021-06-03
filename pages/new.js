@@ -24,10 +24,12 @@ const create = () => {
 
     // logic
     if (cheetsheet_name && website_url && category && twitter_handle) {
+      console.log(values);
+
       // TODO: Add new Cheetsheet
-      toast.success("Successfully toasted!");
+      toast.success("Successfully Created!");
     } else {
-      toast.error("This didn't work.");
+      toast.error("Please Fill All Fields");
     }
 
     // making everything default
