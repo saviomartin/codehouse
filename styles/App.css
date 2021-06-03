@@ -59,3 +59,6 @@ body {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
 }
+.poppins {
+  font-family: "Poppins", sans-serif;
+}

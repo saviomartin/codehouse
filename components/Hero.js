@@ -1,6 +1,7 @@
 import { Button } from "@material-ui/core";
 import React from "react";
 import { BsLightning } from "react-icons/bs";
+import { FiGithub } from "react-icons/fi";
 
 const Hero = () => {
   return (
@@ -22,6 +23,12 @@ const Hero = () => {
             <div className="bg-[#F5BA31] hover:bg-[#ffcf5e] px-5 py-[10px] text-lg capitalize rounded-md font-semibold flex items-center justify-center">
               Try Now!
               <BsLightning className="text-lg ml-1 -mt-1" />
+            </div>
+          </Button>
+          <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-1">
+            <div className="border-2 border-[#555] text-[#ffcf5e] px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center">
+              Stars <span className="poppins ml-1">67</span>
+              <FiGithub className="text-lg ml-1" />
             </div>
           </Button>
         </div>
