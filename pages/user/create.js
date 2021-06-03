@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+// toaster
 import toast, { Toaster } from "react-hot-toast";
 
 const create = () => {
@@ -11,27 +13,30 @@ const create = () => {
 
   const { cheetsheet_name, website_url, category, twitter_handle } = values;
 
+  // handleChange of inputs
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
 
+  // submit event
   const onSubmit = (e) => {
     e.preventDefault();
 
-    console.log(values);
-    setValues({
-      cheetsheet_name: "",
-      website_url: "",
-      category: "",
-      twitter_handle: "",
-    });
-
+    // logic
     if (cheetsheet_name && website_url && category && twitter_handle) {
       // TODO: Add new Cheetsheet
       toast.success("Successfully toasted!");
     } else {
       toast.error("This didn't work.");
     }
+
+    // making everything default
+    setValues({
+      cheetsheet_name: "",
+      website_url: "",
+      category: "",
+      twitter_handle: "",
+    });
   };
 
   const categories = [
