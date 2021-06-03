@@ -121,7 +121,7 @@ const create = () => {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-app-gradient border border-[#391637] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-app-gradient border border-[#391637] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine"
               type="submit"
             >
               Add New CheetSheet

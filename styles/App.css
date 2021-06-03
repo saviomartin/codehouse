@@ -27,13 +27,32 @@ body {
 .bg-app-gradient {
   background: linear-gradient(to left, #391637, #25235d);
 }
-.bg-app-gradient:hover {
-  background: #25235d;
+/* Btn */
+.shine {
+  position: relative;
+  overflow: hidden;
+  transition: all 100ms linear;
+}
+
+.shine::after {
+  content: "";
+  top: -50%;
+  display: block;
+  width: 40%;
+  height: 200%;
+  left: -55%;
+  background: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  transform: rotate(25deg);
+  transition: 0.5s;
+}
+.shine:hover::after {
+  left: 120%;
 }
 .bg-text-gradient {
   background: linear-gradient(
     287.43deg,
-    rgb(119, 77, 255) 33.27%,
+    #774dff 33.27%,
     rgb(35, 158, 185) 61.72%,
     rgb(215, 62, 135) 82.93%
   );

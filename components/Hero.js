@@ -17,7 +17,7 @@ const Hero = () => {
           dolorem, possimus dolores ratione sit delectus?
         </p>
         <div className="flex mt-2">
-          <Button className="!p-0 !w-auto !h-auto !m-auto">
+          <Button className="!p-0 !w-auto !h-auto !m-auto shine">
             <div className="bg-[#F5BA31] px-6 py-3 text-md capitalize rounded-md font-bold">
               Try Now!
             </div>
