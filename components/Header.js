@@ -6,10 +6,10 @@ const Header = () => {
     <div className="w-full px-4 py-3 glassmorphism flex justify-between items-center">
       <h1 className="text-3xl font-extrabold text-[#ECF2F5]">Code House</h1>
       <div className="flex h-full items-center">
-        <a href="#" className="text-md font-medium">
+        <a href="#" className="text-md font-medium continuous-line">
           How it works
         </a>
-        <a href="#" className="text-md font-medium ml-6">
+        <a href="#" className="text-md font-medium ml-6 continuous-line">
           Upcoming Features
         </a>
         <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-6">
