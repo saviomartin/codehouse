@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // icons
 import { FiGrid, FiMenu, FiMoon } from "react-icons/fi";
@@ -7,6 +7,22 @@ import { FiGrid, FiMenu, FiMoon } from "react-icons/fi";
 import { SearchBar, Sort, Btn } from ".";
 
 const AppHeader = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(true);
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (window.localStorage.getItem("darkMode")) {
+        setDarkMode(window.localStorage.getItem("darkMode"));
+      } else {
+        window.localStorage.setItem("darkMode", false);
+        setDarkMode(false);
+      }
+    }
+  });
   return (
     <div className="w-full py-4 px-8 bg-white rounded-md white-light-shadow flex items-center justify-between">
       <div className="flex items-center justify-start w-5/12">
@@ -16,6 +32,7 @@ const AppHeader = () => {
             <FiMenu className="text-lg ml-1 span duration-500" />
           </div>
         </Btn>
+        <h1>{JSON.stringify(darkMode)}</h1>
         <SearchBar />
       </div>
       <div className="flex">
@@ -25,8 +42,11 @@ const AppHeader = () => {
             <FiGrid className="text-lg -ml-1 span duration-500" />
           </div>
         </Btn>
-        <Btn className="!ml-1" rounded-md>
-          <div className="border border-[#ddd] hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 pl-4 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover">
+        <Btn className="!ml-1 rounded-md">
+          <div
+            className="border border-[#ddd] hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 pl-4 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover"
+            onClick={toggleDarkMode}
+          >
             <FiMoon className="text-lg -ml-1 span duration-500" />
           </div>
         </Btn>
