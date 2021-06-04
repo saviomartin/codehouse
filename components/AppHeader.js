@@ -1,5 +1,6 @@
 import React from "react";
 import { BsSearch } from "react-icons/bs";
+import { Btn } from ".";
 
 const AppHeader = () => {
   return (
@@ -10,9 +11,11 @@ const AppHeader = () => {
           placeholder="Search"
           className="rounded-t-xl rounded-b-xl pl-2"
         />
-        <div className="bg-[#3d5eff] p-3 rounded-full">
-          <BsSearch className="text-white" />
-        </div>
+        <Btn>
+          <div className="bg-[#3d5eff] p-3 rounded-full">
+            <BsSearch className="text-white" />
+          </div>
+        </Btn>
       </div>
     </div>
   );
