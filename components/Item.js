@@ -8,9 +8,30 @@ import {
   FiTriangle,
 } from "react-icons/fi";
 
-const Item = ({ data }) => {
+const Item = ({ data, list = true }) => {
   const { cheetsheet_name, website_url, category, twitter_handle } = data;
-  return (
+  return list ? (
+    <div className="flex items-center justify-center p-3 rounded-md duration-500 white-light-shadow bg-white m-2 w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text">
+      <div className="w-3/12 relative h-full">
+        <Link href="/new">
+          <a>
+            <img
+              src="https://websitesetup.org/wp-content/uploads/2021/01/CSS-Cheat-Sheet.jpg"
+              alt=""
+              width="300"
+              className="rounded-md w-full"
+            />
+          </a>
+        </Link>
+        <Btn className="rounded-md ml-1 absolute top-1 right-1">
+          <div className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins">
+            <FiBookmark className="text-md span duration-500" />
+          </div>
+        </Btn>
+      </div>
+      <div className="w-9/12 h-full"></div>
+    </div>
+  ) : (
     <div className="flex justify-between flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text">
       <div className="block">
         <div className="w-full relative">
