@@ -39,3 +39,11 @@
 .white-light-shadow {
   box-shadow: rgb(0 0 0 / 3%) 0px 14px 36px, rgb(0 0 0 / 2%) 0px 30px 60px;
 }
+/* Menu Hover */
+.menu-animation-hover {
+  transition: 0.5s;
+}
+.menu-animation-hover:hover .span {
+  transition: 0.5s;
+  transform: scale(1.2);
+}
