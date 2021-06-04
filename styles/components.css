@@ -1,0 +1,36 @@
+/* Styles */
+.bg-image {
+  background: url(../public/assets/background.png) center;
+  background-size: cover;
+}
+
+/* App most used Gradient */
+.bg-app-gradient {
+  background: linear-gradient(to left, #391637, #25235d);
+}
+
+/* Glassmorphism effect for hero header */
+.glassmorphism {
+  background: #ffffff20;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-bottom: 1px solid #eeeeee30;
+}
+
+/* Poppins font */
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Text Gradient */
+.bg-text-gradient {
+  background: linear-gradient(
+    287.43deg,
+    #774dff 33.27%,
+    rgb(35, 158, 185) 61.72%,
+    rgb(215, 62, 135) 82.93%
+  );
+  -webkit-background-clip: text !important;
+  background-size: cover;
+  -webkit-text-fill-color: transparent;
+}

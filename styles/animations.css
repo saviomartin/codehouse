@@ -14,7 +14,6 @@
   overflow: hidden;
   transition: all 100ms linear;
 }
-
 .shine::after {
   content: "";
   top: -50%;
@@ -26,4 +25,7 @@
   position: absolute;
   transform: rotate(25deg);
   transition: 0.5s;
+}
+.shine:hover::after {
+  left: 120%;
 }
