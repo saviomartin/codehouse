@@ -23,7 +23,7 @@ const Hero = () => {
           </p>
           <div className="flex mt-2">
             <Button className="!p-0 !w-auto !h-auto !m-auto shine">
-              <div className="bg-[#F5BA31] hover:bg-[#ffcf5e] px-5 py-[10px] text-lg capitalize rounded-md font-semibold flex items-center justify-center">
+              <div className="bg-[#F5BA31] px-5 py-[10px] text-lg capitalize rounded-md font-semibold flex items-center justify-center">
                 Try Now!
                 <BsLightning className="text-lg ml-1 -mt-1" />
               </div>
