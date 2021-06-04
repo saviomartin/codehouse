@@ -6,7 +6,9 @@ const Header = () => {
   return (
     <div className="w-full px-4 py-3 glassmorphism flex justify-between items-center">
       <Link href="/">
-        <a className="text-3xl font-extrabold text-[#ECF2F5]">Code House</a>
+        <a className="text-3xl font-extrabold text-[#ECF2F5]">
+          Code House<span className="text-[#ffcf5e] text-5xl leading-3">.</span>
+        </a>
       </Link>
       <div className="flex h-full items-center">
         <a href="#" className="text-sm font-medium continuous-line">
