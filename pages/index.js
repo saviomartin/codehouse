@@ -1,8 +1,13 @@
 import React from "react";
-import { Hero } from "../components";
+import { App, Hero } from "../components";
 
 const index = () => {
-  return <Hero />;
+  return (
+    <div className="h-full w-full">
+      <Hero />
+      <App />
+    </div>
+  );
 };
 
 export default index;

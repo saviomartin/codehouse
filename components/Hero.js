@@ -20,7 +20,7 @@ const Hero = () => {
           <h3 className="text-lg bg-text-gradient font-bold mb-3 uppercase tracking-wider">
             100+ CheetSheets. Sorting. Open Source. Categories.
           </h3>
-          <h1 className="font-bold text-[3.5rem] leading-[3.75rem]">
+          <h1 className="font-bold text-[3.25rem] leading-[3.35rem]">
             Worl'd biggest storehouse of developer cheetsheets
           </h1>
           <p className="text-light text-[#aaa] my-2 mt-4">
