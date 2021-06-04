@@ -13,7 +13,7 @@ const AppHeader = () => {
         <Btn shine={false}>
           <div className="border border-[#ddd] hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-5 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover">
             Menu
-            <FiMenu className="text-lg ml-1 span" />
+            <FiMenu className="text-lg ml-1 span duration-500" />
           </div>
         </Btn>
         <SearchBar />
@@ -22,12 +22,12 @@ const AppHeader = () => {
         <Sort />
         <Btn shine={false} className="!ml-6">
           <div className="border border-[#ddd] hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 pl-4 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover">
-            <FiGrid className="text-lg -ml-1 span" />
+            <FiGrid className="text-lg -ml-1 span duration-500" />
           </div>
         </Btn>
         <Btn shine={false} className="!ml-1">
           <div className="border border-[#ddd] hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 pl-4 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover">
-            <FiMoon className="text-lg -ml-1 span" />
+            <FiMoon className="text-lg -ml-1 span duration-500" />
           </div>
         </Btn>
       </div>
