@@ -1,10 +1,17 @@
-import { Button } from "@material-ui/core";
 import React from "react";
+
+// material design
+import { Button } from "@material-ui/core";
+
+// icons
 import { BsLightning } from "react-icons/bs";
 import { FiGithub } from "react-icons/fi";
+
+// components
 import { Header } from ".";
 
 const Hero = () => {
+  //TODO: Dynamic Star Count
   return (
     <div className="h-screen bg-image w-full text-[#ECF2F5] overflow-visible">
       <Header />

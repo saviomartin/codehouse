@@ -1,5 +1,9 @@
-import { Button } from "@material-ui/core";
 import React from "react";
+
+// material design
+import { Button } from "@material-ui/core";
+
+// link from next
 import Link from "next/link";
 
 const Header = () => {
