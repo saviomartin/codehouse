@@ -2,7 +2,7 @@ import { Button } from "@material-ui/core";
 import React from "react";
 import { BsLightning } from "react-icons/bs";
 import { FiGithub } from "react-icons/fi";
-import Header from "./Header";
+import {Header} from ".";
 
 const Hero = () => {
   return (
