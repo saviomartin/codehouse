@@ -35,7 +35,12 @@ const Hero = () => {
                 <BsLightning className="text-lg ml-1 -mt-1" />
               </div>
             </Button>
-            <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-1">
+            <Button
+              className="!p-0 !w-auto !h-auto !m-auto shine !ml-1"
+              href="https://github.com/saviomartin/codehouse"
+              target="_blank"
+              rel="noreferrer"
+            >
               <div className="border-2 border-[#555] text-[#ffcf5e] px-4 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center">
                 Stars <span className="poppins ml-1">67</span>
                 <FiGithub className="text-lg ml-1" />
