@@ -11,7 +11,7 @@ import {
 const Item = ({ data }) => {
   const { cheetsheet_name, website_url, category, twitter_handle } = data;
   return (
-    <a className="flex justify-between flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text">
+    <div className="flex justify-between flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text">
       <div className="block">
         <div className="w-full relative">
           <Link href="/new">
@@ -64,7 +64,7 @@ const Item = ({ data }) => {
           </div>
         </Btn>
       </div>
-    </a>
+    </div>
   );
 };
 
