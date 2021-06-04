@@ -34,8 +34,3 @@
 .change-span-color-onhover:hover span {
   color: #447ed4;
 }
-
-/* On Card Hover */
-.item-hover-text:hover h1 {
-  color: #447ed4;
-}

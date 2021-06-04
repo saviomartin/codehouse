@@ -1,15 +1,11 @@
 // material design btn
-import { Button } from "@material-ui/core";
+import Ripples from "react-ripples";
 
-const Btn = ({ children, shine = true, className }) => {
+const Btn = ({ children, className }) => {
   return (
-    <Button
-      className={`!p-0 !h-auto !m-auto !block !min-w-0 hover:!bg-transparent ${className} ${
-        shine && "shine"
-      }`}
-    >
-      {children}
-    </Button>
+    <div className={`cursor-pointer ${className} overflow-hidden rounded-md`}>
+      <Ripples>{children}</Ripples>
+    </div>
   );
 };
 
