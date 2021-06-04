@@ -69,12 +69,3 @@ body {
   -webkit-backdrop-filter: blur(4px);
   border-bottom: 1px solid #eeeeee30;
 }
-/* Line Animations */
-.continuous-line {
-  background: linear-gradient(currentColor 0 0) var(--d, 201%) 100% /200% 1.5px no-repeat;
-  transition: 0.5s;
-  width: fit-content;
-}
-.continuous-line:hover {
-  --d: -101%;
-}
