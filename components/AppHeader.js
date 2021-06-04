@@ -1,5 +1,9 @@
 import React from "react";
+
+// icons
 import { FiMenu } from "react-icons/fi";
+
+// components
 import { SearchBar, Sort, Btn } from ".";
 
 const AppHeader = () => {
