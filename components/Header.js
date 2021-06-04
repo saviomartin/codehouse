@@ -13,7 +13,12 @@ const Header = () => {
           Upcoming Features
         </a>
         <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-6">
-          <div className="bg-[#F5BA31] px-4 py-[5px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
+          <div className="border-2 border-[#ffcf5e] text-[#ffcf5e] px-2 py-[4px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
+            New CheetSheet
+          </div>
+        </Button>
+        <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-2">
+          <div className="bg-[#F5BA31] px-4 py-[6px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
             Sign In
           </div>
         </Button>
