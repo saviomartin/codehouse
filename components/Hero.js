@@ -41,7 +41,7 @@ const Hero = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <div className="border-2 border-[#555] text-[#ffcf5e] px-4 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center">
+              <div className="border-2 border-[#777] text-[#ffcf5e] px-4 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center">
                 Stars <span className="poppins ml-1">67</span>
                 <FiGithub className="text-lg ml-1" />
               </div>
