@@ -28,7 +28,7 @@ const Item = ({ data, listView }) => {
   const url = new URL(website_url);
 
   return meta.meta && listView ? (
-    <div className="flex items-center p-4 rounded-md duration-500 white-light-shadow bg-white m-2 w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text">
+    <div className="flex items-center p-3 rounded-md duration-500 white-light-shadow bg-white m-2 w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text">
       <div className="w-[250px] relative h-full">
         <Link href="/new">
           <a>
@@ -50,11 +50,12 @@ const Item = ({ data, listView }) => {
           </div>
         </Btn>
       </div>
-      <div className="w-9/12 h-full px-3 py-5 flex items-start justify-between flex-col">
+      <div className="w-9/12 h-full px-3 pl-5 py-5 flex items-start justify-between flex-col">
         <div className="block">
           <a
             className="text-blue-500 text-sm"
             href={url.protocol + url.hostname}
+            target="_blank"
           >
             {url.hostname}
           </a>
@@ -82,11 +83,13 @@ const Item = ({ data, listView }) => {
               <FiMessageCircle className="text-sm ml-1 span duration-500" />
             </div>
           </Btn>
-          <Btn className="ml-1">
-            <div className="text-[#3d5eff] duration-500 px-2 py-3 h-full text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-              <FiExternalLink className="text-sm span duration-500" />
-            </div>
-          </Btn>
+          <a href={website_url} target="_blank" className="ml-1">
+            <Btn>
+              <div className="text-[#3d5eff] duration-500 px-2 py-3 h-full text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
+                <FiExternalLink className="text-sm span duration-500" />
+              </div>
+            </Btn>
+          </a>
         </div>
       </div>
     </div>
@@ -118,6 +121,7 @@ const Item = ({ data, listView }) => {
           <a
             className="text-blue-500 text-sm"
             href={url.protocol + url.hostname}
+            target="_blank"
           >
             {url.hostname}
           </a>
