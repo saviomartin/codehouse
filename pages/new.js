@@ -9,15 +9,15 @@ import { v4 as uuidv4 } from "uuid";
 // toaster
 import toast from "react-hot-toast";
 
-const create = () => {
+const New = () => {
   const [values, setValues] = useState({
-    cheetsheet_name: "",
+    cheatsheet_name: "",
     website_url: "",
     category: "",
     twitter_handle: "",
   });
 
-  const { cheetsheet_name, website_url, category, twitter_handle } = values;
+  const { cheatsheet_name, website_url, category, twitter_handle } = values;
 
   // handleChange of inputs
   const handleChange = (name) => (event) => {
@@ -29,24 +29,36 @@ const create = () => {
     e.preventDefault();
 
     // logic
-    if (cheetsheet_name && website_url && category && twitter_handle) {
+    if (cheatsheet_name && website_url && category) {
       let uuid = uuidv4().replace(/-/g, "");
       try {
         await harperFetch({
           operation: "insert",
           schema: "dev",
-          table: "review",
+          table: "cheatsheets",
           records: [
             {
               id: uuid,
-              cheetsheet_name: cheetsheet_name,
+              cheatsheet_name: cheatsheet_name,
               website_url: website_url,
               category: category,
-              twitter_handle: twitter_handle ? twitter_handle : "",
+              twitter_handle: twitter_handle,
+              upvotes: [],
+              comments: [],
             },
           ],
         });
+
+        // toasting success
         toast.success("Successfully Created!");
+
+        // making everything default
+        setValues({
+          cheatsheet_name: "",
+          website_url: "",
+          category: "",
+          twitter_handle: "",
+        });
       } catch (err) {
         console.log(err);
         toast.error("Something went wrong");
@@ -54,36 +66,39 @@ const create = () => {
     } else {
       toast.error("Please Fill All Fields");
     }
-
-    // making everything default
-    setValues({
-      cheetsheet_name: "",
-      website_url: "",
-      category: "",
-      twitter_handle: "",
-    });
   };
 
   const categories = [
+    "vim",
+    "mySql",
+    "sass",
     "react",
     "css",
     "javascript",
+    "npm",
+    "vue",
+    "go",
     "python",
     "flutter",
-    "hooks",
+    "lodash",
     "dart",
     "react-native",
+    "bash",
     "html",
-    "css",
+    "c",
+    "c#",
+    "php",
+    "angular",
     "jquery",
     "git",
     "markdown",
+    "emmet",
   ];
 
   return (
     <div className="h-full min-h-screen text-[#ECF2F5] w-full bg-image p-3 flex items-center justify-center flex-col">
       <h1 className="text-2xl md:text-4xl lg:text-4xl xl:text-4xl font-bold mb-1 lg:mb-3 xl:mb-3 text-center">
-        Create New Cheetsheet
+        Create New Cheatsheet
       </h1>
       <div className="w-full lg:w-7/12 xl:w-7/12 h-full bg-white rounded-xl m-1">
         <form
@@ -92,14 +107,14 @@ const create = () => {
         >
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
-              CheetSheet Name
+              Cheatsheet Name
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              value={cheetsheet_name}
-              onChange={handleChange("cheetsheet_name")}
+              value={cheatsheet_name}
+              onChange={handleChange("cheatsheet_name")}
               type="text"
-              placeholder="Awesome React CheetSheet"
+              placeholder="Awesome React Cheatsheet"
             />
           </div>
           <div className="mb-2">
@@ -141,7 +156,7 @@ const create = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               value={twitter_handle}
               onChange={handleChange("twitter_handle")}
-              placeholder="@SavioMartin7"
+              placeholder="SavioMartin7"
             />
           </div>
           <div className="flex items-center justify-between">
@@ -149,7 +164,7 @@ const create = () => {
               className="bg-app-gradient border border-[#391637] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine"
               type="submit"
             >
-              Add New CheetSheet
+              Add New Cheatsheet
             </button>
           </div>
         </form>
@@ -158,4 +173,4 @@ const create = () => {
   );
 };
 
-export default create;
+export default New;
