@@ -8,11 +8,13 @@ import {
   FiTriangle,
 } from "react-icons/fi";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 const Item = ({ data, listView }) => {
   const [meta, setMetadata] = useState([]);
+  const router = useRouter();
 
-  const { cheatsheet_name, website_url, category, twitter_handle } = data;
+  const { id, cheatsheet_name, website_url } = data;
 
   useEffect(() => {
     axios
@@ -27,10 +29,17 @@ const Item = ({ data, listView }) => {
 
   const url = new URL(website_url);
 
+  const goToCheetSheetPage = () => {
+    router.push(`/post/${id}`);
+  };
+
   return meta.meta && listView ? (
-    <div className="flex items-center p-3 rounded-md duration-500 white-light-shadow bg-white m-2 w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text">
+    <div
+      className="cursor-pointer flex items-center p-3 rounded-md duration-500 white-light-shadow bg-white m-2 w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text"
+      onClick={goToCheetSheetPage}
+    >
       <div className="w-[250px] relative h-full">
-        <Link href="/new">
+        <Link href={`/post/${id}`}>
           <a>
             <img
               src={
@@ -77,12 +86,16 @@ const Item = ({ data, listView }) => {
               <FiTriangle className="text-sm ml-1 span duration-500" />
             </div>
           </Btn>
-          <Btn className="rounded-md ml-1">
-            <div className="border border-[#3d5eff] text-[#3d5eff] duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-              {data.comments.length}
-              <FiMessageCircle className="text-sm ml-1 span duration-500" />
-            </div>
-          </Btn>
+          <Link href={`/post/${id}`}>
+            <a>
+              <Btn className="rounded-md ml-1">
+                <div className="border border-[#3d5eff] text-[#3d5eff] duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
+                  {data.comments.length}
+                  <FiMessageCircle className="text-sm ml-1 span duration-500" />
+                </div>
+              </Btn>
+            </a>
+          </Link>
           <a href={website_url} target="_blank" className="ml-1">
             <Btn>
               <div className="text-[#3d5eff] duration-500 px-2 py-3 h-full text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
@@ -94,10 +107,13 @@ const Item = ({ data, listView }) => {
       </div>
     </div>
   ) : (
-    <div className="flex justify-between flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text">
+    <div
+      className="cursor-pointer flex justify-between flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text"
+      onClick={goToCheetSheetPage}
+    >
       <div className="block">
         <div className="w-full relative">
-          <Link href="/new">
+          <Link href={`/post/${id}`}>
             <a>
               <img
                 src={
@@ -146,12 +162,16 @@ const Item = ({ data, listView }) => {
             <FiTriangle className="text-sm ml-1 span duration-500" />
           </div>
         </Btn>
-        <Btn className="rounded-md ml-1">
-          <div className="border border-[#3d5eff] text-[#3d5eff] duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-            {data.comments.length}
-            <FiMessageCircle className="text-sm ml-1 span duration-500" />
-          </div>
-        </Btn>
+        <Link href={`/post/${id}`}>
+          <a>
+            <Btn className="rounded-md ml-1">
+              <div className="border border-[#3d5eff] text-[#3d5eff] duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
+                {data.comments.length}
+                <FiMessageCircle className="text-sm ml-1 span duration-500" />
+              </div>
+            </Btn>
+          </a>
+        </Link>
         <a href={website_url} target="_blank" className="ml-1">
           <Btn>
             <div className="text-[#3d5eff] duration-500 px-2 py-3 h-full text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
