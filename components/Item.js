@@ -9,7 +9,7 @@ import {
 } from "react-icons/fi";
 
 const Item = ({ data, listView }) => {
-  const { cheetsheet_name, website_url, category, twitter_handle } = data;
+  const { cheatsheet_name, website_url, category, twitter_handle } = data;
   return listView ? (
     <div className="flex items-center p-4 rounded-md duration-500 white-light-shadow bg-white m-2 w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text">
       <div className="w-[250px] relative h-full">
@@ -33,9 +33,9 @@ const Item = ({ data, listView }) => {
         <Link href="/new">
           <a>
             <h1 className="font-bold text-xl duration-500 hover:text-[#3d5eff]">
-              {cheetsheet_name}
+              {cheatsheet_name}
             </h1>
-            <p className="text-[12px] text-[#666] mt-1">{cheetsheet_name}</p>
+            <p className="text-[12px] text-[#666] mt-1">{cheatsheet_name}</p>
           </a>
         </Link>
         <div className="flex items-center justify-start mt-1 w-full">
@@ -82,14 +82,14 @@ const Item = ({ data, listView }) => {
         <Link href="/new">
           <a>
             <h1 className="font-bold text-lg duration-500 hover:text-[#3d5eff]">
-              {cheetsheet_name.length > 50
-                ? cheetsheet_name.slice(0, 50) + "..."
-                : cheetsheet_name}
+              {cheatsheet_name.length > 50
+                ? cheatsheet_name.slice(0, 50) + "..."
+                : cheatsheet_name}
             </h1>
             <p className="text-[12px] text-[#666] mt-1">
-              {cheetsheet_name.length > 100
-                ? cheetsheet_name.slice(0, 100) + "..."
-                : cheetsheet_name}
+              {cheatsheet_name.length > 100
+                ? cheatsheet_name.slice(0, 100) + "..."
+                : cheatsheet_name}
             </p>
           </a>
         </Link>
