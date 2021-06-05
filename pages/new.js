@@ -94,6 +94,7 @@ const New = () => {
     "emmet",
     "VS Code",
     "swift",
+    "regex",
   ];
 
   return (
