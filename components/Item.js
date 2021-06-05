@@ -62,7 +62,11 @@ const Item = ({ data, listView }) => {
             <h1 className="font-bold text-xl duration-500 hover:text-[#3d5eff]">
               {cheatsheet_name}
             </h1>
-            <p className="text-[12px] text-[#666] mt-1">{description}</p>
+            <p className="text-[12px] text-[#666] mt-1">
+              {meta.meta && meta.meta.description
+                ? meta.meta.description.slice(0, 150)
+                : "Description not found"}
+            </p>
           </a>
         </Link>
         <div className="flex items-center justify-start mt-1 w-full">
@@ -117,7 +121,11 @@ const Item = ({ data, listView }) => {
                 ? cheatsheet_name.slice(0, 50) + "..."
                 : cheatsheet_name}
             </h1>
-            <p className="text-[12px] text-[#666] mt-1">{description}</p>
+            <p className="text-[12px] text-[#666] mt-1">
+              {meta.meta && meta.meta.description
+                ? meta.meta.description.slice(0, 150)
+                : "description not found"}
+            </p>
           </a>
         </Link>
       </div>
