@@ -1,12 +1,17 @@
+import { useState } from "react";
 import { Toaster } from "react-hot-toast";
 import "tailwindcss/tailwind.css"; // tailwind jit
 import "../styles/App.css"; // custom styles
 
 function MyApp({ Component, pageProps }) {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const props = { darkMode, setDarkMode };
+
   return (
-    <div className="dark min-h-screen">
+    <div className={`${darkMode && "dark"} min-h-screen`}>
       <Toaster position="bottom-right" reverseOrder={false} />
-      <Component {...pageProps} />
+      <Component {...pageProps} {...props} />
     </div>
   );
 }

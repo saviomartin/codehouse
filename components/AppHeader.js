@@ -6,23 +6,11 @@ import { FiGrid, FiMenu, FiMoon } from "react-icons/fi";
 // components
 import { SearchBar, Sort, Btn } from ".";
 
-const AppHeader = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
+const AppHeader = ({ darkMode, setDarkMode }) => {
   const toggleDarkMode = () => {
-    setDarkMode(true);
+    setDarkMode(!darkMode);
   };
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (window.localStorage.getItem("darkMode")) {
-        setDarkMode(window.localStorage.getItem("darkMode"));
-      } else {
-        window.localStorage.setItem("darkMode", false);
-        setDarkMode(false);
-      }
-    }
-  });
   return (
     <div className="w-full py-4 px-8 bg-white rounded-md white-light-shadow flex items-center justify-between">
       <div className="flex items-center justify-start w-5/12">
