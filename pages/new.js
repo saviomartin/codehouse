@@ -9,6 +9,9 @@ import { v4 as uuidv4 } from "uuid";
 // toaster
 import toast from "react-hot-toast";
 
+// Btn
+import { Btn } from "../components";
+
 const New = () => {
   const [values, setValues] = useState({
     cheatsheet_name: "",
@@ -93,6 +96,7 @@ const New = () => {
     "markdown",
     "emmet",
     "VS Code",
+    "yarn",
     "swift",
     "regex",
     "next",
@@ -163,12 +167,14 @@ const New = () => {
             />
           </div>
           <div className="flex items-center justify-between">
-            <button
-              className="bg-app-gradient border border-[#391637] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine"
-              type="submit"
-            >
-              Add New Cheatsheet
-            </button>
+            <Btn>
+              <button
+                className="bg-app-gradient border border-[#391637] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine"
+                type="submit"
+              >
+                Add New Cheatsheet
+              </button>
+            </Btn>
           </div>
         </form>
       </div>
