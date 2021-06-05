@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Btn } from ".";
 import {
@@ -7,16 +7,43 @@ import {
   FiMessageCircle,
   FiTriangle,
 } from "react-icons/fi";
+import axios from "axios";
 
 const Item = ({ data, listView }) => {
+  const [meta, setMetadata] = useState([]);
+  const [description, setDescription] = useState();
+  const [image, setImage] = useState("/assets/image-not-found.jpg");
+
   const { cheatsheet_name, website_url, category, twitter_handle } = data;
-  return listView ? (
+
+  useEffect(() => {
+    axios
+      .get(`https://meta-scrapper-api.herokuapp.com/api?url=${website_url}`)
+      .then(async (response) => {
+        await setMetadata(response.data);
+        await setDescription(meta.meta.description);
+        if (response.data.og.image) {
+          await setImage(response.data.og.image);
+        } else {
+          await setImage("/assets/image-not-found.jpg");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  return meta.meta && listView ? (
     <div className="flex items-center p-4 rounded-md duration-500 white-light-shadow bg-white m-2 w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text">
       <div className="w-[250px] relative h-full">
         <Link href="/new">
           <a>
             <img
-              src="https://websitesetup.org/wp-content/uploads/2021/01/CSS-Cheat-Sheet.jpg"
+              src={
+                meta.og && meta.og.image
+                  ? meta.og.image
+                  : "/assets/image-not-found.jpg"
+              }
               alt=""
               width="250"
               className="rounded-md w-full"
@@ -35,7 +62,7 @@ const Item = ({ data, listView }) => {
             <h1 className="font-bold text-xl duration-500 hover:text-[#3d5eff]">
               {cheatsheet_name}
             </h1>
-            <p className="text-[12px] text-[#666] mt-1">{cheatsheet_name}</p>
+            <p className="text-[12px] text-[#666] mt-1">{description}</p>
           </a>
         </Link>
         <div className="flex items-center justify-start mt-1 w-full">
@@ -66,10 +93,14 @@ const Item = ({ data, listView }) => {
           <Link href="/new">
             <a>
               <img
-                src="https://websitesetup.org/wp-content/uploads/2021/01/CSS-Cheat-Sheet.jpg"
+                src={
+                  meta.og && meta.og.image
+                    ? meta.og.image
+                    : "/assets/image-not-found.jpg"
+                }
                 alt=""
                 width="300"
-                className="rounded-md w-full mb-2"
+                className="rounded-md w-full mb-2 h-[157.5px]"
               />
             </a>
           </Link>
@@ -86,11 +117,7 @@ const Item = ({ data, listView }) => {
                 ? cheatsheet_name.slice(0, 50) + "..."
                 : cheatsheet_name}
             </h1>
-            <p className="text-[12px] text-[#666] mt-1">
-              {cheatsheet_name.length > 100
-                ? cheatsheet_name.slice(0, 100) + "..."
-                : cheatsheet_name}
-            </p>
+            <p className="text-[12px] text-[#666] mt-1">{description}</p>
           </a>
         </Link>
       </div>
