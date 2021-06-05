@@ -11,8 +11,6 @@ import axios from "axios";
 
 const Item = ({ data, listView }) => {
   const [meta, setMetadata] = useState([]);
-  const [description, setDescription] = useState();
-  const [image, setImage] = useState("/assets/image-not-found.jpg");
 
   const { cheatsheet_name, website_url, category, twitter_handle } = data;
 
@@ -21,12 +19,6 @@ const Item = ({ data, listView }) => {
       .get(`https://meta-scrapper-api.herokuapp.com/api?url=${website_url}`)
       .then(async (response) => {
         await setMetadata(response.data);
-        await setDescription(meta.meta.description);
-        if (response.data.og.image) {
-          await setImage(response.data.og.image);
-        } else {
-          await setImage("/assets/image-not-found.jpg");
-        }
       })
       .catch((error) => {
         console.log(error);
@@ -72,13 +64,13 @@ const Item = ({ data, listView }) => {
         <div className="flex items-center justify-start mt-1 w-full">
           <Btn className="rounded-md">
             <div className="shine bg-[#3d5eff] text-white duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-              80
+              {data.upvotes.length}
               <FiTriangle className="text-sm ml-1 span duration-500" />
             </div>
           </Btn>
           <Btn className="rounded-md ml-1">
             <div className="border border-[#3d5eff] text-[#3d5eff] duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-              4
+              {data.comments.length}
               <FiMessageCircle className="text-sm ml-1 span duration-500" />
             </div>
           </Btn>
@@ -132,13 +124,13 @@ const Item = ({ data, listView }) => {
       <div className="flex items-center justify-start mt-1 w-full">
         <Btn className="rounded-md">
           <div className="shine bg-[#3d5eff] text-white duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-            80
+            {data.upvotes.length}
             <FiTriangle className="text-sm ml-1 span duration-500" />
           </div>
         </Btn>
         <Btn className="rounded-md ml-1">
           <div className="border border-[#3d5eff] text-[#3d5eff] duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-            4
+            {data.comments.length}
             <FiMessageCircle className="text-sm ml-1 span duration-500" />
           </div>
         </Btn>
