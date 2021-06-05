@@ -1,11 +1,11 @@
 import React from "react";
 import { App, Hero } from "../components";
 
-const index = ({ darkMode, setDarkMode }) => {
+const index = (props) => {
   return (
     <div className="h-full w-full">
       <Hero />
-      <App darkMode={darkMode} setDarkMode={setDarkMode} />
+      <App {...props} />
     </div>
   );
 };

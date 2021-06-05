@@ -8,9 +8,9 @@ import {
   FiTriangle,
 } from "react-icons/fi";
 
-const Item = ({ data, list = false }) => {
+const Item = ({ data, listView }) => {
   const { cheetsheet_name, website_url, category, twitter_handle } = data;
-  return list ? (
+  return listView ? (
     <div className="flex items-center p-4 rounded-md duration-500 white-light-shadow bg-white m-2 w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text">
       <div className="w-[250px] relative h-full">
         <Link href="/new">

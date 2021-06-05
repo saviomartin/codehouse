@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 // icons
 import { FiGrid, FiMenu, FiMoon } from "react-icons/fi";
@@ -6,9 +6,12 @@ import { FiGrid, FiMenu, FiMoon } from "react-icons/fi";
 // components
 import { SearchBar, Sort, Btn } from ".";
 
-const AppHeader = ({ darkMode, setDarkMode }) => {
+const AppHeader = ({ darkMode, setDarkMode, listView, setListView }) => {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
+  };
+  const toggleListView = () => {
+    setListView(!listView);
   };
 
   return (
@@ -20,13 +23,15 @@ const AppHeader = ({ darkMode, setDarkMode }) => {
             <FiMenu className="text-lg ml-1 span duration-500" />
           </div>
         </Btn>
-        <h1>{JSON.stringify(darkMode)}</h1>
         <SearchBar />
       </div>
       <div className="flex">
         <Sort />
         <Btn className="!ml-6 rounded-md">
-          <div className="border border-[#ddd] hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 pl-4 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover">
+          <div
+            className="border border-[#ddd] hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 pl-4 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover"
+            onClick={toggleListView}
+          >
             <FiGrid className="text-lg -ml-1 span duration-500" />
           </div>
         </Btn>
