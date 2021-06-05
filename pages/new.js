@@ -81,7 +81,6 @@ const New = () => {
     "python",
     "flutter",
     "lodash",
-    "dart",
     "react-native",
     "bash",
     "html",
