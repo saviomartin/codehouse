@@ -92,6 +92,7 @@ const New = () => {
     "git",
     "markdown",
     "emmet",
+    "VS Code",
   ];
 
   return (
