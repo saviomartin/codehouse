@@ -1,7 +1,7 @@
 import React from "react";
 
 // icons
-import { FiGrid, FiMenu, FiMoon } from "react-icons/fi";
+import { FiGrid, FiList, FiMenu, FiMoon, FiSun } from "react-icons/fi";
 
 // components
 import { SearchBar, Sort, Btn } from ".";
@@ -32,7 +32,11 @@ const AppHeader = ({ darkMode, setDarkMode, listView, setListView }) => {
             className="border border-[#ddd] hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 pl-4 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover"
             onClick={toggleListView}
           >
-            <FiGrid className="text-lg -ml-1 span duration-500" />
+            {listView ? (
+              <FiList className="text-lg -ml-1 span duration-500" />
+            ) : (
+              <FiGrid className="text-lg -ml-1 span duration-500" />
+            )}
           </div>
         </Btn>
         <Btn className="!ml-1 rounded-md">
@@ -40,7 +44,11 @@ const AppHeader = ({ darkMode, setDarkMode, listView, setListView }) => {
             className="border border-[#ddd] hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 pl-4 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover"
             onClick={toggleDarkMode}
           >
-            <FiMoon className="text-lg -ml-1 span duration-500" />
+            {darkMode ? (
+              <FiMoon className="text-lg -ml-1 span duration-500" />
+            ) : (
+              <FiSun className="text-lg -ml-1 span duration-500" />
+            )}
           </div>
         </Btn>
       </div>
