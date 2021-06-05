@@ -6,6 +6,7 @@ import { harperFetch } from "../utils/HarperFetch";
 
 const App = (props) => {
   const [data, setData] = useState([]);
+  const [count, setCount] = useState(5);
 
   useEffect(async () => {
     const cheatSheets = await harperFetch({
@@ -20,7 +21,7 @@ const App = (props) => {
     <div className="bg-[#ECF2F5] min-h-screen p-6">
       <AppHeader {...props} />
       <div className="flex justify-center mt-5 w-full flex-wrap">
-        {data.map((cheetsheet, key) => (
+        {data.slice(0, count).map((cheetsheet, key) => (
           <Item data={cheetsheet} key={key} {...props} />
         ))}
       </div>
