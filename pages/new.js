@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 
+// harperFetch
+import { harperFetch } from "../utils/HarperFetch";
+
+// uuid
+import { v4 as uuidv4 } from "uuid";
+
 // toaster
 import toast from "react-hot-toast";
 
@@ -19,15 +25,32 @@ const create = () => {
   };
 
   // submit event
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     // logic
     if (cheetsheet_name && website_url && category && twitter_handle) {
-      console.log(values);
-
-      // TODO: Add new Cheetsheet
-      toast.success("Successfully Created!");
+      let uuid = uuidv4().replace(/-/g, "");
+      try {
+        await harperFetch({
+          operation: "insert",
+          schema: "dev",
+          table: "review",
+          records: [
+            {
+              id: uuid,
+              cheetsheet_name: cheetsheet_name,
+              website_url: website_url,
+              category: category,
+              twitter_handle: twitter_handle ? twitter_handle : "",
+            },
+          ],
+        });
+        toast.success("Successfully Created!");
+      } catch (err) {
+        console.log(err);
+        toast.error("Something went wrong");
+      }
     } else {
       toast.error("Please Fill All Fields");
     }

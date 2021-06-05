@@ -1,9 +1,9 @@
 export const harperFetch = async (body) => {
-  const request = await fetch(process.env.DB_URL, {
+  const request = await fetch(process.env.NEXT_PUBLIC_DB_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Basic ${process.env.DB_AUTHORIZATION}`,
+      Authorization: `Basic ${process.env.NEXT_PUBLIC_DB_AUTHORIZATION}`,
     },
     body: JSON.stringify(body),
   });
