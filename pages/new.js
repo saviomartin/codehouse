@@ -93,6 +93,7 @@ const New = () => {
     "markdown",
     "emmet",
     "VS Code",
+    "swift",
   ];
 
   return (
