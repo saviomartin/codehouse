@@ -95,6 +95,7 @@ const New = () => {
     "VS Code",
     "swift",
     "regex",
+    "next",
   ];
 
   return (
