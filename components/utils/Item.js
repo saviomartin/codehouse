@@ -152,7 +152,29 @@ const Item = ({ data, listView }) => {
       onClick={goToCheetSheetPage}
     >
       {loading ? (
-        "loading"
+        <div className="flex items-center flex-col">
+          <div className="h-[157.5px] w-[300px]">
+            <Skeleton variant="rect" width="full" height={150} />
+          </div>
+          <div className="w-[300px]">
+            <div className="-mb-2">
+              <Skeleton variant="rect" width="full" height={10} />
+            </div>
+            <Skeleton variant="rect" width="full" height={30} />
+            <Skeleton variant="rect" width="full" height={10} />
+            <div className="mt-3 flex">
+              <div className="block">
+                <Skeleton variant="rect" width={85} height={40} />
+              </div>
+              <div className="ml-1">
+                <Skeleton variant="rect" width={85} height={40} />
+              </div>
+              <div className="ml-1">
+                <Skeleton variant="rect" width={85} height={40} />
+              </div>
+            </div>
+          </div>
+        </div>
       ) : (
         <>
           <div className="block">
