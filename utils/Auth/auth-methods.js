@@ -1,5 +1,5 @@
-import firebase from "./firebase-config";
+import { auth } from "../firebase";
 
-export const facebookProvider = new firebase.auth.FacebookAuthProvider();
-export const githubProvider = new firebase.auth.GithubAuthProvider();
-export const googleProvider = new firebase.auth.GoogleAuthProvider();
+export const googleProvider = new auth.GoogleAuthProvider();
+// export const githubProvider = new auth.GithubAuthProvider(); TODO:
+// export const facebookProvider = new auth.FacebookAuthProvider(); TODO:

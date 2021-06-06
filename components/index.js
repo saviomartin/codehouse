@@ -6,3 +6,4 @@ export { default as Btn } from "./Btn";
 export { default as SearchBar } from "./SearchBar";
 export { default as Sort } from "./Sort";
 export { default as Item } from "./Item";
+export { default as SignInPopup } from "./SignInPopup";
