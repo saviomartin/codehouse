@@ -63,11 +63,11 @@ const Header = ({ setOpen, user, setUser }) => {
             >
               <div className="bg-[#F5BA31] p-[6px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
                 <img
-                  src="https://avatars.githubusercontent.com/u/61895712?v=4"
+                  src={user.photoURL}
                   alt=""
                   className="h-7 w-7 rounded-md mr-1"
                 />
-                Savio Martin
+                {user.displayName}
               </div>
             </Button>
             <Menu

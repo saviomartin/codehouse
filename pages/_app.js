@@ -25,6 +25,7 @@ function MyApp({ Component, pageProps }) {
   auth().onAuthStateChanged((user) => {
     if (user) {
       setUser(user);
+      console.log(user);
     }
   });
 
