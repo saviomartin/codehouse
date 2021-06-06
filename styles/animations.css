@@ -29,8 +29,3 @@
 .shine:hover::after {
   left: 120%;
 }
-
-/* Change span color */
-.change-span-color-onhover:hover span {
-  color: #447ed4;
-}

@@ -9,6 +9,9 @@ import {
 } from "react-icons/fi";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import ContentLoader from "react-content-loader";
+import { Box } from "@material-ui/core";
 
 const Item = ({ data, listView }) => {
   const [meta, setMetadata] = useState([]);
@@ -46,67 +49,29 @@ const Item = ({ data, listView }) => {
       onClick={goToCheetSheetPage}
     >
       {loading ? (
-        <>
-          <div className="w-[250px] relative h-full">
-            <div
-              width="270"
-              className="rounded-md w-full h-[200px] bg-gray-300 animate-pulse"
-            />
-            <Btn className="rounded-md ml-1 absolute top-1 right-1">
-              <div className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins">
-                <FiBookmark className="text-md span duration-500" />
+        <div className="flex w-full h-full items-center">
+          <div className="h-[150px] w-[300px]">
+            <Skeleton variant="rect" width="full" height={150} />
+          </div>
+          <div className="h-[150px] w-full ml-2 py-2">
+            <div className="-mb-2">
+              <Skeleton variant="rect" width="full" height={10} />
+            </div>
+            <Skeleton variant="rect" width="full" height={30} />
+            <Skeleton variant="rect" width="full" height={10} />
+            <div className="mt-3 flex">
+              <div className="block">
+                <Skeleton variant="rect" width={125} height={40} />
               </div>
-            </Btn>
-          </div>
-          <div className="w-9/12 h-full px-3 pl-5 py-5 flex items-start justify-between flex-col">
-            <div className="block">
-              <a
-                className="text-blue-500 text-sm"
-                href={
-                  url.protocol && url.hostname && url.protocol + url.hostname
-                }
-                target="_blank"
-              >
-                {url.hostname && url.hostname}
-              </a>
-              <a href={website_url} target="_blank">
-                <h1 className="font-bold text-xl duration-500 hover:text-[#3d5eff]">
-                  {cheatsheet_name}
-                </h1>
-                <p className="text-[12px] text-[#666] mt-1">
-                  {meta.meta && meta.meta.description
-                    ? meta.meta.description.slice(0, 150)
-                    : "Description not found"}
-                </p>
-              </a>
-            </div>
-            <div className="flex items-center justify-start mt-1 w-full">
-              <Btn className="rounded-md">
-                <div className="shine bg-[#3d5eff] text-white duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-                  {data.upvotes.length}
-                  <FiTriangle className="text-sm ml-1 span duration-500" />
-                </div>
-              </Btn>
-              <Link href={`/post/${id}`}>
-                <a>
-                  <Btn className="rounded-md ml-1">
-                    <div className="border border-[#3d5eff] text-[#3d5eff] duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-                      {data.comments.length}
-                      <FiMessageCircle className="text-sm ml-1 span duration-500" />
-                    </div>
-                  </Btn>
-                </a>
-              </Link>
-              <a href={website_url} target="_blank" className="ml-1">
-                <Btn>
-                  <div className="text-[#3d5eff] duration-500 px-2 py-3 h-full text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-                    <FiExternalLink className="text-sm span duration-500" />
-                  </div>
-                </Btn>
-              </a>
+              <div className="ml-1">
+                <Skeleton variant="rect" width={125} height={40} />
+              </div>
+              <div className="ml-1">
+                <Skeleton variant="rect" width={125} height={40} />
+              </div>
             </div>
           </div>
-        </>
+        </div>
       ) : (
         <>
           <div className="w-[250px] relative h-full">
@@ -120,7 +85,7 @@ const Item = ({ data, listView }) => {
                   }
                   alt=""
                   width="270"
-                  className="rounded-md w-full h-[200px]"
+                  className="rounded-md w-full h-[150px]"
                 />
               </a>
             </Link>
