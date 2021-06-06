@@ -6,7 +6,7 @@ import { harperFetch } from "../utils/HarperFetch";
 
 const App = (props) => {
   const [data, setData] = useState([]);
-  const [count, setCount] = useState(15);
+  const [count, setCount] = useState(6);
 
   useEffect(async () => {
     const cheatSheets = await harperFetch({

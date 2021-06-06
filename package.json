@@ -19,6 +19,7 @@
     "react-hot-toast": "^2.0.0",
     "react-icons": "^4.2.0",
     "react-infinite-scroll-component": "^6.1.0",
+    "react-loading-skeleton": "^2.2.0",
     "react-ripples": "^2.2.1",
     "ripple-button": "^1.0.9",
     "uuid": "^8.3.2"
