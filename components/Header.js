@@ -55,7 +55,7 @@ const Header = ({ setOpen, user, setUser }) => {
             New CheetSheet
           </div>
         </Button>
-        {user ? (
+        {user.displayName ? (
           <>
             <Button
               className="!p-0 !w-auto !h-auto !m-auto !ml-2"
