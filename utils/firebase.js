@@ -1,7 +1,4 @@
 import firebase from "firebase";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 const firebaseConfig = {
   apiKey: "AIzaSyBTH2-7uJKbjZ8slbPxaxny5MreXT-djhA",
@@ -13,10 +10,13 @@ const firebaseConfig = {
   measurementId: "G-X6FCVKT31X",
 };
 
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+} else {
+  firebase.app(); // if already initialized, use that one
+}
 
-const auth = firebase.auth();
+const auth = firebase.auth;
 const db = firebase.firestore();
-firebase.analytics();
 
 export { db, auth };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // material design
 import { Button } from "@material-ui/core";
@@ -6,7 +6,27 @@ import { Button } from "@material-ui/core";
 // link from next
 import Link from "next/link";
 
-const Header = ({ setOpen }) => {
+import Menu from "@material-ui/core/Menu";
+import { auth } from "../utils/firebase";
+import toast from "react-hot-toast";
+
+const Header = ({ setOpen, user, setUser }) => {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const signOut = () => {
+    auth()
+      .signOut()
+      .then(() => {
+        setUser(null);
+        toast.success("Signed Out from Codehouse!");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+    setAnchorEl(null);
+  };
+
   return (
     <div className="w-full px-4 py-3 glassmorphism flex justify-between items-center">
       <Link href="/">
@@ -35,14 +55,57 @@ const Header = ({ setOpen }) => {
             New CheetSheet
           </div>
         </Button>
-        <Button
-          className="!p-0 !w-auto !h-auto !m-auto shine !ml-2"
-          onClick={() => setOpen(true)}
-        >
-          <div className="bg-[#F5BA31] px-4 py-[6px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
-            Sign In
-          </div>
-        </Button>
+        {user ? (
+          <>
+            <Button
+              className="!p-0 !w-auto !h-auto !m-auto !ml-2"
+              onClick={(e) => setAnchorEl(e.currentTarget)}
+            >
+              <div className="bg-[#F5BA31] p-[6px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
+                <img
+                  src="https://avatars.githubusercontent.com/u/61895712?v=4"
+                  alt=""
+                  className="h-7 w-7 rounded-md mr-1"
+                />
+                Savio Martin
+              </div>
+            </Button>
+            <Menu
+              getContentAnchorEl={null}
+              className="!mt-1"
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "right",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={() => setAnchorEl(null)}
+            >
+              <Button
+                className="!p-0 !w-auto !h-auto !m-auto"
+                onClick={signOut}
+              >
+                <div className="px-4 py-[6px] text-md capitalize rounded-md font-semibold flex items-center justify-center hover:text-red-500 duration-500">
+                  Sign Out
+                </div>
+              </Button>
+            </Menu>
+          </>
+        ) : (
+          <Button
+            className="!p-0 !w-auto !h-auto !m-auto shine !ml-2"
+            onClick={() => setOpen(true)}
+          >
+            <div className="bg-[#F5BA31] px-4 py-[6px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
+              Sign In
+            </div>
+          </Button>
+        )}
       </div>
     </div>
   );

@@ -4,8 +4,15 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { Btn } from ".";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { githubProvider, googleProvider } from "../utils/Auth/auth-methods";
+import socialMediaAuth from "../utils/Auth/auth";
 
 const SignInPopup = ({ open, setOpen }) => {
+  const handleOnClick = async (provider) => {
+    const res = await socialMediaAuth(provider);
+    await setOpen(false);
+  };
+
   return (
     <Modal
       open={open}
@@ -28,7 +35,7 @@ const SignInPopup = ({ open, setOpen }) => {
             <Btn>
               <button
                 className="bg-[#4385F4] border border-[#4385F4] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine flex items-center"
-                onClick={() => setCount(count + 20)}
+                onClick={() => handleOnClick(googleProvider)}
               >
                 Sign In with Google <FaGoogle className="text-xl ml-1 -mr-1" />
               </button>
@@ -36,7 +43,7 @@ const SignInPopup = ({ open, setOpen }) => {
             <Btn className="ml-1">
               <button
                 className="bg-[#333] border border-[#333] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine flex items-center"
-                onClick={() => setCount(count + 20)}
+                onClick={() => handleOnClick(githubProvider)}
               >
                 Sign In with Github
                 <FaGithub className="text-2xl ml-1 -mt-1 -mr-1" />

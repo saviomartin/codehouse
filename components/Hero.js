@@ -10,11 +10,11 @@ import { FiGithub } from "react-icons/fi";
 // components
 import { Header } from ".";
 
-const Hero = ({ setOpen }) => {
+const Hero = ({ setOpen, user, setUser }) => {
   //TODO: Dynamic Star Count
   return (
     <div className="h-screen bg-image w-full text-[#ECF2F5] overflow-visible">
-      <Header setOpen={setOpen} />
+      <Header setOpen={setOpen} user={user} setUser={setUser} />
       <div className="flex items-center justify-center bg-image h-[90vh] w-full">
         <div className="w-7/12 h-full flex items-start justify-center flex-col pl-10">
           <h3 className="text-lg bg-text-gradient font-bold mb-3 uppercase tracking-wider">
