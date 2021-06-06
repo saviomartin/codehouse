@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { AppHeader, Btn } from ".";
 import { Item } from ".";
 import { harperFetch } from "../utils/HarperFetch";
@@ -19,11 +20,18 @@ const App = (props) => {
   return (
     <div className="bg-[#ECF2F5] min-h-screen p-6">
       <AppHeader {...props} />
-      <div className="flex justify-center mt-5 w-full flex-wrap">
-        {data.slice(0, count).map((cheetsheet, key) => (
-          <Item data={cheetsheet} key={key} {...props} />
-        ))}
-      </div>
+      <InfiniteScroll
+        dataLength={count} //This is important field to render the next data
+        next={() => setCount(count + 5)}
+        hasMore={count >= data.lenghth ? false : true}
+        loader={<h4>Loading...</h4>}
+      >
+        <div className="flex justify-center mt-5 w-full flex-wrap">
+          {data.slice(0, count).map((cheetsheet, key) => (
+            <Item data={cheetsheet} key={key} {...props} />
+          ))}
+        </div>
+      </InfiniteScroll>
       {/* <div className="w-full flex item-center justify-center mt-8">
         <Btn>
           <button
