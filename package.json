@@ -10,6 +10,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "axios": "^0.21.1",
+    "firebase": "^8.6.5",
     "next": "latest",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
