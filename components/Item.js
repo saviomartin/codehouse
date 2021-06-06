@@ -48,8 +48,8 @@ const Item = ({ data, listView }) => {
                   : "/assets/image-not-found.jpg"
               }
               alt=""
-              width="250"
-              className="rounded-md w-full h-full"
+              width="270"
+              className="rounded-md w-full h-[200px]"
             />
           </a>
         </Link>

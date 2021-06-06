@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { AppHeader, Btn } from ".";
-import dummdata from "../dummydata.json";
 import { Item } from ".";
 import { harperFetch } from "../utils/HarperFetch";
 
@@ -25,7 +24,7 @@ const App = (props) => {
           <Item data={cheetsheet} key={key} {...props} />
         ))}
       </div>
-      <div className="w-full flex item-center justify-center mt-8">
+      {/* <div className="w-full flex item-center justify-center mt-8">
         <Btn>
           <button
             className="bg-app-gradient border border-[#391637] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine"
@@ -34,7 +33,7 @@ const App = (props) => {
             Load More ...
           </button>
         </Btn>
-      </div>
+      </div> */}
     </div>
   );
 };
