@@ -17,7 +17,7 @@ const Header = ({ setOpen, user, setUser }) => {
     auth()
       .signOut()
       .then(() => {
-        setUser(null);
+        setUser([]);
         toast.success("Signed Out from Codehouse!");
       })
       .catch((error) => {
