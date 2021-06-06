@@ -2,10 +2,10 @@ import React from "react";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import { Btn } from ".";
+import { Btn } from "..";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { githubProvider, googleProvider } from "../utils/Auth/auth-methods";
-import socialMediaAuth from "../utils/Auth/auth";
+import { githubProvider, googleProvider } from "../../utils/Auth/auth-methods";
+import socialMediaAuth from "../../utils/Auth/auth";
 
 const SignInPopup = ({ open, setOpen }) => {
   const handleOnClick = async (provider) => {

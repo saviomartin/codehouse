@@ -4,7 +4,7 @@ import React from "react";
 import { FiGrid, FiList, FiMenu, FiMoon, FiSun } from "react-icons/fi";
 
 // components
-import { SearchBar, Sort, Btn } from ".";
+import { SearchBar, Sort, Btn } from "..";
 
 const AppHeader = ({ darkMode, setDarkMode, listView, setListView }) => {
   const toggleDarkMode = () => {

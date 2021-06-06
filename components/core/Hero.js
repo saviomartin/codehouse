@@ -8,7 +8,7 @@ import { BsLightning } from "react-icons/bs";
 import { FiGithub } from "react-icons/fi";
 
 // components
-import { Header } from ".";
+import { Header } from "..";
 
 const Hero = ({ setOpen, user, setUser }) => {
   //TODO: Dynamic Star Count

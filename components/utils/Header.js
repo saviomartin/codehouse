@@ -7,7 +7,7 @@ import { Button } from "@material-ui/core";
 import Link from "next/link";
 
 import Menu from "@material-ui/core/Menu";
-import { auth } from "../utils/firebase";
+import { auth } from "../../utils/firebase";
 import toast from "react-hot-toast";
 
 const Header = ({ setOpen, user, setUser }) => {

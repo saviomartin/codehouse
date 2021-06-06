@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { AppHeader, Btn } from ".";
-import { Item } from ".";
-import { harperFetch } from "../utils/HarperFetch";
+import { AppHeader, Btn } from "..";
+import { Item } from "..";
+import { harperFetch } from "../../utils/HarperFetch";
 
 const App = (props) => {
   const [data, setData] = useState([]);
