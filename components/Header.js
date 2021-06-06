@@ -6,7 +6,7 @@ import { Button } from "@material-ui/core";
 // link from next
 import Link from "next/link";
 
-const Header = () => {
+const Header = ({ setOpen }) => {
   return (
     <div className="w-full px-4 py-3 glassmorphism flex justify-between items-center">
       <Link href="/">
@@ -36,7 +36,10 @@ const Header = () => {
           </div>
         </Button>
         <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-2">
-          <div className="bg-[#F5BA31] px-4 py-[6px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
+          <div
+            className="bg-[#F5BA31] px-4 py-[6px] text-md capitalize rounded-md font-semibold flex items-center justify-center"
+            onClick={() => setOpen(true)}
+          >
             Sign In
           </div>
         </Button>
