@@ -55,19 +55,23 @@ const Header = ({ setOpen, user, setUser }) => {
             New CheetSheet
           </div>
         </Button>
-        {user.displayName ? (
+        {user.email ? (
           <>
             <Button
               className="!p-0 !w-auto !h-auto !m-auto !ml-2"
               onClick={(e) => setAnchorEl(e.currentTarget)}
             >
-              <div className="bg-[#F5BA31] p-[6px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
+              <div className="bg-[#F5BA31] p-[6px] pr-[8px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
                 <img
-                  src={user.photoURL}
+                  src={
+                    user.photoURL
+                      ? user.photoURL
+                      : `https://unavatar.vercel.app/${user.email}`
+                  }
                   alt=""
-                  className="h-7 w-7 rounded-md mr-1"
+                  className="h-7 w-7 rounded-md mr-2"
                 />
-                {user.displayName}
+                {user.displayName ? user.displayName : "User"}
               </div>
             </Button>
             <Menu

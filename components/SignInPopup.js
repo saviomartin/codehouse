@@ -11,6 +11,7 @@ const SignInPopup = ({ open, setOpen }) => {
   const handleOnClick = async (provider) => {
     const res = await socialMediaAuth(provider);
     await setOpen(false);
+    await console.log(res);
   };
 
   return (
@@ -29,7 +30,7 @@ const SignInPopup = ({ open, setOpen }) => {
           <h1 className="text-3xl font-bold mb-2">Join Codehouse!</h1>
           <p className="text-[#555] mb-5">
             We're super excited to have you here! Welcome to Code House. I hope
-            you have fun, Sgn In with any of the following methods✌️
+            you have fun, Sign In with any of the following methods✌️
           </p>
           <div className="flex">
             <Btn>

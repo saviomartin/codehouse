@@ -8,6 +8,7 @@ const socialMediaAuth = (provider) => {
     })
     .catch((err) => {
       return err;
+      console.log(err);
     });
 };
 
