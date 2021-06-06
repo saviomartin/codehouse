@@ -13,6 +13,7 @@
     "dotenv": "^10.0.0",
     "firebase": "^8.6.5",
     "next": "latest",
+    "psl": "^1.8.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-hot-toast": "^2.0.0",

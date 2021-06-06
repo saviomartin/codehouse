@@ -69,7 +69,7 @@ const Header = ({ setOpen, user, setUser }) => {
                       : `https://unavatar.vercel.app/${user.email}`
                   }
                   alt=""
-                  className="h-7 w-7 rounded-md mr-2"
+                  className="h-7 w-7 rounded-md mr-1"
                 />
                 {user.displayName ? user.displayName : "User"}
               </div>

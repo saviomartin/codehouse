@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 
 const Item = ({ data, listView }) => {
   const [meta, setMetadata] = useState([]);
+  const [error, setError] = useState(false);
   const router = useRouter();
 
   const { id, cheatsheet_name, website_url } = data;
@@ -20,10 +21,15 @@ const Item = ({ data, listView }) => {
     axios
       .get(`https://meta-scrapper-api.herokuapp.com/api?url=${website_url}`)
       .then(async (response) => {
-        await setMetadata(response.data);
+        if (response.request.status === 400) {
+          await setError(true);
+        } else {
+          console.log(response);
+          await setMetadata(response.data);
+        }
       })
       .catch((error) => {
-        console.log(error);
+        setError(true);
       });
   }, []);
 
@@ -33,9 +39,9 @@ const Item = ({ data, listView }) => {
     router.push(`/post/${id}`);
   };
 
-  return meta.meta && listView ? (
+  return url && !error && meta.meta && listView ? (
     <div
-      className="cursor-pointer flex items-center p-3 rounded-md duration-500 white-light-shadow bg-white m-2 w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text"
+      className="cursor-pointer flex items-center p-3 rounded-md duration-500 white-light-shadow bg-white m-2 w-10/12 min-w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text"
       onClick={goToCheetSheetPage}
     >
       <div className="w-[250px] relative h-full">
@@ -63,10 +69,10 @@ const Item = ({ data, listView }) => {
         <div className="block">
           <a
             className="text-blue-500 text-sm"
-            href={url.protocol + url.hostname}
+            href={url.protocol && url.hostname && url.protocol + url.hostname}
             target="_blank"
           >
-            {url.hostname}
+            {url.hostname && url.hostname}
           </a>
           <a href={website_url} target="_blank">
             <h1 className="font-bold text-xl duration-500 hover:text-[#3d5eff]">
@@ -136,10 +142,10 @@ const Item = ({ data, listView }) => {
         <div className="block">
           <a
             className="text-blue-500 text-sm"
-            href={url.protocol + url.hostname}
+            href={url.protocol && url.hostname && url.protocol + url.hostname}
             target="_blank"
           >
-            {url.hostname}
+            {url.hostname && url.hostname}
           </a>
           <a href={website_url} target="_blank">
             <h1 className="font-bold text-lg duration-500 hover:text-[#3d5eff]">
