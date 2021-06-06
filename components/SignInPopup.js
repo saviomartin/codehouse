@@ -3,6 +3,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { Btn } from ".";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const SignInPopup = ({ open, setOpen }) => {
   return (
@@ -18,16 +19,30 @@ const SignInPopup = ({ open, setOpen }) => {
     >
       <Fade in={open}>
         <div className="bg-white p-5 rounded-xl shadow-md w-[45%]">
-          <h1 className="text-2xl font-bold">Code Copied</h1>
-          <p className="text-[#555] mb-3">
-            You have copied your twitter intent code to your clipboard. You can
-            now start using it in your site. Here is quick example ✌️
+          <h1 className="text-3xl font-bold mb-2">Join Codehouse!</h1>
+          <p className="text-[#555] mb-5">
+            We're super excited to have you here! Welcome to Code House. I hope
+            you have fun, Sgn In with any of the following methods✌️
           </p>
-          <Btn className="button !p-0 !mt-2" onClick={() => setOpen(false)}>
-            <div className="px-4 py-2 flex items-center capitalize text-md border border-[#936BF3] hover:border-[#EF5FAD] rounded-md">
-              Got it, thanks!
-            </div>
-          </Btn>
+          <div className="flex">
+            <Btn>
+              <button
+                className="bg-[#4385F4] border border-[#4385F4] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine flex items-center"
+                onClick={() => setCount(count + 20)}
+              >
+                Sign In with Google <FaGoogle className="text-xl ml-1 -mr-1" />
+              </button>
+            </Btn>
+            <Btn className="ml-1">
+              <button
+                className="bg-[#333] border border-[#333] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine flex items-center"
+                onClick={() => setCount(count + 20)}
+              >
+                Sign In with Github
+                <FaGithub className="text-2xl ml-1 -mt-1 -mr-1" />
+              </button>
+            </Btn>
+          </div>
         </div>
       </Fade>
     </Modal>
