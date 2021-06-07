@@ -10,6 +10,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "axios": "^0.21.1",
+    "date-fns": "^2.22.1",
     "dotenv": "^10.0.0",
     "firebase": "^8.6.5",
     "next": "latest",

@@ -3,18 +3,43 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { AppHeader, Btn } from "..";
 import { Item } from "..";
 import { harperFetch } from "../../utils/HarperFetch";
+// for formatting date
+import { format } from "date-fns";
 
 const App = (props) => {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(6);
   const [searchTerm, setSearchTerm] = useState("");
+  const [sort, setSort] = useState("newest");
 
   useEffect(async () => {
     const cheatSheets = await harperFetch({
       operation: "sql",
       sql: "SELECT * FROM dev.cheatsheets",
     });
-
+    if (sort === "newest") {
+      cheatSheets.sort((a, b) =>
+        format(new Date(a.__createdtime__), "k:m:s") <
+        format(new Date(b.__createdtime__), "k:m:s")
+          ? -1
+          : format(new Date(a.__createdtime__), "k:m:s") >
+            format(new Date(b.__createdtime__), "k:m:s")
+          ? 1
+          : 0
+      );
+    } else if (sort === "oldest") {
+      cheatSheets.sort((a, b) =>
+        format(new Date(a.__createdtime__), "k:m:s") <
+        format(new Date(b.__createdtime__), "k:m:s")
+          ? -1
+          : format(new Date(a.__createdtime__), "k:m:s") >
+            format(new Date(b.__createdtime__), "k:m:s")
+          ? 1
+          : 0
+      );
+    } else {
+      // TODO: Likes
+    }
     await setData(cheatSheets);
   }, []);
 
@@ -42,6 +67,7 @@ const App = (props) => {
       />
       {showLoadingButton ? (
         <>
+          <h1>{format(new Date(1622886350787), "k:m:s")}</h1>
           <div className="flex justify-center mt-5 w-full flex-wrap">
             {filteredPosts.slice(0, count).map((cheetsheet, key) => (
               <Item data={cheetsheet} key={key} {...props} />
