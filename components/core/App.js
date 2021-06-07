@@ -10,7 +10,7 @@ const App = (props) => {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(6);
   const [searchTerm, setSearchTerm] = useState("");
-  const [sort, setSort] = useState("newest");
+  const [sort, setSort] = useState("oldest");
 
   useEffect(async () => {
     const cheatSheets = await harperFetch({
@@ -18,27 +18,20 @@ const App = (props) => {
       sql: "SELECT * FROM dev.cheatsheets",
     });
     if (sort === "newest") {
-      cheatSheets.sort((a, b) =>
-        format(new Date(a.__createdtime__), "k:m:s") <
-        format(new Date(b.__createdtime__), "k:m:s")
-          ? -1
-          : format(new Date(a.__createdtime__), "k:m:s") >
+      cheatSheets
+        .sort((a, b) => {
+          return format(new Date(a.__createdtime__), "k:m:s").localeCompare(
             format(new Date(b.__createdtime__), "k:m:s")
-          ? 1
-          : 0
-      );
+          );
+        })
+        .reverse();
     } else if (sort === "oldest") {
-      cheatSheets.sort((a, b) =>
-        format(new Date(a.__createdtime__), "k:m:s") <
-        format(new Date(b.__createdtime__), "k:m:s")
-          ? -1
-          : format(new Date(a.__createdtime__), "k:m:s") >
-            format(new Date(b.__createdtime__), "k:m:s")
-          ? 1
-          : 0
-      );
+      cheatSheets.sort((a, b) => {
+        return format(new Date(a.__createdtime__), "k:m:s").localeCompare(
+          format(new Date(b.__createdtime__), "k:m:s")
+        );
+      });
     } else {
-      // TODO: Likes
     }
     await setData(cheatSheets);
   }, []);
