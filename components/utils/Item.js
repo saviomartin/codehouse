@@ -17,6 +17,7 @@ const Item = ({ data, listView, user }) => {
   const [error, setError] = useState(false);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const [isUpvoted, setIsUpvoted] = useState(false);
 
   const { id, cheatsheet_name, website_url, upvotes } = data;
 
@@ -54,10 +55,11 @@ const Item = ({ data, listView, user }) => {
     }
   };
 
-  let isUpvoted = false;
-  if (user.email) {
-    isUpvoted = upvotes.includes(user.email);
-  }
+  useEffect(() => {
+    if (user.email) {
+      setIsUpvoted(upvotes.includes(user.email));
+    }
+  });
 
   const upvoteCheatSheet = () => {
     if (user.email) {
@@ -72,7 +74,7 @@ const Item = ({ data, listView, user }) => {
           records: [
             {
               id: id,
-              upvotes: index,
+              upvotes: upvotes,
             },
           ],
         });
@@ -167,7 +169,11 @@ const Item = ({ data, listView, user }) => {
             <div className="flex items-center justify-start mt-1 w-full">
               <Btn className="rounded-md">
                 <div
-                  className="shine bg-[#3d5eff] text-white duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins"
+                  className={`shine ${
+                    isUpvoted
+                      ? "bg-[#3d5eff] text-white"
+                      : "border border-[#3d5eff] text-[#3d5eff]"
+                  } duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins`}
                   onClick={upvoteCheatSheet}
                 >
                   {upvotes.length}
@@ -272,7 +278,11 @@ const Item = ({ data, listView, user }) => {
           <div className="flex items-center justify-start mt-1 w-full">
             <Btn className="rounded-md">
               <div
-                className="shine bg-[#3d5eff] text-white duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins"
+                className={`shine ${
+                  isUpvoted
+                    ? "bg-[#3d5eff] text-white"
+                    : "border border-[#3d5eff] text-[#3d5eff]"
+                } duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins`}
                 onClick={upvoteCheatSheet}
               >
                 {upvotes.length}
