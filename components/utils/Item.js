@@ -54,18 +54,44 @@ const Item = ({ data, listView, user }) => {
     }
   };
 
+  let isUpvoted = false;
+  if (user.email) {
+    isUpvoted = upvotes.includes(user.email);
+  }
+
   const upvoteCheatSheet = () => {
-    harperFetch({
-      operation: "update",
-      schema: "dev",
-      table: "cheatsheets",
-      records: [
-        {
-          id: id,
-          upvotes: [...upvotes, user.email],
-        },
-      ],
-    });
+    if (user.email) {
+      if (isUpvoted) {
+        const index = upvotes.indexOf(user.email);
+        upvotes.splice(index, 1);
+
+        harperFetch({
+          operation: "update",
+          schema: "dev",
+          table: "cheatsheets",
+          records: [
+            {
+              id: id,
+              upvotes: index,
+            },
+          ],
+        });
+      } else {
+        harperFetch({
+          operation: "update",
+          schema: "dev",
+          table: "cheatsheets",
+          records: [
+            {
+              id: id,
+              upvotes: [...upvotes, user.email],
+            },
+          ],
+        });
+      }
+    } else {
+      console.log("no user");
+    }
   };
 
   return url && !error && meta.meta && listView ? (
