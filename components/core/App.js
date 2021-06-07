@@ -13,6 +13,7 @@ const App = (props) => {
   const [sort, setSort] = useState("popular");
 
   useEffect(async () => {
+    setData([]);
     const cheatSheets = await harperFetch({
       operation: "sql",
       sql: "SELECT * FROM dev.cheatsheets",
@@ -41,7 +42,7 @@ const App = (props) => {
       });
     }
     await setData(cheatSheets);
-  }, []);
+  }, [sort]);
 
   const { showLoadingButton = false } = props;
 
@@ -64,6 +65,7 @@ const App = (props) => {
         {...props}
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
+        setSort={setSort}
       />
       {showLoadingButton ? (
         <>
