@@ -57,8 +57,10 @@ const Item = ({ data, listView, user, setOpen }) => {
   };
 
   useEffect(() => {
-    if (user.email) {
-      setIsUpvoted(upvotes.includes(user.email));
+    if (upvotes) {
+      if (user.email) {
+        setIsUpvoted(upvotes.includes(user.email));
+      }
     }
   });
 
@@ -169,46 +171,48 @@ const Item = ({ data, listView, user, setOpen }) => {
                 </p>
               </a>
             </div>
-            <div className="flex items-center justify-start mt-1 w-full">
-              <Btn className="rounded-md">
-                <div
-                  className={`shine ${
-                    isUpvoted
-                      ? "bg-[#3d5eff] text-white"
-                      : "border border-[#3d5eff] text-[#3d5eff]"
-                  } ${
-                    changed === "add"
-                      ? "bg-[#3d5eff] !text-white"
-                      : "text-white"
-                  } duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins`}
-                  onClick={upvoteCheatSheet}
-                >
-                  {changed === "add"
-                    ? upvotes.length + 1
-                    : changed === "sub"
-                    ? upvotes.length - 0
-                    : upvotes.length}
-                  <FiTriangle className="text-sm ml-1 span duration-500" />
-                </div>
-              </Btn>
-              <Link href={`/post/${id}`}>
-                <a>
-                  <Btn className="rounded-md ml-1">
-                    <div className="border border-[#3d5eff] text-[#3d5eff] duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-                      {data.comments.length}
-                      <FiMessageCircle className="text-sm ml-1 span duration-500" />
+            {upvotes && (
+              <div className="flex items-center justify-start mt-1 w-full">
+                <Btn className="rounded-md">
+                  <div
+                    className={`shine ${
+                      isUpvoted
+                        ? "bg-[#3d5eff] text-white"
+                        : "border border-[#3d5eff] text-[#3d5eff]"
+                    } ${
+                      changed === "add"
+                        ? "bg-[#3d5eff] !text-white"
+                        : "text-white"
+                    } duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins`}
+                    onClick={upvoteCheatSheet}
+                  >
+                    {changed === "add"
+                      ? upvotes.length + 1
+                      : changed === "sub"
+                      ? upvotes.length - 0
+                      : upvotes.length}
+                    <FiTriangle className="text-sm ml-1 span duration-500" />
+                  </div>
+                </Btn>
+                <Link href={`/post/${id}`}>
+                  <a>
+                    <Btn className="rounded-md ml-1">
+                      <div className="border border-[#3d5eff] text-[#3d5eff] duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
+                        {data.comments.length}
+                        <FiMessageCircle className="text-sm ml-1 span duration-500" />
+                      </div>
+                    </Btn>
+                  </a>
+                </Link>
+                <a href={website_url} target="_blank" className="ml-1">
+                  <Btn>
+                    <div className="text-[#3d5eff] duration-500 px-2 py-3 h-full text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
+                      <FiExternalLink className="text-sm span duration-500" />
                     </div>
                   </Btn>
                 </a>
-              </Link>
-              <a href={website_url} target="_blank" className="ml-1">
-                <Btn>
-                  <div className="text-[#3d5eff] duration-500 px-2 py-3 h-full text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-                    <FiExternalLink className="text-sm span duration-500" />
-                  </div>
-                </Btn>
-              </a>
-            </div>
+              </div>
+            )}
           </div>
         </>
       )}
@@ -286,44 +290,48 @@ const Item = ({ data, listView, user, setOpen }) => {
               </a>
             </div>
           </div>
-          <div className="flex items-center justify-start mt-1 w-full">
-            <Btn className="rounded-md">
-              <div
-                className={`shine ${
-                  isUpvoted
-                    ? "bg-[#3d5eff] text-white"
-                    : "border border-[#3d5eff] text-[#3d5eff]"
-                } ${
-                  changed === "add" ? "bg-[#3d5eff] !text-white" : "text-white"
-                } duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins`}
-                onClick={upvoteCheatSheet}
-              >
-                {changed === "add"
-                  ? upvotes.length + 1
-                  : changed === "sub"
-                  ? upvotes.length - 0
-                  : upvotes.length}
-                <FiTriangle className="text-sm ml-1 span duration-500" />
-              </div>
-            </Btn>
-            <Link href={`/post/${id}`}>
-              <a>
-                <Btn className="rounded-md ml-1">
-                  <div className="border border-[#3d5eff] text-[#3d5eff] duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-                    {data.comments.length}
-                    <FiMessageCircle className="text-sm ml-1 span duration-500" />
+          {upvotes && (
+            <div className="flex items-center justify-start mt-1 w-full">
+              <Btn className="rounded-md">
+                <div
+                  className={`shine ${
+                    isUpvoted
+                      ? "bg-[#3d5eff] text-white"
+                      : "border border-[#3d5eff] text-[#3d5eff]"
+                  } ${
+                    changed === "add"
+                      ? "bg-[#3d5eff] !text-white"
+                      : "text-white"
+                  } duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins`}
+                  onClick={upvoteCheatSheet}
+                >
+                  {changed === "add"
+                    ? upvotes.length + 1
+                    : changed === "sub"
+                    ? upvotes.length - 0
+                    : upvotes.length}
+                  <FiTriangle className="text-sm ml-1 span duration-500" />
+                </div>
+              </Btn>
+              <Link href={`/post/${id}`}>
+                <a>
+                  <Btn className="rounded-md ml-1">
+                    <div className="border border-[#3d5eff] text-[#3d5eff] duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
+                      {data.comments.length}
+                      <FiMessageCircle className="text-sm ml-1 span duration-500" />
+                    </div>
+                  </Btn>
+                </a>
+              </Link>
+              <a href={website_url} target="_blank" className="ml-1">
+                <Btn>
+                  <div className="text-[#3d5eff] duration-500 px-2 py-3 h-full text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
+                    <FiExternalLink className="text-sm span duration-500" />
                   </div>
                 </Btn>
               </a>
-            </Link>
-            <a href={website_url} target="_blank" className="ml-1">
-              <Btn>
-                <div className="text-[#3d5eff] duration-500 px-2 py-3 h-full text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-                  <FiExternalLink className="text-sm span duration-500" />
-                </div>
-              </Btn>
-            </a>
-          </div>
+            </div>
+          )}
         </>
       )}
     </div>
