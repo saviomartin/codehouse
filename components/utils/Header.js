@@ -51,11 +51,13 @@ const Header = ({ setOpen, user, setUser }) => {
           On Review
         </a>
         <Link href="/new">
-          <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-6">
-            <div className="border-2 border-[#ffcf5e] text-[#ffcf5e] px-2 py-[4px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
-              New CheetSheet
-            </div>
-          </Button>
+          <a>
+            <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-6">
+              <div className="border-2 border-[#ffcf5e] text-[#ffcf5e] px-2 py-[4px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
+                New CheetSheet
+              </div>
+            </Button>
+          </a>
         </Link>
         {user.email ? (
           <>

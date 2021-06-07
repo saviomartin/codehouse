@@ -7,6 +7,7 @@ import { harperFetch } from "../../utils/HarperFetch";
 const App = (props) => {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(6);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(async () => {
     const cheatSheets = await harperFetch({
@@ -19,26 +20,45 @@ const App = (props) => {
 
   const { showLoadingButton = false } = props;
 
+  const filterPosts = (data, query) => {
+    if (!query) {
+      return data;
+    }
+
+    return data.filter((cheatsheet) => {
+      const cheatsheetName = cheatsheet.cheatsheet_name.toLowerCase();
+      return cheatsheetName.includes(query.toLowerCase());
+    });
+  };
+
+  const filteredPosts = filterPosts(data, searchTerm);
+
   return (
     <div className="bg-[#ECF2F5] min-h-screen p-6">
-      <AppHeader {...props} />
+      <AppHeader
+        {...props}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      />
       {showLoadingButton ? (
         <>
           <div className="flex justify-center mt-5 w-full flex-wrap">
-            {data.slice(0, count).map((cheetsheet, key) => (
+            {filteredPosts.slice(0, count).map((cheetsheet, key) => (
               <Item data={cheetsheet} key={key} {...props} />
             ))}
           </div>
-          <div className="w-full flex item-center justify-center mt-8">
-            <Btn>
-              <button
-                className="bg-app-gradient border border-[#391637] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine"
-                onClick={() => setCount(count + 20)}
-              >
-                Load More ...
-              </button>
-            </Btn>
-          </div>
+          {!searchTerm && (
+            <div className="w-full flex item-center justify-center mt-8">
+              <Btn>
+                <button
+                  className="bg-app-gradient border border-[#391637] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine"
+                  onClick={() => setCount(count + 20)}
+                >
+                  Load More ...
+                </button>
+              </Btn>
+            </div>
+          )}
         </>
       ) : (
         <InfiniteScroll
@@ -48,11 +68,17 @@ const App = (props) => {
           loader={<h4>Loading...</h4>}
         >
           <div className="flex justify-center mt-5 w-full flex-wrap">
-            {data.slice(0, count).map((cheetsheet, key) => (
+            {filteredPosts.slice(0, count).map((cheetsheet, key) => (
               <Item data={cheetsheet} key={key} {...props} />
             ))}
           </div>
         </InfiniteScroll>
+      )}
+      {filteredPosts.length < 1 && (
+        <div className="w-full flex items-center flex-col">
+          <img src="/assets/no-results.png" />
+          <h1 className="font-bold text-3xl">No Results Found</h1>
+        </div>
       )}
     </div>
   );

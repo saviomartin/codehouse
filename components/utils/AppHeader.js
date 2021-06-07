@@ -6,7 +6,14 @@ import { FiGrid, FiList, FiMenu, FiMoon, FiSun } from "react-icons/fi";
 // components
 import { SearchBar, Sort, Btn } from "..";
 
-const AppHeader = ({ darkMode, setDarkMode, listView, setListView }) => {
+const AppHeader = ({
+  darkMode,
+  setDarkMode,
+  listView,
+  setListView,
+  searchTerm,
+  setSearchTerm,
+}) => {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
@@ -23,7 +30,7 @@ const AppHeader = ({ darkMode, setDarkMode, listView, setListView }) => {
             <FiMenu className="text-lg ml-1 span duration-500" />
           </div>
         </Btn>
-        <SearchBar />
+        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
       <div className="flex">
         <Sort />

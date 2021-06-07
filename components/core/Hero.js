@@ -7,6 +7,9 @@ import { Button } from "@material-ui/core";
 import { BsLightning } from "react-icons/bs";
 import { FiGithub } from "react-icons/fi";
 
+// link
+import Link from "next/link";
+
 // components
 import { Header } from "..";
 
@@ -29,12 +32,16 @@ const Hero = ({ setOpen, user, setUser }) => {
             dolorem, possimus dolores ratione sit delectus?
           </p>
           <div className="flex mt-2">
-            <Button className="!p-0 !w-auto !h-auto !m-auto shine">
-              <div className="bg-[#F5BA31] px-5 py-[10px] text-lg capitalize rounded-md font-semibold flex items-center justify-center">
-                Try Now!
-                <BsLightning className="text-lg ml-1 -mt-1" />
-              </div>
-            </Button>
+            <Link href="/app">
+              <a>
+                <Button className="!p-0 !w-auto !h-auto !m-auto shine">
+                  <div className="bg-[#F5BA31] px-5 py-[10px] text-lg capitalize rounded-md font-semibold flex items-center justify-center">
+                    Try Now!
+                    <BsLightning className="text-lg ml-1 -mt-1" />
+                  </div>
+                </Button>
+              </a>
+            </Link>
             <Button
               className="!p-0 !w-auto !h-auto !m-auto shine !ml-1"
               href="https://github.com/saviomartin/codehouse"
