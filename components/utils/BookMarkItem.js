@@ -6,19 +6,23 @@ import axios from "axios";
 
 const BookMarkItem = ({ data }) => {
   const [meta, setMetadata] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const { id, cheatsheet_name, website_url } = data;
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(`https://meta-scrapper-api.herokuapp.com/api?url=${website_url}`)
       .then(async (response) => {
         if (response.request.status === 400) {
         } else {
+          setLoading(false);
           await setMetadata(response.data);
         }
       })
       .catch((error) => {
+        setLoading(true);
         console.log(error);
       });
   }, []);
@@ -34,46 +38,59 @@ const BookMarkItem = ({ data }) => {
   };
 
   const url = new URL(website_url);
+
   return (
-    <div className="cursor-pointer flex justify-between flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale pulsate">
-      <div className="w-full relative overflow-hidden h-[157.5px] rounded-md">
-        <Link href={`/post/${id}`}>
-          <a>
-            <img
-              src={meta.og && image()}
-              alt=""
-              width="300"
-              className="rounded-md w-full mb-2 h-[157.5px] scale-on-hover duration-500"
-            />
-          </a>
-        </Link>
-        <Btn className="rounded-md ml-1 absolute top-1 right-1">
-          <div className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins">
-            <FiBookmark className="text-md span duration-500" />
+    <div className="cursor-pointer flex justify-between items-center flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale">
+      {loading ? (
+        <>
+          <div className="relative overflow-hidden h-[157.5px] rounded-md w-[260px] pulsate"></div>
+          <div className="mt-3">
+            <div className="relative overflow-hidden h-[15px] rounded-sm w-[170px] pulsate"></div>
+            <div className="relative overflow-hidden h-[40px] rounded-sm w-[260px] pulsate mt-1"></div>
+            <div className="relative overflow-hidden h-[10px] rounded-sm w-[260px] pulsate mt-1"></div>
           </div>
-        </Btn>
-      </div>
-      <div className="block mt-2">
-        <a
-          className="text-blue-500 text-sm"
-          href={url.protocol && url.hostname && url.protocol + url.hostname}
-          target="_blank"
-        >
-          {url.hostname && url.hostname}
-        </a>
-        <a href={website_url} target="_blank">
-          <h1 className="font-bold text-lg duration-500 hover:text-[#3d5eff]">
-            {cheatsheet_name.length > 50
-              ? cheatsheet_name.slice(0, 50) + "..."
-              : cheatsheet_name}
-          </h1>
-          <p className="text-[12px] text-[#666] mt-1">
-            {meta.meta && meta.meta.description
-              ? meta.meta.description.slice(0, 150)
-              : "description not found"}
-          </p>
-        </a>
-      </div>
+        </>
+      ) : (
+        <>
+          <div className="w-full relative overflow-hidden h-[157.5px] rounded-md">
+            <Link href={`/post/${id}`}>
+              <a>
+                <img
+                  src={meta.og && image()}
+                  alt=""
+                  className="rounded-md w-full mb-2 h-[157.5px] scale-on-hover duration-500"
+                />
+              </a>
+            </Link>
+            <Btn className="rounded-md ml-1 absolute top-1 right-1">
+              <div className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins">
+                <FiBookmark className="text-md span duration-500" />
+              </div>
+            </Btn>
+          </div>
+          <div className="block mt-2">
+            <a
+              className="text-blue-500 text-sm"
+              href={url.protocol && url.hostname && url.protocol + url.hostname}
+              target="_blank"
+            >
+              {url.hostname && url.hostname}
+            </a>
+            <a href={website_url} target="_blank">
+              <h1 className="font-bold text-lg duration-500 hover:text-[#3d5eff]">
+                {cheatsheet_name.length > 50
+                  ? cheatsheet_name.slice(0, 50) + "..."
+                  : cheatsheet_name}
+              </h1>
+              <p className="text-[12px] text-[#666] mt-1">
+                {meta.meta && meta.meta.description
+                  ? meta.meta.description.slice(0, 150)
+                  : "description not found"}
+              </p>
+            </a>
+          </div>
+        </>
+      )}
     </div>
   );
 };

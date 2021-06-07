@@ -49,7 +49,7 @@
 }
 .pulsate {
   background: linear-gradient(90deg, #eee 8%, #ddd 18%, #eee 33%);
-  background-size: 400% 400%;
+  background-size: 400% 200%;
   -webkit-animation: Wave 2.25s ease infinite;
   -moz-animation: Wave 2.25s ease infinite;
   animation: Wave 2.25s ease infinite;
