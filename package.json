@@ -13,6 +13,7 @@
     "dotenv": "^10.0.0",
     "firebase": "^8.6.5",
     "next": "latest",
+    "nprogress": "^0.2.0",
     "psl": "^1.8.0",
     "react": "^17.0.1",
     "react-content-loader": "^6.0.3",
