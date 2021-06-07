@@ -16,6 +16,7 @@ const App = (props) => {
   useEffect(async () => {
     setData([]);
     setLoading(true);
+
     const cheatSheets = await harperFetch({
       operation: "sql",
       sql: "SELECT * FROM dev.cheatsheets",

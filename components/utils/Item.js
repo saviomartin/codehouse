@@ -10,14 +10,15 @@ import {
 import axios from "axios";
 import { useRouter } from "next/router";
 import Skeleton from "react-loading-skeleton";
+import { harperFetch } from "../../utils/HarperFetch";
 
-const Item = ({ data, listView }) => {
+const Item = ({ data, listView, user }) => {
   const [meta, setMetadata] = useState([]);
   const [error, setError] = useState(false);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
-  const { id, cheatsheet_name, website_url } = data;
+  const { id, cheatsheet_name, website_url, upvotes } = data;
 
   useEffect(() => {
     axios
@@ -51,6 +52,20 @@ const Item = ({ data, listView }) => {
     } else {
       return "/assets/image-not-found.jpg";
     }
+  };
+
+  const upvoteCheatSheet = () => {
+    harperFetch({
+      operation: "update",
+      schema: "dev",
+      table: "cheatsheets",
+      records: [
+        {
+          id: id,
+          upvotes: [...upvotes, user.email],
+        },
+      ],
+    });
   };
 
   return url && !error && meta.meta && listView ? (
@@ -125,8 +140,11 @@ const Item = ({ data, listView }) => {
             </div>
             <div className="flex items-center justify-start mt-1 w-full">
               <Btn className="rounded-md">
-                <div className="shine bg-[#3d5eff] text-white duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-                  {data.upvotes.length}
+                <div
+                  className="shine bg-[#3d5eff] text-white duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins"
+                  onClick={upvoteCheatSheet}
+                >
+                  {upvotes.length}
                   <FiTriangle className="text-sm ml-1 span duration-500" />
                 </div>
               </Btn>
@@ -227,8 +245,11 @@ const Item = ({ data, listView }) => {
           </div>
           <div className="flex items-center justify-start mt-1 w-full">
             <Btn className="rounded-md">
-              <div className="shine bg-[#3d5eff] text-white duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins">
-                {data.upvotes.length}
+              <div
+                className="shine bg-[#3d5eff] text-white duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins"
+                onClick={upvoteCheatSheet}
+              >
+                {upvotes.length}
                 <FiTriangle className="text-sm ml-1 span duration-500" />
               </div>
             </Btn>
