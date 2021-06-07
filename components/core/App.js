@@ -17,10 +17,13 @@ const App = (props) => {
     setData([]);
     setLoading(true);
 
+    // fetching
     const cheatSheets = await harperFetch({
       operation: "sql",
       sql: "SELECT * FROM dev.cheatsheets",
     });
+
+    // sorting
     if (sort === "newest") {
       cheatSheets
         .sort((a, b) => {

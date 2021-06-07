@@ -18,6 +18,7 @@ const Item = ({ data, listView, user, setOpen }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [isUpvoted, setIsUpvoted] = useState(false);
+  const [changed, setChanged] = useState();
 
   const { id, cheatsheet_name, website_url, upvotes } = data;
 
@@ -78,6 +79,7 @@ const Item = ({ data, listView, user, setOpen }) => {
             },
           ],
         });
+        setChanged("sub");
       } else {
         harperFetch({
           operation: "update",
@@ -90,6 +92,7 @@ const Item = ({ data, listView, user, setOpen }) => {
             },
           ],
         });
+        setChanged("add");
       }
     } else {
       setOpen(true);
@@ -282,10 +285,16 @@ const Item = ({ data, listView, user, setOpen }) => {
                   isUpvoted
                     ? "bg-[#3d5eff] text-white"
                     : "border border-[#3d5eff] text-[#3d5eff]"
+                } ${
+                  changed === "add" ? "bg-[#3d5eff] !text-white" : "text-white"
                 } duration-500 px-4 py-2 text-sm capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover poppins`}
                 onClick={upvoteCheatSheet}
               >
-                {upvotes.length}
+                {changed === "add"
+                  ? upvotes.length + 1
+                  : changed === "sub"
+                  ? upvotes.length - 0
+                  : upvotes.length}
                 <FiTriangle className="text-sm ml-1 span duration-500" />
               </div>
             </Btn>
