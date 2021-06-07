@@ -76,7 +76,7 @@ const App = (props) => {
       )}
       {filteredPosts.length < 1 && (
         <div className="w-full flex items-center flex-col">
-          <img src="/assets/no-results.png" />
+          <img src="/assets/svg/no-results.svg" />
           <h1 className="font-bold text-3xl">No Results Found</h1>
         </div>
       )}
