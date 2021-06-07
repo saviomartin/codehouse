@@ -47,3 +47,10 @@
   transition: 0.5s;
   transform: scale(1.2);
 }
+.pulsate {
+  background: linear-gradient(90deg, #eee 8%, #ddd 18%, #eee 33%);
+  background-size: 400% 400%;
+  -webkit-animation: Wave 2.25s ease infinite;
+  -moz-animation: Wave 2.25s ease infinite;
+  animation: Wave 2.25s ease infinite;
+}

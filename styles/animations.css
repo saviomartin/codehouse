@@ -32,3 +32,16 @@
 .parent-for-image-scale:hover .scale-on-hover {
   transform: scale(1.15);
 }
+/* Skeleton Loader */
+@keyframes Wave {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    background-position: -468px 0;
+  }
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    background-position: 468px 0;
+  }
+}

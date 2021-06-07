@@ -35,7 +35,7 @@ const BookMarkItem = ({ data }) => {
 
   const url = new URL(website_url);
   return (
-    <div className="cursor-pointer flex justify-between flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale">
+    <div className="cursor-pointer flex justify-between flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale pulsate">
       <div className="w-full relative overflow-hidden h-[157.5px] rounded-md">
         <Link href={`/post/${id}`}>
           <a>
