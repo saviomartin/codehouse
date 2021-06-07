@@ -99,9 +99,9 @@ const App = (props) => {
           </div>
         </InfiniteScroll>
       )}
-      {filteredPosts.length < 1 && (
+      {data.length > 1 && filteredPosts.length < 1 && (
         <div className="w-full flex items-center flex-col">
-          <img src="/assets/svg/no-results.svg" />
+          <img src="/assets/svg/no-results.svg" className="h-[300px]" />
           <h1 className="font-bold text-3xl">No Results Found</h1>
         </div>
       )}
