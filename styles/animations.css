@@ -29,3 +29,6 @@
 .shine:hover::after {
   left: 120%;
 }
+.parent-for-image-scale:hover .scale-on-hover {
+  transform: scale(1.15);
+}

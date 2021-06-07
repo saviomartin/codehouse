@@ -9,9 +9,7 @@ import {
 } from "react-icons/fi";
 import axios from "axios";
 import { useRouter } from "next/router";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import ContentLoader from "react-content-loader";
-import { Box } from "@material-ui/core";
+import Skeleton from "react-loading-skeleton";
 
 const Item = ({ data, listView }) => {
   const [meta, setMetadata] = useState([]);
@@ -47,12 +45,12 @@ const Item = ({ data, listView }) => {
 
   return url && !error && meta.meta && listView ? (
     <div
-      className="cursor-pointer flex items-center p-3 rounded-md duration-500 white-light-shadow bg-white m-2 w-10/12 min-w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text"
+      className="cursor-pointer flex items-center p-3 rounded-md duration-500 white-light-shadow bg-white m-2 w-10/12 min-w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale"
       onClick={goToCheetSheetPage}
     >
       {loading ? (
         <div className="flex w-full h-full items-center">
-          <div className="h-[150px] w-[300px]">
+          <div className="h-[150px] w-[400px]">
             <Skeleton variant="rect" width="full" height={150} />
           </div>
           <div className="h-[150px] w-full ml-2 py-2">
@@ -76,7 +74,7 @@ const Item = ({ data, listView }) => {
         </div>
       ) : (
         <>
-          <div className="w-[250px] relative h-full">
+          <div className="w-[250px] relative h-full overflow-hidden flex items-center justify-center rounded-md">
             <Link href={`/post/${id}`}>
               <a>
                 <img
@@ -87,7 +85,7 @@ const Item = ({ data, listView }) => {
                   }
                   alt=""
                   width="270"
-                  className="rounded-md w-full h-[150px]"
+                  className="rounded-md w-full h-[150px] scale-on-hover duration-500"
                 />
               </a>
             </Link>
@@ -150,7 +148,7 @@ const Item = ({ data, listView }) => {
     </div>
   ) : (
     <div
-      className="cursor-pointer flex justify-between flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text"
+      className="cursor-pointer flex justify-between flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale"
       onClick={goToCheetSheetPage}
     >
       {loading ? (
@@ -180,7 +178,7 @@ const Item = ({ data, listView }) => {
       ) : (
         <>
           <div className="block">
-            <div className="w-full relative">
+            <div className="w-full relative overflow-hidden h-[157.5px] rounded-md">
               <Link href={`/post/${id}`}>
                 <a>
                   <img
@@ -191,7 +189,7 @@ const Item = ({ data, listView }) => {
                     }
                     alt=""
                     width="300"
-                    className="rounded-md w-full mb-2 h-[157.5px]"
+                    className="rounded-md w-full mb-2 h-[157.5px] scale-on-hover duration-500"
                   />
                 </a>
               </Link>
@@ -201,7 +199,7 @@ const Item = ({ data, listView }) => {
                 </div>
               </Btn>
             </div>
-            <div className="block">
+            <div className="block mt-2">
               <a
                 className="text-blue-500 text-sm"
                 href={
