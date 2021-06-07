@@ -6,11 +6,29 @@ import "../styles/App.css"; // custom styles
 import { auth } from "../utils/firebase";
 import Router from "next/router";
 import NProgress from "nprogress";
+import useLocalStorage from "../utils/UseLocalStorage";
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [listView, setListView] = useState(false);
+  const [bookmarks, setBookmarks] = useLocalStorage("bookmarked", [
+    {
+      id: "hi",
+      cheatsheet_name: "hi",
+      website_url: "https://lo-victoria.com/react-cheat-sheet-for-beginners",
+    },
+    {
+      id: "hi",
+      cheatsheet_name: "hi",
+      website_url: "https://lo-victoria.com/react-cheat-sheet-for-beginners",
+    },
+    {
+      id: "hi",
+      cheatsheet_name: "hi",
+      website_url: "https://lo-victoria.com/react-cheat-sheet-for-beginners",
+    },
+  ]);
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState([]);
 
@@ -23,6 +41,8 @@ function MyApp({ Component, pageProps }) {
     setOpen,
     user,
     setUser,
+    bookmarks,
+    setBookmarks,
   };
 
   auth().onAuthStateChanged((user) => {

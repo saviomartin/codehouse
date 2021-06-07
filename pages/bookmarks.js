@@ -1,33 +1,24 @@
-import React from "react";
-import { Item } from "../components";
+import React, { useEffect, useState } from "react";
+import { BookMarkItem } from "../components";
 
-const bookmarks = ({ user }) => {
-  const bookmarks = [
-    {
-      id: "hi",
-      cheatsheet_name: "hi",
-      website_url: "https://lo-victoria.com/react-cheat-sheet-for-beginners",
-    },
-    {
-      id: "hi",
-      cheatsheet_name: "hi",
-      website_url: "https://lo-victoria.com/react-cheat-sheet-for-beginners",
-    },
-    {
-      id: "hi",
-      cheatsheet_name: "hi",
-      website_url: "https://lo-victoria.com/react-cheat-sheet-for-beginners",
-    },
-  ];
+const bookmarksPage = () => {
+  const [bookmarks, setBookmarks] = useState([]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setBookmarks(JSON.parse(window.localStorage.getItem("bookmarked")));
+    }
+  });
   return (
     <div className="bg-[#ECF2F5] h-screen w-full flex items-center justify-center">
       <div className="w-10/12 h-[90vh] bg-white rounded-md white-light-shadow flex justify-center items-center flex-wrap">
-        {bookmarks.map((cheetsheet, key) => (
-          <Item data={cheetsheet} key={key} user={user} />
-        ))}
+        {bookmarks &&
+          bookmarks.map((cheetsheet, key) => (
+            <BookMarkItem data={cheetsheet} key={key} />
+          ))}
       </div>
     </div>
   );
 };
 
-export default bookmarks;
+export default bookmarksPage;
