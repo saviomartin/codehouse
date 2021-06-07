@@ -10,7 +10,7 @@ const App = (props) => {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(6);
   const [searchTerm, setSearchTerm] = useState("");
-  const [sort, setSort] = useState("oldest");
+  const [sort, setSort] = useState("popular");
 
   useEffect(async () => {
     const cheatSheets = await harperFetch({
@@ -32,6 +32,13 @@ const App = (props) => {
         );
       });
     } else {
+      cheatSheets.sort((a, b) => {
+        if (a.upvotes.length > b.upvotes.length) {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
     }
     await setData(cheatSheets);
   }, []);
@@ -60,7 +67,6 @@ const App = (props) => {
       />
       {showLoadingButton ? (
         <>
-          <h1>{format(new Date(1622886350787), "k:m:s")}</h1>
           <div className="flex justify-center mt-5 w-full flex-wrap">
             {filteredPosts.slice(0, count).map((cheetsheet, key) => (
               <Item data={cheetsheet} key={key} {...props} />

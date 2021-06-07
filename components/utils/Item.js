@@ -43,6 +43,16 @@ const Item = ({ data, listView }) => {
     router.push(`/post/${id}`);
   };
 
+  const image = () => {
+    if (meta.og.images.length) {
+      return meta.og.images[0].url;
+    } else if (meta.og.image) {
+      return meta.og.image;
+    } else {
+      return "/assets/image-not-found.jpg";
+    }
+  };
+
   return url && !error && meta.meta && listView ? (
     <div
       className="cursor-pointer flex items-center p-3 rounded-md duration-500 white-light-shadow bg-white m-2 w-10/12 min-w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale"
@@ -78,11 +88,7 @@ const Item = ({ data, listView }) => {
             <Link href={`/post/${id}`}>
               <a>
                 <img
-                  src={
-                    meta.og && meta.og.image
-                      ? meta.og.image
-                      : "/assets/image-not-found.jpg"
-                  }
+                  src={meta.og && image()}
                   alt=""
                   width="270"
                   className="rounded-md w-full h-[150px] scale-on-hover duration-500"
@@ -182,11 +188,7 @@ const Item = ({ data, listView }) => {
               <Link href={`/post/${id}`}>
                 <a>
                   <img
-                    src={
-                      meta.og && meta.og.image
-                        ? meta.og.image
-                        : "/assets/image-not-found.jpg"
-                    }
+                    src={meta.og && image()}
                     alt=""
                     width="300"
                     className="rounded-md w-full mb-2 h-[157.5px] scale-on-hover duration-500"
