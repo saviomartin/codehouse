@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import Skeleton from "react-loading-skeleton";
 import { harperFetch } from "../../utils/HarperFetch";
 
-const Item = ({ data, listView, user }) => {
+const Item = ({ data, listView, user, setOpen }) => {
   const [meta, setMetadata] = useState([]);
   const [error, setError] = useState(false);
   const router = useRouter();
@@ -92,7 +92,7 @@ const Item = ({ data, listView, user }) => {
         });
       }
     } else {
-      console.log("no user");
+      setOpen(true);
     }
   };
 

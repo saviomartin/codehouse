@@ -48,7 +48,7 @@ const App = (props) => {
     setLoading(false);
   }, [sort]);
 
-  const { showLoadingButton = false, user } = props;
+  const { showLoadingButton = false, user, setOpen } = props;
 
   const filterPosts = (data, query) => {
     if (!query) {
@@ -76,7 +76,13 @@ const App = (props) => {
         <>
           <div className="flex justify-center mt-5 w-full flex-wrap">
             {filteredPosts.slice(0, count).map((cheetsheet, key) => (
-              <Item data={cheetsheet} key={key} {...props} user={user} />
+              <Item
+                data={cheetsheet}
+                key={key}
+                {...props}
+                setOpen={setOpen}
+                user={user}
+              />
             ))}
           </div>
           {loading
@@ -103,7 +109,13 @@ const App = (props) => {
         >
           <div className="flex justify-center mt-5 w-full flex-wrap">
             {filteredPosts.slice(0, count).map((cheetsheet, key) => (
-              <Item data={cheetsheet} key={key} {...props} user={user} />
+              <Item
+                data={cheetsheet}
+                key={key}
+                {...props}
+                setOpen={setOpen}
+                user={user}
+              />
             ))}
           </div>
         </InfiniteScroll>
