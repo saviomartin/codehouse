@@ -13,6 +13,7 @@ const AppHeader = ({
   setListView,
   searchTerm,
   setSearchTerm,
+  sort,
   setSort,
 }) => {
   const toggleDarkMode = () => {
@@ -34,7 +35,7 @@ const AppHeader = ({
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
       <div className="flex">
-        <Sort setSort={setSort} />
+        <Sort setSort={setSort} sort={sort} />
         <Btn className="!ml-6 rounded-md">
           <div
             className="border border-[#ddd] hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 pl-4 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover"

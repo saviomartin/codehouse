@@ -11,9 +11,11 @@ const App = (props) => {
   const [count, setCount] = useState(6);
   const [searchTerm, setSearchTerm] = useState("");
   const [sort, setSort] = useState("popular");
+  const [loading, setLoading] = useState(false);
 
   useEffect(async () => {
     setData([]);
+    setLoading(true);
     const cheatSheets = await harperFetch({
       operation: "sql",
       sql: "SELECT * FROM dev.cheatsheets",
@@ -42,6 +44,7 @@ const App = (props) => {
       });
     }
     await setData(cheatSheets);
+    setLoading(false);
   }, [sort]);
 
   const { showLoadingButton = false } = props;
@@ -65,6 +68,7 @@ const App = (props) => {
         {...props}
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
+        sort={sort}
         setSort={setSort}
       />
       {showLoadingButton ? (
@@ -74,18 +78,20 @@ const App = (props) => {
               <Item data={cheetsheet} key={key} {...props} />
             ))}
           </div>
-          {!searchTerm && (
-            <div className="w-full flex item-center justify-center mt-8">
-              <Btn>
-                <button
-                  className="bg-app-gradient border border-[#391637] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine"
-                  onClick={() => setCount(count + 20)}
-                >
-                  Load More ...
-                </button>
-              </Btn>
-            </div>
-          )}
+          {loading
+            ? "Loading..."
+            : !searchTerm && (
+                <div className="w-full flex item-center justify-center mt-8">
+                  <Btn>
+                    <button
+                      className="bg-app-gradient border border-[#391637] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine"
+                      onClick={() => setCount(count + 20)}
+                    >
+                      Load More ...
+                    </button>
+                  </Btn>
+                </div>
+              )}
         </>
       ) : (
         <InfiniteScroll
