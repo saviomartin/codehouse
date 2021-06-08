@@ -1,15 +1,8 @@
 import { Button, TextField } from "@material-ui/core";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { FiSend } from "react-icons/fi";
-import {
-  FaFacebookSquare,
-  FaLinkedin,
-  FaRedditAlien,
-  FaTwitter,
-} from "react-icons/fa";
-import { FiTwitter } from "react-icons/fi";
-import { Btn } from "../../components";
+
+import { RightBar, InfoBar } from "../../components";
 import { harperFetch } from "../../utils/HarperFetch";
 
 const Cheatsheet = () => {
@@ -29,139 +22,22 @@ const Cheatsheet = () => {
     });
   };
 
-  // useEffect(async () => {
-  //   const cheatSheets = await harperFetch({
-  //     operation: "sql",
-  //     sql: "SELECT * FROM dev.cheatsheets",
-  //   });
+  useEffect(async () => {
+    const cheatSheets = await harperFetch({
+      operation: "sql",
+      sql: "SELECT * FROM dev.cheatsheets",
+    });
 
-  //   setData(cheatSheets);
-  // }, []);
+    setData(cheatSheets);
+  }, []);
 
   // gets the currentPost
   const currentPost = filterPosts(data, id);
 
   return (
     <div className="bg-image h-full min-h-screen p-6 flex items-center justify-start relative">
-      <div className="w-[65%] h-full min-h-[90vh] bg-white rounded-md white-light-shadow border border-[#ddd] p-5">
-        <img
-          src="https://cdn.hashnode.com/res/hashnode/image/upload/v1615611872305/jKrBMuJoD.png?w=1200&h=630&fit=crop&crop=entropy&auto=compress&fm=png"
-          alt=""
-          className="rounded-md w-10/12"
-        />
-        <h1 className="font-bold text-4xl mt-4">
-          React Cheat Sheet for Beginners
-        </h1>
-        <p className="text-[#666] mt-1">
-          A quick and simple overview of React for beginners to get started
-        </p>
-        <div className="w-full bg-[#ddd] h-[1.25px] my-4 rounded-md"></div>
-        <h1 className="font-semibold text-xl text-[#555]">Comments (4)</h1>
-        <div className="flex border border-[#3d5eff] hover:bg-[#3d5eff10] duration-500 focus:border-[#3d5eff] pl-3 rounded-lg p-1 w-full items-center justify-between mt-2">
-          <input
-            type="text"
-            placeholder="Add Your Comment"
-            className="h-full py-1 pl-1 w-full"
-          />
-          <div className="bg-[#3d5eff] p-3 pr-4 cursor-pointer shine rounded-lg">
-            <FiSend
-              className="text-white"
-              style={{ transform: "rotate(45deg)" }}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="w-4/12 h-[90vh] rounded-md white-light-shadow mx-4 fixed right-0 top-[5vh] flex items-center justify-between flex-col">
-        <div className="py-4 px-3 w-full">
-          <h1 className="text-lg font-bold text-[#ECF2F5]">From</h1>
-          <a
-            className="bg-[#ECF2F5] rounded-md border border-[#ddd] p-2 flex items-center hover:bg-white duration-200"
-            href="https://twitter.com/saviomartin7"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="https://avatars.githubusercontent.com/saviomartin"
-              alt=""
-              className="h-[50px] w-[50px] rounded-md pixelated white-light-shadow"
-            />
-            <div className="ml-2">
-              <h2 className="font-semibold text-lg text-[#222] hover:text-[#3d5eff] cheatsheet-continuous-line">
-                SavioMartin7
-              </h2>
-              <FiTwitter className="text-[#3d5eff] ml-1 hover:text-[#333]" />
-            </div>
-          </a>
-          <h1 className="text-lg font-bold text-[#ECF2F5] mt-3">Added By</h1>
-          <a
-            className="bg-[#ECF2F5] rounded-md border border-[#ddd] p-2 flex items-center hover:bg-white duration-200"
-            href="https://twitter.com/saviomartin7"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="https://avatars.githubusercontent.com/saviomartin"
-              alt=""
-              className="h-[50px] w-[50px] rounded-md pixelated white-light-shadow"
-            />
-            <div className="ml-2">
-              <h2 className="font-semibold text-lg text-[#222] hover:text-[#3d5eff] cheatsheet-continuous-line">
-                SavioMartin7
-              </h2>
-              <FiTwitter className="text-[#3d5eff] ml-1 hover:text-[#333]" />
-            </div>
-          </a>
-          <h1 className="text-lg font-bold text-[#ECF2F5] mt-3">Upvotes (4)</h1>
-          <div className="flex mt-1">
-            <img
-              src="https://avatars.githubusercontent.com/saviomartin"
-              alt=""
-              className="h-[27px] w-[27px] mr-[5px] rounded-md pixelated white-light-shadow"
-            />
-            <img
-              src="https://avatars.githubusercontent.com/saviomartin"
-              alt=""
-              className="h-[27px] w-[27px] mr-[5px] rounded-md pixelated white-light-shadow"
-            />
-            <img
-              src="https://avatars.githubusercontent.com/saviomartin"
-              alt=""
-              className="h-[27px] w-[27px] mr-[5px] rounded-md pixelated white-light-shadow"
-            />
-          </div>
-        </div>
-        <div className="py-4 px-3 w-full">
-          <h1 className="text-lg font-bold text-[#ECF2F5] mb-1">
-            Share Cheatsheet
-          </h1>
-          <div className="flex">
-            <Btn className="!p-0 !w-auto !h-auto !m-0">
-              <button className="bg-[#1DA1F2] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
-                Twitter
-                <FaTwitter className="text-lg ml-1" />
-              </button>
-            </Btn>
-            <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
-              <button className="bg-[#F34423] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
-                Reddit
-                <FaRedditAlien className="text-lg ml-1 -mt-1" />
-              </button>
-            </Btn>
-            <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
-              <button className="bg-[#3F5793] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
-                Facebook
-                <FaFacebookSquare className="text-lg ml-1" />
-              </button>
-            </Btn>
-            <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
-              <button className="bg-[#0375B4] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
-                LinkedIn
-                <FaLinkedin className="text-lg ml-1" />
-              </button>
-            </Btn>
-          </div>
-        </div>
-      </div>
+      <InfoBar currentPost={currentPost} />
+      <RightBar currentPost={currentPost} />
     </div>
   );
 };
