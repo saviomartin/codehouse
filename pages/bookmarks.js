@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { BookMarkItem } from "../components";
+import React from "react";
+import { BookMarkItem, Header } from "../components";
 
-const bookmarksPage = () => {
-  const [bookmarks, setBookmarks] = useState([]);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setBookmarks(JSON.parse(window.localStorage.getItem("bookmarked")));
-    }
-  });
+const bookmarksPage = ({ bookmarks, user, fetchBookmarks }) => {
   return (
-    <div className="bg-[#ECF2F5] h-screen w-full flex items-center justify-center">
-      <div className="w-10/12 h-[90vh] bg-white rounded-md white-light-shadow flex justify-center items-center flex-wrap">
+    <div className="bg-image h-full w-full overflow-visible">
+      <Header user={user} />
+      <div className="w-full h-full min-h-[90vh] rounded-md white-light-shadow flex justify-center items-center flex-wrap pt-10">
         {bookmarks &&
           bookmarks.map((cheetsheet, key) => (
-            <BookMarkItem data={cheetsheet} key={key} />
+            <BookMarkItem
+              data={cheetsheet}
+              key={key}
+              bookmarks={bookmarks}
+              fetchBookmarks={fetchBookmarks}
+            />
           ))}
       </div>
     </div>

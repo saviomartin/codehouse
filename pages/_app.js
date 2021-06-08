@@ -65,7 +65,6 @@ function MyApp({ Component, pageProps }) {
     <div className={`${darkMode ? "dark" : "light"} min-h-screen`}>
       <Toaster position="bottom-right" reverseOrder={false} />
       {loading && "Loading......"}
-      {JSON.stringify(bookmarks)}
       <Component {...pageProps} {...props} />
       <SignInPopup open={open} setOpen={setOpen} />
     </div>

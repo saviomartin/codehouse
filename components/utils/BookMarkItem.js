@@ -3,12 +3,27 @@ import { FiBookmark } from "react-icons/fi";
 import Link from "next/link";
 import { Btn } from "..";
 import axios from "axios";
+import { BsFillBookmarkFill } from "react-icons/bs";
 
-const BookMarkItem = ({ data }) => {
+const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
   const [meta, setMetadata] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isBookMarked, setIsBookMarked] = useState(false);
 
   const { id, cheatsheet_name, website_url } = data;
+  const fetchBookmarkedCheatsheets = () => {
+    if (bookmarks) {
+      if (bookmarks.some((cheatsheet) => cheatsheet.id === id)) {
+        setIsBookMarked(true);
+      } else {
+        setIsBookMarked(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchBookmarkedCheatsheets();
+  }, [bookmarks]);
 
   useEffect(() => {
     setLoading(true);
@@ -39,8 +54,35 @@ const BookMarkItem = ({ data }) => {
 
   const url = new URL(website_url);
 
+  const bookmarkCheatsheet = () => {
+    if (typeof window !== "undefined") {
+      if (isBookMarked) {
+        window.localStorage.setItem(
+          "bookmarks",
+          JSON.stringify(bookmarks.filter((cheatsheet) => cheatsheet.id !== id))
+        );
+        fetchBookmarks();
+        fetchBookmarkedCheatsheets();
+      } else {
+        window.localStorage.setItem(
+          "bookmarks",
+          JSON.stringify([
+            ...bookmarks,
+            {
+              id,
+              cheatsheet_name,
+              website_url,
+            },
+          ])
+        );
+        fetchBookmarks();
+        fetchBookmarkedCheatsheets();
+      }
+    }
+  };
+
   return (
-    <div className="cursor-pointer flex justify-between items-center flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale">
+    <div className="cursor-pointer flex justify-between items-center flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale h-[325px]">
       {loading ? (
         <>
           <div className="relative overflow-hidden h-[157.5px] rounded-md w-[260px] pulsate"></div>
@@ -63,8 +105,15 @@ const BookMarkItem = ({ data }) => {
               </a>
             </Link>
             <Btn className="rounded-md ml-1 absolute top-1 right-1">
-              <div className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins">
-                <FiBookmark className="text-md span duration-500" />
+              <div
+                className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins"
+                onClick={bookmarkCheatsheet}
+              >
+                {isBookMarked ? (
+                  <BsFillBookmarkFill className="text-md span duration-500" />
+                ) : (
+                  <FiBookmark className="text-md span duration-500" />
+                )}
               </div>
             </Btn>
           </div>

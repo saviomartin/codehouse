@@ -38,18 +38,32 @@ const Header = ({ setOpen, user, setUser }) => {
         </a>
       </Link>
       <div className="flex h-full items-center">
-        <a href="#" className="text-sm font-medium continuous-line">
+        <a href="#" className="text-sm font-medium continuous-line text-white">
           How it works
         </a>
-        <a href="#" className="text-sm font-medium ml-6 continuous-line">
+        <a
+          href="#"
+          className="text-sm font-medium ml-6 continuous-line text-white"
+        >
           Upcoming Features
         </a>
-        <a href="#" className="text-sm font-medium ml-6 continuous-line">
+        <a
+          href="#"
+          className="text-sm font-medium ml-6 continuous-line text-white"
+        >
           Contributors
         </a>
-        <a href="#" className="text-sm font-medium ml-6 continuous-line">
+        <a
+          href="/review"
+          className="text-sm font-medium ml-6 continuous-line text-white"
+        >
           On Review
         </a>
+        <Link href="/bookmarks">
+          <a className="text-sm font-medium ml-6 continuous-line text-white">
+            Bookmarks
+          </a>
+        </Link>
         <Link href="/new">
           <a>
             <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-6">
