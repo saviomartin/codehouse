@@ -11,6 +11,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import Skeleton from "react-loading-skeleton";
 import { harperFetch } from "../../utils/HarperFetch";
+import { BsFillBookmarkFill } from "react-icons/bs";
 
 const Item = ({
   data,
@@ -199,7 +200,11 @@ const Item = ({
                 className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins"
                 onClick={bookmarkCheatsheet}
               >
-                <FiBookmark className="text-md span duration-500" />
+                {isBookMarked ? (
+                  <BsFillBookmarkFill className="text-md span duration-500" />
+                ) : (
+                  <FiBookmark className="text-md span duration-500" />
+                )}
               </div>
             </Btn>
           </div>
@@ -319,7 +324,11 @@ const Item = ({
                   className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins"
                   onClick={bookmarkCheatsheet}
                 >
-                  <FiBookmark className="text-md span duration-500" />
+                  {isBookMarked ? (
+                    <BsFillBookmarkFill className="text-md span duration-500" />
+                  ) : (
+                    <FiBookmark className="text-md span duration-500" />
+                  )}
                 </div>
               </Btn>
             </div>
