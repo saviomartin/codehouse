@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import Skeleton from "react-loading-skeleton";
 import { harperFetch } from "../../utils/HarperFetch";
 
-const Item = ({ data, listView, user, setOpen }) => {
+const Item = ({ data, listView, user, setOpen, searchTerm }) => {
   const [meta, setMetadata] = useState([]);
   const [error, setError] = useState(false);
   const router = useRouter();
@@ -23,6 +23,7 @@ const Item = ({ data, listView, user, setOpen }) => {
   const { id, cheatsheet_name, website_url, upvotes } = data;
 
   useEffect(() => {
+    setMetadata([]);
     axios
       .get(`https://meta-scrapper-api.herokuapp.com/api?url=${website_url}`)
       .then(async (response) => {
@@ -38,7 +39,7 @@ const Item = ({ data, listView, user, setOpen }) => {
         setLoading(false);
         setError(true);
       });
-  }, []);
+  }, [searchTerm]);
 
   const url = new URL(website_url);
 

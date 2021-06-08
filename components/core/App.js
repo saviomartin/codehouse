@@ -84,6 +84,7 @@ const App = (props) => {
                 key={key}
                 {...props}
                 setOpen={setOpen}
+                searchTerm={searchTerm}
                 user={user}
               />
             ))}
