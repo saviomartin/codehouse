@@ -12,15 +12,36 @@ import { useRouter } from "next/router";
 import Skeleton from "react-loading-skeleton";
 import { harperFetch } from "../../utils/HarperFetch";
 
-const Item = ({ data, listView, user, setOpen, searchTerm }) => {
+const Item = ({
+  data,
+  listView,
+  user,
+  setOpen,
+  searchTerm,
+  bookmarks,
+  fetchBookmarks,
+}) => {
   const [meta, setMetadata] = useState([]);
   const [error, setError] = useState(false);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [isUpvoted, setIsUpvoted] = useState(false);
   const [changed, setChanged] = useState();
+  const [isBookMarked, setIsBookMarked] = useState(false);
 
   const { id, cheatsheet_name, website_url, upvotes } = data;
+
+  const fetchBookmarkedCheatsheets = () => {
+    if (bookmarks.some((cheatsheet) => cheatsheet.id === id)) {
+      setIsBookMarked(true);
+    } else {
+      setIsBookMarked(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchBookmarkedCheatsheets();
+  }, [bookmarks]);
 
   useEffect(() => {
     // normal state
@@ -104,6 +125,32 @@ const Item = ({ data, listView, user, setOpen, searchTerm }) => {
       setOpen(true);
     }
   };
+  const bookmarkCheatsheet = () => {
+    if (typeof window !== "undefined") {
+      if (isBookMarked) {
+        window.localStorage.setItem(
+          "bookmarks",
+          JSON.stringify(bookmarks.filter((cheatsheet) => cheatsheet.id !== id))
+        );
+        fetchBookmarks();
+        fetchBookmarkedCheatsheets();
+      } else {
+        window.localStorage.setItem(
+          "bookmarks",
+          JSON.stringify([
+            ...bookmarks,
+            {
+              id,
+              cheatsheet_name,
+              website_url,
+            },
+          ])
+        );
+        fetchBookmarks();
+        fetchBookmarkedCheatsheets();
+      }
+    }
+  };
 
   return url && !error && meta.meta && listView ? (
     <div
@@ -148,7 +195,10 @@ const Item = ({ data, listView, user, setOpen, searchTerm }) => {
               </a>
             </Link>
             <Btn className="rounded-md ml-1 absolute top-1 right-1">
-              <div className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins">
+              <div
+                className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins"
+                onClick={bookmarkCheatsheet}
+              >
                 <FiBookmark className="text-md span duration-500" />
               </div>
             </Btn>
@@ -265,7 +315,10 @@ const Item = ({ data, listView, user, setOpen, searchTerm }) => {
                 </a>
               </Link>
               <Btn className="rounded-md ml-1 absolute top-1 right-1">
-                <div className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins">
+                <div
+                  className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins"
+                  onClick={bookmarkCheatsheet}
+                >
                   <FiBookmark className="text-md span duration-500" />
                 </div>
               </Btn>

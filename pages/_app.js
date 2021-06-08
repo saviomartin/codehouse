@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import "tailwindcss/tailwind.css"; // tailwind jit
 import { SignInPopup } from "../components";
@@ -12,25 +12,24 @@ function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [listView, setListView] = useState(false);
-  const [bookmarks, setBookmarks] = useLocalStorage("bookmarked", [
-    {
-      id: "hi",
-      cheatsheet_name: "hi",
-      website_url: "https://lo-victoria.com/react-cheat-sheet-for-beginners",
-    },
-    {
-      id: "hi",
-      cheatsheet_name: "hi",
-      website_url: "https://lo-victoria.com/react-cheat-sheet-for-beginners",
-    },
-    {
-      id: "hi",
-      cheatsheet_name: "hi",
-      website_url: "https://lo-victoria.com/react-cheat-sheet-for-beginners",
-    },
-  ]);
+
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState([]);
+  const [bookmarks, setBookmarks] = useState([]);
+
+  const fetchBookmarks = () => {
+    if (window !== undefined) {
+      if (window.localStorage.getItem("bookmarks")) {
+        setBookmarks(JSON.parse(window.localStorage.getItem("bookmarks")));
+      } else {
+        window.localStorage.setItem("bookmarks", JSON.stringify([]));
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchBookmarks();
+  }, []);
 
   const props = {
     darkMode,
@@ -42,7 +41,7 @@ function MyApp({ Component, pageProps }) {
     user,
     setUser,
     bookmarks,
-    setBookmarks,
+    fetchBookmarks,
   };
 
   auth().onAuthStateChanged((user) => {
@@ -66,6 +65,7 @@ function MyApp({ Component, pageProps }) {
     <div className={`${darkMode ? "dark" : "light"} min-h-screen`}>
       <Toaster position="bottom-right" reverseOrder={false} />
       {loading && "Loading......"}
+      {JSON.stringify(bookmarks)}
       <Component {...pageProps} {...props} />
       <SignInPopup open={open} setOpen={setOpen} />
     </div>
