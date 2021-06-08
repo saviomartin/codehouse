@@ -23,7 +23,10 @@ const Item = ({ data, listView, user, setOpen, searchTerm }) => {
   const { id, cheatsheet_name, website_url, upvotes } = data;
 
   useEffect(() => {
+    // normal state
     setMetadata([]);
+
+    // fetching state
     axios
       .get(`https://meta-scrapper-api.herokuapp.com/api?url=${website_url}`)
       .then(async (response) => {

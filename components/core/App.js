@@ -78,16 +78,18 @@ const App = (props) => {
       {showLoadingButton ? (
         <>
           <div className="flex justify-center mt-5 w-full flex-wrap">
-            {filteredPosts.slice(0, count).map((cheetsheet, key) => (
-              <Item
-                data={cheetsheet}
-                key={key}
-                {...props}
-                setOpen={setOpen}
-                searchTerm={searchTerm}
-                user={user}
-              />
-            ))}
+            {filteredPosts
+              .slice(0, searchTerm ? 25 : count)
+              .map((cheetsheet, key) => (
+                <Item
+                  data={cheetsheet}
+                  key={key}
+                  {...props}
+                  setOpen={setOpen}
+                  searchTerm={searchTerm}
+                  user={user}
+                />
+              ))}
           </div>
           {loading
             ? "Loading..."
