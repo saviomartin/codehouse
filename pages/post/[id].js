@@ -42,8 +42,20 @@ const Cheatsheet = () => {
 
   return (
     <div className="bg-image h-full min-h-screen p-6 flex items-center justify-start relative">
-      <div className="w-[65%] h-full min-h-[90vh] bg-[#ECF2F5] rounded-md white-light-shadow border border-[#ddd]">
-        L
+      <div className="w-[65%] h-full min-h-[90vh] bg-white rounded-md white-light-shadow border border-[#ddd] p-5">
+        <img
+          src="https://cdn.hashnode.com/res/hashnode/image/upload/v1615611872305/jKrBMuJoD.png?w=1200&h=630&fit=crop&crop=entropy&auto=compress&fm=png"
+          alt=""
+          className="rounded-md w-10/12"
+        />
+        <h1 className="font-bold text-4xl mt-4">
+          React Cheat Sheet for Beginners
+        </h1>
+        <p className="text-[#666] mt-1">
+          A quick and simple overview of React for beginners to get started
+        </p>
+        <div className="w-full bg-gray-400 h-[1.25px] my-4 rounded-md"></div>
+        <h1 className="font-semibold text-2xl text-[#444]">Comments (4)</h1>
       </div>
       <div className="w-4/12 h-[90vh] rounded-md white-light-shadow mx-4 fixed right-0 top-[5vh] flex items-center justify-between flex-col">
         <div className="py-4 px-3 w-full">
