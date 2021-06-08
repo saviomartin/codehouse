@@ -54,3 +54,8 @@
   -moz-animation: Wave 2.25s ease infinite;
   animation: Wave 2.25s ease infinite;
 }
+
+/* Pixelated */
+.pixelated {
+  image-rendering: pixelated;
+}

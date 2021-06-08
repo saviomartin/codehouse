@@ -45,3 +45,13 @@
     background-position: 468px 0;
   }
 }
+
+/* Author */
+.cheatsheet-continuous-line {
+  background: linear-gradient(currentColor 0 0) var(--d, 201%) 80% /200% 1.25px no-repeat;
+  transition: 0.5s;
+  width: fit-content;
+}
+.cheatsheet-continuous-line:hover {
+  --d: -101%;
+}
