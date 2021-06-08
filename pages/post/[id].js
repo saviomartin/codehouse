@@ -1,6 +1,7 @@
-import { Button } from "@material-ui/core";
+import { Button, TextField } from "@material-ui/core";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { FiSend } from "react-icons/fi";
 import {
   FaFacebookSquare,
   FaLinkedin,
@@ -54,8 +55,21 @@ const Cheatsheet = () => {
         <p className="text-[#666] mt-1">
           A quick and simple overview of React for beginners to get started
         </p>
-        <div className="w-full bg-gray-400 h-[1.25px] my-4 rounded-md"></div>
-        <h1 className="font-semibold text-2xl text-[#444]">Comments (4)</h1>
+        <div className="w-full bg-[#ddd] h-[1.25px] my-4 rounded-md"></div>
+        <h1 className="font-semibold text-xl text-[#555]">Comments (4)</h1>
+        <div className="flex border border-[#3d5eff] hover:bg-[#3d5eff10] duration-500 focus:border-[#3d5eff] pl-3 rounded-lg p-1 w-full items-center justify-between mt-2">
+          <input
+            type="text"
+            placeholder="Add Your Comment"
+            className="h-full py-1 pl-1 w-full"
+          />
+          <div className="bg-[#3d5eff] p-3 pr-4 cursor-pointer shine rounded-lg">
+            <FiSend
+              className="text-white"
+              style={{ transform: "rotate(45deg)" }}
+            />
+          </div>
+        </div>
       </div>
       <div className="w-4/12 h-[90vh] rounded-md white-light-shadow mx-4 fixed right-0 top-[5vh] flex items-center justify-between flex-col">
         <div className="py-4 px-3 w-full">
