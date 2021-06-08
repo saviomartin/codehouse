@@ -7,6 +7,8 @@ import {
   FaRedditAlien,
   FaTwitter,
 } from "react-icons/fa";
+import { FiTwitter } from "react-icons/fi";
+import { Btn } from "../../components";
 import { harperFetch } from "../../utils/HarperFetch";
 
 const Cheatsheet = () => {
@@ -107,30 +109,30 @@ const Cheatsheet = () => {
             Share Cheatsheet
           </h1>
           <div className="flex">
-            <Button className="!p-0 !w-auto !h-auto !m-0">
+            <Btn className="!p-0 !w-auto !h-auto !m-0">
               <button className="bg-[#1DA1F2] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
                 Twitter
                 <FaTwitter className="text-lg ml-1" />
               </button>
-            </Button>
-            <Button className="!p-0 !w-auto !h-auto !m-0 !ml-1">
+            </Btn>
+            <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
               <button className="bg-[#F34423] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
                 Reddit
                 <FaRedditAlien className="text-lg ml-1 -mt-1" />
               </button>
-            </Button>
-            <Button className="!p-0 !w-auto !h-auto !m-0 !ml-1">
+            </Btn>
+            <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
               <button className="bg-[#3F5793] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
                 Facebook
                 <FaFacebookSquare className="text-lg ml-1" />
               </button>
-            </Button>
-            <Button className="!p-0 !w-auto !h-auto !m-0 !ml-1">
+            </Btn>
+            <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
               <button className="bg-[#0375B4] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
                 LinkedIn
                 <FaLinkedin className="text-lg ml-1" />
               </button>
-            </Button>
+            </Btn>
           </div>
         </div>
       </div>
