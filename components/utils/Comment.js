@@ -18,8 +18,8 @@ const Comment = ({ comment }) => {
       <div className="ml-2">
         <h2 className="font-semibold text-md text-[#222]">{comment.comment}</h2>
         <h4 className="text-xs font-semibold text-[#666] capitalize">
-          {formatRelative(comment.time, new Date())} •
-          {(comment.name && " ", comment.name)}
+          {formatRelative(comment.time, new Date())} •{" "}
+          {comment.name && comment.name}
         </h4>
       </div>
     </div>
