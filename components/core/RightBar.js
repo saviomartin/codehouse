@@ -1,4 +1,6 @@
 import React from "react";
+
+// icons
 import {
   FaFacebookSquare,
   FaLinkedin,
@@ -6,27 +8,34 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { FiMail, FiTwitter } from "react-icons/fi";
+
+// components
 import { Btn } from "..";
 
 const RightBar = ({ currentPost }) => {
+  // destructuring currentPost[0]
   const { upvotes, website_url, cheatsheet_name, twitter_handle } =
     currentPost.length > 0 && currentPost[0];
 
+  // intent link for twitter
   const twitterLink =
     currentPost.length > 0 &&
     currentPost[0] &&
     `https://twitter.com/intent/tweet?text=${cheatsheet_name}%0A%20{%20from%20@zackdotcomputer%20}%20via%20codehouse.vercel.app%20by%20@SavioMartin7%0A%0A%23DEVCommunity%20%23100DaysOfCode%20%20%23CodeNewbie%0A${website_url}`;
 
+  // intent link for facbook
   const facebookLink =
     currentPost.length > 0 &&
     currentPost[0] &&
     `https://www.facebook.com/sharer/sharer.php?u=${website_url}`;
 
+  // intent link for linkedin
   const linkedInLink =
     currentPost.length > 0 &&
     currentPost[0] &&
     `https://www.linkedin.com/cws/share?url=${website_url}`;
 
+  // intent link for reddit
   const redditLink =
     currentPost.length > 0 &&
     currentPost[0] &&
