@@ -1,17 +1,25 @@
 import React from "react";
+
+// modal popup for material ui
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+
+// components
 import { Btn } from "..";
+
+// icons
 import { FaGithub, FaGoogle } from "react-icons/fa";
+
+// sign In providers
 import { githubProvider, googleProvider } from "../../utils/Auth/auth-methods";
 import socialMediaAuth from "../../utils/Auth/auth";
 
 const SignInPopup = ({ open, setOpen }) => {
+  // handling onClick for buttons
   const handleOnClick = async (provider) => {
     const res = await socialMediaAuth(provider);
     await setOpen(false);
-    await console.log(res);
   };
 
   return (
