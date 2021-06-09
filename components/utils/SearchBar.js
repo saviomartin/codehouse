@@ -1,4 +1,6 @@
 import React from "react";
+
+// icons
 import { BsSearch, BsX } from "react-icons/bs";
 
 const SearchBar = ({ searchTerm, setSearchTerm }) => {

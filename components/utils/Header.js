@@ -6,13 +6,19 @@ import { Button } from "@material-ui/core";
 // link from next
 import Link from "next/link";
 
+// menu from material ui
 import Menu from "@material-ui/core/Menu";
+
+// auth for signin out
 import { auth } from "../../utils/firebase";
+
+// toast
 import toast from "react-hot-toast";
 
 const Header = ({ setOpen, user, setUser }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
+  // sign out function
   const signOut = () => {
     auth()
       .signOut()
@@ -24,6 +30,8 @@ const Header = ({ setOpen, user, setUser }) => {
         // An error happened.
         console.log(error);
       });
+
+    // normalize
     setAnchorEl(null);
   };
 
