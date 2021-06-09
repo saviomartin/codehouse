@@ -1,17 +1,31 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { FiAirplay, FiSend, FiTriangle } from "react-icons/fi";
+import { FiAirplay, FiBookmark, FiSend, FiTriangle } from "react-icons/fi";
 // for formatting date
 import { formatRelative } from "date-fns";
 import { Comment } from "../index";
 import { Button } from "@material-ui/core";
+import { BsFillBookmarkFill } from "react-icons/bs";
 
-const InfoBar = ({ currentPost }) => {
+const InfoBar = ({ currentPost, bookmarks, fetchBookmarks }) => {
   const [meta, setMetadata] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   const { id, cheatsheet_name, website_url, upvotes, comments } =
     currentPost.length > 0 && currentPost[0];
+  const [isBookMarked, setIsBookMarked] = useState(false);
+
+  const fetchBookmarkedCheatsheets = () => {
+    if (bookmarks.some((cheatsheet) => cheatsheet.id === id)) {
+      setIsBookMarked(true);
+    } else {
+      setIsBookMarked(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchBookmarkedCheatsheets();
+  }, [bookmarks]);
 
   useEffect(() => {
     // normal state
@@ -33,7 +47,10 @@ const InfoBar = ({ currentPost }) => {
       });
   }, [website_url]);
 
-  const url = new URL("https://google.com");
+  const url =
+    currentPost.length > 0 &&
+    currentPost[0] &&
+    new URL(website_url && website_url);
 
   const image = () => {
     if (meta.og.images.length) {
@@ -42,6 +59,33 @@ const InfoBar = ({ currentPost }) => {
       return meta.og.image;
     } else {
       return "/assets/image-not-found.jpg";
+    }
+  };
+
+  const bookmarkCheatsheet = () => {
+    if (typeof window !== "undefined") {
+      if (isBookMarked) {
+        window.localStorage.setItem(
+          "bookmarks",
+          JSON.stringify(bookmarks.filter((cheatsheet) => cheatsheet.id !== id))
+        );
+        fetchBookmarks();
+        fetchBookmarkedCheatsheets();
+      } else {
+        window.localStorage.setItem(
+          "bookmarks",
+          JSON.stringify([
+            ...bookmarks,
+            {
+              id,
+              cheatsheet_name,
+              website_url,
+            },
+          ])
+        );
+        fetchBookmarks();
+        fetchBookmarkedCheatsheets();
+      }
     }
   };
 
@@ -78,16 +122,31 @@ const InfoBar = ({ currentPost }) => {
           <div className="flex mt-4 h-full items-start">
             <Button className="!p-0 !w-auto !h-auto !m-0 shine">
               <div className="bg-[#3d5eff] px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center text-white">
-                {upvotes.length} Upvotes
+                {upvotes && upvotes.length} Upvotes
                 <FiTriangle className="text-lg ml-1 -mt-1" />
               </div>
             </Button>
-            <Button className="!p-0 !w-auto !h-auto !m-0 !ml-1">
+            <Button
+              className="!p-0 !w-auto !h-auto !m-0 !ml-1"
+              href={website_url}
+              target="_blank"
+              rel="noreferrer"
+            >
               <div className="border border-[#3d5eff] text-[#3d5eff] hover:bg-[#3d5eff] duration-500 hover:text-white px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center">
                 Visit Website
                 <FiAirplay className="text-lg ml-1" />
               </div>
             </Button>
+            <div
+              className="p-2 py-3 text-[#F5BA31] duration-500 text-xl capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins"
+              onClick={bookmarkCheatsheet}
+            >
+              {isBookMarked ? (
+                <BsFillBookmarkFill className="text-md span duration-500" />
+              ) : (
+                <FiBookmark className="text-md span duration-500" />
+              )}
+            </div>
           </div>
           <div className="w-full bg-[#ddd] h-[1.25px] my-4 rounded-md"></div>
           <h1 className="font-semibold text-xl text-[#555]">

@@ -38,8 +38,8 @@ const Cheatsheet = (props) => {
     <div className="bg-image">
       <Header {...props} />
       <div className="h-full min-h-screen p-6 flex items-start justify-start relative">
-        <InfoBar currentPost={currentPost} />
-        <RightBar currentPost={currentPost} />
+        <InfoBar currentPost={currentPost} {...props} />
+        <RightBar currentPost={currentPost} {...props} />
       </div>
     </div>
   );
