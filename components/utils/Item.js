@@ -1,17 +1,29 @@
 import React, { useEffect, useState } from "react";
+
+// next js components
 import Link from "next/link";
+
+// components
 import { Btn } from "..";
+import { useRouter } from "next/router";
+
+// icons
 import {
   FiBookmark,
   FiExternalLink,
   FiMessageCircle,
   FiTriangle,
 } from "react-icons/fi";
-import axios from "axios";
-import { useRouter } from "next/router";
-import Skeleton from "react-loading-skeleton";
-import { harperFetch } from "../../utils/HarperFetch";
 import { BsFillBookmarkFill } from "react-icons/bs";
+
+// axios for data fetching
+import axios from "axios";
+
+// skeleton loader
+import Skeleton from "react-loading-skeleton";
+
+// fetching and editing data
+import { harperFetch } from "../../utils/HarperFetch";
 
 const Item = ({
   data,
@@ -24,14 +36,20 @@ const Item = ({
 }) => {
   const [meta, setMetadata] = useState([]);
   const [error, setError] = useState(false);
-  const router = useRouter();
   const [loading, setLoading] = useState(true);
-  const [isUpvoted, setIsUpvoted] = useState(false);
-  const [changed, setChanged] = useState();
-  const [isBookMarked, setIsBookMarked] = useState(false);
 
+  // router
+  const router = useRouter();
+
+  // checking states
+  const [isUpvoted, setIsUpvoted] = useState(false); // checking is already upvoted
+  const [changed, setChanged] = useState(); // checking is data changed
+  const [isBookMarked, setIsBookMarked] = useState(false); // checking is already bookmarked
+
+  // destructuring data
   const { id, cheatsheet_name, website_url, upvotes } = data;
 
+  // fetching bookmarked cheatsheets and making isBookmarked true/false
   const fetchBookmarkedCheatsheets = () => {
     if (bookmarks.some((cheatsheet) => cheatsheet.id === id)) {
       setIsBookMarked(true);
@@ -40,6 +58,7 @@ const Item = ({
     }
   };
 
+  // useEffect to handle it
   useEffect(() => {
     fetchBookmarkedCheatsheets();
   }, [bookmarks]);
@@ -66,12 +85,15 @@ const Item = ({
       });
   }, [searchTerm]);
 
+  // extracting url properties
   const url = new URL(website_url);
 
+  // going to its own page
   const goToCheetSheetPage = () => {
     router.push(`/post/${id}`);
   };
 
+  // generating image for thumbnail
   const image = () => {
     if (meta.og.images.length) {
       return meta.og.images[0].url;
@@ -82,6 +104,7 @@ const Item = ({
     }
   };
 
+  // use effect for handling is upvoted or not
   useEffect(() => {
     if (upvotes) {
       if (user.email) {
@@ -90,9 +113,11 @@ const Item = ({
     }
   });
 
+  // upvoting a cheatsheet
   const upvoteCheatSheet = () => {
     if (user.email) {
       if (isUpvoted) {
+        // removing upvote if already upvoted
         const index = upvotes.indexOf(user.email);
         upvotes.splice(index, 1);
 
@@ -107,8 +132,11 @@ const Item = ({
             },
           ],
         });
+
+        // changing visual data without fetching again
         setChanged("sub");
       } else {
+        // adding upvote
         harperFetch({
           operation: "update",
           schema: "dev",
@@ -120,22 +148,31 @@ const Item = ({
             },
           ],
         });
+
+        // changing visual data without fetching again
         setChanged("add");
       }
     } else {
+      // showing sign in popup is user not found
       setOpen(true);
     }
   };
+
+  // bookmarking a cheatsheet
   const bookmarkCheatsheet = () => {
     if (typeof window !== "undefined") {
       if (isBookMarked) {
+        // removing bookmark if already bookmarked
         window.localStorage.setItem(
           "bookmarks",
           JSON.stringify(bookmarks.filter((cheatsheet) => cheatsheet.id !== id))
         );
+
+        // making state uptodate
         fetchBookmarks();
         fetchBookmarkedCheatsheets();
       } else {
+        // adding bookmark
         window.localStorage.setItem(
           "bookmarks",
           JSON.stringify([
@@ -147,6 +184,8 @@ const Item = ({
             },
           ])
         );
+
+        // making state uptodate
         fetchBookmarks();
         fetchBookmarkedCheatsheets();
       }
