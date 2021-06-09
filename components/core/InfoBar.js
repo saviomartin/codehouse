@@ -6,10 +6,12 @@ import { formatRelative } from "date-fns";
 import { Comment } from "../index";
 import { Button } from "@material-ui/core";
 import { BsFillBookmarkFill } from "react-icons/bs";
+import { harperFetch } from "../../utils/HarperFetch";
 
-const InfoBar = ({ currentPost, bookmarks, fetchBookmarks }) => {
+const InfoBar = ({ currentPost, bookmarks, fetchBookmarks, user, setOpen }) => {
   const [meta, setMetadata] = useState([]);
   const [error, setError] = useState(false);
+  const [isUpvoted, setIsUpvoted] = useState(false);
   const [loading, setLoading] = useState(true);
   const { id, cheatsheet_name, website_url, upvotes, comments } =
     currentPost.length > 0 && currentPost[0];
@@ -46,6 +48,49 @@ const InfoBar = ({ currentPost, bookmarks, fetchBookmarks }) => {
         setError(true);
       });
   }, [website_url]);
+
+  useEffect(() => {
+    if (upvotes) {
+      if (user.email) {
+        setIsUpvoted(upvotes.includes(user.email));
+      }
+    }
+  });
+
+  const upvoteCheatSheet = () => {
+    if (user.email) {
+      if (isUpvoted) {
+        const index = upvotes.indexOf(user.email);
+        upvotes.splice(index, 1);
+
+        harperFetch({
+          operation: "update",
+          schema: "dev",
+          table: "cheatsheets",
+          records: [
+            {
+              id: id,
+              upvotes: upvotes,
+            },
+          ],
+        });
+      } else {
+        harperFetch({
+          operation: "update",
+          schema: "dev",
+          table: "cheatsheets",
+          records: [
+            {
+              id: id,
+              upvotes: [...upvotes, user.email],
+            },
+          ],
+        });
+      }
+    } else {
+      setOpen(true);
+    }
+  };
 
   const url =
     currentPost.length > 0 &&
@@ -119,9 +164,18 @@ const InfoBar = ({ currentPost, bookmarks, fetchBookmarks }) => {
               ? meta.meta.description.slice(0, 150)
               : "Description not found"}
           </p>
-          <div className="flex mt-4 h-full items-start">
+          <div
+            className="flex mt-4 h-full items-start"
+            onClick={upvoteCheatSheet}
+          >
             <Button className="!p-0 !w-auto !h-auto !m-0 shine">
-              <div className="bg-[#3d5eff] px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center text-white">
+              <div
+                className={`${
+                  isUpvoted
+                    ? "bg-[#3d5eff] text-white"
+                    : "border border-[#3d5eff] text-[#3d5eff]"
+                } px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center`}
+              >
                 {upvotes && upvotes.length} Upvotes
                 <FiTriangle className="text-lg ml-1 -mt-1" />
               </div>
@@ -138,7 +192,7 @@ const InfoBar = ({ currentPost, bookmarks, fetchBookmarks }) => {
               </div>
             </Button>
             <div
-              className="p-2 py-3 text-[#F5BA31] duration-500 text-xl capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins"
+              className="p-2 py-3 text-[#F5BA31] duration-500 text-xl capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins cursor-pointer"
               onClick={bookmarkCheatsheet}
             >
               {isBookMarked ? (
