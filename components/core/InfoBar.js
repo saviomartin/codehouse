@@ -1,12 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FiSend } from "react-icons/fi";
+// for formatting date
+import { formatRelative } from "date-fns";
 
 const InfoBar = ({ currentPost }) => {
   const [meta, setMetadata] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-  const { id, cheatsheet_name, website_url, upvotes } =
+  const { id, cheatsheet_name, website_url, upvotes, comments } =
     currentPost.length > 0 && currentPost[0];
 
   useEffect(() => {
@@ -39,6 +41,7 @@ const InfoBar = ({ currentPost }) => {
       return "/assets/image-not-found.jpg";
     }
   };
+
   return (
     <div className="w-[65%] h-full min-h-[90vh] bg-white rounded-md white-light-shadow border border-[#ddd] p-5">
       {loading ? (
@@ -53,7 +56,9 @@ const InfoBar = ({ currentPost }) => {
               : "Description not found"}
           </p>
           <div className="w-full bg-[#ddd] h-[1.25px] my-4 rounded-md"></div>
-          <h1 className="font-semibold text-xl text-[#555]">Comments (4)</h1>
+          <h1 className="font-semibold text-xl text-[#555]">
+            Comments ({comments && comments.length})
+          </h1>
           <div className="flex border border-[#3d5eff] hover:border-[#445ac5] duration-500 focus:border-[#3d5eff] pl-3 rounded-lg p-1 w-full items-center justify-between mt-2">
             <input
               type="text"
@@ -67,19 +72,27 @@ const InfoBar = ({ currentPost }) => {
               />
             </div>
           </div>
-          <div className="rounded-md border border-[#ccc] p-2 flex items-center hover:bg-white duration-200 mt-2">
-            <img
-              src="https://avatars.githubusercontent.com/saviomartin"
-              alt=""
-              className="h-[50px] w-[50px] rounded-md pixelated white-light-shadow"
-            />
-            <div className="ml-2">
-              <h2 className="font-semibold text-lg text-[#222]">
-                Wow! This looks cool. Great Cheatsheet
-              </h2>
-              <h4 className="text-xs font-semibold text-[#666]">3pm Today</h4>
-            </div>
-          </div>
+          {comments &&
+            comments.map((comment, key) => (
+              <div
+                className="rounded-md border border-[#ccc] p-2 flex items-center hover:bg-white duration-200 mt-2"
+                key={key}
+              >
+                <img
+                  src={`https://unavatar.vercel.app/${comment.email}`}
+                  alt=""
+                  className="h-[50px] w-[50px] rounded-md pixelated white-light-shadow"
+                />
+                <div className="ml-2">
+                  <h2 className="font-semibold text-lg text-[#222]">
+                    {comment.comment}
+                  </h2>
+                  <h4 className="text-xs font-semibold text-[#666] capitalize">
+                    {formatRelative(comment.time, new Date())}
+                  </h4>
+                </div>
+              </div>
+            ))}
         </>
       )}
     </div>
