@@ -10,6 +10,7 @@ import { harperFetch } from "../../utils/HarperFetch";
 
 const InfoBar = ({ currentPost, bookmarks, fetchBookmarks, user, setOpen }) => {
   const [meta, setMetadata] = useState([]);
+  const [text, setText] = useState("");
   const [error, setError] = useState(false);
   const [isUpvoted, setIsUpvoted] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -134,6 +135,33 @@ const InfoBar = ({ currentPost, bookmarks, fetchBookmarks, user, setOpen }) => {
     }
   };
 
+  const sendComment = () => {
+    if (user.email) {
+      harperFetch({
+        operation: "update",
+        schema: "dev",
+        table: "cheatsheets",
+        records: [
+          {
+            id: id,
+            comments: [
+              ...comments,
+              {
+                name: user.displayName ? user.displayName : "",
+                photoURL: user.photoURL ? user.photoURL : "",
+                comment: text,
+                email: user.email,
+                time: new Date().getTime(),
+              },
+            ],
+          },
+        ],
+      });
+    } else {
+      setOpen(true);
+    }
+  };
+
   return (
     <div className="w-[65%] h-full min-h-[90vh] bg-white rounded-md white-light-shadow border border-[#ddd] p-7">
       {loading ? (
@@ -210,9 +238,19 @@ const InfoBar = ({ currentPost, bookmarks, fetchBookmarks, user, setOpen }) => {
             <input
               type="text"
               placeholder="Add Your Comment"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.keyCode === 13) {
+                  sendComment();
+                }
+              }}
               className="h-full py-1 pl-1 w-full"
             />
-            <div className="bg-[#3d5eff] p-3 pr-4 cursor-pointer shine rounded-lg">
+            <div
+              className="bg-[#3d5eff] p-3 pr-4 cursor-pointer shine rounded-lg"
+              onClick={sendComment}
+            >
               <FiSend
                 className="text-white"
                 style={{ transform: "rotate(45deg)" }}
