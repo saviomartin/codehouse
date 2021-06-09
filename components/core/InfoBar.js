@@ -66,6 +66,7 @@ const InfoBar = ({
         }`
       )
       .then(async (response) => {
+        setLoading(false);
         setMetadata(response.data);
       })
       .catch((error) => {
@@ -182,27 +183,31 @@ const InfoBar = ({
   // send comment
   const sendComment = () => {
     if (user.email) {
-      // adding comment
-      harperFetch({
-        operation: "update",
-        schema: "dev",
-        table: "cheatsheets",
-        records: [
-          {
-            id: id,
-            comments: [
-              ...comments,
-              {
-                name: user.displayName ? user.displayName : "",
-                photoURL: user.photoURL ? user.photoURL : "",
-                comment: text,
-                email: user.email,
-                time: new Date().getTime(),
-              },
-            ],
-          },
-        ],
-      });
+      if (text.replace(/\s/g, "") === "") {
+        console.log("type something..."); // checking if any text is there
+      } else {
+        // adding comment
+        harperFetch({
+          operation: "update",
+          schema: "dev",
+          table: "cheatsheets",
+          records: [
+            {
+              id: id,
+              comments: [
+                ...comments,
+                {
+                  name: user.displayName ? user.displayName : "",
+                  photoURL: user.photoURL ? user.photoURL : "",
+                  comment: text,
+                  email: user.email,
+                  time: new Date().getTime(),
+                },
+              ],
+            },
+          ],
+        });
+      }
 
       // fetch date again with new content
       setFetchAgain(fetchAgain + 1);
@@ -215,7 +220,16 @@ const InfoBar = ({
   return (
     <div className="w-[65%] h-full min-h-[90vh] bg-white rounded-md white-light-shadow border border-[#ddd] p-7">
       {loading ? (
-        "Loading"
+        <>
+          <div className="h-[325px] pulsate w-full rounded-md"></div>
+          <div className="h-[10px] pulsate w-3/12 rounded-sm mt-6"></div>
+          <div className="h-[40px] pulsate w-10/12 rounded-md mt-2"></div>
+          <div className="h-[10px] pulsate w-full rounded-sm mt-2"></div>
+          <div className="flex w-full mt-8">
+            <div className="h-[40px] pulsate w-[200px] rounded-md mr-1"></div>
+            <div className="h-[40px] pulsate w-[200px] rounded-md mr-1"></div>
+          </div>
+        </>
       ) : (
         <>
           <img
