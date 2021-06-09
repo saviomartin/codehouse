@@ -39,6 +39,7 @@
 .white-light-shadow {
   box-shadow: rgb(0 0 0 / 3%) 0px 14px 36px, rgb(0 0 0 / 2%) 0px 30px 60px;
 }
+
 /* Menu Hover */
 .menu-animation-hover {
   transition: 0.5s;
@@ -47,6 +48,8 @@
   transition: 0.5s;
   transform: scale(1.2);
 }
+
+/* Skeleton loader */
 .pulsate {
   background: linear-gradient(90deg, #eee 8%, #ddd 18%, #eee 33%);
   background-size: 400% 200%;
