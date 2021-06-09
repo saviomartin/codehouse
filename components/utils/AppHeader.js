@@ -16,9 +16,12 @@ const AppHeader = ({
   sort,
   setSort,
 }) => {
+  // toggling dark mode
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+
+  // toggling view
   const toggleListView = () => {
     setListView(!listView);
   };

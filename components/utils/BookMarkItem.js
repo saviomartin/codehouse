@@ -1,18 +1,33 @@
 import React, { useEffect, useState } from "react";
+
+// icons
 import { FiBookmark } from "react-icons/fi";
-import Link from "next/link";
-import { Btn } from "..";
-import axios from "axios";
 import { BsFillBookmarkFill } from "react-icons/bs";
+
+// from next
+import Link from "next/link";
 import { useRouter } from "next/router";
+
+// components
+import { Btn } from "..";
+
+// axios for data fetching
+import axios from "axios";
 
 const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
   const [meta, setMetadata] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  // router of next js
   const router = useRouter();
+
+  // check if already bookmarked
   const [isBookMarked, setIsBookMarked] = useState(false);
 
+  // destructuring data
   const { id, cheatsheet_name, website_url } = data;
+
+  // fetching bookmarked cheatsheets and making it true/false
   const fetchBookmarkedCheatsheets = () => {
     if (bookmarks) {
       if (bookmarks.some((cheatsheet) => cheatsheet.id === id)) {
@@ -23,12 +38,16 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
     }
   };
 
+  // useEffect to handle it
   useEffect(() => {
     fetchBookmarkedCheatsheets();
   }, [bookmarks]);
 
   useEffect(() => {
+    // loading state
     setLoading(true);
+
+    // fetching
     axios
       .get(`https://meta-scrapper-api.herokuapp.com/api?url=${website_url}`)
       .then(async (response) => {
@@ -44,6 +63,7 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
       });
   }, []);
 
+  // generating image
   const image = () => {
     if (meta.og.images.length) {
       return meta.og.images[0].url;
@@ -54,18 +74,24 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
     }
   };
 
+  // extracting url properties
   const url = new URL(website_url);
 
+  // bookmarking cheatsheets
   const bookmarkCheatsheet = () => {
     if (typeof window !== "undefined") {
       if (isBookMarked) {
+        // if already bookmarked remove bookmark
         window.localStorage.setItem(
           "bookmarks",
           JSON.stringify(bookmarks.filter((cheatsheet) => cheatsheet.id !== id))
         );
+
+        // fetch all the deta again
         fetchBookmarks();
         fetchBookmarkedCheatsheets();
       } else {
+        // adding bookmark
         window.localStorage.setItem(
           "bookmarks",
           JSON.stringify([
@@ -77,12 +103,15 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
             },
           ])
         );
+
+        // fetch all the deta again
         fetchBookmarks();
         fetchBookmarkedCheatsheets();
       }
     }
   };
 
+  // going to its own page
   const goToCheetSheetPage = () => {
     router.push(`/post/${id}`);
   };
@@ -103,12 +132,12 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
         </>
       ) : (
         <>
-          <div className="w-full relative overflow-hidden h-[157.5px] rounded-md overflow-hidden">
+          <div className="w-full relative overflow-hidden h-[157.5px] rounded-md">
             <Link href={`/post/${id}`}>
               <a>
                 <img
                   src={meta.og && image()}
-                  alt=""
+                  alt={cheatsheet_name && cheatsheet_name}
                   className="rounded-md w-full mb-2 h-[157.5px] scale-on-hover duration-500 scale-on-hover"
                 />
               </a>
