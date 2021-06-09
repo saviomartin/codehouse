@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { FiSend } from "react-icons/fi";
+import { FiAirplay, FiSend, FiTriangle } from "react-icons/fi";
 // for formatting date
 import { formatRelative } from "date-fns";
 import { Comment } from "../index";
+import { Button } from "@material-ui/core";
 
 const InfoBar = ({ currentPost }) => {
   const [meta, setMetadata] = useState([]);
@@ -33,6 +34,7 @@ const InfoBar = ({ currentPost }) => {
   }, [website_url]);
 
   const url = new URL("https://google.com");
+
   const image = () => {
     if (meta.og.images.length) {
       return meta.og.images[0].url;
@@ -49,13 +51,44 @@ const InfoBar = ({ currentPost }) => {
         "Loading"
       ) : (
         <>
-          <img src={meta.og && image()} alt="" className="rounded-md w-full" />
-          <h1 className="font-bold text-4xl mt-4">{cheatsheet_name}</h1>
+          <img
+            src={meta.og && image()}
+            alt=""
+            className="rounded-md w-full mb-4"
+          />
+          <a
+            className="text-blue-500 text-lg"
+            href={url.protocol && url.hostname && url.protocol + url.hostname}
+            target="_blank"
+          >
+            {url.hostname && url.hostname}
+          </a>
+          <br />
+          <a
+            className="font-bold text-3xl continuous-line hover:text-[#3d5eff]"
+            href={website_url}
+          >
+            {cheatsheet_name}
+          </a>
           <p className="text-[#666] mt-1">
             {meta.meta && meta.meta.description
               ? meta.meta.description.slice(0, 150)
               : "Description not found"}
           </p>
+          <div className="flex mt-4 h-full items-start">
+            <Button className="!p-0 !w-auto !h-auto !m-0 shine">
+              <div className="bg-[#3d5eff] px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center text-white">
+                {upvotes.length} Upvotes
+                <FiTriangle className="text-lg ml-1 -mt-1" />
+              </div>
+            </Button>
+            <Button className="!p-0 !w-auto !h-auto !m-0 !ml-1">
+              <div className="border border-[#3d5eff] text-[#3d5eff] hover:bg-[#3d5eff] duration-500 hover:text-white px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center">
+                Visit Website
+                <FiAirplay className="text-lg ml-1" />
+              </div>
+            </Button>
+          </div>
           <div className="w-full bg-[#ddd] h-[1.25px] my-4 rounded-md"></div>
           <h1 className="font-semibold text-xl text-[#555]">
             Comments ({comments && comments.length})
