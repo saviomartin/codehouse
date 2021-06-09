@@ -1,6 +1,9 @@
 import React from "react";
 
 const Sort = ({ setSort, sort }) => {
+  // 3 soring types
+  // popular, newest, oldest
+
   return (
     <div className="flex items-center">
       <h3
