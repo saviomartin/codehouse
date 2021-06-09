@@ -7,8 +7,8 @@ const socialMediaAuth = (provider) => {
       return res.user;
     })
     .catch((err) => {
-      return err;
       console.log(err);
+      return err;
     });
 };
 
