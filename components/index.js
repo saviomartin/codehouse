@@ -13,3 +13,4 @@ export { default as SearchBar } from "./utils/SearchBar";
 export { default as Sort } from "./utils/Sort";
 export { default as Item } from "./utils/Item";
 export { default as BookMarkItem } from "./utils/BookMarkItem";
+export { default as Comment } from "./utils/Comment";

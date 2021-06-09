@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FiSend } from "react-icons/fi";
 // for formatting date
 import { formatRelative } from "date-fns";
+import { Comment } from "../index";
 
 const InfoBar = ({ currentPost }) => {
   const [meta, setMetadata] = useState([]);
@@ -74,24 +75,7 @@ const InfoBar = ({ currentPost }) => {
           </div>
           {comments &&
             comments.map((comment, key) => (
-              <div
-                className="rounded-md border border-[#ccc] p-2 flex items-center hover:bg-white duration-200 mt-2"
-                key={key}
-              >
-                <img
-                  src={`https://unavatar.vercel.app/${comment.email}`}
-                  alt=""
-                  className="h-[50px] w-[50px] rounded-md pixelated white-light-shadow"
-                />
-                <div className="ml-2">
-                  <h2 className="font-semibold text-lg text-[#222]">
-                    {comment.comment}
-                  </h2>
-                  <h4 className="text-xs font-semibold text-[#666] capitalize">
-                    {formatRelative(comment.time, new Date())}
-                  </h4>
-                </div>
-              </div>
+              <Comment key={key} comment={comment} />
             ))}
         </>
       )}
