@@ -44,12 +44,12 @@ const InfoBar = ({ currentPost }) => {
   };
 
   return (
-    <div className="w-[65%] h-full min-h-[90vh] bg-white rounded-md white-light-shadow border border-[#ddd] p-5">
+    <div className="w-[65%] h-full min-h-[90vh] bg-white rounded-md white-light-shadow border border-[#ddd] p-7">
       {loading ? (
         "Loading"
       ) : (
         <>
-          <img src={meta.og && image()} alt="" className="rounded-md w-10/12" />
+          <img src={meta.og && image()} alt="" className="rounded-md w-full" />
           <h1 className="font-bold text-4xl mt-4">{cheatsheet_name}</h1>
           <p className="text-[#666] mt-1">
             {meta.meta && meta.meta.description
