@@ -8,7 +8,15 @@ import { Button } from "@material-ui/core";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { harperFetch } from "../../utils/HarperFetch";
 
-const InfoBar = ({ currentPost, bookmarks, fetchBookmarks, user, setOpen }) => {
+const InfoBar = ({
+  currentPost,
+  bookmarks,
+  fetchBookmarks,
+  user,
+  setOpen,
+  fetchAgain,
+  setFetchAgain,
+}) => {
   const [meta, setMetadata] = useState([]);
   const [text, setText] = useState("");
   const [error, setError] = useState(false);
@@ -75,6 +83,7 @@ const InfoBar = ({ currentPost, bookmarks, fetchBookmarks, user, setOpen }) => {
             },
           ],
         });
+        setFetchAgain(fetchAgain + 1);
       } else {
         harperFetch({
           operation: "update",
@@ -87,6 +96,7 @@ const InfoBar = ({ currentPost, bookmarks, fetchBookmarks, user, setOpen }) => {
             },
           ],
         });
+        setFetchAgain(fetchAgain + 1);
       }
     } else {
       setOpen(true);
@@ -157,6 +167,7 @@ const InfoBar = ({ currentPost, bookmarks, fetchBookmarks, user, setOpen }) => {
           },
         ],
       });
+      setFetchAgain(fetchAgain + 1);
     } else {
       setOpen(true);
     }

@@ -9,6 +9,7 @@ const Cheatsheet = (props) => {
   const router = useRouter();
 
   const [data, setData] = useState([]);
+  const [fetchAgain, setFetchAgain] = useState(1);
   const { id } = router.query;
 
   const filterPosts = (data, id) => {
@@ -29,7 +30,7 @@ const Cheatsheet = (props) => {
     });
 
     setData(cheatSheets);
-  }, []);
+  }, [fetchAgain]);
 
   // gets the currentPost
   const currentPost = filterPosts(data, id);
@@ -38,7 +39,12 @@ const Cheatsheet = (props) => {
     <div className="bg-image">
       <Header {...props} />
       <div className="h-full min-h-screen p-6 flex items-start justify-start relative">
-        <InfoBar currentPost={currentPost} {...props} />
+        <InfoBar
+          currentPost={currentPost}
+          {...props}
+          fetchAgain={fetchAgain}
+          setFetchAgain={setFetchAgain}
+        />
         <RightBar currentPost={currentPost} {...props} />
       </div>
     </div>
