@@ -89,7 +89,7 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
 
   return (
     <div
-      className="cursor-pointer flex justify-between items-center flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale h-[325px]"
+      className="cursor-pointer flex justify-between items-center flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale h-[325px] parent-for-image-scale"
       onClick={goToCheetSheetPage}
     >
       {loading ? (
@@ -103,13 +103,13 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
         </>
       ) : (
         <>
-          <div className="w-full relative overflow-hidden h-[157.5px] rounded-md">
+          <div className="w-full relative overflow-hidden h-[157.5px] rounded-md overflow-hidden">
             <Link href={`/post/${id}`}>
               <a>
                 <img
                   src={meta.og && image()}
                   alt=""
-                  className="rounded-md w-full mb-2 h-[157.5px] scale-on-hover duration-500"
+                  className="rounded-md w-full mb-2 h-[157.5px] scale-on-hover duration-500 scale-on-hover"
                 />
               </a>
             </Link>
