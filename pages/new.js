@@ -13,6 +13,7 @@ import toast from "react-hot-toast";
 import { Btn } from "../components";
 
 const New = () => {
+  // default values
   const [values, setValues] = useState({
     cheatsheet_name: "",
     website_url: "",
@@ -20,6 +21,7 @@ const New = () => {
     twitter_handle: "",
   });
 
+  // destructuring values
   const { cheatsheet_name, website_url, category, twitter_handle } = values;
 
   // handleChange of inputs

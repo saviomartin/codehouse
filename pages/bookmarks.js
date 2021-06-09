@@ -1,4 +1,6 @@
 import React from "react";
+
+// components
 import { BookMarkItem, Header } from "../components";
 
 const bookmarksPage = ({ bookmarks, user, fetchBookmarks }) => {
