@@ -68,21 +68,21 @@ const Item = ({
     setMetadata([]);
 
     // fetching state
-    // axios
-    //   .get(`https://meta-scrapper-api.herokuapp.com/api?url=${website_url}`)
-    //   .then(async (response) => {
-    //     if (response.request.status === 400) {
-    //       setLoading(false);
-    //       await setError(true);
-    //     } else {
-    //       setLoading(false);
-    //       await setMetadata(response.data);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     setLoading(false);
-    //     setError(true);
-    //   });
+    axios
+      .get(`https://meta-scrapper-api.herokuapp.com/api?url=${website_url}`)
+      .then(async (response) => {
+        if (response.request.status === 400) {
+          setLoading(false);
+          await setError(true);
+        } else {
+          setLoading(false);
+          await setMetadata(response.data);
+        }
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError(true);
+      });
   }, [searchTerm]);
 
   // extracting url properties

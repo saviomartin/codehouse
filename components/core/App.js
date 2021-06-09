@@ -35,16 +35,12 @@ const App = (props) => {
     if (sort === "newest") {
       cheatSheets
         .sort((a, b) => {
-          return format(new Date(a.__createdtime__), "k:m:s").localeCompare(
-            format(new Date(b.__createdtime__), "k:m:s")
-          );
+          return a.__createdtime__ - b.__createdtime__;
         })
         .reverse();
     } else if (sort === "oldest") {
       cheatSheets.sort((a, b) => {
-        return format(new Date(a.__createdtime__), "k:m:s").localeCompare(
-          format(new Date(b.__createdtime__), "k:m:s")
-        );
+        return a.__createdtime__ - b.__createdtime__;
       });
     } else {
       cheatSheets.sort((a, b) => {
