@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from "react";
+
+// for inifinite scroll
 import InfiniteScroll from "react-infinite-scroll-component";
-import { AppHeader, Btn } from "..";
-import { Item } from "..";
+
+// components
+import { AppHeader, Btn, Item } from "..";
+
+// fetching or editing database
 import { harperFetch } from "../../utils/HarperFetch";
+
 // for formatting date
 import { format } from "date-fns";
 
 const App = (props) => {
   const [data, setData] = useState([]);
-  const [count, setCount] = useState(6);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [sort, setSort] = useState("popular");
+  const [count, setCount] = useState(6); // count of posts that should load first
   const [loading, setLoading] = useState(false);
+
+  // filters
+  const [searchTerm, setSearchTerm] = useState(""); // search
+  const [sort, setSort] = useState("popular"); // sort
 
   useEffect(async () => {
     setData([]);
@@ -47,12 +55,16 @@ const App = (props) => {
         }
       });
     }
+
+    // data to be used
     await setData(cheatSheets);
     setLoading(false);
   }, [sort]);
 
+  // destructuring props
   const { showLoadingButton = false, user, setOpen } = props;
 
+  // filtering posts (search)
   const filterPosts = (data, query) => {
     if (!query) {
       return data;
@@ -64,6 +76,7 @@ const App = (props) => {
     });
   };
 
+  // all posts gets stored here
   const filteredPosts = filterPosts(data, searchTerm);
 
   return (
