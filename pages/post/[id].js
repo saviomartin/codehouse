@@ -2,10 +2,10 @@ import { Button, TextField } from "@material-ui/core";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-import { RightBar, InfoBar } from "../../components";
+import { RightBar, InfoBar, Header } from "../../components";
 import { harperFetch } from "../../utils/HarperFetch";
 
-const Cheatsheet = () => {
+const Cheatsheet = (props) => {
   const router = useRouter();
 
   const [data, setData] = useState([]);
@@ -35,9 +35,12 @@ const Cheatsheet = () => {
   const currentPost = filterPosts(data, id);
 
   return (
-    <div className="bg-image h-full min-h-screen p-6 flex items-center justify-start relative">
-      <InfoBar currentPost={currentPost} />
-      <RightBar currentPost={currentPost} />
+    <div className="bg-image">
+      <Header {...props} />
+      <div className="h-full min-h-screen p-6 flex items-center justify-start relative">
+        <InfoBar currentPost={currentPost} />
+        <RightBar currentPost={currentPost} />
+      </div>
     </div>
   );
 };
