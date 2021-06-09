@@ -1,11 +1,19 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+
+// axios for data fetching
+import axios from "axios";
+
+// icons
 import { FiAirplay, FiBookmark, FiSend, FiTriangle } from "react-icons/fi";
-// for formatting date
-import { formatRelative } from "date-fns";
-import { Comment } from "../index";
-import { Button } from "@material-ui/core";
 import { BsFillBookmarkFill } from "react-icons/bs";
+
+// componenents
+import { Comment } from "../index";
+
+// material design
+import { Button } from "@material-ui/core";
+
+// fetching and editing db
 import { harperFetch } from "../../utils/HarperFetch";
 
 const InfoBar = ({
@@ -18,14 +26,21 @@ const InfoBar = ({
   setFetchAgain,
 }) => {
   const [meta, setMetadata] = useState([]);
-  const [text, setText] = useState("");
   const [error, setError] = useState(false);
-  const [isUpvoted, setIsUpvoted] = useState(false);
   const [loading, setLoading] = useState(true);
-  const { id, cheatsheet_name, website_url, upvotes, comments } =
-    currentPost.length > 0 && currentPost[0];
+
+  // checking states
+  const [isUpvoted, setIsUpvoted] = useState(false);
   const [isBookMarked, setIsBookMarked] = useState(false);
 
+  // text for comment
+  const [text, setText] = useState("");
+
+  // destructuring currentPost[0]
+  const { id, cheatsheet_name, website_url, upvotes, comments } =
+    currentPost.length > 0 && currentPost[0];
+
+  // fetching bookmarked cheatsheets and check if already bookmarked or not
   const fetchBookmarkedCheatsheets = () => {
     if (bookmarks.some((cheatsheet) => cheatsheet.id === id)) {
       setIsBookMarked(true);
@@ -34,6 +49,7 @@ const InfoBar = ({
     }
   };
 
+  // use effect to handle it
   useEffect(() => {
     fetchBookmarkedCheatsheets();
   }, [bookmarks]);
@@ -58,6 +74,7 @@ const InfoBar = ({
       });
   }, [website_url]);
 
+  // use effect for handling is upvoted or not
   useEffect(() => {
     if (upvotes) {
       if (user.email) {
@@ -66,9 +83,11 @@ const InfoBar = ({
     }
   });
 
+  // upvoting a cheatsheet
   const upvoteCheatSheet = () => {
     if (user.email) {
       if (isUpvoted) {
+        // removing upvote if already upvoted
         const index = upvotes.indexOf(user.email);
         upvotes.splice(index, 1);
 
@@ -83,8 +102,11 @@ const InfoBar = ({
             },
           ],
         });
+
+        // fetch date again with new content
         setFetchAgain(fetchAgain + 1);
       } else {
+        // upvoting
         harperFetch({
           operation: "update",
           schema: "dev",
@@ -96,38 +118,48 @@ const InfoBar = ({
             },
           ],
         });
+
+        // fetch date again with new content
         setFetchAgain(fetchAgain + 1);
       }
     } else {
+      // showing sign in popup is user not found
       setOpen(true);
     }
   };
 
+  // geting URL with URL API
   const url =
     currentPost.length > 0 &&
     currentPost[0] &&
     new URL(website_url && website_url);
 
+  // generating image for thumbnail
   const image = () => {
     if (meta.og.images.length) {
       return meta.og.images[0].url;
     } else if (meta.og.image) {
       return meta.og.image;
     } else {
-      return "/assets/image-not-found.jpg";
+      return "/assets/image-not-found.jpg"; // not found image
     }
   };
 
+  // bookmarking a cheatsheet
   const bookmarkCheatsheet = () => {
     if (typeof window !== "undefined") {
       if (isBookMarked) {
+        // removing bookmark
         window.localStorage.setItem(
           "bookmarks",
           JSON.stringify(bookmarks.filter((cheatsheet) => cheatsheet.id !== id))
         );
+
+        // making state uptodate
         fetchBookmarks();
         fetchBookmarkedCheatsheets();
       } else {
+        // adding bookmark
         window.localStorage.setItem(
           "bookmarks",
           JSON.stringify([
@@ -139,14 +171,18 @@ const InfoBar = ({
             },
           ])
         );
+
+        // making state uptodate
         fetchBookmarks();
         fetchBookmarkedCheatsheets();
       }
     }
   };
 
+  // send comment
   const sendComment = () => {
     if (user.email) {
+      // adding comment
       harperFetch({
         operation: "update",
         schema: "dev",
@@ -167,8 +203,11 @@ const InfoBar = ({
           },
         ],
       });
+
+      // fetch date again with new content
       setFetchAgain(fetchAgain + 1);
     } else {
+      // showing sign in popup is user not found
       setOpen(true);
     }
   };
@@ -242,9 +281,11 @@ const InfoBar = ({
             </div>
           </div>
           <div className="w-full bg-[#ddd] h-[1.25px] my-4 rounded-md"></div>
+
           <h1 className="font-semibold text-xl text-[#555]">
             Comments ({comments && comments.length})
           </h1>
+
           <div className="flex border border-[#3d5eff] hover:border-[#445ac5] duration-500 focus:border-[#3d5eff] pl-3 rounded-lg p-1 w-full items-center justify-between mt-2">
             <input
               type="text"
@@ -268,6 +309,7 @@ const InfoBar = ({
               />
             </div>
           </div>
+
           {comments &&
             comments.map((comment, key) => (
               <Comment key={key} comment={comment} />
