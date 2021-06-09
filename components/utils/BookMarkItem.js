@@ -4,10 +4,12 @@ import Link from "next/link";
 import { Btn } from "..";
 import axios from "axios";
 import { BsFillBookmarkFill } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
   const [meta, setMetadata] = useState([]);
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const [isBookMarked, setIsBookMarked] = useState(false);
 
   const { id, cheatsheet_name, website_url } = data;
@@ -81,8 +83,15 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
     }
   };
 
+  const goToCheetSheetPage = () => {
+    router.push(`/post/${id}`);
+  };
+
   return (
-    <div className="cursor-pointer flex justify-between items-center flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale h-[325px]">
+    <div
+      className="cursor-pointer flex justify-between items-center flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale h-[325px]"
+      onClick={goToCheetSheetPage}
+    >
       {loading ? (
         <>
           <div className="relative overflow-hidden h-[157.5px] rounded-md w-[260px] pulsate"></div>
