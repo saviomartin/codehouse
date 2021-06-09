@@ -1,5 +1,7 @@
 import firebase from "firebase";
 
+// firebase config
+// TODO: move to env
 const firebaseConfig = {
   apiKey: "AIzaSyBTH2-7uJKbjZ8slbPxaxny5MreXT-djhA",
   authDomain: "codehouse-bysavio.firebaseapp.com",
@@ -16,6 +18,7 @@ if (!firebase.apps.length) {
   firebase.app(); // if already initialized, use that one
 }
 
+// using db and auth
 const auth = firebase.auth;
 const db = firebase.firestore();
 
