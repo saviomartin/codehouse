@@ -49,7 +49,7 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
 
   return (
     <Drawer anchor="left" open={showDrawer} onClose={toggleDrawer}>
-      <div className="w-auto h-full flex items-center justify-between flex-col bg-[#ECF2F5] relative overflow-y-scroll">
+      <div className="w-[26vw] h-full flex items-center justify-between flex-col bg-[#ECF2F5] relative overflow-y-scroll">
         <div className="w-full h-full sticky top-0 left-0">
           <Tabs
             value={value}
@@ -61,7 +61,7 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
             <Tab label="Sources" value="sources" />
           </Tabs>
         </div>
-        <div className="h-full w-full flex items-center flex-col py-3">
+        <div className="h-full w-full flex items-center flex-col py-3 mb-[20px]">
           <input
             type="text"
             className="w-[92.5%] border white-light-shadow border-[#4469FA] hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 py-2"
@@ -75,35 +75,37 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
             <div className="w-full h-[1px] rounded-sm bg-[#bbb]"></div>
           </div>
 
-          {value === "categories"
-            ? categories.length > 1 &&
-              categories.map((category) => (
-                <Link href={`/categories/${category.name}`}>
-                  <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover my-1">
-                    <h1 className="text-md text-[#222]">{category.name}</h1>
-                    <FiChevronRight className="text-xl icon duration-300" />
-                  </a>
-                </Link>
-              ))
-            : cheatSheets.length > 1 &&
-              cheatSheets.map((cheatsheet) => {
-                const { website_url } = cheatsheet && cheatsheet;
-
-                // extracting url properties
-                const url = new URL(
-                  website_url ? website_url : "https://hashnode.com"
-                );
-                return (
-                  <Link href={`/categories/${url.hostname}`}>
+          <div className="pb-5 w-full flex items-center flex-col">
+            {value === "categories"
+              ? categories.length > 1 &&
+                categories.map((category) => (
+                  <Link href={`/categories/${category.name}`}>
                     <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover my-1">
-                      <h1 className="text-md text-[#222]">
-                        {url.hostname.replace(/^www\./, "")}
-                      </h1>
+                      <h1 className="text-md text-[#222]">{category.name}</h1>
                       <FiChevronRight className="text-xl icon duration-300" />
                     </a>
                   </Link>
-                );
-              })}
+                ))
+              : cheatSheets.length > 1 &&
+                cheatSheets.map((cheatsheet) => {
+                  const { website_url } = cheatsheet && cheatsheet;
+
+                  // extracting url properties
+                  const url = new URL(
+                    website_url ? website_url : "https://hashnode.com"
+                  );
+                  return (
+                    <Link href={`/categories/${url.hostname}`}>
+                      <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover my-1">
+                        <h1 className="text-md text-[#222]">
+                          {url.hostname.replace(/^www\./, "")}
+                        </h1>
+                        <FiChevronRight className="text-xl icon duration-300" />
+                      </a>
+                    </Link>
+                  );
+                })}
+          </div>
         </div>
       </div>
     </Drawer>
