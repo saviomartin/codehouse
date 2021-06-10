@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Drawer from "@material-ui/core/Drawer";
+import { AppBar, Tab, Tabs } from "@material-ui/core";
 
 const Sidebar = ({ showDrawer, toggleDrawer }) => {
+  const [value, setValue] = useState("categories");
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <Drawer anchor="left" open={showDrawer} onClose={toggleDrawer}>
-      hi
+      <div>
+        <Tabs value={value} onChange={handleChange}>
+          <Tab label="Categories" value="categories" />
+          <Tab label="Sources" value="sources" />
+        </Tabs>
+        {value === "categories" ? <h1>Categories</h1> : <h1>Sources</h1>}
+      </div>
     </Drawer>
   );
 };
