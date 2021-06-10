@@ -211,6 +211,9 @@ const InfoBar = ({
 
       // fetch date again with new content
       setFetchAgain(fetchAgain + 1);
+
+      // normal state
+      setText("");
     } else {
       // showing sign in popup is user not found
       setOpen(true);
