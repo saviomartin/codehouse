@@ -266,10 +266,10 @@ const InfoBar = ({
                   isUpvoted
                     ? "bg-[#3d5eff] text-white shine"
                     : "border border-[#3d5eff] text-[#3d5eff] duration-500 hover:bg-[#3d5eff] hover:text-white"
-                } px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center`}
+                } px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover`}
               >
                 {upvotes && upvotes.length} Upvotes
-                <FiTriangle className="text-lg ml-1 -mt-1" />
+                <FiTriangle className="text-lg ml-1 -mt-1 span" />
               </div>
             </Button>
             <Button
@@ -278,9 +278,9 @@ const InfoBar = ({
               target="_blank"
               rel="noreferrer"
             >
-              <div className="border border-[#3d5eff] text-[#3d5eff] hover:bg-[#3d5eff] duration-500 hover:text-white px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center">
+              <div className="border border-[#3d5eff] text-[#3d5eff] hover:bg-[#3d5eff] duration-500 hover:text-white px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover">
                 Visit Website
-                <FiAirplay className="text-lg ml-1" />
+                <FiAirplay className="text-lg ml-1 span !duration-500" />
               </div>
             </Button>
             <div
