@@ -5,14 +5,17 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "graphql": "node graphql/index.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
+    "apollo-server": "^2.25.1",
     "axios": "^0.21.1",
     "date-fns": "^2.22.1",
     "dotenv": "^10.0.0",
     "firebase": "^8.6.5",
+    "graphql": "^15.5.0",
     "next": "latest",
     "nprogress": "^0.2.0",
     "psl": "^1.8.0",
