@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Drawer from "@material-ui/core/Drawer";
 import { AppBar, Tab, Tabs } from "@material-ui/core";
+import { FiChevronRight } from "react-icons/fi";
 
 const Sidebar = ({ showDrawer, toggleDrawer }) => {
   const [value, setValue] = useState("categories");
@@ -35,11 +36,15 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
             <div className="w-full h-[1px] rounded-sm bg-[#bbb]"></div>
           </div>
           {value === "categories" ? (
-            <div className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3">
-              <h1 className="text-md">React</h1>
-            </div>
+            <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover">
+              <h1 className="text-md text-[#222]">React</h1>
+              <FiChevronRight className="text-xl icon duration-300" />
+            </a>
           ) : (
-            <div className="w-[92.5%] h-10 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3"></div>
+            <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover">
+              <h1 className="text-md text-[#222]">React</h1>
+              <FiChevronRight className="text-xl icon duration-300" />
+            </a>
           )}
         </div>
       </div>

@@ -58,3 +58,9 @@
 .cheatsheet-continuous-line:hover {
   --d: -101%;
 }
+
+/* Category Hover */
+.category-hover:hover .icon {
+  color: #4469fa;
+  transform: scale(1.3);
+}
