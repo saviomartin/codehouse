@@ -12,7 +12,7 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
   return (
     <Drawer anchor="left" open={showDrawer} onClose={toggleDrawer}>
       <div className="w-auto h-full flex items-center justify-between flex-col">
-        {value === "categories" ? <h1>Categories</h1> : <h1>Sources</h1>}
+        <div className="h-full w-full flex items-center flex-col bg-black"></div>
         <Tabs value={value} onChange={handleChange}>
           <Tab label="Categories" value="categories" />
           <Tab label="Sources" value="sources" />
