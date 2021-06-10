@@ -260,12 +260,12 @@ const InfoBar = ({
             className="flex mt-4 h-full items-start"
             onClick={upvoteCheatSheet}
           >
-            <Button className="!p-0 !w-auto !h-auto !m-0 shine">
+            <Button className="!p-0 !w-auto !h-auto !m-0">
               <div
                 className={`${
                   isUpvoted
-                    ? "bg-[#3d5eff] text-white"
-                    : "border border-[#3d5eff] text-[#3d5eff]"
+                    ? "bg-[#3d5eff] text-white shine"
+                    : "border border-[#3d5eff] text-[#3d5eff] duration-500 hover:bg-[#3d5eff] hover:text-white"
                 } px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center`}
               >
                 {upvotes && upvotes.length} Upvotes
