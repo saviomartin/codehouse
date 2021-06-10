@@ -1,27 +1,37 @@
 import React, { useEffect, useState } from "react";
+
+// material design sidebar
 import Drawer from "@material-ui/core/Drawer";
-import { AppBar, Tab, Tabs } from "@material-ui/core";
+import { Tab, Tabs } from "@material-ui/core";
+
+// icon
 import { FiChevronRight } from "react-icons/fi";
+
+// fetching cheatSheets and category
 import { harperFetch } from "../../utils/HarperFetch";
+
+// link from next
 import Link from "next/link";
 
 const Sidebar = ({ showDrawer, toggleDrawer }) => {
   const [categories, setCategories] = useState([]);
   const [cheatSheets, setCheatSheets] = useState([]);
+
+  // handles tab
   const [value, setValue] = useState("categories");
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (newValue) => {
     setValue(newValue);
   };
 
   useEffect(async () => {
-    // fetching
+    // fetching category
     const categories = await harperFetch({
       operation: "sql",
       sql: "SELECT * FROM dev.categories",
     });
 
-    // fetching
+    // fetching cheatSheets
     const cheatSheets = await harperFetch({
       operation: "sql",
       sql: "SELECT * FROM dev.cheatsheets",
@@ -31,21 +41,6 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
     await setCategories(categories && categories);
     await setCheatSheets(cheatSheets);
   }, []);
-
-  const getHostName = (url) => {
-    var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
-    if (
-      match != null &&
-      match.length > 2 &&
-      typeof match[2] === "string" &&
-      match[2].length > 0
-    ) {
-      var hostname = match[2].split(".");
-      return hostname[0];
-    } else {
-      return null;
-    }
-  };
 
   return (
     <Drawer anchor="left" open={showDrawer} onClose={toggleDrawer}>
