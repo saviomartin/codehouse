@@ -8,7 +8,7 @@ import "../styles/App.css"; // custom styles
 import { Toaster } from "react-hot-toast";
 
 // components
-import { SignInPopup } from "../components";
+import { Sidebar, SignInPopup } from "../components";
 
 // firebase auth
 import { auth } from "../utils/firebase";
@@ -33,6 +33,13 @@ function MyApp({ Component, pageProps }) {
 
   // handling bookmarks
   const [bookmarks, setBookmarks] = useState([]);
+
+  // drawer
+  const [showDrawer, setShowDrawer] = useState(false);
+
+  const toggleDrawer = () => {
+    setShowDrawer(!showDrawer);
+  };
 
   // fetching bookmarks
   const fetchBookmarks = () => {
@@ -63,6 +70,8 @@ function MyApp({ Component, pageProps }) {
     setUser,
     bookmarks,
     fetchBookmarks,
+    showDrawer,
+    toggleDrawer,
   };
 
   // handling auth and storing user if found
@@ -90,6 +99,7 @@ function MyApp({ Component, pageProps }) {
       {loading && "Loading......"}
       <Component {...pageProps} {...props} />
       <SignInPopup open={open} setOpen={setOpen} />
+      <Sidebar {...props} />
     </div>
   );
 }
