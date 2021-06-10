@@ -29,15 +29,18 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
               value.charAt(0).toUpperCase() + value.slice(1)
             }`}
           />
-          <div className="mt-3 w-full h-full flex items-center justify-start flex-col">
-            {value === "categories" ? (
-              <div className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3">
-                <h1 className="text-md">React</h1>
-              </div>
-            ) : (
-              <div className="w-[92.5%] h-10 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3"></div>
-            )}
+          <div className="w-full flex px-3 my-2 mt-3 items-center">
+            <div className="w-1/12 h-[1px] rounded-sm bg-[#bbb]"></div>
+            <h3 className="mx-1 text-[#555] capitalize">{value}</h3>
+            <div className="w-full h-[1px] rounded-sm bg-[#bbb]"></div>
           </div>
+          {value === "categories" ? (
+            <div className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3">
+              <h1 className="text-md">React</h1>
+            </div>
+          ) : (
+            <div className="w-[92.5%] h-10 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3"></div>
+          )}
         </div>
       </div>
     </Drawer>
