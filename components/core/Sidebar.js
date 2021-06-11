@@ -1,32 +1,52 @@
 import React, { useEffect, useState } from "react";
+
+// material design sidebar
 import Drawer from "@material-ui/core/Drawer";
-import { AppBar, Tab, Tabs } from "@material-ui/core";
+import { Tab, Tabs } from "@material-ui/core";
+
+// icons
 import { FiChevronRight } from "react-icons/fi";
+
+// fetching data
 import { harperFetch } from "../../utils/HarperFetch";
+
+// lodash
 import _ from "lodash";
+
+// link
 import Link from "next/link";
 
 const Sidebar = ({ showDrawer, toggleDrawer }) => {
+  // data
   const [categories, setCategories] = useState([]);
   const [cheatSheets, setCheatSheets] = useState([]);
+
+  // current tab
   const [value, setValue] = useState("categories");
+
+  // search
   const [searchTerm, setSearchTerm] = useState("");
 
+  // handleChange of tabs
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    setSearchTerm("");
+    setSearchTerm(""); // normalize inputs
   };
 
   const removeDuplicate = (arr) => {
-    const cheatSheets = [];
+    const cheatSheets = []; // default state
+
     arr.forEach((item) => {
       const url = new URL(item.website_url);
+
+      // creating a new item
       cheatSheets.push({
         name: item.name,
         url: url.hostname,
       });
     });
-    return _.uniqBy(cheatSheets, "url");
+
+    return _.uniqBy(cheatSheets, "url"); // lodash method of removing duplicates
   };
 
   useEffect(async () => {
