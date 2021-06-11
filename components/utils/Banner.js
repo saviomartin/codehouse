@@ -25,7 +25,7 @@ const Banner = ({ text, website_url, image_url }) => {
   const redditLink = `http://www.reddit.com/submit?url=${website_url}&title=${text}`;
 
   return (
-    <div className="w-full px-3 py-6 my-2 relative flex items-center">
+    <div className="w-full px-3 py-6 my-2 relative flex items-center justify-center">
       <img
         src={image_url}
         alt={text}

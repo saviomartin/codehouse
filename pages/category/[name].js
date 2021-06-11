@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
+
+// use router for params
 import { useRouter } from "next/router";
+
+// components
 import { AppHeader, Banner, Item } from "../../components";
+
+// fetching data
 import { harperFetch } from "../../utils/HarperFetch";
 
 // for inifinite scroll
@@ -18,39 +24,39 @@ const name = (props) => {
   const [searchTerm, setSearchTerm] = useState(""); // search
   const [sort, setSort] = useState("popular"); // sort
 
-  // useEffect(async () => {
-  //   setData([]);
+  useEffect(async () => {
+    setData([]);
 
-  //   // fetching
-  //   const cheatSheets = await harperFetch({
-  //     operation: "sql",
-  //     sql: "SELECT * FROM dev.cheatsheets",
-  //   });
+    // fetching
+    const cheatSheets = await harperFetch({
+      operation: "sql",
+      sql: "SELECT * FROM dev.cheatsheets",
+    });
 
-  //   // sorting
-  //   if (sort === "newest") {
-  //     cheatSheets
-  //       .sort((a, b) => {
-  //         return a.__createdtime__ - b.__createdtime__;
-  //       })
-  //       .reverse();
-  //   } else if (sort === "oldest") {
-  //     cheatSheets.sort((a, b) => {
-  //       return a.__createdtime__ - b.__createdtime__;
-  //     });
-  //   } else {
-  //     cheatSheets.sort((a, b) => {
-  //       if (a.upvotes.length > b.upvotes.length) {
-  //         return -1;
-  //       } else {
-  //         return 1;
-  //       }
-  //     });
-  //   }
+    // sorting
+    if (sort === "newest") {
+      cheatSheets
+        .sort((a, b) => {
+          return a.__createdtime__ - b.__createdtime__;
+        })
+        .reverse();
+    } else if (sort === "oldest") {
+      cheatSheets.sort((a, b) => {
+        return a.__createdtime__ - b.__createdtime__;
+      });
+    } else {
+      cheatSheets.sort((a, b) => {
+        if (a.upvotes.length > b.upvotes.length) {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
+    }
 
-  //   // data to be used
-  //   await setData(cheatSheets);
-  // }, [sort]);
+    // data to be used
+    await setData(cheatSheets);
+  }, [sort]);
 
   // destructuring props
   const { user, setOpen } = props;
