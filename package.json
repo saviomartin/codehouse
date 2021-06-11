@@ -16,6 +16,7 @@
     "dotenv": "^10.0.0",
     "firebase": "^8.6.5",
     "graphql": "^15.5.0",
+    "lodash": "^4.17.21",
     "next": "latest",
     "nprogress": "^0.2.0",
     "psl": "^1.8.0",

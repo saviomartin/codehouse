@@ -3,6 +3,7 @@ import Drawer from "@material-ui/core/Drawer";
 import { AppBar, Tab, Tabs } from "@material-ui/core";
 import { FiChevronRight } from "react-icons/fi";
 import { harperFetch } from "../../utils/HarperFetch";
+import _ from "lodash";
 import Link from "next/link";
 
 const Sidebar = ({ showDrawer, toggleDrawer }) => {
@@ -14,6 +15,18 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
     setSearchTerm("");
+  };
+
+  const removeDuplicate = (arr) => {
+    const cheatSheets = [];
+    arr.forEach((item) => {
+      const url = new URL(item.website_url);
+      cheatSheets.push({
+        name: item.name,
+        url: url.hostname,
+      });
+    });
+    return _.uniqBy(cheatSheets, "url");
   };
 
   useEffect(async () => {
@@ -31,7 +44,7 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
 
     // data to be used
     await setCategories(categories && categories);
-    await setCheatSheets(cheatSheets);
+    await setCheatSheets(removeDuplicate(cheatSheets));
   }, []);
 
   // filtering posts (search)
@@ -41,7 +54,7 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
     }
 
     return data.filter((cheatsheet) => {
-      const cheatsheetURL = cheatsheet.website_url.toLowerCase();
+      const cheatsheetURL = cheatsheet.url.toLowerCase();
       return cheatsheetURL.includes(query.toLowerCase());
     });
   };
@@ -104,25 +117,18 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
                   </a>
                 </Link>
               ))
-            : cheatSheets.length > 1 &&
-              filteredCheatsheet.map((cheatsheet) => {
-                const { website_url } = cheatsheet && cheatsheet;
-
-                // extracting url properties
-                const url = new URL(
-                  website_url ? website_url : "https://hashnode.com"
-                );
-                return (
-                  <Link href={`/categories/${url.hostname}`}>
-                    <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover my-1">
-                      <h1 className="text-md text-[#222]">
-                        {url.hostname.replace(/^www\./, "")}
-                      </h1>
-                      <FiChevronRight className="text-xl icon duration-300" />
-                    </a>
-                  </Link>
-                );
-              })}
+            : filteredCheatsheet &&
+              cheatSheets.length > 1 &&
+              filteredCheatsheet.map((cheatsheet) => (
+                <Link href={`/categories/${cheatsheet.url}`}>
+                  <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover my-1">
+                    <h1 className="text-md text-[#222]">
+                      {cheatsheet.url.replace(/^www\./, "")}
+                    </h1>
+                    <FiChevronRight className="text-xl icon duration-300" />
+                  </a>
+                </Link>
+              ))}
         </div>
       </div>
     </Drawer>
