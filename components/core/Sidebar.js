@@ -9,9 +9,11 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
   const [categories, setCategories] = useState([]);
   const [cheatSheets, setCheatSheets] = useState([]);
   const [value, setValue] = useState("categories");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    setSearchTerm("");
   };
 
   useEffect(async () => {
@@ -32,25 +34,40 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
     await setCheatSheets(cheatSheets);
   }, []);
 
-  const getHostName = (url) => {
-    var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
-    if (
-      match != null &&
-      match.length > 2 &&
-      typeof match[2] === "string" &&
-      match[2].length > 0
-    ) {
-      var hostname = match[2].split(".");
-      return hostname[0];
-    } else {
-      return null;
+  // filtering posts (search)
+  const filterPosts = (data, query) => {
+    if (!query) {
+      return data;
     }
+
+    return data.filter((cheatsheet) => {
+      const cheatsheetURL = cheatsheet.website_url.toLowerCase();
+      return cheatsheetURL.includes(query.toLowerCase());
+    });
   };
+
+  // filtering categories
+  const filterCategories = (data, query) => {
+    if (!query) {
+      return data;
+    }
+
+    return data.filter((category) => {
+      const categoryName = category.name.toLowerCase();
+      return categoryName.includes(query.toLowerCase());
+    });
+  };
+
+  // all posts gets stored here
+  const filteredCheatsheet = filterPosts(cheatSheets, searchTerm);
+
+  // all categories gets stored here
+  const filteredCategories = filterCategories(categories, searchTerm);
 
   return (
     <Drawer anchor="left" open={showDrawer} onClose={toggleDrawer}>
       <div className="w-[25vw] h-full flex items-center justify-between flex-col bg-[#ECF2F5] relative overflow-y-scroll">
-        <div className="w-full h-full sticky top-0 left-0">
+        <div className="w-full h-auto sticky top-0 left-0">
           <Tabs
             value={value}
             onChange={handleChange}
@@ -68,6 +85,8 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
             placeholder={`Search ${
               value.charAt(0).toUpperCase() + value.slice(1)
             }`}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
           <div className="w-full flex px-3 my-2 mt-3 items-center">
             <div className="w-1/12 h-[1px] rounded-sm bg-[#bbb]"></div>
@@ -77,7 +96,7 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
 
           {value === "categories"
             ? categories.length > 1 &&
-              categories.map((category) => (
+              filteredCategories.map((category) => (
                 <Link href={`/categories/${category.name}`}>
                   <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover my-1">
                     <h1 className="text-md text-[#222]">{category.name}</h1>
@@ -86,7 +105,7 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
                 </Link>
               ))
             : cheatSheets.length > 1 &&
-              cheatSheets.map((cheatsheet) => {
+              filteredCheatsheet.map((cheatsheet) => {
                 const { website_url } = cheatsheet && cheatsheet;
 
                 // extracting url properties
