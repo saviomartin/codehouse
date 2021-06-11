@@ -94,7 +94,7 @@ const name = (props) => {
         dataLength={count} //This is important field to render the next data
         next={() => setCount(count + 5)}
         hasMore={count >= filteredPosts.length ? false : true}
-        loader={filteredPosts.length < count ? <h4>Loading...</h4> : ""}
+        loader={<h4>Loading...</h4>}
       >
         <div className="flex justify-center mt-5 w-full flex-wrap">
           {filteredPosts
