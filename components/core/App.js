@@ -9,9 +9,6 @@ import { AppHeader, Btn, Item } from "..";
 // fetching or editing database
 import { harperFetch } from "../../utils/HarperFetch";
 
-// for formatting date
-import { format } from "date-fns";
-
 const App = (props) => {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(6); // count of posts that should load first

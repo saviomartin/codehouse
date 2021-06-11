@@ -130,7 +130,7 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
           {value === "categories"
             ? categories.length > 1 &&
               filteredCategories.map((category) => (
-                <Link href={`/categories/${category.name}`}>
+                <Link href={`/category/${category.name}`}>
                   <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover my-1">
                     <h1 className="text-md text-[#222]">{category.name}</h1>
                     <FiChevronRight className="text-xl icon duration-300" />
@@ -140,7 +140,7 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
             : filteredCheatsheet &&
               cheatSheets.length > 1 &&
               filteredCheatsheet.map((cheatsheet) => (
-                <Link href={`/categories/${cheatsheet.url}`}>
+                <Link href={`/sources/${cheatsheet.url}`}>
                   <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover my-1">
                     <h1 className="text-md text-[#222]">
                       {cheatsheet.url.replace(/^www\./, "")}
