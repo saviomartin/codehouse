@@ -11,7 +11,7 @@ import {
 
 const Banner = ({ text, website_url }) => {
   // intent link for twitter
-  const twitterLink = `https://twitter.com/intent/tweet?text=${text}%0A%20{%20from%20@zackdotcomputer%20}%20via%20codehouse.vercel.app%20by%20@SavioMartin7%0A%0A%23DEVCommunity%20%23100DaysOfCode%20%20%23CodeNewbie%0A${website_url}`;
+  const twitterLink = `https://twitter.com/intent/tweet?text=Enjoying%20these%20amazing%20${text}%20cheatsheets,%20come%20join%20me%20on%20${website_url}%20by%20@SavioMartin7%0A%0A%23DEVCommunity%20%23100DaysOfCode`;
 
   // intent link for facbook
   const facebookLink = `https://www.facebook.com/sharer/sharer.php?u=${website_url}`;

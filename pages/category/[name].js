@@ -79,7 +79,10 @@ const name = (props) => {
         sort={sort}
         setSort={setSort}
       />
-      <Banner text={name} />
+      <Banner
+        text={name}
+        website_url={`https://codehouse.vercel.app/category/${name}`}
+      />
       <InfiniteScroll
         dataLength={count} //This is important field to render the next data
         next={() => setCount(count + 5)}
