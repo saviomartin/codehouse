@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { AppHeader, Item } from "../../components";
+import { AppHeader, Banner, Item } from "../../components";
 import { harperFetch } from "../../utils/HarperFetch";
 
 // for inifinite scroll
@@ -79,6 +79,7 @@ const name = (props) => {
         sort={sort}
         setSort={setSort}
       />
+      <Banner text={name} />
       <InfiniteScroll
         dataLength={count} //This is important field to render the next data
         next={() => setCount(count + 5)}
