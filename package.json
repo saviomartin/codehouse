@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "graphql": "node graphql/index.js"
+    "graphql": "node graphql/index.js",
+    "heroku-postbuild": "npm run graphql"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
