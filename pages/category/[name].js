@@ -82,6 +82,7 @@ const name = (props) => {
       <Banner
         text={name}
         website_url={`https://codehouse.vercel.app/category/${name}`}
+        image_url="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80"
       />
       <InfiniteScroll
         dataLength={count} //This is important field to render the next data

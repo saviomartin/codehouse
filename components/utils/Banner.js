@@ -1,4 +1,6 @@
 import React from "react";
+
+// material design
 import Btn from "./Btn";
 
 // icons
@@ -9,7 +11,7 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 
-const Banner = ({ text, website_url }) => {
+const Banner = ({ text, website_url, image_url }) => {
   // intent link for twitter
   const twitterLink = `https://twitter.com/intent/tweet?text=Enjoying%20these%20amazing%20${text}%20cheatsheets,%20come%20join%20me%20on%20${website_url}%20by%20@SavioMartin7%0A%0A%23DEVCommunity%20%23100DaysOfCode`;
 
@@ -21,11 +23,12 @@ const Banner = ({ text, website_url }) => {
 
   // intent link for reddit
   const redditLink = `http://www.reddit.com/submit?url=${website_url}&title=${text}`;
+
   return (
     <div className="w-full px-3 py-6 my-2 relative flex items-center">
       <img
-        src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80"
-        alt=""
+        src={image_url}
+        alt={text}
         className="h-[160px] max-w-[260px] rounded-md"
       />
       <div className="block ml-5">
