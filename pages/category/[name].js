@@ -11,18 +11,30 @@ import { harperFetch } from "../../utils/HarperFetch";
 
 // for inifinite scroll
 import InfiniteScroll from "react-infinite-scroll-component";
+import axios from "axios";
 
 const name = (props) => {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(6); // count of posts that should load first
 
+  // image from unsplash
+  const [image, setImage] = useState("");
+
   const router = useRouter();
 
   const { name } = router.query;
 
+  // client_id
+  const client_id = process.env.NEXT_PUBLIC_UNSPLASH_CLIENT_ID;
+
   // filters
   const [searchTerm, setSearchTerm] = useState(""); // search
   const [sort, setSort] = useState("popular"); // sort
+
+  function randomIntFromInterval(min, max) {
+    // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
 
   useEffect(async () => {
     setData([]);
@@ -32,6 +44,15 @@ const name = (props) => {
       operation: "sql",
       sql: "SELECT * FROM dev.cheatsheets",
     });
+
+    axios
+      .get(
+        `https://api.unsplash.com/search/photos?client_id=${client_id}&query=code&page=1?per_page=9`
+      )
+      .then((response) => {
+        const randomNumber = randomIntFromInterval(1, 9);
+        setImage(response.data.results[randomNumber].urls.small);
+      });
 
     // sorting
     if (sort === "newest") {
@@ -56,7 +77,7 @@ const name = (props) => {
 
     // data to be used
     await setData(cheatSheets);
-  }, [sort]);
+  }, [sort, name]);
 
   // destructuring props
   const { user, setOpen } = props;
@@ -88,7 +109,7 @@ const name = (props) => {
       <Banner
         text={name}
         website_url={`https://codehouse.vercel.app/category/${name}`}
-        image_url="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80"
+        image_url={image && image}
       />
       <InfiniteScroll
         dataLength={count} //This is important field to render the next data
