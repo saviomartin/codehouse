@@ -33,6 +33,7 @@ const Item = ({
   searchTerm,
   bookmarks,
   fetchBookmarks,
+  review = false,
 }) => {
   const [meta, setMetadata] = useState([]);
   const [error, setError] = useState(false);
@@ -90,7 +91,7 @@ const Item = ({
 
   // going to its own page
   const goToCheetSheetPage = () => {
-    router.push(`/post/${id}`);
+    router.push(`/${review ? "review" : "post"}/${id}`);
   };
 
   // generating image for thumbnail

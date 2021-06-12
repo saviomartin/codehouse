@@ -95,6 +95,7 @@ const Review = (props) => {
               {...props}
               setOpen={setOpen}
               user={user}
+              review={true}
             />
           ))}
         </div>
