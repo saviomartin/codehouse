@@ -142,9 +142,16 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
               filteredCheatsheet.map((cheatsheet) => (
                 <Link href={`/source/${cheatsheet.url}`}>
                   <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover my-1">
-                    <h1 className="text-md text-[#222]">
-                      {cheatsheet.url.replace(/^www\./, "")}
-                    </h1>
+                    <div className="flex items-center w-11/12 overflow-x-hidden">
+                      <img
+                        src={`https://www.google.com/s2/favicons?domain_url=${cheatsheet.url}`}
+                        alt={cheatsheet.url}
+                        className="mr-3"
+                      />
+                      <h1 className="text-md text-[#222]">
+                        {cheatsheet.url.replace(/^www\./, "")}
+                      </h1>
+                    </div>
                     <FiChevronRight className="text-xl icon duration-300" />
                   </a>
                 </Link>
