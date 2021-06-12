@@ -85,7 +85,7 @@ const Review = (props) => {
         dataLength={count} //This is important field to render the next data
         next={() => setCount(count + 5)}
         hasMore={count >= data.lenghth ? false : true}
-        loader={!data.length < 1 ? <h4>Loading...</h4> : ""}
+        loader={data.length > count ? <h4>Loading...</h4> : ""}
       >
         <div className="flex justify-center mt-5 w-full flex-wrap">
           {filteredPosts.slice(0, count).map((cheetsheet, key) => (

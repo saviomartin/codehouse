@@ -40,7 +40,7 @@ const New = () => {
         await harperFetch({
           operation: "insert",
           schema: "dev",
-          table: "cheatsheets",
+          table: "review",
           records: [
             {
               id: uuid,
