@@ -29,7 +29,7 @@ const Banner = ({ text, website_url, image_url }) => {
       <img
         src={image_url}
         alt={text}
-        className="h-[160px] max-w-[260px] rounded-md pixelated"
+        className="h-[160px] w-[260px] rounded-md pixelated"
       />
       <div className="block ml-5">
         <h1 className="text-4xl font-bold capitalize text-[#222]">
