@@ -1,5 +1,14 @@
 const { ApolloServer, gql } = require("apollo-server");
 const axios = require("axios");
+const app = express();
+
+// cors
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 const typeDefs = gql`
   type User {
@@ -44,7 +53,6 @@ const resolvers = {
 };
 
 const server = new ApolloServer({
-  playground: true,
   typeDefs,
   resolvers,
 });
