@@ -8,22 +8,56 @@ const typeDefs = gql`
     avatar_url: String
   }
 
+  type Addedby {
+    displayName: String
+    email: String
+  }
+
+  type Cheatsheets {
+    id: ID
+    cheatsheet_name: String
+    website_url: String
+    category: String
+    twitter_handle: String
+    comments: Int
+    upvotes: Int
+    addedby: Addedby
+  }
+
   type Query {
-    users: [User]
+    cheatsheets: [Cheatsheets]
     user(id: String!): User!
   }
 `;
 
 const resolvers = {
   Query: {
-    users: async () => {
+    cheatsheets: async () => {
       try {
-        const users = await axios.get("https://api.github.com/users");
-        return users.data.map(({ id, login, avatar_url }) => ({
-          id,
-          login,
-          avatar_url,
-        }));
+        const cheatsheets = await axios.get(
+          "http://codehouse.vercel.app/api/cheatsheets/popular"
+        );
+        return cheatsheets.data.map(
+          ({
+            id,
+            cheatsheet_name,
+            website_url,
+            category,
+            twitter_handle,
+            comments,
+            upvotes,
+            addedby,
+          }) => ({
+            id,
+            cheatsheet_name,
+            website_url,
+            category,
+            twitter_handle,
+            comments,
+            upvotes,
+            addedby,
+          })
+        );
       } catch (error) {
         throw error;
       }
