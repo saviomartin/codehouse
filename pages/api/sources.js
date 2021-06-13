@@ -31,7 +31,18 @@ export default async (req, res) => {
       protocol: item.protocol,
       favicon: `https://www.google.com/s2/favicons?domain_url=${url.hostname}`,
       cheatsheets_count: filteredCheatsheet(url.hostname).length,
-      cheatsheets: filteredCheatsheet(url.hostname),
+      cheatsheets: filteredCheatsheet(url.hostname).map((item) => {
+        return {
+          id: item.id,
+          cheatsheet_name: item.cheatsheet_name,
+          website_url: item.website_url,
+          category: item.category,
+          twitter_handle: item.twitter_handle,
+          comments: item.comments.length,
+          upvotes: item.upvotes.length,
+          addedby: item.addedby,
+        };
+      }),
     };
   });
 
