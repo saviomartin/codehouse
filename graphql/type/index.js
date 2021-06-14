@@ -35,6 +35,20 @@ const typeDefs = gql`
     cheatsheets: [Cheatsheets]
   }
 
+  type Cheatsheet {
+    id: ID
+    cheatsheet_name: String
+    description: String
+    website_url: String
+    cover_image: String
+    source: String
+    category: String
+    twitter_handle: String
+    comments: Float
+    upvotes: Float
+    addedby: Addedby
+  }
+
   enum Sort {
     popular
     oldest
