@@ -42,6 +42,7 @@ const typeDefs = gql`
     cheatsheets: [Cheatsheets]
     categories: [Categories]
     sources: [Sources]
+    review: [Cheatsheets]
     user(id: String!): User!
   }
 `;
@@ -52,6 +53,36 @@ const resolvers = {
       try {
         const cheatsheets = await axios.get(
           "http://codehouse.vercel.app/api/cheatsheets/popular"
+        );
+        return cheatsheets.data.map(
+          ({
+            id,
+            cheatsheet_name,
+            website_url,
+            category,
+            twitter_handle,
+            comments,
+            upvotes,
+            addedby,
+          }) => ({
+            id,
+            cheatsheet_name,
+            website_url,
+            category,
+            twitter_handle,
+            comments,
+            upvotes,
+            addedby,
+          })
+        );
+      } catch (error) {
+        throw error;
+      }
+    },
+    review: async () => {
+      try {
+        const cheatsheets = await axios.get(
+          "http://codehouse.vercel.app/api/review"
         );
         return cheatsheets.data.map(
           ({
@@ -93,10 +124,10 @@ const resolvers = {
     },
     sources: async () => {
       try {
-        const cheatsheets = await axios.get(
+        const sources = await axios.get(
           "http://codehouse.vercel.app/api/sources"
         );
-        return cheatsheets.data.map(
+        return sources.data.map(
           ({
             id,
             hostname,
