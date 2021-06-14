@@ -24,8 +24,14 @@ const typeDefs = gql`
     addedby: Addedby
   }
 
+  type Categories {
+    id: ID
+    name: String
+  }
+
   type Query {
     cheatsheets: [Cheatsheets]
+    categories: [Categories]
     user(id: String!): User!
   }
 `;
@@ -58,6 +64,19 @@ const resolvers = {
             addedby,
           })
         );
+      } catch (error) {
+        throw error;
+      }
+    },
+    categories: async () => {
+      try {
+        const categories = await axios.get(
+          "http://codehouse.vercel.app/api/categories"
+        );
+        return categories.data.map(({ id, name }) => ({
+          id,
+          name,
+        }));
       } catch (error) {
         throw error;
       }
