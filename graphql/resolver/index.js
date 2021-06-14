@@ -1,5 +1,7 @@
+// axios
 const { default: axios } = require("axios");
 
+// resolvers
 const resolvers = {
   Query: {
     cheatsheets: async (_, args) => {
@@ -186,4 +188,4 @@ const resolvers = {
   },
 };
 
-module.exports = resolvers;
+module.exports = resolvers; // exporting

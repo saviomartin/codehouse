@@ -1,5 +1,7 @@
+//using gql
 const { gql } = require("apollo-server");
 
+// defining types
 const typeDefs = gql`
   type User {
     id: ID
@@ -66,4 +68,4 @@ const typeDefs = gql`
   }
 `;
 
-module.exports = typeDefs;
+module.exports = typeDefs; // export
