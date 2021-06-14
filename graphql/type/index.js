@@ -40,7 +40,7 @@ const typeDefs = gql`
     categories: [Categories]
     sources: [Sources]
     review: [Cheatsheets]
-    user(id: String!): [Cheatsheets]
+    source(from: String!): [Cheatsheets]
   }
 `;
 

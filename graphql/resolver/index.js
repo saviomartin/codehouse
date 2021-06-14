@@ -101,10 +101,10 @@ const resolvers = {
         throw error;
       }
     },
-    user: async (_, args) => {
+    source: async (_, args) => {
       try {
         const cheatsheets = await axios.get(
-          `http://codehouse.vercel.app/api/source/${args.id}`
+          `http://codehouse.vercel.app/api/source/${args.from}`
         );
         return cheatsheets.data.map(
           ({
