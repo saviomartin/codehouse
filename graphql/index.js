@@ -29,9 +29,19 @@ const typeDefs = gql`
     name: String
   }
 
+  type Sources {
+    id: ID
+    hostname: String
+    protocol: String
+    favicon: String
+    cheatsheets_count: Float
+    cheatsheets: [Cheatsheets]
+  }
+
   type Query {
     cheatsheets: [Cheatsheets]
     categories: [Categories]
+    sources: [Sources]
     user(id: String!): User!
   }
 `;
@@ -77,6 +87,32 @@ const resolvers = {
           id,
           name,
         }));
+      } catch (error) {
+        throw error;
+      }
+    },
+    sources: async () => {
+      try {
+        const cheatsheets = await axios.get(
+          "http://codehouse.vercel.app/api/sources"
+        );
+        return cheatsheets.data.map(
+          ({
+            id,
+            hostname,
+            protocol,
+            favicon,
+            cheatsheets_count,
+            cheatsheets,
+          }) => ({
+            id,
+            hostname,
+            protocol,
+            favicon,
+            cheatsheets_count,
+            cheatsheets,
+          })
+        );
       } catch (error) {
         throw error;
       }
