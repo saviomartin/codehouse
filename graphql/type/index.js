@@ -47,6 +47,7 @@ const typeDefs = gql`
     sources: [Sources]
     review: [Cheatsheets]
     source(from: String!): [Cheatsheets]
+    category(name: String!): [Cheatsheets]
   }
 `;
 

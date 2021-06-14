@@ -131,6 +131,36 @@ const resolvers = {
         throw error;
       }
     },
+    category: async (_, args) => {
+      try {
+        const cheatsheets = await axios.get(
+          `http://codehouse.vercel.app/api/category/${args.name}`
+        );
+        return cheatsheets.data.map(
+          ({
+            id,
+            cheatsheet_name,
+            website_url,
+            category,
+            twitter_handle,
+            comments,
+            upvotes,
+            addedby,
+          }) => ({
+            id,
+            cheatsheet_name,
+            website_url,
+            category,
+            twitter_handle,
+            comments,
+            upvotes,
+            addedby,
+          })
+        );
+      } catch (error) {
+        throw error;
+      }
+    },
   },
 };
 
