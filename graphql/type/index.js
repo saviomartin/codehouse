@@ -62,6 +62,7 @@ const typeDefs = gql`
     review: [Cheatsheets]
     source(from: String!): [Cheatsheets]
     category(name: String!): [Cheatsheets]
+    cheatsheet(id: ID!): Cheatsheet
   }
 `;
 

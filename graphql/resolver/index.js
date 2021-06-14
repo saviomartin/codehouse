@@ -161,6 +161,28 @@ const resolvers = {
         throw error;
       }
     },
+    cheatsheet: async (_, args) => {
+      try {
+        const cheatsheet = await axios.get(
+          `http://codehouse.vercel.app/api/cheatsheet/${args.id}`
+        );
+        return {
+          id: cheatsheet.data.id,
+          cheatsheet_name: cheatsheet.data.cheatsheet_name,
+          description: cheatsheet.data.description,
+          website_url: cheatsheet.data.website_url,
+          cover_image: cheatsheet.data.cover_image,
+          source: cheatsheet.data.source,
+          category: cheatsheet.data.category,
+          twitter_handle: cheatsheet.data.twitter_handle,
+          comments: cheatsheet.data.comments.length,
+          upvotes: cheatsheet.data.upvotes.length,
+          addedby: cheatsheet.data.addedby,
+        };
+      } catch (error) {
+        throw error;
+      }
+    },
   },
 };
 
