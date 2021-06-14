@@ -103,12 +103,30 @@ const resolvers = {
     },
     user: async (_, args) => {
       try {
-        const user = await axios.get(`https://api.github.com/users/${args.id}`);
-        return {
-          id: user.data.id,
-          login: user.data.login,
-          avatar_url: user.data.avatar_url,
-        };
+        const cheatsheets = await axios.get(
+          `http://codehouse.vercel.app/api/source/${args.id}`
+        );
+        return cheatsheets.data.map(
+          ({
+            id,
+            cheatsheet_name,
+            website_url,
+            category,
+            twitter_handle,
+            comments,
+            upvotes,
+            addedby,
+          }) => ({
+            id,
+            cheatsheet_name,
+            website_url,
+            category,
+            twitter_handle,
+            comments,
+            upvotes,
+            addedby,
+          })
+        );
       } catch (error) {
         throw error;
       }

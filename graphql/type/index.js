@@ -3,8 +3,6 @@ const { gql } = require("apollo-server");
 const typeDefs = gql`
   type User {
     id: ID
-    login: String
-    avatar_url: String
   }
 
   type Addedby {
@@ -42,7 +40,7 @@ const typeDefs = gql`
     categories: [Categories]
     sources: [Sources]
     review: [Cheatsheets]
-    user(id: String!): User!
+    user(id: String!): [Cheatsheets]
   }
 `;
 
