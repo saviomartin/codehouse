@@ -2,10 +2,10 @@ const { default: axios } = require("axios");
 
 const resolvers = {
   Query: {
-    cheatsheets: async () => {
+    cheatsheets: async (_, args) => {
       try {
         const cheatsheets = await axios.get(
-          "http://codehouse.vercel.app/api/cheatsheets/popular"
+          `http://codehouse.vercel.app/api/cheatsheets/${args.sort}`
         );
         return cheatsheets.data.map(
           ({

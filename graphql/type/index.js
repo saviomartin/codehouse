@@ -35,8 +35,14 @@ const typeDefs = gql`
     cheatsheets: [Cheatsheets]
   }
 
+  enum Sort {
+    popular
+    oldest
+    newest
+  }
+
   type Query {
-    cheatsheets: [Cheatsheets]
+    cheatsheets(sort: Sort!): [Cheatsheets]
     categories: [Categories]
     sources: [Sources]
     review: [Cheatsheets]
