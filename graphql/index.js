@@ -13,7 +13,9 @@ const server = new ApolloServer({
   playground: true, // important
 });
 
+let port = process.env.PORT || 4000; // port
+
 // listening server on 400
-server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
+server.listen({ port: port }).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
