@@ -19,8 +19,8 @@ const typeDefs = gql`
     website_url: String
     category: String
     twitter_handle: String
-    comments: Int
-    upvotes: Int
+    comments: Float
+    upvotes: Float
     addedby: Addedby
   }
 
