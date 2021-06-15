@@ -32,10 +32,10 @@ const Banner = ({ text, website_url, image_url }) => {
         className="h-[160px] w-[260px] rounded-md pixelated"
       />
       <div className="block ml-5">
-        <h1 className="text-4xl font-bold capitalize text-[#222]">
+        <h1 className="text-4xl font-bold capitalize text-[#222] dark:text-[#ddd]">
           {text} Cheatsheets
         </h1>
-        <p className="text-[#666]">
+        <p className="text-[#666] dark:text-[#aaa]">
           Curated list of {text} cheatsheets! Enjoy 🥳
         </p>
         <div className="flex mt-3">
@@ -78,13 +78,13 @@ const Banner = ({ text, website_url, image_url }) => {
     <div className="w-full py-6 my-2 relative flex items-center justify-center">
       <div className="block ml-5 text-center">
         <a
-          className="text-4xl font-bold text-blue-600 continuous-line"
+          className="text-4xl font-bold text-blue-600 continuous-line dark:text-blue-400"
           href={`https://${text}`}
           target="_blank"
         >
           {text}
         </a>
-        <p className="text-[#666] mt-3">
+        <p className="text-[#666] mt-3 dark:text-[#aaa]">
           Curated list of cheatsheets from {text}! Enjoy 🥳
         </p>
         <div className="flex mt-3 items-center justify-center">
