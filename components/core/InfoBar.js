@@ -268,7 +268,7 @@ const InfoBar = ({
                 className={`${
                   isUpvoted
                     ? "bg-[#3d5eff] text-white shine"
-                    : "border border-[#3d5eff] text-[#3d5eff] duration-500 hover:bg-[#3d5eff] hover:text-white"
+                    : "border border-[#3d5eff] text-[#3d5eff] duration-500 hover:bg-[#3d5eff] hover:text-white dark:border-[#777] dark:text-[#ddd]"
                 } px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover`}
               >
                 {upvotes && upvotes.length} Upvotes
@@ -281,7 +281,7 @@ const InfoBar = ({
               target="_blank"
               rel="noreferrer"
             >
-              <div className="border border-[#3d5eff] text-[#3d5eff] hover:bg-[#3d5eff] duration-500 hover:text-white px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover">
+              <div className="border border-[#3d5eff] text-[#3d5eff] hover:bg-[#3d5eff] duration-500 hover:text-white px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover dark:border-[#777] dark:text-[#ddd]">
                 Visit Website
                 <FiAirplay className="text-lg ml-1 span !duration-500" />
               </div>
@@ -297,9 +297,9 @@ const InfoBar = ({
               )}
             </div>
           </div>
-          <div className="w-full bg-[#ddd] h-[1.25px] my-4 rounded-md"></div>
+          <div className="w-full bg-[#ddd] h-[1.25px] my-4 rounded-md dark:bg-[#555]"></div>
 
-          <h1 className="font-semibold text-xl text-[#555]">
+          <h1 className="font-semibold text-xl text-[#555] dark:text-[#ccc]">
             Comments ({comments && comments.length})
           </h1>
 
@@ -314,7 +314,7 @@ const InfoBar = ({
                   sendComment();
                 }
               }}
-              className="h-full py-1 pl-1 w-full"
+              className="h-full py-1 pl-1 w-full bg-transparent"
             />
             <div
               className="bg-[#3d5eff] p-3 pr-4 cursor-pointer shine rounded-lg"
