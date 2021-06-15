@@ -27,9 +27,6 @@ function MyApp({ Component, pageProps }) {
   const [darkMode, setDarkMode] = useState(false);
   const [listView, setListView] = useState(false);
 
-  //fetch again
-  const [fetchAgain, setFetchAgain] = useState(1);
-
   // handling sign in popup
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState([]);
@@ -85,8 +82,6 @@ function MyApp({ Component, pageProps }) {
     fetchBookmarks,
     showDrawer,
     toggleDrawer,
-    setFetchAgain,
-    fetchAgain,
   };
 
   // handling auth and storing user if found
