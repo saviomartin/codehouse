@@ -72,6 +72,8 @@ const Review = (props) => {
   // all posts gets stored here
   const filteredPosts = filterPosts(data, searchTerm);
 
+  const { darkMode } = props;
+
   return (
     <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f] min-h-screen p-6">
       <AppHeader
@@ -85,8 +87,9 @@ const Review = (props) => {
         text="Cheatsheet on Review"
         description="These cheatsheets are on review, give them an upvote to faster the
           process. Generally takes less than 2 days 🤟"
-        dark_image_url="/assets/svg/review.svg"
-        image="/assets/svg/review.svg"
+        dark_image_url="/assets/svg/review-white.svg"
+        image_url="/assets/svg/review.svg"
+        dark={darkMode}
       />
       <InfiniteScroll
         dataLength={count} //This is important field to render the next data
