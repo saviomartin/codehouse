@@ -1,18 +1,32 @@
 import React from "react";
 
 // components
-import { BookMarkItem, Header } from "../components";
+import { BookMarkItem, Header, SvgBanner } from "../components";
 
-const bookmarksPage = ({ bookmarks, user, fetchBookmarks }) => {
+const bookmarksPage = (props) => {
+  const { bookmarks, user, fetchBookmarks, darkMode } = props;
+
   return (
     <div className="bg-image h-full w-full overflow-visible">
       <Header user={user} />
       <div className="w-full h-full min-h-[90vh] rounded-md white-light-shadow pt-10">
         {bookmarks.length > 0 && bookmarks ? (
           <>
-            <h1 className="text-center text-white font-bold text-3xl mb-2">
-              Your Bookmarks
-            </h1>
+            <div className="flex w-full items-center justify-center mt-3 mb-2">
+              <img
+                src="/assets/svg/bookmarks-white.svg"
+                className="h-[300px]"
+              />
+
+              <div className="w-5/12 overflow-hidden">
+                <h1 className="text-4xl font-bold text-[#fafafa]">
+                  Your BookMarks
+                </h1>
+                <p className="text-sm text-[#ccc]">
+                  These are the cheatsheets you have bookmarked for later! ✌️
+                </p>
+              </div>
+            </div>
             <div className="flex w-full justify-center flex-wrap">
               {bookmarks.map((cheetsheet, key) => (
                 <BookMarkItem
