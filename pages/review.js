@@ -18,41 +18,41 @@ const Review = (props) => {
   const [searchTerm, setSearchTerm] = useState(""); // search
   const [sort, setSort] = useState("popular"); // sort
 
-  useEffect(async () => {
-    setData([]);
-    setLoading(true);
+  // useEffect(async () => {
+  //   setData([]);
+  //   setLoading(true);
 
-    // fetching
-    const cheatSheets = await harperFetch({
-      operation: "sql",
-      sql: "SELECT * FROM dev.review",
-    });
+  //   // fetching
+  //   const cheatSheets = await harperFetch({
+  //     operation: "sql",
+  //     sql: "SELECT * FROM dev.review",
+  //   });
 
-    // sorting
-    if (sort === "newest") {
-      cheatSheets
-        .sort((a, b) => {
-          return a.__createdtime__ - b.__createdtime__;
-        })
-        .reverse();
-    } else if (sort === "oldest") {
-      cheatSheets.sort((a, b) => {
-        return a.__createdtime__ - b.__createdtime__;
-      });
-    } else {
-      cheatSheets.sort((a, b) => {
-        if (a.upvotes.length > b.upvotes.length) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
-    }
+  //   // sorting
+  //   if (sort === "newest") {
+  //     cheatSheets
+  //       .sort((a, b) => {
+  //         return a.__createdtime__ - b.__createdtime__;
+  //       })
+  //       .reverse();
+  //   } else if (sort === "oldest") {
+  //     cheatSheets.sort((a, b) => {
+  //       return a.__createdtime__ - b.__createdtime__;
+  //     });
+  //   } else {
+  //     cheatSheets.sort((a, b) => {
+  //       if (a.upvotes.length > b.upvotes.length) {
+  //         return -1;
+  //       } else {
+  //         return 1;
+  //       }
+  //     });
+  //   }
 
-    // data to be used
-    await setData(cheatSheets);
-    setLoading(false);
-  }, [sort]);
+  //   // data to be used
+  //   await setData(cheatSheets);
+  //   setLoading(false);
+  // }, [sort]);
 
   // destructuring props
   const { user, setOpen } = props;
@@ -73,7 +73,7 @@ const Review = (props) => {
   const filteredPosts = filterPosts(data, searchTerm);
 
   return (
-    <div className="bg-[#ECF2F5] min-h-screen p-6">
+    <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f] min-h-screen p-6">
       <AppHeader
         {...props}
         searchTerm={searchTerm}
@@ -81,6 +81,18 @@ const Review = (props) => {
         sort={sort}
         setSort={setSort}
       />
+      <div className="flex w-full items-center justify-center mt-3 mb-2">
+        <img src="/assets/svg/review.svg" className="h-[300px]" />
+        <div className="w-5/12 overflow-hidden">
+          <h1 className="text-4xl font-bold dark:text-[#fafafa]">
+            Cheatsheet on Review
+          </h1>
+          <p className="text-sm text-[#666] dark:text-[#aaa]">
+            These cheatsheets are on review, give them an upvote to faster the
+            process. Generally takes less than 2 days 🤟
+          </p>
+        </div>
+      </div>
       <InfiniteScroll
         dataLength={count} //This is important field to render the next data
         next={() => setCount(count + 5)}
