@@ -138,7 +138,7 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
                 <img
                   src={meta.og && image()}
                   alt={cheatsheet_name && cheatsheet_name}
-                  className="rounded-md w-full mb-2 h-[157.5px] scale-on-hover duration-500 scale-on-hover"
+                  className="rounded-md w-full mb-2 h-[157.5px] min-h-[157.5px] scale-on-hover duration-500 scale-on-hover"
                 />
               </a>
             </Link>
