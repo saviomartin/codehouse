@@ -77,7 +77,7 @@ const name = (props) => {
   const filteredPosts = filterPosts(data, searchTerm);
 
   return (
-    <div className="bg-[#ECF2F5] min-h-screen p-6">
+    <div className="bg-[#ECF2F5] min-h-screen p-6 dark:bg-[#2F2F2F]">
       <AppHeader
         {...props}
         searchTerm={searchTerm}
