@@ -227,7 +227,7 @@ const Item = ({
                 </Link>
                 <Btn className="rounded-md ml-1 absolute top-1 right-1">
                   <div
-                    className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins"
+                    className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins dark:bg-[#1F1F1F] border border-transparent dark:border-[#555]"
                     onClick={bookmarkCheatsheet}
                   >
                     {isBookMarked ? (

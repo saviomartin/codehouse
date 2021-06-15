@@ -221,7 +221,7 @@ const InfoBar = ({
   };
 
   return (
-    <div className="w-[65%] h-full min-h-[90vh] bg-white rounded-md white-light-shadow border border-[#ddd] p-7">
+    <div className="w-[65%] h-full min-h-[90vh] bg-white rounded-md white-light-shadow border border-[#ddd] p-7 dark:bg-[#1F1F1F] dark:border-[#555] dark:text-white">
       {loading ? (
         <>
           <div className="h-[325px] pulsate w-full rounded-md"></div>
@@ -254,7 +254,7 @@ const InfoBar = ({
           >
             {cheatsheet_name}
           </a>
-          <p className="text-[#666] mt-1">
+          <p className="text-[#666] mt-1 dark:text-[#aaa]">
             {meta.meta && meta.meta.description
               ? meta.meta.description.slice(0, 150)
               : "Description not found"}
