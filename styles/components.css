@@ -57,6 +57,9 @@
   -moz-animation: Wave 2.25s ease infinite;
   animation: Wave 2.25s ease infinite;
 }
+.dark .pulsate {
+  background: linear-gradient(90deg, #2f2f2f 8%, #3f3f3f 18%, #2f2f2f 33%);
+}
 
 /* Pixelated */
 .pixelated {
