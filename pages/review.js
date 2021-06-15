@@ -84,7 +84,7 @@ const Review = (props) => {
       <SvgBanner
         text="Cheatsheet on Review"
         description="These cheatsheets are on review, give them an upvote to faster the
-          process. Generally takes less than 2 days 🤟"
+          process. Validation generally takes less than 2 days 🤟"
         dark_image_url="/assets/svg/review-white.svg"
         image_url="/assets/svg/review.svg"
         dark={darkMode}
