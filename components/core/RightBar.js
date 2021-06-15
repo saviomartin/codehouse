@@ -95,8 +95,10 @@ const RightBar = ({ currentPost }) => {
                       : "Anonymous"}
                   </h2>
                   <div className="text-xs text-[#444] dark:text-[#aaa] flex">
-                    {currentPost[0].addedby.email}
-                    <FiMail className="ml-1 hover:text-[#333]" />
+                    {currentPost[0].addedby.email
+                      ? currentPost[0].addedby.email
+                      : "anonymous"}
+                    <FiMail className="ml-1 hover:text-[#333] dark:hover:text-white" />
                   </div>
                 </div>
               </div>

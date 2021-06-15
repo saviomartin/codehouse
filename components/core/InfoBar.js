@@ -238,7 +238,7 @@ const InfoBar = ({
           <img
             src={meta.og && image()}
             alt=""
-            className="rounded-md w-full mb-4"
+            className="rounded-md w-full mb-4 max-h-[375px]"
           />
           <a
             className="text-blue-500 text-lg"
