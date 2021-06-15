@@ -18,44 +18,44 @@ const Review = (props) => {
   const [searchTerm, setSearchTerm] = useState(""); // search
   const [sort, setSort] = useState("popular"); // sort
 
-  // useEffect(async () => {
-  //   setData([]);
-  //   setLoading(true);
+  useEffect(async () => {
+    setData([]);
+    setLoading(true);
 
-  //   // fetching
-  //   const cheatSheets = await harperFetch({
-  //     operation: "sql",
-  //     sql: "SELECT * FROM dev.review",
-  //   });
+    // fetching
+    const cheatSheets = await harperFetch({
+      operation: "sql",
+      sql: "SELECT * FROM dev.review",
+    });
 
-  //   // sorting
-  //   if (sort === "newest") {
-  //     cheatSheets
-  //       .sort((a, b) => {
-  //         return a.__createdtime__ - b.__createdtime__;
-  //       })
-  //       .reverse();
-  //   } else if (sort === "oldest") {
-  //     cheatSheets.sort((a, b) => {
-  //       return a.__createdtime__ - b.__createdtime__;
-  //     });
-  //   } else {
-  //     cheatSheets.sort((a, b) => {
-  //       if (a.upvotes.length > b.upvotes.length) {
-  //         return -1;
-  //       } else {
-  //         return 1;
-  //       }
-  //     });
-  //   }
+    // sorting
+    if (sort === "newest") {
+      cheatSheets
+        .sort((a, b) => {
+          return a.__createdtime__ - b.__createdtime__;
+        })
+        .reverse();
+    } else if (sort === "oldest") {
+      cheatSheets.sort((a, b) => {
+        return a.__createdtime__ - b.__createdtime__;
+      });
+    } else {
+      cheatSheets.sort((a, b) => {
+        if (a.upvotes.length > b.upvotes.length) {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
+    }
 
-  //   // data to be used
-  //   await setData(cheatSheets);
-  //   setLoading(false);
-  // }, [sort]);
+    // data to be used
+    await setData(cheatSheets);
+    setLoading(false);
+  }, [sort]);
 
   // destructuring props
-  const { user, setOpen } = props;
+  const { user, setOpen, darkMode } = props;
 
   // filtering posts (search)
   const filterPosts = (data, query) => {
@@ -71,8 +71,6 @@ const Review = (props) => {
 
   // all posts gets stored here
   const filteredPosts = filterPosts(data, searchTerm);
-
-  const { darkMode } = props;
 
   return (
     <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f] min-h-screen p-6">
@@ -112,14 +110,26 @@ const Review = (props) => {
       </InfiniteScroll>
       {data.length > 1 && filteredPosts.length < 1 && (
         <div className="w-full flex items-center flex-col">
-          <img src="/assets/svg/no-results.svg" className="h-[300px]" />
-          <h1 className="font-bold text-3xl">No Results Found</h1>
+          {darkMode ? (
+            <img src="/assets/svg/no-results-white.svg" className="h-[300px]" />
+          ) : (
+            <img src="/assets/svg/no-results.svg" className="h-[300px]" />
+          )}
+          <h1 className="font-bold text-3xl dark:text-white">
+            No Results Found
+          </h1>
         </div>
       )}
       {data.length < 1 && (
         <div className="w-full flex items-center flex-col">
-          <img src="/assets/svg/no-results.svg" className="h-[300px]" />
-          <h1 className="font-bold text-3xl">No Cheatsheets on Review</h1>
+          {darkMode ? (
+            <img src="/assets/svg/no-results-white.svg" className="h-[300px]" />
+          ) : (
+            <img src="/assets/svg/no-results.svg" className="h-[300px]" />
+          )}
+          <h1 className="font-bold text-3xl dark:text-white">
+            No Cheatsheets on Review
+          </h1>
         </div>
       )}
     </div>
