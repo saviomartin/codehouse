@@ -8,6 +8,7 @@ import { AppHeader, Btn, Item } from "..";
 
 // fetching or editing database
 import { harperFetch } from "../../utils/HarperFetch";
+import NotFound from "../utils/NotFound";
 
 const App = (props) => {
   const [data, setData] = useState([]);
@@ -133,10 +134,7 @@ const App = (props) => {
         </InfiniteScroll>
       )}
       {data.length > 1 && filteredPosts.length < 1 && (
-        <div className="w-full flex items-center flex-col">
-          <img src="/assets/svg/no-results.svg" className="h-[300px]" />
-          <h1 className="font-bold text-3xl">No Results Found</h1>
-        </div>
+        <NotFound text="No Results Found" darkMode={props.darkMode} />
       )}
     </div>
   );
