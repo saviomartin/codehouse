@@ -18,41 +18,41 @@ const App = (props) => {
   const [searchTerm, setSearchTerm] = useState(""); // search
   const [sort, setSort] = useState("popular"); // sort
 
-  // useEffect(async () => {
-  //   setData([]);
-  //   setLoading(true);
+  useEffect(async () => {
+    setData([]);
+    setLoading(true);
 
-  //   // fetching
-  //   const cheatSheets = await harperFetch({
-  //     operation: "sql",
-  //     sql: "SELECT * FROM dev.cheatsheets",
-  //   });
+    // fetching
+    const cheatSheets = await harperFetch({
+      operation: "sql",
+      sql: "SELECT * FROM dev.cheatsheets",
+    });
 
-  //   // sorting
-  //   if (sort === "newest") {
-  //     cheatSheets
-  //       .sort((a, b) => {
-  //         return a.__createdtime__ - b.__createdtime__;
-  //       })
-  //       .reverse();
-  //   } else if (sort === "oldest") {
-  //     cheatSheets.sort((a, b) => {
-  //       return a.__createdtime__ - b.__createdtime__;
-  //     });
-  //   } else {
-  //     cheatSheets.sort((a, b) => {
-  //       if (a.upvotes.length > b.upvotes.length) {
-  //         return -1;
-  //       } else {
-  //         return 1;
-  //       }
-  //     });
-  //   }
+    // sorting
+    if (sort === "newest") {
+      cheatSheets
+        .sort((a, b) => {
+          return a.__createdtime__ - b.__createdtime__;
+        })
+        .reverse();
+    } else if (sort === "oldest") {
+      cheatSheets.sort((a, b) => {
+        return a.__createdtime__ - b.__createdtime__;
+      });
+    } else {
+      cheatSheets.sort((a, b) => {
+        if (a.upvotes.length > b.upvotes.length) {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
+    }
 
-  //   // data to be used
-  //   await setData(cheatSheets);
-  //   setLoading(false);
-  // }, [sort]);
+    // data to be used
+    await setData(cheatSheets);
+    setLoading(false);
+  }, [sort]);
 
   // destructuring props
   const { showLoadingButton = false, user, setOpen } = props;
