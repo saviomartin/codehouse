@@ -118,18 +118,18 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
 
   return (
     <div
-      className="cursor-pointer flex justify-between items-center flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale h-[325px] parent-for-image-scale"
+      className="cursor-pointer flex justify-between items-center flex-col p-5 px-4 rounded-md duration-500 white-light-shadow bg-white m-2 w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale h-[325px] parent-for-image-scale dark:border-[#555] dark:bg-[#1F1F1F] dark:text-white"
       onClick={goToCheetSheetPage}
     >
       {loading ? (
-        <>
-          <div className="relative overflow-hidden h-[157.5px] rounded-md w-[260px] pulsate"></div>
+        <div className="w-full h-full">
+          <div className="relative overflow-hidden h-[157.5px] rounded-md w-full pulsate"></div>
           <div className="mt-3">
             <div className="relative overflow-hidden h-[15px] rounded-sm w-[170px] pulsate"></div>
             <div className="relative overflow-hidden h-[40px] rounded-sm w-[260px] pulsate mt-1"></div>
-            <div className="relative overflow-hidden h-[10px] rounded-sm w-[260px] pulsate mt-1"></div>
+            <div className="relative overflow-hidden h-[10px] rounded-sm w-full pulsate mt-1"></div>
           </div>
-        </>
+        </div>
       ) : (
         <>
           <div className="w-full relative overflow-hidden h-[157.5px] rounded-md">
@@ -144,7 +144,7 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
             </Link>
             <Btn className="rounded-md ml-1 absolute top-1 right-1">
               <div
-                className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins"
+                className="bg-[#ffffff] p-2 text-[#F5BA31] duration-500 text-md capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover border border-transparent poppins dark:border-[#555] dark:bg-[#1F1F1F]"
                 onClick={bookmarkCheatsheet}
               >
                 {isBookMarked ? (
@@ -169,7 +169,7 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
                   ? cheatsheet_name.slice(0, 50) + "..."
                   : cheatsheet_name}
               </h1>
-              <p className="text-[12px] text-[#666] mt-1">
+              <p className="text-[12px] text-[#666] mt-1 dark:text-[#aaa]">
                 {meta.meta && meta.meta.description
                   ? meta.meta.description.slice(0, 150)
                   : "description not found"}
