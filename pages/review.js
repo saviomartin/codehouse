@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 // components
-import { AppHeader, Item } from "../components";
+import { AppHeader, Item, SvgBanner } from "../components";
 
 // fetching or editing database
 import { harperFetch } from "../utils/HarperFetch";
@@ -81,18 +81,13 @@ const Review = (props) => {
         sort={sort}
         setSort={setSort}
       />
-      <div className="flex w-full items-center justify-center mt-3 mb-2">
-        <img src="/assets/svg/review.svg" className="h-[300px]" />
-        <div className="w-5/12 overflow-hidden">
-          <h1 className="text-4xl font-bold dark:text-[#fafafa]">
-            Cheatsheet on Review
-          </h1>
-          <p className="text-sm text-[#666] dark:text-[#aaa]">
-            These cheatsheets are on review, give them an upvote to faster the
-            process. Generally takes less than 2 days 🤟
-          </p>
-        </div>
-      </div>
+      <SvgBanner
+        text="Cheatsheet on Review"
+        description="These cheatsheets are on review, give them an upvote to faster the
+          process. Generally takes less than 2 days 🤟"
+        dark_image_url="/assets/svg/review.svg"
+        image="/assets/svg/review.svg"
+      />
       <InfiniteScroll
         dataLength={count} //This is important field to render the next data
         next={() => setCount(count + 5)}
