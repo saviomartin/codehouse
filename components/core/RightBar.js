@@ -52,7 +52,7 @@ const RightBar = ({ currentPost }) => {
             <>
               <h1 className="text-lg font-bold text-[#ECF2F5]">From</h1>
               <a
-                className="bg-[#ECF2F5] rounded-md border border-[#ddd] p-2 flex items-center hover:bg-white duration-200"
+                className="bg-[#ECF2F5] rounded-md border border-[#ddd] dark:bg-[#1F1F1F] dark:border-[#555] p-2 flex items-center hover:bg-white duration-200"
                 href={`https://twitter.com/${twitter_handle}`}
                 target="_blank"
                 rel="noreferrer"
@@ -63,10 +63,10 @@ const RightBar = ({ currentPost }) => {
                   className="h-[50px] w-[50px] rounded-md white-light-shadow"
                 />
                 <div className="ml-2">
-                  <h2 className="font-semibold text-lg text-[#222] hover:text-[#3d5eff] cheatsheet-continuous-line">
+                  <h2 className="font-semibold text-lg text-[#222] hover:text-[#3d5eff] cheatsheet-continuous-line dark:text-[#ddd]">
                     {twitter_handle}
                   </h2>
-                  <div className="text-xs text-[#3d5eff] flex">
+                  <div className="text-xs text-[#3d5eff] dark:text-blue-400 flex">
                     twitter.com/{twitter_handle}
                     <FiTwitter className="ml-1 hover:text-[#333]" />
                   </div>
@@ -82,19 +82,19 @@ const RightBar = ({ currentPost }) => {
               <h1 className="text-lg font-bold text-[#ECF2F5] mt-3">
                 Added By
               </h1>
-              <div className="bg-[#ECF2F5] rounded-md border border-[#ddd] p-2 flex items-center hover:bg-white duration-200">
+              <div className="bg-[#ECF2F5] rounded-md border border-[#ddd] p-2 flex items-center hover:bg-white duration-200 dark:bg-[#1F1F1F] dark:border-[#555]">
                 <img
                   src={`https://unavatar.vercel.app/${currentPost[0].addedby.email}`}
                   alt=""
                   className="h-[50px] w-[50px] rounded-md pixelated white-light-shadow"
                 />
                 <div className="ml-2">
-                  <h2 className="font-semibold text-lg text-[#222] hover:text-[#3d5eff] cheatsheet-continuous-line">
+                  <h2 className="font-semibold text-lg text-[#222] dark:text-[#ddd] hover:text-[#3d5eff] cheatsheet-continuous-line">
                     {currentPost[0].addedby.displayName
                       ? currentPost[0].addedby.displayName
                       : "Anonymous"}
                   </h2>
-                  <div className="text-xs text-[#444] flex">
+                  <div className="text-xs text-[#444] dark:text-[#aaa] flex">
                     {currentPost[0].addedby.email}
                     <FiMail className="ml-1 hover:text-[#333]" />
                   </div>
@@ -106,17 +106,17 @@ const RightBar = ({ currentPost }) => {
               <h1 className="text-lg font-bold text-[#ECF2F5] mt-3">
                 Added By
               </h1>
-              <div className="bg-[#ECF2F5] rounded-md border border-[#ddd] p-2 flex items-center hover:bg-white duration-200">
+              <div className="bg-[#ECF2F5] rounded-md border border-[#ddd] p-2 flex items-center hover:bg-white duration-200 dark:bg-[#1F1F1F] dark:border-[#555]">
                 <img
                   src="https://avatars.githubusercontent.com/saviomartin"
                   alt=""
                   className="h-[50px] w-[50px] rounded-md pixelated white-light-shadow"
                 />
                 <div className="ml-2">
-                  <h2 className="font-semibold text-lg text-[#222] hover:text-[#3d5eff] cheatsheet-continuous-line">
+                  <h2 className="font-semibold text-lg text-[#222] dark:text-[#ddd] hover:text-[#3d5eff] cheatsheet-continuous-line">
                     Savio Martin
                   </h2>
-                  <div className="text-xs text-[#444] flex">
+                  <div className="text-xs text-[#444] dark:text-[#aaa] flex">
                     saviomartin2007@gmail.com
                     <FiMail className="ml-1 hover:text-[#333]" />
                   </div>
