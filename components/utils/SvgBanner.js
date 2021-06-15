@@ -11,7 +11,7 @@ const SvgBanner = ({ text, description, image_url, dark_image_url, dark }) => {
 
       <div className="w-5/12 overflow-hidden">
         <h1 className="text-4xl font-bold dark:text-[#fafafa]">{text}</h1>
-        <p className="text-sm text-[#666] dark:text-[#aaa]">{description}</p>
+        <p className="text-sm text-[#666] dark:text-[#ccc]">{description}</p>
       </div>
     </div>
   );
