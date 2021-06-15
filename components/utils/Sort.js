@@ -5,7 +5,7 @@ const Sort = ({ setSort, sort }) => {
   // popular, newest, oldest
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center dark:text-white">
       <h3
         className={`${
           sort === "popular" && "font-bold"

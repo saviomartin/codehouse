@@ -30,11 +30,11 @@ const AppHeader = ({
   };
 
   return (
-    <div className="w-full py-4 px-8 bg-white rounded-md white-light-shadow flex items-center justify-between">
+    <div className="w-full py-4 px-8 bg-white dark:bg-[#1F1F1F] rounded-md white-light-shadow flex items-center justify-between">
       <div className="flex items-center justify-start w-5/12">
         <Btn>
           <div
-            className="border border-[#ddd] hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-5 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover"
+            className="border border-[#ddd] dark:border-[#555] hover:border-[#3d5eff] text-[#3d5eff] dark:text-white duration-500 px-5 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover"
             onClick={toggleDrawer}
           >
             Menu
@@ -47,7 +47,7 @@ const AppHeader = ({
         <Sort setSort={setSort} sort={sort} />
         <Btn className="!ml-6 rounded-md">
           <div
-            className="border border-[#ddd] hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 pl-4 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover"
+            className="border border-[#ddd] dark:border-[#555] dark:text-white hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 pl-4 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover"
             onClick={toggleListView}
           >
             {listView ? (
@@ -59,7 +59,7 @@ const AppHeader = ({
         </Btn>
         <Btn className="!ml-1 rounded-md">
           <div
-            className="border border-[#ddd] hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 pl-4 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover"
+            className="border border-[#ddd] dark:border-[#555] dark:text-white hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 pl-4 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover"
             onClick={toggleDarkMode}
           >
             {darkMode ? (
