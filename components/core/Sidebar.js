@@ -16,7 +16,7 @@ import _ from "lodash";
 // link
 import Link from "next/link";
 
-const Sidebar = ({ showDrawer, toggleDrawer }) => {
+const Sidebar = ({ showDrawer, toggleDrawer, darkMode }) => {
   // data
   const [categories, setCategories] = useState([]);
   const [cheatSheets, setCheatSheets] = useState([]);
@@ -99,13 +99,17 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
 
   return (
     <Drawer anchor="left" open={showDrawer} onClose={toggleDrawer}>
-      <div className="w-[25vw] h-full flex items-center justify-between flex-col bg-[#ECF2F5] relative overflow-y-scroll">
+      <div
+        className={`${
+          darkMode ? "dark bg-[#2f2f2f] text-white" : "light"
+        } w-[25vw] h-full flex items-center justify-between flex-col bg-[#ECF2F5] relative overflow-y-scroll`}
+      >
         <div className="w-full h-auto sticky top-0 left-0">
           <Tabs
             value={value}
             onChange={handleChange}
             indicatorColor="primary"
-            className="bg-white border border-t-[#ccc] white-light-shadow"
+            className="bg-white border border-t-[#ccc] dark:bg-[#1f1f1f] dark:border-[#666] white-light-shadow"
           >
             <Tab label="Categories" value="categories" />
             <Tab label="Sources" value="sources" />
@@ -114,7 +118,7 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
         <div className="h-full w-full flex items-center flex-col py-3">
           <input
             type="text"
-            className="w-[92.5%] border white-light-shadow border-[#4469FA] hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 py-2"
+            className="w-[92.5%] border white-light-shadow border-[#4469FA] hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 py-2 dark:bg-[#1f1f1f]"
             placeholder={`Search ${
               value.charAt(0).toUpperCase() + value.slice(1)
             }`}
@@ -122,17 +126,21 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <div className="w-full flex px-3 my-2 mt-3 items-center">
-            <div className="w-1/12 h-[1px] rounded-sm bg-[#bbb]"></div>
-            <h3 className="mx-1 text-[#555] capitalize">{value}</h3>
-            <div className="w-full h-[1px] rounded-sm bg-[#bbb]"></div>
+            <div className="w-1/12 h-[1px] rounded-sm bg-[#bbb] dark:bg-[#555]"></div>
+            <h3 className="mx-1 text-[#555] capitalize dark:text-[#ddd]">
+              {value}
+            </h3>
+            <div className="w-full h-[1px] rounded-sm bg-[#bbb] dark:bg-[#555]"></div>
           </div>
 
           {value === "categories"
             ? categories.length > 1 &&
               filteredCategories.map((category) => (
                 <Link href={`/category/${category.name}`}>
-                  <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover my-1">
-                    <h1 className="text-md text-[#222]">{category.name}</h1>
+                  <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover my-1 dark:bg-[#1f1f1f] dark:border-[#555]">
+                    <h1 className="text-md text-[#222] dark:text-[#fafafa]">
+                      {category.name}
+                    </h1>
                     <FiChevronRight className="text-xl icon duration-300" />
                   </a>
                 </Link>
@@ -141,14 +149,14 @@ const Sidebar = ({ showDrawer, toggleDrawer }) => {
               cheatSheets.length > 1 &&
               filteredCheatsheet.map((cheatsheet) => (
                 <Link href={`/source/${cheatsheet.url}`}>
-                  <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover my-1">
+                  <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover my-1 dark:bg-[#1f1f1f] dark:border-[#555]">
                     <div className="flex items-center w-11/12 overflow-x-hidden">
                       <img
                         src={`https://www.google.com/s2/favicons?domain_url=${cheatsheet.url}`}
                         alt={cheatsheet.url}
                         className="mr-3"
                       />
-                      <h1 className="text-md text-[#222]">
+                      <h1 className="text-md text-[#222] dark:text-[#fafafa]">
                         {cheatsheet.url.replace(/^www\./, "")}
                       </h1>
                     </div>
