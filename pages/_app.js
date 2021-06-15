@@ -27,6 +27,9 @@ function MyApp({ Component, pageProps }) {
   const [darkMode, setDarkMode] = useState(false);
   const [listView, setListView] = useState(false);
 
+  //fetch again
+  const [fetchAgain, setFetchAgain] = useState(1);
+
   // handling sign in popup
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState([]);
@@ -58,6 +61,16 @@ function MyApp({ Component, pageProps }) {
     fetchBookmarks();
   }, []);
 
+  useEffect(() => {
+    if (window.localStorage.getItem("darkMode")) {
+      setDarkMode(JSON.parse(localStorage.getItem("darkMode")));
+      console.log(darkMode);
+    } else {
+      setDarkMode(false);
+      window.localStorage.setItem("darkMode", false);
+    }
+  }, []);
+
   // destructured props
   const props = {
     darkMode,
@@ -72,6 +85,8 @@ function MyApp({ Component, pageProps }) {
     fetchBookmarks,
     showDrawer,
     toggleDrawer,
+    setFetchAgain,
+    fetchAgain,
   };
 
   // handling auth and storing user if found

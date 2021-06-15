@@ -15,11 +15,15 @@ const AppHeader = ({
   setSearchTerm,
   sort,
   setSort,
+  fetchAgain,
   toggleDrawer,
+  setFetchAgain,
 }) => {
   // toggling dark mode
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
+    window.localStorage.setItem("darkMode", !darkMode);
+    setFetchAgain(fetchAgain + 1);
   };
 
   // toggling view
