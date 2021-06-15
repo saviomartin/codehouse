@@ -26,6 +26,7 @@ const AppHeader = ({
   // toggling view
   const toggleListView = () => {
     setListView(!listView);
+    window.localStorage.setItem("listView", !listView);
   };
 
   return (

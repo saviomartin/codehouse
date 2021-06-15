@@ -61,10 +61,15 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     if (window.localStorage.getItem("darkMode")) {
       setDarkMode(JSON.parse(localStorage.getItem("darkMode")));
-      console.log(darkMode);
     } else {
       setDarkMode(false);
       window.localStorage.setItem("darkMode", false);
+    }
+    if (window.localStorage.getItem("listView")) {
+      setListView(JSON.parse(localStorage.getItem("listView")));
+    } else {
+      setListView(false);
+      window.localStorage.setItem("listView", false);
     }
   }, []);
 
