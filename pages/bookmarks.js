@@ -9,13 +9,13 @@ const bookmarksPage = (props) => {
   return (
     <div className="bg-image h-full w-full overflow-visible">
       <Header user={user} />
-      <div className="w-full h-full min-h-[90vh] rounded-md white-light-shadow pt-10">
+      <div className="w-full h-full min-h-[90vh] rounded-md white-light-shadow pt-5">
         {bookmarks.length > 0 && bookmarks ? (
           <>
             <div className="flex w-full items-center justify-center mt-3 mb-2">
               <img
                 src="/assets/svg/bookmarks-white.svg"
-                className="h-[300px]"
+                className="h-[250px]"
               />
 
               <div className="w-5/12 overflow-hidden">
