@@ -109,17 +109,17 @@ const New = () => {
       <h1 className="text-2xl md:text-4xl lg:text-4xl xl:text-4xl font-bold mb-1 lg:mb-3 xl:mb-3 text-center">
         Create New Cheatsheet
       </h1>
-      <div className="w-full lg:w-7/12 xl:w-7/12 h-full bg-white rounded-xl m-1">
+      <div className="w-full lg:w-7/12 xl:w-7/12 h-full bg-white dark:bg-[#2f2f2f] rounded-xl m-1">
         <form
-          className="bg-white rounded-xl h-full px-8 pt-6 pb-8 mb-4"
+          className="bg-transparent rounded-xl h-full px-8 pt-6 pb-8 mb-4"
           onSubmit={onSubmit}
         >
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-[#fafafa]">
               Cheatsheet Name
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:border-[#555] dark:text-white"
               value={cheatsheet_name}
               onChange={handleChange("cheatsheet_name")}
               type="text"
@@ -127,28 +127,28 @@ const New = () => {
             />
           </div>
           <div className="mb-2">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-[#fafafa]">
               Website URL
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:border-[#555] dark:text-white"
               value={website_url}
               onChange={handleChange("website_url")}
               placeholder="https://hashnode.com/"
             />
           </div>
           <div className="mb-6 pr-8">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-[#fafafa]">
               Category
             </label>
-            <span className="shadow appearance-none border rounded w-full py-2 px-3 pr-4 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
+            <span className="shadow appearance-none border rounded w-full py-2 px-3 pr-4 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:border-[#555] dark:text-white">
               <input
                 type="text"
                 list="alist"
                 value={category}
                 onChange={handleChange("category")}
                 placeholder="react"
-                className="w-full"
+                className="w-full bg-transparent"
               />
               <datalist id="alist" className="w-full text-black">
                 {categories.map((category, key) => (
@@ -158,11 +158,11 @@ const New = () => {
             </span>
           </div>
           <div className="mb-2">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-[#fafafa]">
               Your Twitter Handle (optional)
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:border-[#555] dark:text-white"
               value={twitter_handle}
               onChange={handleChange("twitter_handle")}
               placeholder="SavioMartin7"
