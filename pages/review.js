@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 // components
-import { AppHeader, Item, SvgBanner } from "../components";
+import { AppHeader, Item, NotFound, SvgBanner } from "../components";
 
 // fetching or editing database
 import { harperFetch } from "../utils/HarperFetch";
@@ -109,29 +109,9 @@ const Review = (props) => {
         </div>
       </InfiniteScroll>
       {data.length > 1 && filteredPosts.length < 1 && (
-        <div className="w-full flex items-center flex-col">
-          {darkMode ? (
-            <img src="/assets/svg/no-results-white.svg" className="h-[300px]" />
-          ) : (
-            <img src="/assets/svg/no-results.svg" className="h-[300px]" />
-          )}
-          <h1 className="font-bold text-3xl dark:text-white">
-            No Results Found
-          </h1>
-        </div>
+        <NotFound text="No Results Found" darkMode />
       )}
-      {data.length < 1 && (
-        <div className="w-full flex items-center flex-col">
-          {darkMode ? (
-            <img src="/assets/svg/no-results-white.svg" className="h-[300px]" />
-          ) : (
-            <img src="/assets/svg/no-results.svg" className="h-[300px]" />
-          )}
-          <h1 className="font-bold text-3xl dark:text-white">
-            No Cheatsheets on Review
-          </h1>
-        </div>
-      )}
+      {data.length < 1 && <NotFound text="No Cheatsheets on Review" darkMode />}
     </div>
   );
 };
