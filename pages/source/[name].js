@@ -4,13 +4,20 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 // components
-import { AppHeader, Banner, Item, NotFound } from "../../components";
+import {
+  AppHeader,
+  Banner,
+  Item,
+  MainHeader,
+  NotFound,
+} from "../../components";
 
 // fetching data
 import { harperFetch } from "../../utils/HarperFetch";
 
 // for inifinite scroll
 import InfiniteScroll from "react-infinite-scroll-component";
+import { Fragment } from "react";
 
 const name = (props) => {
   const [data, setData] = useState([]);
@@ -77,48 +84,51 @@ const name = (props) => {
   const filteredPosts = filterPosts(data, searchTerm);
 
   return (
-    <div className="bg-[#ECF2F5] min-h-screen p-6 dark:bg-[#2F2F2F]">
-      <AppHeader
-        {...props}
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        sort={sort}
-        setSort={setSort}
-      />
-      <Banner
-        text={name}
-        website_url={`https://codehouse.vercel.app/source/${name}`}
-      />
-      <InfiniteScroll
-        dataLength={count} //This is important field to render the next data
-        next={() => setCount(count + 5)}
-        hasMore={count >= filteredPosts.length ? false : true}
-      >
-        <div className="flex justify-center mt-5 w-full flex-wrap">
-          {filteredPosts
-            .filter((cheatsheet) => {
-              const url = new URL(cheatsheet.website_url);
+    <Fragment>
+      <MainHeader user={user} />
+      <div className="bg-[#ECF2F5] min-h-screen p-6 dark:bg-[#2F2F2F]">
+        <AppHeader
+          {...props}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          sort={sort}
+          setSort={setSort}
+        />
+        <Banner
+          text={name}
+          website_url={`https://codehouse.vercel.app/source/${name}`}
+        />
+        <InfiniteScroll
+          dataLength={count} //This is important field to render the next data
+          next={() => setCount(count + 5)}
+          hasMore={count >= filteredPosts.length ? false : true}
+        >
+          <div className="flex justify-center mt-5 w-full flex-wrap">
+            {filteredPosts
+              .filter((cheatsheet) => {
+                const url = new URL(cheatsheet.website_url);
 
-              const cheatsheetName = url.hostname.toLowerCase();
-              return cheatsheetName.includes(name && name.toLowerCase());
-            })
-            .slice(0, count)
-            .map((cheetsheet, key) => (
-              <Item
-                data={cheetsheet}
-                key={key}
-                {...props}
-                setOpen={setOpen}
-                user={user}
-              />
-            ))}
-        </div>
-      </InfiniteScroll>
+                const cheatsheetName = url.hostname.toLowerCase();
+                return cheatsheetName.includes(name && name.toLowerCase());
+              })
+              .slice(0, count)
+              .map((cheetsheet, key) => (
+                <Item
+                  data={cheetsheet}
+                  key={key}
+                  {...props}
+                  setOpen={setOpen}
+                  user={user}
+                />
+              ))}
+          </div>
+        </InfiniteScroll>
 
-      {data.length > 1 && filteredPosts.length < 1 && (
-        <NotFound text="No Results Found" darkMode={props.darkMode} />
-      )}
-    </div>
+        {data.length > 1 && filteredPosts.length < 1 && (
+          <NotFound text="No Results Found" darkMode={props.darkMode} />
+        )}
+      </div>
+    </Fragment>
   );
 };
 
