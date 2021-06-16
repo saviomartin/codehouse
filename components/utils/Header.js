@@ -84,7 +84,7 @@ const Header = ({ setOpen, user, setUser }) => {
         </div>
         <Btn className="rounded-md block lg:hidden md:hidden xl:hidden">
           <div
-            className={`bg-app-gradient-2 border border-[#ddd] dark:border-[#555] dark:text-white hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover menu-toggle ${
+            className={`bg-app-gradient-2 dark:text-white duration-500 px-3 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover menu-toggle ${
               showNav && "menu-toggle-active"
             }`}
             onClick={() => setShowNav(!showNav)}
