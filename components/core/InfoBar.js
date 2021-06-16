@@ -221,7 +221,7 @@ const InfoBar = ({
   };
 
   return (
-    <div className="w-[65%] h-full min-h-[90vh] bg-white rounded-md white-light-shadow border border-[#ddd] p-7 dark:bg-[#1F1F1F] dark:border-[#555] dark:text-white">
+    <div className="w-full lg:w-[65%] xl:w-[65%] h-full min-h-[90vh] bg-white rounded-md white-light-shadow border border-[#ddd] p-7 dark:bg-[#1F1F1F] dark:border-[#555] dark:text-white">
       {loading ? (
         <>
           <div className="h-[325px] pulsate w-full rounded-md"></div>
@@ -241,7 +241,7 @@ const InfoBar = ({
             className="rounded-md w-full mb-4 max-h-[375px]"
           />
           <a
-            className="text-blue-500 text-lg"
+            className="text-blue-500 text-base lg:text-lg xl:text-lg"
             href={url.protocol && url.hostname && url.protocol + url.hostname}
             target="_blank"
           >
@@ -249,12 +249,12 @@ const InfoBar = ({
           </a>
           <br />
           <a
-            className="font-bold text-3xl continuous-line hover:text-[#3d5eff]"
+            className="font-bold text-2xl lg:text-3xl xl:text-3xl continuous-line hover:text-[#3d5eff]"
             href={website_url}
           >
             {cheatsheet_name}
           </a>
-          <p className="text-[#666] mt-1 dark:text-[#aaa]">
+          <p className="text-[#666] mt-1 dark:text-[#aaa] text-sm lg:text-base">
             {meta.meta && meta.meta.description
               ? meta.meta.description.slice(0, 150)
               : "Description not found"}
@@ -269,7 +269,7 @@ const InfoBar = ({
                   isUpvoted
                     ? "bg-[#3d5eff] text-white shine"
                     : "border border-[#3d5eff] text-[#3d5eff] duration-500 hover:bg-[#3d5eff] hover:text-white dark:border-[#777] dark:text-[#ddd]"
-                } px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover`}
+                } px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover`}
               >
                 {upvotes && upvotes.length} Upvotes
                 <FiTriangle className="text-lg ml-1 -mt-1 span" />
@@ -281,7 +281,7 @@ const InfoBar = ({
               target="_blank"
               rel="noreferrer"
             >
-              <div className="border border-[#3d5eff] text-[#3d5eff] hover:bg-[#3d5eff] duration-500 hover:text-white px-5 py-[8px] text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover dark:border-[#777] dark:text-[#ddd]">
+              <div className="border border-[#3d5eff] text-[#3d5eff] hover:bg-[#3d5eff] duration-500 hover:text-white px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover dark:border-[#777] dark:text-[#ddd]">
                 Visit Website
                 <FiAirplay className="text-lg ml-1 span !duration-500" />
               </div>
@@ -299,11 +299,11 @@ const InfoBar = ({
           </div>
           <div className="w-full bg-[#ddd] h-[1.25px] my-4 rounded-md dark:bg-[#555]"></div>
 
-          <h1 className="font-semibold text-xl text-[#555] dark:text-[#ccc]">
+          <h1 className="font-semibold text-lg lg:text-xl xl:text-xl text-[#555] dark:text-[#ccc]">
             Comments ({comments && comments.length})
           </h1>
 
-          <div className="flex border border-[#3d5eff] hover:border-[#445ac5] duration-500 focus:border-[#3d5eff] pl-3 rounded-lg p-1 w-full items-center justify-between mt-2">
+          <div className="flex border border-[#3d5eff] hover:border-[#445ac5] duration-500 focus:border-[#3d5eff] pl-3 rounded-lg p-1 w-full items-center justify-between my-2">
             <input
               type="text"
               placeholder="Add Your Comment"

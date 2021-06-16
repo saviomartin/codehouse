@@ -39,7 +39,7 @@ const Cheatsheet = (props) => {
   return (
     <div className="bg-image">
       <Header {...props} />
-      <div className="h-full min-h-screen p-6 flex items-start justify-start relative">
+      <div className="h-full min-h-screen p-6 flex items-start justify-start relative flex-col lg:flex-row xl:flex-row">
         <InfoBar
           currentPost={currentPost}
           {...props}

@@ -18,7 +18,7 @@ const Comment = ({ comment }) => {
         className="h-[50px] w-[50px] rounded-md pixelated white-light-shadow"
       />
       <div className="ml-2">
-        <h2 className="font-semibold text-md text-[#222] dark:text-[#fafafa]">
+        <h2 className="font-semibold text-base text-[#222] dark:text-[#fafafa]">
           {comment.comment}
         </h2>
         <h4 className="text-xs font-semibold text-[#666] capitalize dark:text-[#aaa]">
