@@ -1,8 +1,13 @@
-import React from "react";
-import { App } from "../components";
+import React, { Fragment } from "react";
+import { App, MainHeader } from "../components";
 
 const Container = (props) => {
-  return <App {...props} />;
+  return (
+    <Fragment>
+      <MainHeader user={props.user} />
+      <App {...props} />
+    </Fragment>
+  );
 };
 
 export default Container;
