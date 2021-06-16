@@ -1,10 +1,12 @@
 import React from "react";
 import { Header, SvgBanner } from "../components";
+import MainHeader from "../components/core/MainHeader";
 
 const contributors = ({ darkMode, user }) => {
   return (
-    <div className="bg-image h-full w-full overflow-visible min-h-screen">
-      <Header user={user} />
+    <div className="bg-white h-full w-full overflow-visible min-h-screen">
+      <MainHeader user={user} />
+
       <div className="flex w-full items-center justify-center mt-3 mb-2 flex-col lg:flex-row">
         <img
           src="/assets/svg/contributors-white.svg"
