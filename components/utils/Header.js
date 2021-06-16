@@ -66,7 +66,7 @@ const Header = ({ setOpen, user, setUser }) => {
           >
             Upcoming Features
           </a>
-          <Link href="/review">
+          <Link href="/contributors">
             <a className="text-sm font-medium ml-6 continuous-line text-white">
               Contributors
             </a>
