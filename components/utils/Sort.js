@@ -9,7 +9,7 @@ const Sort = ({ setSort, sort }) => {
       <h3
         className={`${
           sort === "popular" && "font-bold"
-        } cursor-pointer hover:text-[#3d5eff] duration-200`}
+        } cursor-pointer hover:text-[#3d5eff] duration-200 text-sm lg:text-base`}
         onClick={() => setSort("popular")}
       >
         Popular
@@ -17,7 +17,7 @@ const Sort = ({ setSort, sort }) => {
       <h3
         className={`${
           sort === "newest" && "font-bold"
-        } cursor-pointer hover:text-[#3d5eff] duration-200 ml-3`}
+        } cursor-pointer hover:text-[#3d5eff] duration-200 ml-3 text-sm lg:text-base`}
         onClick={() => setSort("newest")}
       >
         Newest
@@ -25,7 +25,7 @@ const Sort = ({ setSort, sort }) => {
       <h3
         className={`${
           sort === "oldest" && "font-bold"
-        } cursor-pointer hover:text-[#3d5eff] duration-200 ml-3`}
+        } cursor-pointer hover:text-[#3d5eff] duration-200 ml-3 text-sm lg:text-base`}
         onClick={() => setSort("oldest")}
       >
         Oldest
