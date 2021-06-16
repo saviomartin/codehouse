@@ -21,9 +21,9 @@ const RightBar = ({ currentPost }) => {
   const twitterLink =
     currentPost.length > 0 &&
     currentPost[0] &&
-    `https://twitter.com/intent/tweet?text=${cheatsheet_name}%0A%20{%20from%20@${
-      twitter_handle && twitter_handle
-    }%20}%20via%20codehouse.vercel.app%20by%20@SavioMartin7%0A%0A%23DEVCommunity%20%23100DaysOfCode%20%20%23CodeNewbie%0A${website_url}`;
+    `https://twitter.com/intent/tweet?text=${cheatsheet_name}${
+      twitter_handle && "from%20@" + twitter_handle
+    }%20via%20codehouse.vercel.app%20by%20@SavioMartin7%0A%0A%23DEVCommunity%20%23100DaysOfCode%20%20%23CodeNewbie%0A${website_url}`;
 
   // intent link for facbook
   const facebookLink =
