@@ -25,49 +25,49 @@ const Banner = ({ text, website_url, image_url }) => {
   const redditLink = `http://www.reddit.com/submit?url=${website_url}&title=${text}`;
 
   return image_url ? (
-    <div className="w-full px-3 py-6 my-2 relative flex items-center justify-center">
+    <div className="w-full px-3 py-6 mb-0 lg:mb-2 my-2 relative flex items-center justify-center flex-col md:flex-row lg:flex-row xl:flex-row">
       <img
         src={image_url}
         alt={text}
-        className="h-[160px] w-[260px] rounded-md pixelated"
+        className="h-[130px] lg:h-[160px] w-[200px] lg:w-[260px] rounded-md pixelated"
       />
-      <div className="block ml-5">
-        <h1 className="text-4xl font-bold capitalize text-[#222] dark:text-[#ddd]">
+      <div className="block ml-2 lg:ml-5 mt-2 lg:mt-0 text-center">
+        <h1 className="text-2xl lg:text-4xl font-bold capitalize text-[#222] dark:text-[#ddd]">
           {text} Cheatsheets
         </h1>
-        <p className="text-[#666] dark:text-[#aaa]">
+        <p className="text-[#666] dark:text-[#aaa] text-sm lg:text-base">
           Curated list of {text} cheatsheets! Enjoy 🥳
         </p>
-        <div className="flex mt-3">
+        <div className="flex mt-3 flex-wrap">
           <a href={twitterLink} rel="noreferrer" target="_blank">
             <Btn className="!p-0 !w-auto !h-auto !m-0">
-              <button className="bg-[#1DA1F2] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
+              <button className="bg-[#1DA1F2] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
                 Twitter
-                <FaTwitter className="text-lg ml-1" />
+                <FaTwitter className="text-base lg:text-lg ml-1" />
               </button>
             </Btn>
           </a>
           <a href={redditLink} rel="noreferrer" target="_blank">
             <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
-              <button className="bg-[#F34423] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
+              <button className="bg-[#F34423] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
                 Reddit
-                <FaRedditAlien className="text-lg ml-1 -mt-1" />
+                <FaRedditAlien className="text-base lg:text-lg ml-1 -mt-1" />
               </button>
             </Btn>
           </a>
           <a href={facebookLink} rel="noreferrer" target="_blank">
             <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
-              <button className="bg-[#3F5793] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
+              <button className="bg-[#3F5793] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
                 Facebook
-                <FaFacebookSquare className="text-lg ml-1" />
+                <FaFacebookSquare className="text-base lg:text-lg ml-1" />
               </button>
             </Btn>
           </a>
           <a href={linkedInLink} rel="noreferrer" target="_blank">
             <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
-              <button className="bg-[#0375B4] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
+              <button className="bg-[#0375B4] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
                 LinkedIn
-                <FaLinkedin className="text-lg ml-1" />
+                <FaLinkedin className="text-base lg:text-lg ml-1" />
               </button>
             </Btn>
           </a>
