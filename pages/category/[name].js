@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 // use router for params
 import { useRouter } from "next/router";
 
 // components
-import { AppHeader, Banner, Item, NotFound } from "../../components";
+import {
+  AppHeader,
+  Banner,
+  Item,
+  MainHeader,
+  NotFound,
+} from "../../components";
 
 // fetching data
 import { harperFetch } from "../../utils/HarperFetch";
@@ -98,47 +104,50 @@ const name = (props) => {
   const filteredPosts = filterPosts(data, searchTerm);
 
   return (
-    <div className="bg-[#ECF2F5] min-h-screen p-6 dark:bg-[#2F2F2F]">
-      <AppHeader
-        {...props}
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        sort={sort}
-        setSort={setSort}
-      />
-      <Banner
-        text={name}
-        website_url={`https://codehouse.vercel.app/category/${name}`}
-        image_url={image && image}
-      />
-      <InfiniteScroll
-        dataLength={count} //This is important field to render the next data
-        next={() => setCount(count + 5)}
-        hasMore={count >= filteredPosts.length ? false : true}
-      >
-        <div className="flex justify-center mt-5 w-full flex-wrap">
-          {filteredPosts
-            .filter((cheatsheet) => {
-              const cheatsheetName = cheatsheet.category.toLowerCase();
-              return cheatsheetName.includes(name && name.toLowerCase());
-            })
-            .slice(0, count)
-            .map((cheetsheet, key) => (
-              <Item
-                data={cheetsheet}
-                key={key}
-                {...props}
-                setOpen={setOpen}
-                user={user}
-              />
-            ))}
-        </div>
-      </InfiniteScroll>
+    <Fragment>
+      <MainHeader user={user} />
+      <div className="bg-[#ECF2F5] min-h-screen p-6 dark:bg-[#2F2F2F]">
+        <AppHeader
+          {...props}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          sort={sort}
+          setSort={setSort}
+        />
+        <Banner
+          text={name}
+          website_url={`https://codehouse.vercel.app/category/${name}`}
+          image_url={image && image}
+        />
+        <InfiniteScroll
+          dataLength={count} //This is important field to render the next data
+          next={() => setCount(count + 5)}
+          hasMore={count >= filteredPosts.length ? false : true}
+        >
+          <div className="flex justify-center mt-5 w-full flex-wrap">
+            {filteredPosts
+              .filter((cheatsheet) => {
+                const cheatsheetName = cheatsheet.category.toLowerCase();
+                return cheatsheetName.includes(name && name.toLowerCase());
+              })
+              .slice(0, count)
+              .map((cheetsheet, key) => (
+                <Item
+                  data={cheetsheet}
+                  key={key}
+                  {...props}
+                  setOpen={setOpen}
+                  user={user}
+                />
+              ))}
+          </div>
+        </InfiniteScroll>
 
-      {data.length > 1 && filteredPosts.length < 1 && (
-        <NotFound text="No Results Found" darkMode={props.darkMode} />
-      )}
-    </div>
+        {data.length > 1 && filteredPosts.length < 1 && (
+          <NotFound text="No Results Found" darkMode={props.darkMode} />
+        )}
+      </div>
+    </Fragment>
   );
 };
 
