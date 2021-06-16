@@ -15,7 +15,7 @@ const bookmarksPage = (props) => {
             <SvgBanner
               text="Your BookMarks"
               description="These are the cheatsheets you have bookmarked for later! ✌️"
-              image_url="/assets/3d/bookmarks.svg"
+              image_url="/assets/3d/bookmarks.png"
               dark={darkMode}
             />
             <div className="flex w-full justify-center flex-wrap">
