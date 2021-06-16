@@ -54,35 +54,37 @@ const Header = ({ setOpen, user, setUser }) => {
       </Link>
       <div className="flex h-full items-center">
         <BrowserView>
-          <a
-            href="#"
-            className="text-sm font-medium continuous-line text-white"
-          >
-            How it works
-          </a>
-          <a
-            href="#"
-            className="text-sm font-medium ml-6 continuous-line text-white"
-          >
-            Upcoming Features
-          </a>
-          <a
-            href="#"
-            className="text-sm font-medium ml-6 continuous-line text-white"
-          >
-            Contributors
-          </a>
-          <a
-            href="/review"
-            className="text-sm font-medium ml-6 continuous-line text-white"
-          >
-            On Review
-          </a>
-          <Link href="/bookmarks">
-            <a className="text-sm font-medium ml-6 continuous-line text-white">
-              Bookmarks
+          <div className="hidden md:flex lg:flex xl:flex">
+            <a
+              href="#"
+              className="text-sm font-medium continuous-line text-white"
+            >
+              How it works
             </a>
-          </Link>
+            <a
+              href="#"
+              className="text-sm font-medium ml-6 continuous-line text-white"
+            >
+              Upcoming Features
+            </a>
+            <a
+              href="#"
+              className="text-sm font-medium ml-6 continuous-line text-white"
+            >
+              Contributors
+            </a>
+            <a
+              href="/review"
+              className="text-sm font-medium ml-6 continuous-line text-white"
+            >
+              On Review
+            </a>
+            <Link href="/bookmarks">
+              <a className="text-sm font-medium ml-6 continuous-line text-white">
+                Bookmarks
+              </a>
+            </Link>
+          </div>
         </BrowserView>
         <MobileView>
           <div
