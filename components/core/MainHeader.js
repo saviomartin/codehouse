@@ -8,7 +8,7 @@ const MainHeader = ({ user }) => {
   return (
     <div className="w-full bg-image text-white">
       <Header user={user} />
-      <div className="w-full text-center flex items-center justify-center flex-col py-12 bg-pattern-dull">
+      <div className="w-full text-center flex items-start lg:items-center xl:items-center justify-center flex-col py-12 bg-pattern-dull pl-5 lg:pl-0 xl:pl-0">
         <Link href="/">
           <a className="text-4xl font-extrabold text-[#ECF2F5] change-span-color-onhover">
             Code House
@@ -17,7 +17,7 @@ const MainHeader = ({ user }) => {
             </span>
           </a>
         </Link>
-        <p className="w-7/12 text-sm text-[#ccc] text-left my-2">
+        <p className="w-10/12 lg:w-7/12 text-sm text-[#ccc] text-left my-2">
           Introducing Code House, the all in one storehouse for developer
           cheatsheets. Code House is made up of 300+ curated cheatsheets from
           230+ sources. Filter by categories, or source sort by time or
