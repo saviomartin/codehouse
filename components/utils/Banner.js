@@ -38,10 +38,10 @@ const Banner = ({ text, website_url, image_url }) => {
         <p className="text-[#666] dark:text-[#aaa] text-sm lg:text-base">
           Curated list of {text} cheatsheets! Enjoy 🥳
         </p>
-        <div className="flex mt-3 flex-wrap">
+        <div className="flex mt-3 ">
           <a href={twitterLink} rel="noreferrer" target="_blank">
             <Btn className="!p-0 !w-auto !h-auto !m-0">
-              <button className="bg-[#1DA1F2] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
+              <button className="bg-[#1DA1F2] text-white font-semibold p-2 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
                 Twitter
                 <FaTwitter className="text-base lg:text-lg ml-1" />
               </button>
@@ -49,7 +49,7 @@ const Banner = ({ text, website_url, image_url }) => {
           </a>
           <a href={redditLink} rel="noreferrer" target="_blank">
             <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
-              <button className="bg-[#F34423] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
+              <button className="bg-[#F34423] text-white font-semibold p-2 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
                 Reddit
                 <FaRedditAlien className="text-base lg:text-lg ml-1 -mt-1" />
               </button>
@@ -57,7 +57,7 @@ const Banner = ({ text, website_url, image_url }) => {
           </a>
           <a href={facebookLink} rel="noreferrer" target="_blank">
             <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
-              <button className="bg-[#3F5793] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
+              <button className="bg-[#3F5793] text-white font-semibold p-2 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
                 Facebook
                 <FaFacebookSquare className="text-base lg:text-lg ml-1" />
               </button>
@@ -65,7 +65,7 @@ const Banner = ({ text, website_url, image_url }) => {
           </a>
           <a href={linkedInLink} rel="noreferrer" target="_blank">
             <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
-              <button className="bg-[#0375B4] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
+              <button className="bg-[#0375B4] text-white font-semibold p-2 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
                 LinkedIn
                 <FaLinkedin className="text-base lg:text-lg ml-1" />
               </button>
@@ -78,45 +78,45 @@ const Banner = ({ text, website_url, image_url }) => {
     <div className="w-full py-6 my-2 relative flex items-center justify-center">
       <div className="block ml-5 text-center">
         <a
-          className="text-4xl font-bold text-blue-600 continuous-line dark:text-blue-400"
+          className="text-2xl lg:text-4xl font-bold text-blue-600 continuous-line dark:text-blue-400"
           href={`https://${text}`}
           target="_blank"
         >
           {text}
         </a>
-        <p className="text-[#666] mt-3 dark:text-[#aaa]">
+        <p className="text-[#666] mt-3 dark:text-[#aaa] text-xs lg:text-base">
           Curated list of cheatsheets from {text}! Enjoy 🥳
         </p>
-        <div className="flex mt-3 items-center justify-center">
+        <div className="flex mt-3 ">
           <a href={twitterLink} rel="noreferrer" target="_blank">
             <Btn className="!p-0 !w-auto !h-auto !m-0">
-              <button className="bg-[#1DA1F2] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
+              <button className="bg-[#1DA1F2] text-white font-semibold p-2 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
                 Twitter
-                <FaTwitter className="text-lg ml-1" />
+                <FaTwitter className="text-base lg:text-lg ml-1" />
               </button>
             </Btn>
           </a>
           <a href={redditLink} rel="noreferrer" target="_blank">
             <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
-              <button className="bg-[#F34423] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
+              <button className="bg-[#F34423] text-white font-semibold p-2 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
                 Reddit
-                <FaRedditAlien className="text-lg ml-1 -mt-1" />
+                <FaRedditAlien className="text-base lg:text-lg ml-1 -mt-1" />
               </button>
             </Btn>
           </a>
           <a href={facebookLink} rel="noreferrer" target="_blank">
             <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
-              <button className="bg-[#3F5793] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
+              <button className="bg-[#3F5793] text-white font-semibold p-2 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
                 Facebook
-                <FaFacebookSquare className="text-lg ml-1" />
+                <FaFacebookSquare className="text-base lg:text-lg ml-1" />
               </button>
             </Btn>
           </a>
           <a href={linkedInLink} rel="noreferrer" target="_blank">
             <Btn className="!p-0 !w-auto !h-auto !m-0 !ml-1">
-              <button className="bg-[#0375B4] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
+              <button className="bg-[#0375B4] text-white font-semibold p-2 rounded focus:outline-none focus:shadow-outline shine flex items-center text-xs lg:text-sm">
                 LinkedIn
-                <FaLinkedin className="text-lg ml-1" />
+                <FaLinkedin className="text-base lg:text-lg ml-1" />
               </button>
             </Btn>
           </a>
