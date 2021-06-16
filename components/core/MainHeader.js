@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../utils/Header";
 import Link from "next/link";
 import { Button } from "@material-ui/core";
-import { FiBookOpen, FiStar } from "react-icons/fi";
+import { FiBookOpen, FiGithub, FiStar } from "react-icons/fi";
 
 const MainHeader = ({ user }) => {
   return (
@@ -39,7 +39,7 @@ const MainHeader = ({ user }) => {
             href="https://github.com/saviomartin/codehouse"
           >
             <div className="border-2 border-[#F5BA31] text-[#F5BA31] px-5 py-[7px] text-base capitalize rounded-md font-semibold flex items-center justify-center">
-              <FiStar className="text-lg mr-1" />
+              <FiGithub className="text-lg mr-1" />
               <span className="poppins mr-1">46</span> Github Stars
             </div>
           </Button>

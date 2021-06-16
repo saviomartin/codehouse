@@ -5,6 +5,7 @@ export { default as SignInPopup } from "./core/SignInPopup";
 export { default as RightBar } from "./core/RightBar";
 export { default as InfoBar } from "./core/InfoBar";
 export { default as Sidebar } from "./core/Sidebar";
+export { default as MainHeader } from "./core/MainHeader";
 
 // util components
 export { default as Header } from "./utils/Header";
