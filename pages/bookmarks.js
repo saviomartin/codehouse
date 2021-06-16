@@ -12,17 +12,17 @@ const bookmarksPage = (props) => {
       <div className="w-full h-full min-h-[90vh] rounded-md white-light-shadow pt-5">
         {bookmarks.length > 0 && bookmarks ? (
           <>
-            <div className="flex w-full items-center justify-center mt-3 mb-2">
+            <div className="flex w-full items-center justify-center mt-3 mb-2 flex-col lg:flex-row">
               <img
                 src="/assets/svg/bookmarks-white.svg"
-                className="h-[250px]"
+                className="h-[230px] lg:h-[300px]"
               />
 
-              <div className="w-5/12 overflow-hidden">
-                <h1 className="text-4xl font-bold text-[#fafafa]">
+              <div className="w-full lg:w-5/12 overflow-hidden">
+                <h1 className="text-2xl lg:text-4xl font-bold text-[#fafafa] text-center lg:text-left">
                   Your BookMarks
                 </h1>
-                <p className="text-sm text-[#ccc]">
+                <p className="text-xs lg:text-sm text-[#ccc] text-center lg:text-left">
                   These are the cheatsheets you have bookmarked for later! ✌️
                 </p>
               </div>
