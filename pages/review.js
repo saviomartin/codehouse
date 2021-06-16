@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 // for inifinite scroll
 import InfiniteScroll from "react-infinite-scroll-component";
 
 // components
-import { AppHeader, Item, NotFound, SvgBanner } from "../components";
+import {
+  AppHeader,
+  Item,
+  MainHeader,
+  NotFound,
+  SvgBanner,
+} from "../components";
 
 // fetching or editing database
 import { harperFetch } from "../utils/HarperFetch";
@@ -73,46 +79,49 @@ const Review = (props) => {
   const filteredPosts = filterPosts(data, searchTerm);
 
   return (
-    <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f] min-h-screen p-6">
-      <AppHeader
-        {...props}
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        sort={sort}
-        setSort={setSort}
-      />
-      <SvgBanner
-        text="Cheatsheet on Review"
-        description="These cheatsheets are on review, give them an upvote to faster the
+    <Fragment>
+      <MainHeader user={user} />
+      <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f] min-h-screen p-6">
+        <AppHeader
+          {...props}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          sort={sort}
+          setSort={setSort}
+        />
+        <SvgBanner
+          text="Cheatsheet on Review"
+          description="These cheatsheets are on review, give them an upvote to faster the
           process. Validation generally takes less than 2 days 🤟"
-        dark_image_url="/assets/svg/review-white.svg"
-        image_url="/assets/svg/review.svg"
-        dark={darkMode}
-      />
-      <InfiniteScroll
-        dataLength={count} //This is important field to render the next data
-        next={() => setCount(count + 5)}
-        hasMore={count >= data.lenghth ? false : true}
-        loader={data.length > count ? <h4>Loading...</h4> : ""}
-      >
-        <div className="flex justify-center mt-5 w-full flex-wrap">
-          {filteredPosts.slice(0, count).map((cheetsheet, key) => (
-            <Item
-              data={cheetsheet}
-              key={key}
-              {...props}
-              setOpen={setOpen}
-              user={user}
-              review={true}
-            />
-          ))}
-        </div>
-      </InfiniteScroll>
-      {data.length > 1 && filteredPosts.length < 1 && (
-        <NotFound text="No Results Found" darkMode />
-      )}
-      {data.length < 1 && <NotFound text="No Cheatsheets on Review" darkMode />}
-    </div>
+          image_url="/assets/3d/review.png"
+        />
+        <InfiniteScroll
+          dataLength={count} //This is important field to render the next data
+          next={() => setCount(count + 5)}
+          hasMore={count >= data.lenghth ? false : true}
+          loader={data.length > count ? <h4>Loading...</h4> : ""}
+        >
+          <div className="flex justify-center w-full flex-wrap">
+            {filteredPosts.slice(0, count).map((cheetsheet, key) => (
+              <Item
+                data={cheetsheet}
+                key={key}
+                {...props}
+                setOpen={setOpen}
+                user={user}
+                review={true}
+              />
+            ))}
+          </div>
+        </InfiniteScroll>
+        {data.length > 1 && filteredPosts.length < 1 && (
+          <NotFound text="No Results Found" darkMode />
+        )}
+        {data.length < 1 && (
+          <NotFound text="No Cheatsheets on Review" darkMode />
+        )}
+      </div>
+    </Fragment>
   );
 };
 

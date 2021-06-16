@@ -1,6 +1,6 @@
 import React from "react";
 
-const SvgBanner = ({ text, description, image_url, dark_image_url, dark }) => {
+const SvgBanner = ({ text, description, image_url }) => {
   return (
     <div className="flex w-full items-center justify-center mt-3 mb-2 flex-col lg:flex-row">
       <img src={image_url} className="h-[230px] lg:h-[300px]" />
