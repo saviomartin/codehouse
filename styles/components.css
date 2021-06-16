@@ -84,3 +84,55 @@
 .pixelated {
   image-rendering: pixelated;
 }
+
+/* Menu toggle animation */
+/* mobile menu toggle button */
+.menu-toggle span {
+  margin: 0 auto;
+  position: relative;
+  transition-duration: 0s;
+  transition-delay: 0.2s;
+  margin: 8px 0px;
+  transition: background-color 0.3s;
+}
+.menu-toggle span:before,
+.menu-toggle span:after {
+  position: absolute;
+  content: "";
+}
+.menu-toggle span,
+.menu-toggle span:before,
+.menu-toggle span:after {
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  display: block;
+  opacity: 1;
+}
+.menu-toggle span:before {
+  margin-top: -6px;
+  transition-property: margin, transform;
+  transition-duration: 0.2s;
+  transition-delay: 0.2s, 0;
+}
+.menu-toggle span:after {
+  margin-top: 6px;
+  transition-property: margin, transform;
+  transition-duration: 0.2s;
+  transition-delay: 0.2s, 0;
+}
+
+.menu-toggle-active span {
+  background-color: rgba(0, 0, 0, 0);
+  transition: 0.3s background-color;
+}
+.menu-toggle-active span:before {
+  margin-top: 0;
+  transform: rotate(45deg);
+  transition-delay: 0, 0.2s;
+}
+.menu-toggle-active span:after {
+  margin-top: 0;
+  transform: rotate(-45deg);
+  transition-delay: 0, 0.2s;
+}

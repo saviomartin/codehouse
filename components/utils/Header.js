@@ -84,10 +84,12 @@ const Header = ({ setOpen, user, setUser }) => {
         </div>
         <Btn className="rounded-md block lg:hidden md:hidden xl:hidden">
           <div
-            className="bg-app-gradient-2 border border-[#ddd] dark:border-[#555] dark:text-white hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover"
+            className={`bg-app-gradient-2 border border-[#ddd] dark:border-[#555] dark:text-white hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover menu-toggle ${
+              showNav && "menu-toggle-active"
+            }`}
             onClick={() => setShowNav(!showNav)}
           >
-            <FiMenu className="text-xl" />
+            <span></span>
           </div>
         </Btn>
         <Link href="/new">
@@ -158,35 +160,35 @@ const Header = ({ setOpen, user, setUser }) => {
       {showNav && (
         <div className="flex lg:hidden xl:hidden md:hidden flex-col w-full text-center mt-3">
           <Link href="/bookmarks">
-            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
+            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
               <h3 className="font-bold continuous-line text-center">
-                Bookmarks
+                How it works
               </h3>
             </a>
           </Link>
           <Link href="/bookmarks">
-            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
+            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
               <h3 className="font-bold continuous-line text-center">
-                Bookmarks
+                Upcoming Features
+              </h3>
+            </a>
+          </Link>
+          <Link href="/contributors">
+            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
+              <h3 className="font-bold continuous-line text-center">
+                Contributors
+              </h3>
+            </a>
+          </Link>
+          <Link href="/review">
+            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
+              <h3 className="font-bold continuous-line text-center">
+                On Review
               </h3>
             </a>
           </Link>
           <Link href="/bookmarks">
-            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
-              <h3 className="font-bold continuous-line text-center">
-                Bookmarks
-              </h3>
-            </a>
-          </Link>
-          <Link href="/bookmarks">
-            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
-              <h3 className="font-bold continuous-line text-center">
-                Bookmarks
-              </h3>
-            </a>
-          </Link>
-          <Link href="/bookmarks">
-            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
+            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
               <h3 className="font-bold continuous-line text-center">
                 Bookmarks
               </h3>
