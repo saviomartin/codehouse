@@ -241,7 +241,7 @@ const Item = ({
               <div className="w-9/12 h-full px-3 pl-5 py-5 flex items-start justify-between flex-col">
                 <div className="block">
                   <a
-                    className="text-blue-500 text-sm"
+                    className="text-blue-500 text-xs lg:text-sm"
                     href={
                       url.protocol &&
                       url.hostname &&
@@ -252,10 +252,10 @@ const Item = ({
                     {url.hostname && url.hostname}
                   </a>
                   <a href={website_url} target="_blank">
-                    <h1 className="font-bold text-xl duration-500 hover:text-[#3d5eff]">
+                    <h1 className="font-bold text-lg lg:text-xl duration-500 hover:text-[#3d5eff]">
                       {cheatsheet_name}
                     </h1>
-                    <p className="text-[12px] text-[#666] dark:text-[#aaa] mt-1">
+                    <p className="text-xs lg:text-[12px] text-[#666] dark:text-[#aaa] mt-1">
                       {meta.meta && meta.meta.description
                         ? meta.meta.description.slice(0, 150)
                         : "Description not found"}
@@ -355,7 +355,7 @@ const Item = ({
                 </div>
                 <div className="block mt-2">
                   <a
-                    className="text-blue-500 text-sm"
+                    className="text-blue-500 text-xs lg:text-sm"
                     href={
                       url.protocol &&
                       url.hostname &&
@@ -371,7 +371,7 @@ const Item = ({
                         ? cheatsheet_name.slice(0, 50) + "..."
                         : cheatsheet_name}
                     </h1>
-                    <p className="text-[12px] text-[#666] dark:text-[#aaa] mt-1">
+                    <p className="text-xs lg:text-[12px] text-[#666] dark:text-[#aaa] mt-1">
                       {meta.meta && meta.meta.description
                         ? meta.meta.description.slice(0, 150)
                         : "description not found"}
