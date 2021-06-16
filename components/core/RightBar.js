@@ -46,7 +46,7 @@ const RightBar = ({ currentPost }) => {
   return (
     currentPost.length > 0 &&
     currentPost[0] && (
-      <div className="w-4/12 h-[90vh] rounded-md white-light-shadow mx-4 sticky top-0 right-0 flex items-center justify-between flex-col">
+      <div className="w-full lg:w-4/12 xl:w-4/12 h-auto lg:h-[90vh] xl:h-[90vh] rounded-md white-light-shadow mx-0 lg:mx-4 xl:mx-4 sticky top-0 right-0 flex items-center justify-between flex-col">
         <div className="py-4 px-3 w-full">
           {twitter_handle && (
             <>
