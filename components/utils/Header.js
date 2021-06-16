@@ -15,11 +15,11 @@ import Menu from "@material-ui/core/Menu";
 // auth for signin out
 import { auth } from "../../utils/firebase";
 
+// components
+import { Btn } from "..";
+
 // toast
 import toast from "react-hot-toast";
-
-// device detect
-import { BrowserView, MobileView } from "react-device-detect";
 
 const Header = ({ setOpen, user, setUser }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -53,50 +53,46 @@ const Header = ({ setOpen, user, setUser }) => {
         </a>
       </Link>
       <div className="flex h-full items-center">
-        <BrowserView>
-          <div className="hidden md:flex lg:flex xl:flex">
-            <a
-              href="#"
-              className="text-sm font-medium continuous-line text-white"
-            >
-              How it works
-            </a>
-            <a
-              href="#"
-              className="text-sm font-medium ml-6 continuous-line text-white"
-            >
-              Upcoming Features
-            </a>
-            <a
-              href="#"
-              className="text-sm font-medium ml-6 continuous-line text-white"
-            >
+        <div className="hidden md:flex lg:flex xl:flex">
+          <a
+            href="#"
+            className="text-sm font-medium continuous-line text-white"
+          >
+            How it works
+          </a>
+          <a
+            href="#"
+            className="text-sm font-medium ml-6 continuous-line text-white"
+          >
+            Upcoming Features
+          </a>
+          <Link href="/review">
+            <a className="text-sm font-medium ml-6 continuous-line text-white">
               Contributors
             </a>
-            <a
-              href="/review"
-              className="text-sm font-medium ml-6 continuous-line text-white"
-            >
+          </Link>
+          <Link href="/review">
+            <a className="text-sm font-medium ml-6 continuous-line text-white">
               On Review
             </a>
-            <Link href="/bookmarks">
-              <a className="text-sm font-medium ml-6 continuous-line text-white">
-                Bookmarks
-              </a>
-            </Link>
-          </div>
-        </BrowserView>
-        <MobileView>
+          </Link>
+          <Link href="/bookmarks">
+            <a className="text-sm font-medium ml-6 continuous-line text-white">
+              Bookmarks
+            </a>
+          </Link>
+        </div>
+        <Btn className="rounded-md block lg:hidden md:hidden xl:hidden">
           <div
-            className="bg-app-gradient-2 px-2 py-[8px] text-md capitalize rounded-md font-semibold flex items-center justify-center text-white -mr-4"
+            className="bg-app-gradient-2 border border-[#ddd] dark:border-[#555] dark:text-white hover:border-[#3d5eff] text-[#3d5eff] duration-500 px-3 py-[10px] text-lg capitalize rounded-lg font-semibold flex items-center justify-center menu-animation-hover"
             onClick={() => setShowNav(!showNav)}
           >
             <FiMenu className="text-xl" />
           </div>
-        </MobileView>
+        </Btn>
         <Link href="/new">
           <a>
-            <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-6">
+            <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-2 lg:!ml-6 xl:!ml-6">
               <div className="border-2 border-[#ffcf5e] text-[#ffcf5e] px-2 py-[4px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
                 New CheetSheet
               </div>
@@ -159,47 +155,45 @@ const Header = ({ setOpen, user, setUser }) => {
           </Button>
         )}
       </div>
-      <MobileView className="w-full">
-        {showNav && (
-          <div className="flex flex-col w-full text-center mt-3">
-            <Link href="/bookmarks">
-              <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
-                <h3 className="font-bold continuous-line text-center">
-                  Bookmarks
-                </h3>
-              </a>
-            </Link>
-            <Link href="/bookmarks">
-              <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
-                <h3 className="font-bold continuous-line text-center">
-                  Bookmarks
-                </h3>
-              </a>
-            </Link>
-            <Link href="/bookmarks">
-              <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
-                <h3 className="font-bold continuous-line text-center">
-                  Bookmarks
-                </h3>
-              </a>
-            </Link>
-            <Link href="/bookmarks">
-              <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
-                <h3 className="font-bold continuous-line text-center">
-                  Bookmarks
-                </h3>
-              </a>
-            </Link>
-            <Link href="/bookmarks">
-              <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
-                <h3 className="font-bold continuous-line text-center">
-                  Bookmarks
-                </h3>
-              </a>
-            </Link>
-          </div>
-        )}
-      </MobileView>
+      {showNav && (
+        <div className="flex lg:hidden xl:hidden md:hidden flex-col w-full text-center mt-3">
+          <Link href="/bookmarks">
+            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
+              <h3 className="font-bold continuous-line text-center">
+                Bookmarks
+              </h3>
+            </a>
+          </Link>
+          <Link href="/bookmarks">
+            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
+              <h3 className="font-bold continuous-line text-center">
+                Bookmarks
+              </h3>
+            </a>
+          </Link>
+          <Link href="/bookmarks">
+            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
+              <h3 className="font-bold continuous-line text-center">
+                Bookmarks
+              </h3>
+            </a>
+          </Link>
+          <Link href="/bookmarks">
+            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
+              <h3 className="font-bold continuous-line text-center">
+                Bookmarks
+              </h3>
+            </a>
+          </Link>
+          <Link href="/bookmarks">
+            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-sm my-[3px]">
+              <h3 className="font-bold continuous-line text-center">
+                Bookmarks
+              </h3>
+            </a>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
