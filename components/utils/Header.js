@@ -56,28 +56,33 @@ const Header = ({ setOpen, user, setUser }) => {
         <div className="hidden md:flex lg:flex xl:flex">
           <a
             href="#"
-            className="text-sm font-medium continuous-line text-white"
+            className="text-[13.75px] font-medium continuous-line text-white"
           >
             How it works
           </a>
           <a
             href="#"
-            className="text-sm font-medium ml-6 continuous-line text-white"
+            className="text-[13.75px] font-medium ml-[18px] continuous-line text-white"
           >
             Upcoming Features
           </a>
+          <Link href="/feature-requests">
+            <a className="text-[13.75px] font-medium ml-[18px] continuous-line text-white">
+              Feature Requests
+            </a>
+          </Link>
           <Link href="/contributors">
-            <a className="text-sm font-medium ml-6 continuous-line text-white">
+            <a className="text-[13.75px] font-medium ml-[18px] continuous-line text-white">
               Contributors
             </a>
           </Link>
           <Link href="/review">
-            <a className="text-sm font-medium ml-6 continuous-line text-white">
+            <a className="text-[13.75px] font-medium ml-[18px] continuous-line text-white">
               On Review
             </a>
           </Link>
           <Link href="/bookmarks">
-            <a className="text-sm font-medium ml-6 continuous-line text-white">
+            <a className="text-[13.75px] font-medium ml-[18px] continuous-line text-white">
               Bookmarks
             </a>
           </Link>
@@ -94,7 +99,7 @@ const Header = ({ setOpen, user, setUser }) => {
         </Btn>
         <Link href="/new">
           <a>
-            <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-2 lg:!ml-6 xl:!ml-6">
+            <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-2 lg:!ml-[18px] xl:!ml-[18px]">
               <div className="border-2 border-[#ffcf5e] text-[#ffcf5e] px-2 py-[4px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
                 New CheetSheet
               </div>
@@ -170,6 +175,13 @@ const Header = ({ setOpen, user, setUser }) => {
             <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
               <h3 className="font-bold continuous-line text-center">
                 Upcoming Features
+              </h3>
+            </a>
+          </Link>
+          <Link href="/feature-requests">
+            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
+              <h3 className="font-bold continuous-line text-center">
+                Feature Requests
               </h3>
             </a>
           </Link>
