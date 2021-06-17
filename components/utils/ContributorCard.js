@@ -20,7 +20,7 @@ const ContributorCard = ({ data }) => {
         {data.displayName && data.displayName}
       </h1>
       <a
-        className="text-xs overflow-ellipsis overflow-hidden h-[36px] Raleway text-blue-300"
+        className="text-xs overflow-ellipsis overflow-hidden h-[36px] Raleway text-[#3d5eff]"
         href={`mailto:${data.email}`}
         target="_blank"
         rel="noreferrer"
