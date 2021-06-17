@@ -15,7 +15,7 @@ const contributors = ({ user }) => {
   const fetchContributors = () => {
     axios
       .get(
-        "https://api.github.com/repos/saviomartin/discord-clone/contributors",
+        "https://api.github.com/repos/saviomartin/gradientking/contributors",
         {
           headers: {},
         }
@@ -37,7 +37,7 @@ const contributors = ({ user }) => {
 
     // obtaining data
     setWebContributors(contributors);
-    // fetchContributors();
+    fetchContributors();
   }, []);
 
   return (
@@ -71,9 +71,11 @@ const contributors = ({ user }) => {
             </h3>
             <div className="w-8/12 h-[1px] rounded-sm bg-[#bbb] dark:bg-[#555]"></div>
           </div>
-          {webContributors.map((data, key) => (
-            <ContributorCard data={data} key={key} />
-          ))}
+          <div className="w-full flex-wrap">
+            {webContributors.map((data, key) => (
+              <ContributorCard data={data} key={key} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
