@@ -2,6 +2,7 @@ import { Button } from "@material-ui/core";
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 import { MainHeader } from "../components";
+import Link from "next/link";
 
 const FeatureRequests = ({ user }) => {
   return (
@@ -21,12 +22,16 @@ const FeatureRequests = ({ user }) => {
             Lets make the app better together. Have a feature in mind, go ahead
             and share add it! We're happy to implement it! ❤️
           </p>
-          <Button className="!p-0 !w-auto !h-auto !m-auto shine">
-            <div className="bg-[#3d5eff] px-4 py-2 text-base capitalize rounded-md font-semibold flex items-center justify-center text-white hover-move-to-left">
-              New Request
-              <FiArrowRight className="text-lg ml-1 span duration-500" />
-            </div>
-          </Button>
+          <Link href="/new-feature">
+            <a>
+              <Button className="!p-0 !w-auto !h-auto !m-auto shine">
+                <div className="bg-[#3d5eff] px-4 py-2 text-base capitalize rounded-md font-semibold flex items-center justify-center text-white hover-move-to-left">
+                  New Request
+                  <FiArrowRight className="text-lg ml-1 span duration-500" />
+                </div>
+              </Button>
+            </a>
+          </Link>
         </div>
       </div>
     </div>
