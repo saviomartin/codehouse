@@ -5,7 +5,7 @@ import { MainHeader } from "../components";
 
 const FeatureRequests = ({ user }) => {
   return (
-    <div>
+    <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f]">
       <MainHeader user={user} />
       <div className="flex w-full items-center justify-center mt-3 mb-2 flex-col lg:flex-row">
         <img
