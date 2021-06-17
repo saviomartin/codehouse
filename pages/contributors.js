@@ -59,7 +59,7 @@ const contributors = ({ user }) => {
             </h3>
             <div className="w-8/12 h-[1px] rounded-sm bg-[#bbb] dark:bg-[#555]"></div>
           </div>
-          <div className="w-full flex flex-wrap">
+          <div className="w-full flex flex-wrap items-center justify-center">
             {githubContributors.map((contributor, key) => (
               <GithubCard contributor={contributor} key={key} />
             ))}
@@ -71,7 +71,7 @@ const contributors = ({ user }) => {
             </h3>
             <div className="w-8/12 h-[1px] rounded-sm bg-[#bbb] dark:bg-[#555]"></div>
           </div>
-          <div className="w-full flex-wrap">
+          <div className="w-full flex flex-wrap items-center justify-center">
             {webContributors.map((data, key) => (
               <ContributorCard data={data} key={key} />
             ))}

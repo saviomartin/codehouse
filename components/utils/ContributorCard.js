@@ -4,7 +4,7 @@ import { FiMail } from "react-icons/fi";
 const ContributorCard = ({ data }) => {
   return (
     <div
-      className="p-5 gradient-shadow bg-white m-3 rounded-md transition duration-400 cursor-pointer text-[#222] dark:bg-[#222222] border dark:border-[#444] max-w-[19%]"
+      className="p-5 gradient-shadow bg-white m-3 rounded-md transition duration-400 cursor-pointer text-[#222] dark:bg-[#222222] border dark:border-[#444] w-full lg:w-[20%] xl:w-[20%] md:w-[40%]"
       data-aos="fade-left"
     >
       <img
@@ -14,7 +14,7 @@ const ContributorCard = ({ data }) => {
             : `https://unavatar.vercel.app/${data.email}`
         }
         alt={data.displayName && data.displayName}
-        className="max-h-[200px] rounded-md"
+        className="max-h-[200px] rounded-md w-full"
       />
       <h1 className="text-2xl font-bold Raleway mt-2 truncate capitalize dark:text-[#fafafa] -mb-2">
         {data.displayName && data.displayName}
