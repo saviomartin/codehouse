@@ -84,7 +84,11 @@ const RightBar = ({ currentPost }) => {
               </h1>
               <div className="bg-[#ECF2F5] rounded-md border border-[#ddd] p-2 flex items-center hover:bg-white duration-200 dark:bg-[#1F1F1F] dark:border-[#555]">
                 <img
-                  src={`https://unavatar.vercel.app/${currentPost[0].addedby.email}`}
+                  src={
+                    currentPost[0].addedby.photoURL
+                      ? currentPost[0].addedby.photoURL
+                      : `https://unavatar.vercel.app/${currentPost[0].addedby.email}`
+                  }
                   alt=""
                   className="h-[50px] w-[50px] rounded-md pixelated white-light-shadow"
                 />
