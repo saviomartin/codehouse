@@ -1,10 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { GithubCard, Header, SvgBanner } from "../components";
-import MainHeader from "../components/core/MainHeader";
+import {
+  ContributorCard,
+  GithubCard,
+  SvgBanner,
+  MainHeader,
+} from "../components";
+import { harperFetch } from "../utils/HarperFetch";
 
-const contributors = ({ darkMode, user }) => {
+const contributors = ({ user }) => {
   const [githubContributors, setGithubContributors] = useState([]);
+  const [webContributors, setWebContributors] = useState([]);
 
   const fetchContributors = () => {
     axios
@@ -22,8 +28,16 @@ const contributors = ({ darkMode, user }) => {
       });
   };
 
-  useEffect(() => {
-    fetchContributors();
+  useEffect(async () => {
+    // fetching
+    const contributors = await harperFetch({
+      operation: "sql",
+      sql: "SELECT * FROM dev.contributors",
+    });
+
+    // obtaining data
+    setWebContributors(contributors);
+    // fetchContributors();
   }, []);
 
   return (
@@ -57,6 +71,9 @@ const contributors = ({ darkMode, user }) => {
             </h3>
             <div className="w-8/12 h-[1px] rounded-sm bg-[#bbb] dark:bg-[#555]"></div>
           </div>
+          {webContributors.map((data, key) => (
+            <ContributorCard data={data} key={key} />
+          ))}
         </div>
       </div>
     </div>
