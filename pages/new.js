@@ -51,6 +51,7 @@ const New = ({ user }) => {
               upvotes: [],
               comments: [],
               addedby: {
+                photoURL: user.photoURL ? user.photoURL : "",
                 displayName: user.displayName ? user.displayName : "Anonymous",
                 email: user.email && user.email,
               },
