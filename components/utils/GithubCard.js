@@ -40,7 +40,12 @@ const GithubCard = ({ contributor }) => {
       <h1 className="text-2xl font-bold Raleway mt-2 truncate capitalize dark:text-[#fafafa] -mb-2">
         {data.name ? data.name : contributor.login}
       </h1>
-      <a className="text-xs overflow-ellipsis overflow-hidden h-[36px] Raleway text-blue-300">
+      <a
+        className="text-xs overflow-ellipsis overflow-hidden h-[36px] Raleway text-blue-300"
+        href={`https://github.com/${contributor.login}`}
+        target="_blank"
+        rel="noreferrer"
+      >
         github.com/{contributor.login}
       </a>
       <div className="flex items-center pt-4">
