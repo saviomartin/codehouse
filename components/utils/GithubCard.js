@@ -29,7 +29,7 @@ const GithubCard = ({ contributor }) => {
 
   return (
     <div
-      className="p-5 gradient-shadow bg-white m-3 rounded-md transition duration-400 cursor-pointer text-[#222] dark:bg-[#222222] border dark:border-[#444] w-full lg:w-[20%] xl:w-[20%] md:w-[40%]"
+      className="p-5 gradient-shadow bg-white m-3 rounded-md transition duration-400 cursor-pointer text-[#222] dark:bg-[#222222] dark:border-[#444] w-full lg:w-[20%] xl:w-[20%] md:w-[40%] border border-transparent hover:border-[#3d5eff98] duration-500"
       data-aos="fade-left"
     >
       <img
@@ -41,7 +41,7 @@ const GithubCard = ({ contributor }) => {
         {data.name ? data.name : contributor.login}
       </h1>
       <a
-        className="text-xs overflow-ellipsis overflow-hidden h-[36px] Raleway text-[#3d5eff]"
+        className="text-xs overflow-ellipsis overflow-hidden h-[36px] Raleway text-[#3d5eff] dark:text-blue-300"
         href={`https://github.com/${contributor.login}`}
         target="_blank"
         rel="noreferrer"
