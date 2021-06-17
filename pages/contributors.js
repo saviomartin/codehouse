@@ -60,9 +60,22 @@ const contributors = ({ user }) => {
             <div className="w-8/12 h-[1px] rounded-sm bg-[#bbb] dark:bg-[#555]"></div>
           </div>
           <div className="w-full flex flex-wrap items-center justify-center">
-            {githubContributors.map((contributor, key) => (
-              <GithubCard contributor={contributor} key={key} />
-            ))}
+            {githubContributors.length > 0 ? (
+              githubContributors.map((contributor, key) => (
+                <GithubCard contributor={contributor} key={key} />
+              ))
+            ) : (
+              <div className="p-5 gradient-shadow bg-white m-3 rounded-md transition cursor-pointer text-[#222] dark:bg-[#222222] dark:border-[#444] w-full lg:w-[20%] xl:w-[20%] md:w-[40%] border border-transparent hover:border-[#3d5eff98] duration-500">
+                <div className="relative overflow-hidden h-[200px] rounded-md w-full pulsate"></div>
+                <div className="mt-3">
+                  <div className="relative overflow-hidden h-[15px] rounded-sm w-[170px] pulsate"></div>
+                  <div className="relative overflow-hidden h-[40px] rounded-sm w-full pulsate mt-1"></div>
+                </div>
+                <div className="flex mt-2">
+                  <div className="relative overflow-hidden h-[15px] rounded-sm w-[120px] mr-1 pulsate mt-1"></div>
+                </div>
+              </div>
+            )}
           </div>
           <div className="w-full flex px-3 my-2 mt-3 items-center">
             <div className="w-1/12 h-[1px] rounded-sm bg-[#bbb] dark:bg-[#555]"></div>
@@ -72,9 +85,22 @@ const contributors = ({ user }) => {
             <div className="w-8/12 h-[1px] rounded-sm bg-[#bbb] dark:bg-[#555]"></div>
           </div>
           <div className="w-full flex flex-wrap items-center justify-center">
-            {webContributors.map((data, key) => (
-              <ContributorCard data={data} key={key} />
-            ))}
+            {webContributors ? (
+              webContributors.map((data, key) => (
+                <ContributorCard data={data} key={key} />
+              ))
+            ) : (
+              <div className="p-5 gradient-shadow bg-white m-3 rounded-md transition cursor-pointer text-[#222] dark:bg-[#222222] dark:border-[#444] w-full lg:w-[20%] xl:w-[20%] md:w-[40%] border border-transparent hover:border-[#3d5eff98] duration-500">
+                <div className="relative overflow-hidden h-[200px] rounded-md w-full pulsate"></div>
+                <div className="mt-3">
+                  <div className="relative overflow-hidden h-[15px] rounded-sm w-[170px] pulsate"></div>
+                  <div className="relative overflow-hidden h-[40px] rounded-sm w-full pulsate mt-1"></div>
+                </div>
+                <div className="flex mt-2">
+                  <div className="relative overflow-hidden h-[15px] rounded-sm w-[120px] mr-1 pulsate mt-1"></div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
