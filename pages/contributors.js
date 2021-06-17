@@ -4,7 +4,7 @@ import { GithubCard, Header, SvgBanner } from "../components";
 import MainHeader from "../components/core/MainHeader";
 
 const contributors = ({ darkMode, user }) => {
-  const [data, setData] = useState([]);
+  const [githubContributors, setGithubContributors] = useState([]);
 
   const fetchContributors = () => {
     axios
@@ -15,7 +15,7 @@ const contributors = ({ darkMode, user }) => {
         }
       )
       .then((response) => {
-        setData(response.data);
+        setGithubContributors(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -45,11 +45,11 @@ const contributors = ({ darkMode, user }) => {
             </h3>
             <div className="w-8/12 h-[1px] rounded-sm bg-[#bbb] dark:bg-[#555]"></div>
           </div>
-          {/* <div className="w-full flex flex-wrap">
-            {data.map((contributor, key) => (
+          <div className="w-full flex flex-wrap">
+            {githubContributors.map((contributor, key) => (
               <GithubCard contributor={contributor} key={key} />
             ))}
-          </div> */}
+          </div>
           <div className="w-full flex px-3 my-2 mt-3 items-center">
             <div className="w-1/12 h-[1px] rounded-sm bg-[#bbb] dark:bg-[#555]"></div>
             <h3 className="mx-2 text-[#555] capitalize dark:text-[#ddd] font-bold text-lg w-auto">
