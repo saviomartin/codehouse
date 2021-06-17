@@ -19,3 +19,4 @@ export { default as Comment } from "./utils/Comment";
 export { default as Banner } from "./utils/Banner";
 export { default as SvgBanner } from "./utils/SvgBanner";
 export { default as NotFound } from "./utils/NotFound";
+export { default as GithubCard } from "./utils/GithubCard";
