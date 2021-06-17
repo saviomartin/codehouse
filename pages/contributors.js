@@ -38,11 +38,18 @@ const contributors = ({ darkMode, user }) => {
 
       <div className="flex justify-center w-full">
         <div className="w-10/12 py-2">
-          <div className="w-full flex flex-wrap">
+          <div className="w-full flex px-3 my-2 mt-3 items-center">
+            <div className="w-1/12 h-[1px] rounded-sm bg-[#bbb] dark:bg-[#555]"></div>
+            <h3 className="mx-2 text-[#555] capitalize dark:text-[#ddd] font-bold text-lg w-auto">
+              Github Contributors
+            </h3>
+            <div className="w-8/12 h-[1px] rounded-sm bg-[#bbb] dark:bg-[#555]"></div>
+          </div>
+          {/* <div className="w-full flex flex-wrap">
             {data.map((contributor, key) => (
               <GithubCard contributor={contributor} key={key} />
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
