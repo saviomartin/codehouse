@@ -12,6 +12,10 @@ const contributors = ({ darkMode, user }) => {
         description="A big thanks to all contributors who helped code house grow and help many! Thank you! Keep helps us grow! 🙏"
         image_url="/assets/3d/contributors.png"
       />
+
+      <div className="flex justify-center w-full">
+        <div className="w-9/12 bg-green-300 p-3"></div>
+      </div>
     </div>
   );
 };

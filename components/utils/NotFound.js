@@ -1,6 +1,6 @@
 import React from "react";
 
-const NotFound = ({ darkMode, text }) => {
+const NotFound = ({  text }) => {
   return (
     <div className="w-full flex items-center flex-col">
       <img src="/assets/3d/not-found.png" className="h-[300px]" />

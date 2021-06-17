@@ -1,7 +1,7 @@
 import React from "react";
 
 // components
-import { BookMarkItem, MainHeader, SvgBanner } from "../components";
+import { BookMarkItem, MainHeader, SvgBanner,NotFound } from "../components";
 
 const bookmarksPage = (props) => {
   const { bookmarks, user, fetchBookmarks, darkMode } = props;
@@ -31,12 +31,7 @@ const bookmarksPage = (props) => {
           </>
         ) : null}
         {bookmarks.length < 1 && (
-          <div className="w-full flex items-center flex-col -mt-5">
-            <img src="/assets/svg/no-results-white.svg" className="h-[300px]" />
-            <h1 className="font-bold text-3xl text-white">
-              No BookMarks Found
-            </h1>
-          </div>
+          <NotFound text="No BookMarks Found" />
         )}
       </div>
     </div>
