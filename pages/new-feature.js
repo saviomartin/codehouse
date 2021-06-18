@@ -13,7 +13,7 @@ const NewFeature = ({ user }) => {
   const [values, setValues] = useState({
     title: "",
     description: "",
-    type: "",
+    type: "feature-request",
   });
 
   const { title, description, type } = values;
@@ -61,16 +61,20 @@ const NewFeature = ({ user }) => {
             />
           </div>
           <RadioGroup value={type} onChange={handleChange("type")}>
-            <FormControlLabel
-              value="feature-request"
-              control={<Radio />}
-              label="Feature Request"
-            />
-            <FormControlLabel
-              value="bug-report"
-              control={<Radio />}
-              label="Bug Report"
-            />
+            <div className="flex">
+              <div className="flex items-center">
+                <FormControlLabel value="feature-request" control={<Radio />} />
+                <h3 className="-ml-5 dark:text-white text-black font-medium">
+                  Feature Request
+                </h3>
+              </div>
+              <div className="flex items-center ml-6">
+                <FormControlLabel value="bug-report" control={<Radio />} />
+                <h3 className="-ml-5 dark:text-white text-black font-medium">
+                  Bug Report
+                </h3>
+              </div>
+            </div>
           </RadioGroup>
 
           <div className="flex items-center justify-between">
