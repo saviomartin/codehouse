@@ -1,14 +1,14 @@
 import React from "react";
 
 // components
-import { BookMarkItem, MainHeader, SvgBanner,NotFound } from "../components";
+import { BookMarkItem, MainHeader, SvgBanner, NotFound } from "../components";
 
 const bookmarksPage = (props) => {
   const { bookmarks, user, fetchBookmarks, darkMode } = props;
 
   return (
     <div className="bg-[#ECF2F5] dark:bg-[#2F2F2F] h-full w-full overflow-visible">
-      <MainHeader user={user} />
+      <MainHeader user={user} {...props} />
       <div className="w-full h-full min-h-[90vh] rounded-md white-light-shadow pt-5">
         {bookmarks.length > 0 && bookmarks ? (
           <>
@@ -30,9 +30,7 @@ const bookmarksPage = (props) => {
             </div>
           </>
         ) : null}
-        {bookmarks.length < 1 && (
-          <NotFound text="No BookMarks Found" />
-        )}
+        {bookmarks.length < 1 && <NotFound text="No BookMarks Found" />}
       </div>
     </div>
   );

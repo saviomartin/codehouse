@@ -49,7 +49,7 @@ const FeatureRequests = ({ user }) => {
       </div>
       <div className="w-full flex items-center flex-col mt-3">
         {data.map((item, key) => (
-          <Request data={item} />
+          <Request data={item} user={user} />
         ))}
       </div>
     </div>
