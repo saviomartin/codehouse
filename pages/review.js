@@ -80,7 +80,7 @@ const Review = (props) => {
 
   return (
     <Fragment>
-      <MainHeader user={user} />
+      <MainHeader {...props} />
       <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f] min-h-screen p-6">
         <AppHeader
           {...props}

@@ -5,7 +5,7 @@ import { MainHeader, Request } from "../components";
 import Link from "next/link";
 import { harperFetch } from "../utils/HarperFetch";
 
-const FeatureRequests = ({ user }) => {
+const FeatureRequests = (props) => {
   const [data, setData] = useState([]);
 
   useEffect(async () => {
@@ -20,7 +20,7 @@ const FeatureRequests = ({ user }) => {
   }, []);
   return (
     <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f]">
-      <MainHeader user={user} />
+      <MainHeader {...props} />
       <div className="flex w-full items-center justify-center mt-3 mb-2 flex-col lg:flex-row">
         <img
           src="/assets/3d/feature-requests.png"
