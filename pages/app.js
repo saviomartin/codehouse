@@ -4,7 +4,7 @@ import { App, MainHeader } from "../components";
 const Container = (props) => {
   return (
     <Fragment>
-      <MainHeader user={props.user} />
+      <MainHeader {...props} />
       <App {...props} />
     </Fragment>
   );

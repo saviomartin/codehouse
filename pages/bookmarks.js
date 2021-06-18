@@ -8,7 +8,7 @@ const bookmarksPage = (props) => {
 
   return (
     <div className="bg-[#ECF2F5] dark:bg-[#2F2F2F] h-full w-full overflow-visible">
-      <MainHeader user={user} {...props} />
+      <MainHeader {...props} />
       <div className="w-full h-full min-h-[90vh] rounded-md white-light-shadow pt-5">
         {bookmarks.length > 0 && bookmarks ? (
           <>

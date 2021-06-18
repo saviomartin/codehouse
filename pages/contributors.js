@@ -8,7 +8,7 @@ import {
 } from "../components";
 import { harperFetch } from "../utils/HarperFetch";
 
-const contributors = ({ user }) => {
+const contributors = (props) => {
   const [githubContributors, setGithubContributors] = useState([]);
   const [webContributors, setWebContributors] = useState([]);
 
@@ -42,7 +42,7 @@ const contributors = ({ user }) => {
 
   return (
     <div className="bg-[#ECF2F5] dark:bg-[#2F2F2F] h-full w-full overflow-visible min-h-screen">
-      <MainHeader user={user} />
+      <MainHeader {...props} />
 
       <SvgBanner
         text="Contributors"
