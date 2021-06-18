@@ -13,12 +13,16 @@ import toast from "react-hot-toast";
 import { Btn } from "../components";
 import { FiCheck, FiX } from "react-icons/fi";
 
+// material ui select
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
+
 const New = ({ user }) => {
   // default values
   const [values, setValues] = useState({
     cheatsheet_name: "",
     website_url: "",
-    category: "",
+    category: "react",
     twitter_handle: "",
   });
 
@@ -93,7 +97,7 @@ const New = ({ user }) => {
         setValues({
           cheatsheet_name: "",
           website_url: "",
-          category: "",
+          category: "react",
           twitter_handle: "",
         });
       } catch (err) {
@@ -176,29 +180,25 @@ const New = ({ user }) => {
               {is_url(website_url) ? (
                 <FiCheck className="text-green-500 text-2xl mr-2" />
               ) : (
-                <FiX className="text-red-500 text-2xl mr-2" />
+                <FiX className="text-red-500 text-xl mr-2" />
               )}
             </div>
           </div>
-          <div className="mb-6 pr-8">
+          <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-[#fafafa]">
               Category
             </label>
-            <span className="shadow appearance-none border rounded w-full py-2 px-3 pr-4 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:border-[#555] dark:text-white">
-              <input
-                type="text"
-                list="alist"
-                value={category}
-                onChange={handleChange("category")}
-                placeholder="react"
-                className="w-full bg-transparent"
-              />
-              <datalist id="alist" className="w-full text-black">
-                {categories.map((category, key) => (
-                  <option value={category} key={key} className="capitalize" />
-                ))}
-              </datalist>
-            </span>
+            <Select
+              value={category}
+              onChange={handleChange("category")}
+              className="shadow appearance-none border rounded w-full pr-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:border-[#555] dark:text-white flex justify-center pl-3"
+            >
+              {categories.map((category, key) => (
+                <MenuItem value={category} key={key}>
+                  {category}
+                </MenuItem>
+              ))}
+            </Select>
           </div>
           <div className="mb-2">
             <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-[#fafafa]">
