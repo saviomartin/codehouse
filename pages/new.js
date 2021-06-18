@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 
 // Btn
 import { Btn } from "../components";
+import { FiCheck, FiX } from "react-icons/fi";
 
 const New = ({ user }) => {
   // default values
@@ -162,16 +163,21 @@ const New = ({ user }) => {
               Website URL
             </label>
             <div
-              className={`flex border-[1.4px] mb-3 rounded-md ${
+              className={`flex border-[1.75px] mb-3 rounded-md items-center ${
                 is_url(website_url) ? "border-green-500" : "border-red-500"
               }`}
             >
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:border-[#555] dark:text-white"
+                className="appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:text-white"
                 value={website_url}
                 onChange={handleChange("website_url")}
                 placeholder="https://hashnode.com/"
               />
+              {is_url(website_url) ? (
+                <FiCheck className="text-green-500 text-2xl mr-2" />
+              ) : (
+                <FiX className="text-red-500 text-2xl mr-2" />
+              )}
             </div>
           </div>
           <div className="mb-6 pr-8">
