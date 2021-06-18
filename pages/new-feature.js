@@ -35,42 +35,48 @@ const NewFeature = ({ user }) => {
 
     // logic
     if (title && description && type) {
-      let uuid = uuidv4().replace(/-/g, "");
+      if (user.email) {
+        let uuid = uuidv4().replace(/-/g, "");
 
-      try {
-        await harperFetch({
-          operation: "insert",
-          schema: "dev",
-          table: "requests",
-          records: [
-            {
-              id: uuid,
-              title: title,
-              description: description,
-              type: type,
-              status: "open",
-              upvotes: [],
-              addedby: {
-                photoURL: user.photoURL ? user.photoURL : "",
-                displayName: user.displayName ? user.displayName : "Anonymous",
-                email: user.email && user.email,
+        try {
+          await harperFetch({
+            operation: "insert",
+            schema: "dev",
+            table: "requests",
+            records: [
+              {
+                id: uuid,
+                title: title,
+                description: description,
+                type: type,
+                status: "open",
+                upvotes: [],
+                addedby: {
+                  photoURL: user.photoURL ? user.photoURL : "",
+                  displayName: user.displayName
+                    ? user.displayName
+                    : "Anonymous",
+                  email: user.email && user.email,
+                },
               },
-            },
-          ],
-        });
+            ],
+          });
 
-        // toasting success
-        toast.success("Successfully Created!");
+          // toasting success
+          toast.success("Successfully Created!");
 
-        // making everything default
-        setValues({
-          title: "",
-          description: "",
-          type: "feature-request",
-        });
-      } catch (err) {
-        console.log(err);
-        toast.error("Something went wrong");
+          // making everything default
+          setValues({
+            title: "",
+            description: "",
+            type: "feature-request",
+          });
+        } catch (err) {
+          console.log(err);
+          toast.error("Something went wrong");
+        }
+      } else {
+        toast.error("Please Sign In");
       }
     } else {
       toast.error("Please Fill All Fields");

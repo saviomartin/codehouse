@@ -21,3 +21,4 @@ export { default as SvgBanner } from "./utils/SvgBanner";
 export { default as NotFound } from "./utils/NotFound";
 export { default as GithubCard } from "./utils/GithubCard";
 export { default as ContributorCard } from "./utils/ContributorCard";
+export { default as Request } from "./utils/Request";

@@ -1,10 +1,23 @@
 import { Button } from "@material-ui/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
-import { MainHeader } from "../components";
+import { MainHeader, Request } from "../components";
 import Link from "next/link";
+import { harperFetch } from "../utils/HarperFetch";
 
 const FeatureRequests = ({ user }) => {
+  const [data, setData] = useState([]);
+
+  useEffect(async () => {
+    // fetching
+    const requests = await harperFetch({
+      operation: "sql",
+      sql: "SELECT * FROM dev.requests",
+    });
+
+    // data to be used
+    await setData(requests);
+  }, []);
   return (
     <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f]">
       <MainHeader user={user} />
@@ -33,6 +46,11 @@ const FeatureRequests = ({ user }) => {
             </a>
           </Link>
         </div>
+      </div>
+      <div className="w-full flex items-center flex-col mt-3">
+        {data.map((item, key) => (
+          <Request data={item} />
+        ))}
       </div>
     </div>
   );
