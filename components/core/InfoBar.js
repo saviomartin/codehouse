@@ -24,6 +24,7 @@ const InfoBar = ({
   setOpen,
   fetchAgain,
   setFetchAgain,
+  review = false,
 }) => {
   const [meta, setMetadata] = useState([]);
   const [error, setError] = useState(false);
@@ -95,7 +96,7 @@ const InfoBar = ({
         harperFetch({
           operation: "update",
           schema: "dev",
-          table: "cheatsheets",
+          table: review ? "review" : "cheatsheets",
           records: [
             {
               id: id,
@@ -111,7 +112,7 @@ const InfoBar = ({
         harperFetch({
           operation: "update",
           schema: "dev",
-          table: "cheatsheets",
+          table: review ? "review" : "cheatsheets",
           records: [
             {
               id: id,
@@ -190,7 +191,7 @@ const InfoBar = ({
         harperFetch({
           operation: "update",
           schema: "dev",
-          table: "cheatsheets",
+          table: review ? "review" : "cheatsheets",
           records: [
             {
               id: id,

@@ -45,6 +45,7 @@ const Cheatsheet = (props) => {
           {...props}
           fetchAgain={fetchAgain}
           setFetchAgain={setFetchAgain}
+          review={true}
         />
         <RightBar currentPost={currentPost} {...props} />
       </div>
