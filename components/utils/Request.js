@@ -11,7 +11,7 @@ import { FiTriangle } from "react-icons/fi";
 import { BiGitRepoForked } from "react-icons/bi";
 import { harperFetch } from "../../utils/HarperFetch";
 
-const Request = ({ data, user, setOpen }) => {
+const Request = ({ data, user, setOpen, setData }) => {
   const [isUpvoted, setIsUpvoted] = useState(false);
   const { id, title, description, upvotes, addedby } = data;
 
@@ -42,6 +42,8 @@ const Request = ({ data, user, setOpen }) => {
             },
           ],
         });
+
+        setData([]);
       } else {
         // adding upvote
         harperFetch({
@@ -55,6 +57,8 @@ const Request = ({ data, user, setOpen }) => {
             },
           ],
         });
+
+        setData([]);
       }
     } else {
       // showing sign in popup is user not found

@@ -18,7 +18,7 @@ const FeatureRequests = (props) => {
 
     // data to be used
     await setData(requests);
-  }, []);
+  }, [data]);
 
   return (
     <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f]">
@@ -51,7 +51,13 @@ const FeatureRequests = (props) => {
       </div>
       <div className="w-full flex items-center flex-col mt-3">
         {data.map((item, key) => (
-          <Request data={item} user={user} key={key} setOpen={props.setOpen} />
+          <Request
+            data={item}
+            user={user}
+            key={key}
+            setOpen={props.setOpen}
+            setData={setData}
+          />
         ))}
       </div>
     </div>
