@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import { Btn } from "../components";
 
+// harperFetch
+import { harperFetch } from "../utils/HarperFetch";
+
+// uuid
+import { v4 as uuidv4 } from "uuid";
+
+// toaster
+import toast from "react-hot-toast";
+
 // radio button
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
 
 const NewFeature = ({ user }) => {
   // default values
@@ -23,9 +30,51 @@ const NewFeature = ({ user }) => {
     setValues({ ...values, [name]: event.target.value });
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(values);
+
+    // logic
+    if (title && description && type) {
+      let uuid = uuidv4().replace(/-/g, "");
+
+      try {
+        await harperFetch({
+          operation: "insert",
+          schema: "dev",
+          table: "requests",
+          records: [
+            {
+              id: uuid,
+              title: title,
+              description: description,
+              type: type,
+              status: "open",
+              upvotes: [],
+              addedby: {
+                photoURL: user.photoURL ? user.photoURL : "",
+                displayName: user.displayName ? user.displayName : "Anonymous",
+                email: user.email && user.email,
+              },
+            },
+          ],
+        });
+
+        // toasting success
+        toast.success("Successfully Created!");
+
+        // making everything default
+        setValues({
+          title: "",
+          description: "",
+          type: "feature-request",
+        });
+      } catch (err) {
+        console.log(err);
+        toast.error("Something went wrong");
+      }
+    } else {
+      toast.error("Please Fill All Fields");
+    }
   };
   return (
     <div className="h-full min-h-screen text-[#ECF2F5] w-full bg-image p-3 flex items-center justify-center flex-col">
