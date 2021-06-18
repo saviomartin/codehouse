@@ -34,7 +34,7 @@ const SignInPopup = ({ open, setOpen }) => {
       }}
     >
       <Fade in={open}>
-        <div className="bg-white p-5 rounded-xl shadow-md w-[45%]">
+        <div className="bg-white p-5 rounded-xl shadow-md w-[95%] lg:w-[45%] xl:w-[45%] md:w-[65%]">
           <h1 className="text-3xl font-bold mb-2">Join Codehouse!</h1>
           <p className="text-[#555] mb-5">
             We're super excited to have you here! Welcome to Code House. I hope
