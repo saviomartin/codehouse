@@ -1,14 +1,13 @@
 import React from "react";
 
 // formating time
-// we get time in milliseconds
-// https://www.epochconverter.com/
 import { formatRelative } from "date-fns";
 
-import { FiTriangle } from "react-icons/fi";
+// components
 import { Btn } from "..";
 
 // icons
+import { FiTriangle } from "react-icons/fi";
 import { BiGitRepoForked } from "react-icons/bi";
 
 const Request = ({ data }) => {
