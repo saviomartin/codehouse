@@ -7,6 +7,7 @@ import { harperFetch } from "../utils/HarperFetch";
 
 const FeatureRequests = (props) => {
   const [data, setData] = useState([]);
+  const { user } = props;
 
   useEffect(async () => {
     // fetching
@@ -18,6 +19,7 @@ const FeatureRequests = (props) => {
     // data to be used
     await setData(requests);
   }, []);
+
   return (
     <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f]">
       <MainHeader {...props} />
@@ -49,7 +51,7 @@ const FeatureRequests = (props) => {
       </div>
       <div className="w-full flex items-center flex-col mt-3">
         {data.map((item, key) => (
-          <Request data={item} user={props.user} key={key} />
+          <Request data={item} user={user} key={key} />
         ))}
       </div>
     </div>

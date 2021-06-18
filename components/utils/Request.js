@@ -12,6 +12,7 @@ import { BiGitRepoForked } from "react-icons/bi";
 
 const Request = ({ data, user }) => {
   const [isUpvoted, setIsUpvoted] = useState(false);
+  const { title, description, upvotes, addedby } = data;
 
   // use effect for handling is upvoted or not
   useEffect(() => {
@@ -22,14 +23,58 @@ const Request = ({ data, user }) => {
     }
   });
 
+  const upvoteRequest = () => {
+    if (user.email) {
+      if (isUpvoted) {
+        // removing upvote if already upvoted
+        const index = upvotes.indexOf(user.email);
+        upvotes.splice(index, 1);
+
+        harperFetch({
+          operation: "update",
+          schema: "dev",
+          table: "requests",
+          records: [
+            {
+              id: id,
+              upvotes: upvotes,
+            },
+          ],
+        });
+
+        // changing visual data without fetching again
+        setChanged("sub");
+      } else {
+        // adding upvote
+        harperFetch({
+          operation: "update",
+          schema: "dev",
+          table: "requests",
+          records: [
+            {
+              id: id,
+              upvotes: [...upvotes, user.email],
+            },
+          ],
+        });
+
+        // changing visual data without fetching again
+        setChanged("add");
+      }
+    } else {
+      // showing sign in popup is user not found
+      setOpen(true);
+    }
+  };
+
   return (
     <div className="cursor-pointer flex flex-col items-center p-3 rounded-md duration-500 white-light-shadow bg-white m-2 w-full lg:w-8/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale dark:border-[#555] dark:bg-[#1F1F1F] dark:text-white">
       <div className="flex items-center justify-between w-full">
         <div className="flex">
           <img
             src={
-              data.addedby.photoURL
-                ? data.addedby.photoURL
+              addedby.photoURL
+                ? addedby.photoURL
                 : "https://unavatar.vercel.app/undefined"
             }
             alt=""
@@ -37,7 +82,7 @@ const Request = ({ data, user }) => {
           />
           <div className="ml-3">
             <h1 className="text-lg font-bold text-[#222] dark:text-[#fafafa]">
-              {data.addedby.displayName}
+              {addedby.displayName}
             </h1>
             <h4 className="text-xs font-semibold text-[#666] capitalize dark:text-[#aaa]">
               {formatRelative(data.__createdtime__, new Date())}
@@ -51,6 +96,7 @@ const Request = ({ data, user }) => {
                 ? "text-white bg-[#3d5eff]"
                 : "text-[#3d5eff] border-[#3d5eff]"
             }duration-500 px-4 py-2 h-full text-sm capitalize rounded-lg font-semibold border  flex items-center justify-center menu-animation-hover poppins dark:text-white`}
+            onClick={upvoteRequest}
           >
             <FiTriangle className="text-sm span duration-500" />
             <span className="ml-1 text-base">{data.upvotes.length}</span>
@@ -79,11 +125,9 @@ const Request = ({ data, user }) => {
           )}
         </div>
         <h1 className="text-xl font-bold text-[#222] dark:text-[#fafafa]">
-          {data.title}
+          {title}
         </h1>
-        <h4 className="text-sm text-[#666] dark:text-[#aaa]">
-          {data.description}
-        </h4>
+        <h4 className="text-sm text-[#666] dark:text-[#aaa]">{description}</h4>
       </div>
     </div>
   );
