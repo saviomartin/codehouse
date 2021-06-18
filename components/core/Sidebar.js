@@ -102,7 +102,7 @@ const Sidebar = ({ showDrawer, toggleDrawer, darkMode }) => {
       <div
         className={`${
           darkMode ? "dark bg-[#2f2f2f] text-white" : "light"
-        } w-[25vw] h-full flex items-center justify-between flex-col bg-[#ECF2F5] relative overflow-y-scroll`}
+        } w-[85vw] lg:w-[25vw] md:w-[65vw] xl:w-[25vw] h-full flex items-center justify-between flex-col bg-[#ECF2F5] relative overflow-y-scroll`}
       >
         <div className="w-full h-auto sticky top-0 left-0">
           <Tabs
