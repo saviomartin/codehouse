@@ -15,7 +15,7 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { githubProvider, googleProvider } from "../../utils/Auth/auth-methods";
 import socialMediaAuth from "../../utils/Auth/auth";
 
-const SignInPopup = ({ open, setOpen }) => {
+const SignInPopup = ({ open, setOpen, darkMode }) => {
   // handling onClick for buttons
   const handleOnClick = async (provider) => {
     const res = await socialMediaAuth(provider);
@@ -34,9 +34,15 @@ const SignInPopup = ({ open, setOpen }) => {
       }}
     >
       <Fade in={open}>
-        <div className="bg-white p-5 rounded-xl shadow-md w-[95%] lg:w-[45%] xl:w-[45%] md:w-[65%]">
-          <h1 className="text-3xl font-bold mb-2">Join Codehouse!</h1>
-          <p className="text-[#555] mb-5">
+        <div
+          className={`${
+            darkMode ? "dark bg-[#1f1f1f]" : "bg-white"
+          } p-5 rounded-xl shadow-md w-[95%] lg:w-[45%] xl:w-[45%] md:w-[65%]`}
+        >
+          <h1 className="text-3xl font-bold mb-2 dark:text-[#fafafa]">
+            Join Codehouse!
+          </h1>
+          <p className="text-[#555] mb-5 dark:text-[#aaa]">
             We're super excited to have you here! Welcome to Code House. I hope
             you have fun, Sign In with any of the following methods✌️
           </p>

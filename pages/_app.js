@@ -113,7 +113,7 @@ function MyApp({ Component, pageProps }) {
       <Toaster position="bottom-right" reverseOrder={false} />
       {loading && "Loading......"}
       <Component {...pageProps} {...props} />
-      <SignInPopup open={open} setOpen={setOpen} />
+      <SignInPopup open={open} setOpen={setOpen} darkMode={darkMode} />
       <Sidebar {...props} />
     </div>
   );
