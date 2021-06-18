@@ -19,6 +19,9 @@ import { harperFetch } from "../../utils/HarperFetch";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Fragment } from "react";
 
+// head
+import Head from "next/head";
+
 const name = (props) => {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(6); // count of posts that should load first
@@ -86,6 +89,12 @@ const name = (props) => {
   return (
     <Fragment>
       <MainHeader {...props} />
+      <Head>
+        <title>
+          {name && name.charAt(0).toUpperCase() + name.slice(1)} Cheatsheets -
+          Code House
+        </title>
+      </Head>
       <div className="bg-[#ECF2F5] min-h-screen p-6 dark:bg-[#2F2F2F]">
         <AppHeader
           {...props}

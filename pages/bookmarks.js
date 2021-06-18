@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React from "react";
 
 // components
@@ -9,6 +10,9 @@ const bookmarksPage = (props) => {
   return (
     <div className="bg-[#ECF2F5] dark:bg-[#2F2F2F] h-full w-full overflow-visible">
       <MainHeader {...props} />
+      <Head>
+        <title>Your BookMarks - Code House</title>
+      </Head>
       <div className="w-full h-full min-h-[90vh] rounded-md white-light-shadow pt-5">
         {bookmarks.length > 0 && bookmarks ? (
           <>

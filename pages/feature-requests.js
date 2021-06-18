@@ -4,6 +4,7 @@ import { FiArrowRight } from "react-icons/fi";
 import { MainHeader, Request } from "../components";
 import Link from "next/link";
 import { harperFetch } from "../utils/HarperFetch";
+import Head from "next/head";
 
 const FeatureRequests = (props) => {
   const [data, setData] = useState([]);
@@ -23,6 +24,9 @@ const FeatureRequests = (props) => {
   return (
     <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f]">
       <MainHeader {...props} />
+      <Head>
+        <title>Feature Requests - Code House</title>
+      </Head>
       <div className="flex w-full items-center justify-center mt-3 mb-2 flex-col lg:flex-row">
         <img
           src="/assets/3d/feature-requests.png"

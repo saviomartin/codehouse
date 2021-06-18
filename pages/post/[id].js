@@ -4,6 +4,9 @@ import React, { useEffect, useState } from "react";
 import { RightBar, InfoBar, Header } from "../../components";
 import { harperFetch } from "../../utils/HarperFetch";
 
+// head
+import Head from "next/head";
+
 const Cheatsheet = (props) => {
   const router = useRouter();
 
@@ -38,6 +41,11 @@ const Cheatsheet = (props) => {
 
   return (
     <div className="bg-image">
+      <Head>
+        <title>
+          {currentPost[0] && currentPost[0].cheatsheet_name}- Code House
+        </title>
+      </Head>
       <Header {...props} />
       <div className="h-full min-h-screen p-6 flex items-start justify-start relative flex-col lg:flex-row xl:flex-row">
         <InfoBar

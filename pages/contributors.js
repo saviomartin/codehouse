@@ -1,4 +1,5 @@
 import axios from "axios";
+import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import {
   ContributorCard,
@@ -43,7 +44,9 @@ const contributors = (props) => {
   return (
     <div className="bg-[#ECF2F5] dark:bg-[#2F2F2F] h-full w-full overflow-visible min-h-screen">
       <MainHeader {...props} />
-
+      <Head>
+        <title>Contributors - Code House</title>
+      </Head>
       <SvgBanner
         text="Contributors"
         description="A big thanks to all contributors who helped code house grow and help many! Thank you! Keep helps us grow! 🙏"
