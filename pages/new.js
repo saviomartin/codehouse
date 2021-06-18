@@ -21,6 +21,32 @@ const New = ({ user }) => {
     twitter_handle: "",
   });
 
+  // regex to test whether url is valid
+  const is_url = (str) => {
+    var pattern = new RegExp(
+      "^" +
+        "(?:(?:https?|ftp)://)" +
+        "(?:\\S+(?::\\S*)?@)?" +
+        "(?:" +
+        "(?!(?:10|127)(?:\\.\\d{1,3}){3})" +
+        "(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})" +
+        "(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})" +
+        "(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])" +
+        "(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}" +
+        "(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))" +
+        "|" +
+        "(?:(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)" +
+        "(?:\\.(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)*" +
+        "(?:\\.(?:[a-z\\u00a1-\\uffff]{2,}))" +
+        ")" +
+        "(?::\\d{2,5})?" +
+        "(?:/\\S*)?" +
+        "$",
+      "i"
+    );
+    return pattern.test(str);
+  };
+
   // destructuring values
   const { cheatsheet_name, website_url, category, twitter_handle } = values;
 
@@ -135,12 +161,18 @@ const New = ({ user }) => {
             <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-[#fafafa]">
               Website URL
             </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:border-[#555] dark:text-white"
-              value={website_url}
-              onChange={handleChange("website_url")}
-              placeholder="https://hashnode.com/"
-            />
+            <div
+              className={`flex border-[1.4px] mb-3 rounded-md ${
+                is_url(website_url) ? "border-green-500" : "border-red-500"
+              }`}
+            >
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:border-[#555] dark:text-white"
+                value={website_url}
+                onChange={handleChange("website_url")}
+                placeholder="https://hashnode.com/"
+              />
+            </div>
           </div>
           <div className="mb-6 pr-8">
             <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-[#fafafa]">
