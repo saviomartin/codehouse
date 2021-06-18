@@ -9,10 +9,11 @@ import { Btn } from "..";
 // icons
 import { FiTriangle } from "react-icons/fi";
 import { BiGitRepoForked } from "react-icons/bi";
+import { harperFetch } from "../../utils/HarperFetch";
 
-const Request = ({ data, user }) => {
+const Request = ({ data, user, setOpen }) => {
   const [isUpvoted, setIsUpvoted] = useState(false);
-  const { title, description, upvotes, addedby } = data;
+  const { id, title, description, upvotes, addedby } = data;
 
   // use effect for handling is upvoted or not
   useEffect(() => {
@@ -41,9 +42,6 @@ const Request = ({ data, user }) => {
             },
           ],
         });
-
-        // changing visual data without fetching again
-        setChanged("sub");
       } else {
         // adding upvote
         harperFetch({
@@ -57,9 +55,6 @@ const Request = ({ data, user }) => {
             },
           ],
         });
-
-        // changing visual data without fetching again
-        setChanged("add");
       }
     } else {
       // showing sign in popup is user not found
@@ -94,8 +89,8 @@ const Request = ({ data, user }) => {
             className={`${
               isUpvoted
                 ? "text-white bg-[#3d5eff]"
-                : "text-[#3d5eff] border-[#3d5eff]"
-            }duration-500 px-4 py-2 h-full text-sm capitalize rounded-lg font-semibold border  flex items-center justify-center menu-animation-hover poppins dark:text-white`}
+                : "bg-white text-[#3d5eff] border-[#3d5eff]"
+            } duration-500 px-4 py-2 h-full text-sm capitalize rounded-lg font-semibold border  flex items-center justify-center menu-animation-hover poppins dark:text-white`}
             onClick={upvoteRequest}
           >
             <FiTriangle className="text-sm span duration-500" />
