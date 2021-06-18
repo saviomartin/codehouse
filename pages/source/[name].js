@@ -85,7 +85,7 @@ const name = (props) => {
 
   return (
     <Fragment>
-      <MainHeader user={user} />
+      <MainHeader {...props} />
       <div className="bg-[#ECF2F5] min-h-screen p-6 dark:bg-[#2F2F2F]">
         <AppHeader
           {...props}
