@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { Btn } from "../components";
 
+// radio button
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
+
 const NewFeature = ({ user }) => {
   // default values
   const [values, setValues] = useState({
@@ -52,6 +59,22 @@ const NewFeature = ({ user }) => {
               onChange={handleChange("description")}
               placeholder="description"
             />
+          </div>
+          <div className="mb-2">
+            <RadioGroup value={type} onChange={handleChange("type")}>
+              <div className="flex radio-grp">
+                <FormControlLabel
+                  value="feature-request"
+                  control={<Radio />}
+                  label="Feature Request"
+                />
+                <FormControlLabel
+                  value="bug-report"
+                  control={<Radio />}
+                  label="Bug Report"
+                />
+              </div>
+            </RadioGroup>
           </div>
 
           <div className="flex items-center justify-between">

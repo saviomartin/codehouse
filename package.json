@@ -8,6 +8,7 @@
     "graphql": "node graphql/index.js"
   },
   "dependencies": {
+    "@headlessui/react": "^1.2.0",
     "@material-ui/core": "^4.11.4",
     "apollo-server": "^2.25.1",
     "axios": "^0.21.1",

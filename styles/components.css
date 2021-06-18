@@ -136,3 +136,6 @@
   transform: rotate(-45deg);
   transition-delay: 0, 0.2s;
 }
+.radio-grp * {
+  font-family: "Epilogue", sans-serif !important;
+}
