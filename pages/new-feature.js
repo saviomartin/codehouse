@@ -49,33 +49,38 @@ const NewFeature = ({ user }) => {
               placeholder="title"
             />
           </div>
-          <div className="mb-2">
+          <div className="block">
             <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-[#fafafa]">
               Description
             </label>
-            <input
+            <textarea
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:border-[#555] dark:text-white"
               value={description}
               onChange={handleChange("description")}
               placeholder="description"
             />
           </div>
-          <RadioGroup value={type} onChange={handleChange("type")}>
-            <div className="flex">
-              <div className="flex items-center">
-                <FormControlLabel value="feature-request" control={<Radio />} />
-                <h3 className="-ml-5 dark:text-white text-black font-medium">
-                  Feature Request
-                </h3>
+          <div className="mb-3">
+            <RadioGroup value={type} onChange={handleChange("type")}>
+              <div className="flex">
+                <div className="flex items-center">
+                  <FormControlLabel
+                    value="feature-request"
+                    control={<Radio />}
+                  />
+                  <h3 className="-ml-5 dark:text-white text-black font-medium">
+                    Feature Request
+                  </h3>
+                </div>
+                <div className="flex items-center ml-6">
+                  <FormControlLabel value="bug-report" control={<Radio />} />
+                  <h3 className="-ml-5 dark:text-white text-black font-medium">
+                    Bug Report
+                  </h3>
+                </div>
               </div>
-              <div className="flex items-center ml-6">
-                <FormControlLabel value="bug-report" control={<Radio />} />
-                <h3 className="-ml-5 dark:text-white text-black font-medium">
-                  Bug Report
-                </h3>
-              </div>
-            </div>
-          </RadioGroup>
+            </RadioGroup>
+          </div>
 
           <div className="flex items-center justify-between">
             <Btn>
