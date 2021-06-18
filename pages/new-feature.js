@@ -49,7 +49,7 @@ const NewFeature = ({ user }) => {
               placeholder="title"
             />
           </div>
-          <div className="block">
+          <div className="-mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-[#fafafa]">
               Description
             </label>
