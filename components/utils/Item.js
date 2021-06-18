@@ -122,7 +122,7 @@ const Item = ({
         harperFetch({
           operation: "update",
           schema: "dev",
-          table: "cheatsheets",
+          table: review ? "review" : "cheatsheets",
           records: [
             {
               id: id,
@@ -138,7 +138,7 @@ const Item = ({
         harperFetch({
           operation: "update",
           schema: "dev",
-          table: "cheatsheets",
+          table: review ? "review" : "cheatsheets",
           records: [
             {
               id: id,
