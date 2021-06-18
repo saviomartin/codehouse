@@ -100,12 +100,12 @@ function MyApp({ Component, pageProps }) {
   Router.events.on("routeChangeStart", (url) => {
     setLoading(true);
     NProgress.start();
-    console.log("start");
+    setShowDrawer(false);
   });
   Router.events.on("routeChangeComplete", (url) => {
     setLoading(false);
     NProgress.done();
-    console.log("complete");
+    setShowDrawer(false);
   });
 
   return (
