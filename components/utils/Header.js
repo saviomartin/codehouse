@@ -166,42 +166,42 @@ const Header = ({ setOpen, user, setUser }) => {
         <div className="flex lg:hidden xl:hidden md:hidden flex-col w-full text-center mt-3">
           <Link href="/bookmarks">
             <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
-              <h3 className="font-bold continuous-line text-center">
+              <h3 className="font-bold continuous-line text-center text-white">
                 How it works
               </h3>
             </a>
           </Link>
           <Link href="/bookmarks">
             <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
-              <h3 className="font-bold continuous-line text-center">
+              <h3 className="font-bold continuous-line text-center text-white">
                 Upcoming Features
               </h3>
             </a>
           </Link>
           <Link href="/feature-requests">
             <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
-              <h3 className="font-bold continuous-line text-center">
+              <h3 className="font-bold continuous-line text-center text-white">
                 Feature Requests
               </h3>
             </a>
           </Link>
           <Link href="/contributors">
             <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
-              <h3 className="font-bold continuous-line text-center">
+              <h3 className="font-bold continuous-line text-center text-white">
                 Contributors
               </h3>
             </a>
           </Link>
           <Link href="/review">
             <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
-              <h3 className="font-bold continuous-line text-center">
+              <h3 className="font-bold continuous-line text-center text-white">
                 On Review
               </h3>
             </a>
           </Link>
           <Link href="/bookmarks">
             <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
-              <h3 className="font-bold continuous-line text-center">
+              <h3 className="font-bold continuous-line text-center text-white">
                 Bookmarks
               </h3>
             </a>
