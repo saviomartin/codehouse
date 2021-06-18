@@ -149,7 +149,7 @@ const RightBar = ({ currentPost }) => {
           <h1 className="text-lg font-bold text-[#ECF2F5] mb-1">
             Share Cheatsheet
           </h1>
-          <div className="flex">
+          <div className="flex flex-wrap">
             <a href={twitterLink} rel="noreferrer" target="_blank">
               <Btn className="!p-0 !w-auto !h-auto !m-0">
                 <button className="bg-[#1DA1F2] text-white font-semibold py-2 px-3 rounded focus:outline-none focus:shadow-outline shine flex items-center text-sm">
