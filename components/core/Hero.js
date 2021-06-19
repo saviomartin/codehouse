@@ -67,7 +67,7 @@ const Hero = ({ setOpen, user, setUser }) => {
           <div className="absolute h-full w-full flex items-center justify-center">
             <img
               src="/assets/icon.svg"
-              className="w-[320px] lg:w-[450px] xl:w-[450px]"
+              className="w-[320px] lg:w-[450px] xl:w-[450px] opacity-50 lg:opacity-100 xl:opacity-100"
             />
           </div>
           <div id="scene">
