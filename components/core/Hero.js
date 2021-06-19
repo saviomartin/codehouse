@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // material design
 import { Button } from "@material-ui/core";
@@ -13,23 +13,31 @@ import Link from "next/link";
 // components
 import { Header } from "..";
 
+import Parallax from "parallax-js";
+
 const Hero = ({ setOpen, user, setUser }) => {
-  //TODO: Dynamic Star Count
+  useEffect(() => {
+    var scene = document.getElementById("scene");
+    var parallaxInstance = new Parallax(scene);
+  });
+
   return (
-    <div className="h-screen bg-image w-full text-[#ECF2F5] overflow-visible">
+    <div className="h-screen bg-image w-full text-[#ECF2F5] overflow-visible z-10">
       <Header setOpen={setOpen} user={user} setUser={setUser} />
       <div className="flex items-center justify-center bg-image h-[90vh] w-full">
-        <div className="w-7/12 h-full flex items-start justify-center flex-col pl-10">
-          <h3 className="text-lg bg-text-gradient font-bold mb-3 uppercase tracking-wider">
-            100+ CheetSheets. Sorting. Open Source. Categories.
+        <div className="w-6/12 h-full flex items-start justify-center flex-col pl-10 relative z-10">
+          <h3 className="text-base bg-text-gradient font-bold mb-2 uppercase tracking-wider">
+            300+ CheetSheets. Sorting. Open Source. Categories.
           </h3>
-          <h1 className="font-bold text-[3.25rem] leading-[3.35rem]">
+          <h1 className="font-bold text-[2.75rem] leading-[3rem]">
             Worl'd biggest storehouse of developer cheetsheets
           </h1>
-          <p className="text-light text-[#aaa] my-2 mt-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo,
-            laudantium placeat. Obcaecati rem sequi, modi magnam eaque, nulla
-            dolorem, possimus dolores ratione sit delectus?
+          <p className="text-light text-[#aaa] my-2 mt-3 text-sm">
+            Code House is the all in one storehouse for developer cheatsheets.
+            Code House is made up of 300+ curated cheatsheets from 230+ sources.
+            Filter by categories, or source, sort by time or popularity, dark
+            mode, bookmark cheatsheets, add new cheatsheets, request feature,
+            and much more features, make the app amazing! 🤟
           </p>
           <div className="flex mt-2">
             <Link href="/app">
@@ -55,7 +63,22 @@ const Hero = ({ setOpen, user, setUser }) => {
             </Button>
           </div>
         </div>
-        <div className="w-5/12 h-full flex items-center justify-center flex-col"></div>
+        <div className="w-6/12 h-full flex items-center justify-center flex-col overflow-hidden relative bg-pattern-hero">
+          <div className="absolute h-full w-full flex items-center justify-center">
+            <img src="/assets/icon.svg" className="w-[450px]" />
+          </div>
+          <div id="scene">
+            <iframe
+              src="https://www.youtube.com/embed/gdZLi9oWNZg"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              className="relative h-[315px] w-[560px]"
+              data-depth="0.3"
+            ></iframe>
+          </div>
+        </div>
       </div>
     </div>
   );

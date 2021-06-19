@@ -20,6 +20,7 @@
     "lodash": "^4.17.21",
     "next": "^11.0.0",
     "nprogress": "^0.2.0",
+    "parallax-js": "^3.1.0",
     "psl": "^1.8.0",
     "react": "^17.0.2",
     "react-content-loader": "^6.0.3",
