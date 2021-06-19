@@ -91,11 +91,11 @@ const reportPost = ({ user }) => {
   return (
     <div className="h-full min-h-screen text-[#ECF2F5] w-full bg-image p-3 flex items-center justify-center flex-col">
       <h1 className="text-2xl md:text-4xl lg:text-4xl xl:text-4xl font-bold mb-1 lg:mb-3 xl:mb-3 text-center">
-        Create New Cheatsheet
+        Report Cheatsheet
       </h1>
       <div className="w-full lg:w-7/12 xl:w-7/12 h-full bg-white dark:bg-[#2f2f2f] rounded-xl m-1">
         <form
-          className="bg-transparent rounded-xl h-full px-8 pt-6 pb-8 mb-4"
+          className="bg-transparent rounded-xl h-full px-8 pt-6 pb-4 mb-4"
           onSubmit={onSubmit}
         >
           {meta.meta && (
@@ -149,7 +149,7 @@ const reportPost = ({ user }) => {
                 className="bg-app-gradient border border-[#391637] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine"
                 type="submit"
               >
-                Add New Cheatsheet
+                Submit Report
               </button>
             </Btn>
             <div className="flex items-center">
