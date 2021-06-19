@@ -73,7 +73,7 @@ const reportPost = ({ user }) => {
             <Select
               value={type}
               onChange={handleChange("type")}
-              className="shadow appearance-none border rounded w-full pr-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:border-[#555] dark:text-white flex justify-center pl-3"
+              className="shadow appearance-none border rounded w-full pr-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:border-[#555] dark:text-white flex justify-center pl-3 Epilogue-Imp"
             >
               {types.map((type, key) => (
                 <MenuItem value={type.value} key={key}>
