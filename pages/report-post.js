@@ -107,8 +107,10 @@ const reportPost = ({ user }) => {
                 className="rounded-md w-[260px] h-[150px] scale-on-hover duration-500"
               />
               <div className="w-full ml-3">
-                <h1 className="text-2xl font-bold">{cheatsheet_name}</h1>
-                <p className="text-sm text-[#ccc]">
+                <h1 className="text-2xl font-bold text-[#222] dark:text-[#fafafa]">
+                  {cheatsheet_name}
+                </h1>
+                <p className="text-sm text-[#666] dark:text-[#aaa]">
                   {meta.meta && meta.meta.description
                     ? meta.meta.description.slice(0, 150)
                     : "Description not found"}
