@@ -99,7 +99,7 @@ const reportPost = ({ user }) => {
           onSubmit={onSubmit}
         >
           {meta.meta && (
-            <div className="w-full flex items-center">
+            <div className="w-full flex items-center mb-5">
               <img
                 src={image()}
                 alt=""
@@ -107,7 +107,7 @@ const reportPost = ({ user }) => {
                 className="rounded-md w-[260px] h-[150px] scale-on-hover duration-500"
               />
               <div className="w-full ml-3">
-                <h1 className="text-4xl font-bold">{cheatsheet_name}</h1>
+                <h1 className="text-2xl font-bold">{cheatsheet_name}</h1>
                 <p className="text-sm text-[#ccc]">
                   {meta.meta && meta.meta.description
                     ? meta.meta.description.slice(0, 150)
