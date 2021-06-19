@@ -307,7 +307,9 @@ const InfoBar = ({
               </div>
             </div>
             {!review && (
-              <Link href={`/report-post?id=${id}&website_url=${website_url}`}>
+              <Link
+                href={`/report-post?id=${id}&cheatsheet_name=${cheatsheet_name}&website_url=${website_url}`}
+              >
                 <a>
                   <Button className="!p-0 !w-auto !h-auto !m-0 !ml-1">
                     <div className="duration-500 px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover border dark:border-[#777] dark:text-[#ddd] text-[#3d5eff] bg-[#eee] dark:bg-[#2f2f2f] border-[#ddd]">

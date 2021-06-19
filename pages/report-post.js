@@ -13,7 +13,7 @@ const reportPost = ({ user }) => {
   const [meta, setMetadata] = useState([]);
   const router = useRouter();
 
-  const { id, website_url } = router.query;
+  const { id, website_url, cheatsheet_name } = router.query;
 
   const [values, setValues] = useState({
     id: id,
@@ -35,18 +35,20 @@ const reportPost = ({ user }) => {
   };
 
   useEffect(() => {
-    setMetadata([]);
+    if (website_url) {
+      setMetadata([]);
 
-    // fetching state
-    axios
-      .get(`https://meta-scrapper-api.herokuapp.com/api?url=${website_url}`)
-      .then(async (response) => {
-        await setMetadata(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+      // fetching state
+      axios
+        .get(`https://meta-scrapper-api.herokuapp.com/api?url=${website_url}`)
+        .then(async (response) => {
+          await setMetadata(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [website_url]);
 
   const types = [
     {
@@ -75,17 +77,45 @@ const reportPost = ({ user }) => {
     },
   ];
 
+  // generating image for thumbnail
+  const image = () => {
+    if (meta.og.images.length) {
+      return meta.og.images[0].url;
+    } else if (meta.og.image) {
+      return meta.og.image;
+    } else {
+      return "/assets/image-not-found.jpg";
+    }
+  };
+
   return (
     <div className="h-full min-h-screen text-[#ECF2F5] w-full bg-image p-3 flex items-center justify-center flex-col">
       <h1 className="text-2xl md:text-4xl lg:text-4xl xl:text-4xl font-bold mb-1 lg:mb-3 xl:mb-3 text-center">
         Create New Cheatsheet
       </h1>
-      {JSON.stringify(meta)}
       <div className="w-full lg:w-7/12 xl:w-7/12 h-full bg-white dark:bg-[#2f2f2f] rounded-xl m-1">
         <form
           className="bg-transparent rounded-xl h-full px-8 pt-6 pb-8 mb-4"
           onSubmit={onSubmit}
         >
+          {meta.meta && (
+            <div className="w-full flex items-center">
+              <img
+                src={image()}
+                alt=""
+                width="270"
+                className="rounded-md w-[260px] h-[150px] scale-on-hover duration-500"
+              />
+              <div className="w-full ml-3">
+                <h1 className="text-4xl font-bold">{cheatsheet_name}</h1>
+                <p className="text-sm text-[#ccc]">
+                  {meta.meta && meta.meta.description
+                    ? meta.meta.description.slice(0, 150)
+                    : "Description not found"}
+                </p>
+              </div>
+            </div>
+          )}
           <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-[#fafafa]">
               Reason
