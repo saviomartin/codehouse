@@ -1,11 +1,20 @@
 import React from "react";
+
+// header
 import Header from "../utils/Header";
+
+// link for next
 import Link from "next/link";
+
+// material ui button
 import { Button } from "@material-ui/core";
+
+// icons
 import { FiBookOpen, FiGithub, FiStar } from "react-icons/fi";
 
 const MainHeader = (props) => {
-  const { user, setOpen, setUser } = props;
+  const { user, setOpen, setUser } = props; // extracting from props
+
   return (
     <div className="w-full bg-image text-white">
       <Header user={user} setOpen={setOpen} setUser={setUser} />

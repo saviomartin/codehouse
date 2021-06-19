@@ -1,26 +1,28 @@
-import axios from "axios";
-import Head from "next/head";
 import React, { useEffect, useState } from "react";
+
+import Head from "next/head"; // head from next
+import axios from "axios"; // axios
+
+// components
 import {
   ContributorCard,
   GithubCard,
   SvgBanner,
   MainHeader,
 } from "../components";
+
+// utils
 import { harperFetch } from "../utils/HarperFetch";
 
 const contributors = (props) => {
-  const [githubContributors, setGithubContributors] = useState([]);
-  const [webContributors, setWebContributors] = useState([]);
+  const [githubContributors, setGithubContributors] = useState([]); // github contributors
+  const [webContributors, setWebContributors] = useState([]); // web
 
   const fetchContributors = () => {
     axios
-      .get(
-        "https://api.github.com/repos/saviomartin/gradientking/contributors",
-        {
-          headers: {},
-        }
-      )
+      .get("https://api.github.com/repos/saviomartin/codehouse/contributors", {
+        headers: {},
+      })
       .then((response) => {
         setGithubContributors(response.data);
       })

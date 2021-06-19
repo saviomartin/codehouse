@@ -1,14 +1,19 @@
-import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
+// router
+import { useRouter } from "next/router";
+
+// components
 import { RightBar, InfoBar, Header } from "../../components";
+
+// utilities harperFetch
 import { harperFetch } from "../../utils/HarperFetch";
 
 // head
 import Head from "next/head";
 
 const Cheatsheet = (props) => {
-  const router = useRouter();
+  const router = useRouter(); // router
 
   const [data, setData] = useState([]);
   const [fetchAgain, setFetchAgain] = useState(1);

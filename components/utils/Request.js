@@ -12,8 +12,9 @@ import { BiGitRepoForked } from "react-icons/bi";
 import { harperFetch } from "../../utils/HarperFetch";
 
 const Request = ({ data, user, setOpen, setData }) => {
-  const [isUpvoted, setIsUpvoted] = useState(false);
-  const { id, title, description, upvotes, addedby } = data;
+  const [isUpvoted, setIsUpvoted] = useState(false); // check is upvoted
+
+  const { id, title, description, upvotes, addedby } = data; // from data
 
   // use effect for handling is upvoted or not
   useEffect(() => {
@@ -24,6 +25,7 @@ const Request = ({ data, user, setOpen, setData }) => {
     }
   });
 
+  // upvote a request
   const upvoteRequest = () => {
     if (user.email) {
       if (isUpvoted) {

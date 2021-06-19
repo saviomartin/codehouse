@@ -1,4 +1,6 @@
 import React from "react";
+
+// icons
 import { FiMail } from "react-icons/fi";
 
 const ContributorCard = ({ data }) => {

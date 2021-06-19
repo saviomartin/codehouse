@@ -55,7 +55,7 @@ const name = (props) => {
     });
 
     const randomImage = Math.floor(Math.random() * 9) + 1;
-    setImage(`/assets/images/${randomImage}.jpg`);
+    setImage(`/assets/images/${randomImage}.jpg`); // random image
 
     // sorting
     if (sort === "newest") {

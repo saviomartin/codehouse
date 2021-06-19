@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 
 // use router for params
 import { useRouter } from "next/router";
@@ -17,7 +17,6 @@ import { harperFetch } from "../../utils/HarperFetch";
 
 // for inifinite scroll
 import InfiniteScroll from "react-infinite-scroll-component";
-import { Fragment } from "react";
 
 // head
 import Head from "next/head";
