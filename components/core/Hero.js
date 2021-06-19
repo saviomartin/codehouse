@@ -83,6 +83,13 @@ const Hero = ({ setOpen, user, setUser }) => {
           </div>
         </div>
       </div>
+      <div className="h-screen w-full flex items-center justify-center p-10">
+        <div className="p-[1px] h-full w-full rounded-md bg-gradient-to-r from-[#F5BA32] to-purple-700">
+          <div className="h-full w-full bg-image rounded-md">
+            <div className="h-full w-full bg-pattern rounded-md"></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
