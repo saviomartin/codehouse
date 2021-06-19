@@ -185,6 +185,23 @@ const resolvers = {
         throw error;
       }
     },
+    contributors: async () => {
+      try {
+        const contributors = await axios.get(
+          "http://codehouse.vercel.app/api/contributors"
+        );
+        return contributors.data.map(
+          ({ id, displayName, email, photoURL }) => ({
+            id,
+            displayName,
+            email,
+            photoURL,
+          })
+        );
+      } catch (error) {
+        throw error;
+      }
+    },
   },
 };
 

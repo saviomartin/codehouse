@@ -57,6 +57,13 @@ const typeDefs = gql`
     newest
   }
 
+  type Contributors {
+    id: ID
+    displayName: String
+    email: String
+    photoURL: String
+  }
+
   type Query {
     cheatsheets(sort: Sort!): [Cheatsheets]
     categories: [Categories]
@@ -65,6 +72,7 @@ const typeDefs = gql`
     source(from: String!): [Cheatsheets]
     category(name: String!): [Cheatsheets]
     cheatsheet(id: ID!): Cheatsheet
+    contributors: [Contributors]
   }
 `;
 
