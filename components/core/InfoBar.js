@@ -306,16 +306,18 @@ const InfoBar = ({
                 )}
               </div>
             </div>
-            <Link href={`/report-post?id=${id}&website_url=${website_url}`}>
-              <a>
-                <Button className="!p-0 !w-auto !h-auto !m-0 !ml-1">
-                  <div className="duration-500 px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover border dark:border-[#777] dark:text-[#ddd] text-[#3d5eff] bg-[#eee] dark:bg-[#2f2f2f] border-[#ddd]">
-                    Report
-                    <FiFlag className="text-lg ml-1 span !duration-500" />
-                  </div>
-                </Button>
-              </a>
-            </Link>
+            {!review && (
+              <Link href={`/report-post?id=${id}&website_url=${website_url}`}>
+                <a>
+                  <Button className="!p-0 !w-auto !h-auto !m-0 !ml-1">
+                    <div className="duration-500 px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover border dark:border-[#777] dark:text-[#ddd] text-[#3d5eff] bg-[#eee] dark:bg-[#2f2f2f] border-[#ddd]">
+                      Report
+                      <FiFlag className="text-lg ml-1 span !duration-500" />
+                    </div>
+                  </Button>
+                </a>
+              </Link>
+            )}
           </div>
           <div className="w-full bg-[#ddd] h-[1.25px] my-4 rounded-md dark:bg-[#555]"></div>
 
