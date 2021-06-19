@@ -54,14 +54,8 @@ const name = (props) => {
       sql: "SELECT * FROM dev.cheatsheets",
     });
 
-    axios
-      .get(
-        `https://api.unsplash.com/search/photos?client_id=${client_id}&query=code&page=1?per_page=9`
-      )
-      .then((response) => {
-        const randomNumber = randomIntFromInterval(1, 9);
-        setImage(response.data.results[randomNumber].urls.small);
-      });
+    const randomImage = Math.floor(Math.random() * 9) + 1;
+    setImage(`/assets/images/${randomImage}.jpg`);
 
     // sorting
     if (sort === "newest") {
