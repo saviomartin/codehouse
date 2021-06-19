@@ -8,6 +8,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import { useEffect } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
+import { harperFetch } from "../utils/HarperFetch";
 
 const reportPost = ({ user }) => {
   const [meta, setMetadata] = useState([]);
@@ -31,7 +33,41 @@ const reportPost = ({ user }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(values);
+
+    // logic
+    if (id && type) {
+      try {
+        await harperFetch({
+          operation: "insert",
+          schema: "dev",
+          table: "reported",
+          records: [
+            {
+              cheatsheet_id: id,
+              website_url: website_url,
+              type: type,
+              description: description,
+            },
+          ],
+        });
+
+        // toasting success
+        toast.success("Successfully Created!");
+
+        // making everything default
+        setValues({
+          id: id,
+          website_url: website_url,
+          type: "broken-link",
+          description: "",
+        });
+      } catch (err) {
+        console.log(err);
+        toast.error("Something went wrong");
+      }
+    } else {
+      toast.error("Please Fill All Fields");
+    }
   };
 
   useEffect(() => {
