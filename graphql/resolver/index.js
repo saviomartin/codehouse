@@ -202,6 +202,26 @@ const resolvers = {
         throw error;
       }
     },
+    featureRequests: async () => {
+      try {
+        const featureRequests = await axios.get(
+          "http://codehouse.vercel.app/api/feature-requests"
+        );
+        return featureRequests.data.map(
+          ({ id, description, status, title, type, upvotes, addedby }) => ({
+            id,
+            description,
+            status,
+            title,
+            type,
+            upvotes,
+            addedby,
+          })
+        );
+      } catch (error) {
+        throw error;
+      }
+    },
   },
 };
 

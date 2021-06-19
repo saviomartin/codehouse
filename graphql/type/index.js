@@ -64,6 +64,16 @@ const typeDefs = gql`
     photoURL: String
   }
 
+  type FeatureRequests {
+    id: ID
+    description: String
+    status: String
+    title: String
+    type: String
+    upvotes: String
+    addedby: Addedby
+  }
+
   type Query {
     cheatsheets(sort: Sort!): [Cheatsheets]
     categories: [Categories]
@@ -73,6 +83,7 @@ const typeDefs = gql`
     category(name: String!): [Cheatsheets]
     cheatsheet(id: ID!): Cheatsheet
     contributors: [Contributors]
+    featureRequests: [FeatureRequests]
   }
 `;
 
