@@ -6,18 +6,23 @@ import { Btn } from "../components";
 // material ui select
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
+import { useEffect } from "react";
+import axios from "axios";
 
 const reportPost = ({ user }) => {
+  const [meta, setMetadata] = useState([]);
   const router = useRouter();
 
+  const { id, website_url } = router.query;
+
   const [values, setValues] = useState({
-    id: router.query.id,
-    website_url: router.query.website_url,
+    id: id,
+    website_url: website_url,
     type: "broken-link",
     description: "",
   });
 
-  const { id, website_url, type, description } = values;
+  const { type, description } = values;
 
   // handleChange of inputs
   const handleChange = (name) => (event) => {
@@ -25,8 +30,23 @@ const reportPost = ({ user }) => {
   };
 
   const onSubmit = async (e) => {
+    e.preventDefault();
     console.log(values);
   };
+
+  useEffect(() => {
+    setMetadata([]);
+
+    // fetching state
+    axios
+      .get(`https://meta-scrapper-api.herokuapp.com/api?url=${website_url}`)
+      .then(async (response) => {
+        await setMetadata(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const types = [
     {
@@ -60,7 +80,7 @@ const reportPost = ({ user }) => {
       <h1 className="text-2xl md:text-4xl lg:text-4xl xl:text-4xl font-bold mb-1 lg:mb-3 xl:mb-3 text-center">
         Create New Cheatsheet
       </h1>
-
+      {JSON.stringify(meta)}
       <div className="w-full lg:w-7/12 xl:w-7/12 h-full bg-white dark:bg-[#2f2f2f] rounded-xl m-1">
         <form
           className="bg-transparent rounded-xl h-full px-8 pt-6 pb-8 mb-4"

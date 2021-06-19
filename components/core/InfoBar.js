@@ -4,7 +4,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 // icons
-import { FiAirplay, FiBookmark, FiSend, FiTriangle } from "react-icons/fi";
+import {
+  FiAirplay,
+  FiBookmark,
+  FiFlag,
+  FiSend,
+  FiTriangle,
+} from "react-icons/fi";
 import { BsFillBookmarkFill } from "react-icons/bs";
 
 // componenents
@@ -260,43 +266,49 @@ const InfoBar = ({
               ? meta.meta.description.slice(0, 150)
               : "Description not found"}
           </p>
-          <div
-            className="flex mt-4 h-full items-start"
-            onClick={upvoteCheatSheet}
-          >
-            <Button className="!p-0 !w-auto !h-auto !m-0">
-              <div
-                className={`${
-                  isUpvoted
-                    ? "bg-[#3d5eff] text-white shine"
-                    : "border border-[#3d5eff] text-[#3d5eff] duration-500 hover:bg-[#3d5eff] hover:text-white dark:border-[#777] dark:text-[#ddd]"
-                } px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover`}
+          <div className="flex mt-4 h-full items-start justify-between">
+            <div className="flex">
+              <Button className="!p-0 !w-auto !h-auto !m-0">
+                <div
+                  className={`${
+                    isUpvoted
+                      ? "bg-[#3d5eff] text-white shine"
+                      : "border border-[#3d5eff] text-[#3d5eff] duration-500 hover:bg-[#3d5eff] hover:text-white dark:border-[#777] dark:text-[#ddd]"
+                  } px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover`}
+                  onClick={upvoteCheatSheet}
+                >
+                  {upvotes && upvotes.length} Upvotes
+                  <FiTriangle className="text-lg ml-1 -mt-1 span" />
+                </div>
+              </Button>
+              <Button
+                className="!p-0 !w-auto !h-auto !m-0 !ml-1"
+                href={website_url}
+                target="_blank"
+                rel="noreferrer"
               >
-                {upvotes && upvotes.length} Upvotes
-                <FiTriangle className="text-lg ml-1 -mt-1 span" />
+                <div className="border border-[#3d5eff] text-[#3d5eff] hover:bg-[#3d5eff] duration-500 hover:text-white px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover dark:border-[#777] dark:text-[#ddd]">
+                  Visit Website
+                  <FiAirplay className="text-lg ml-1 span !duration-500" />
+                </div>
+              </Button>
+              <div
+                className="p-2 py-3 text-[#F5BA31] duration-500 text-xl capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins cursor-pointer"
+                onClick={bookmarkCheatsheet}
+              >
+                {isBookMarked ? (
+                  <BsFillBookmarkFill className="text-md span duration-500" />
+                ) : (
+                  <FiBookmark className="text-md span duration-500" />
+                )}
               </div>
-            </Button>
-            <Button
-              className="!p-0 !w-auto !h-auto !m-0 !ml-1"
-              href={website_url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className="border border-[#3d5eff] text-[#3d5eff] hover:bg-[#3d5eff] duration-500 hover:text-white px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover dark:border-[#777] dark:text-[#ddd]">
-                Visit Website
-                <FiAirplay className="text-lg ml-1 span !duration-500" />
-              </div>
-            </Button>
-            <div
-              className="p-2 py-3 text-[#F5BA31] duration-500 text-xl capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins cursor-pointer"
-              onClick={bookmarkCheatsheet}
-            >
-              {isBookMarked ? (
-                <BsFillBookmarkFill className="text-md span duration-500" />
-              ) : (
-                <FiBookmark className="text-md span duration-500" />
-              )}
             </div>
+            <Button className="!p-0 !w-auto !h-auto !m-0 !ml-1">
+              <div className="duration-500 px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover border dark:border-[#777] dark:text-[#ddd] text-[#3d5eff] bg-[#eee] dark:bg-[#1f1f1f] border-[#ddd]">
+                Report
+                <FiFlag className="text-lg ml-1 span !duration-500" />
+              </div>
+            </Button>
           </div>
           <div className="w-full bg-[#ddd] h-[1.25px] my-4 rounded-md dark:bg-[#555]"></div>
 
