@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 // Btn
 import { Btn } from "../components";
+
+// material ui select
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
+
 const reportPost = ({ user }) => {
   const router = useRouter();
 
@@ -55,11 +60,28 @@ const reportPost = ({ user }) => {
       <h1 className="text-2xl md:text-4xl lg:text-4xl xl:text-4xl font-bold mb-1 lg:mb-3 xl:mb-3 text-center">
         Create New Cheatsheet
       </h1>
+
       <div className="w-full lg:w-7/12 xl:w-7/12 h-full bg-white dark:bg-[#2f2f2f] rounded-xl m-1">
         <form
           className="bg-transparent rounded-xl h-full px-8 pt-6 pb-8 mb-4"
           onSubmit={onSubmit}
         >
+          <div className="mb-6">
+            <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-[#fafafa]">
+              Reason
+            </label>
+            <Select
+              value={type}
+              onChange={handleChange("type")}
+              className="shadow appearance-none border rounded w-full pr-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:border-[#555] dark:text-white flex justify-center pl-3"
+            >
+              {types.map((type, key) => (
+                <MenuItem value={type.value} key={key}>
+                  {type.type}
+                </MenuItem>
+              ))}
+            </Select>
+          </div>
           <div className="-mb-2">
             <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-[#fafafa]">
               Tell Us More
