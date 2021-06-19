@@ -1,18 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+// use router next
 import { useRouter } from "next/router";
+
 // Btn
 import { Btn } from "../components";
 
 // material ui select
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
-import { useEffect } from "react";
-import axios from "axios";
-import toast from "react-hot-toast";
+
+import axios from "axios"; // axios
+import toast from "react-hot-toast"; // toast
+
+// utils
 import { harperFetch } from "../utils/HarperFetch";
 
 const reportPost = ({ user }) => {
-  const [meta, setMetadata] = useState([]);
+  const [meta, setMetadata] = useState([]); // meta data
   const router = useRouter();
 
   const { id, website_url, cheatsheet_name } = router.query;
@@ -86,6 +91,7 @@ const reportPost = ({ user }) => {
     }
   }, [website_url]);
 
+  // types examples
   const types = [
     {
       type: "Broken Link",

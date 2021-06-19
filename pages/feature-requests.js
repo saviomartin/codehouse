@@ -1,14 +1,23 @@
-import { Button } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
+
+// material ui
+import { Button } from "@material-ui/core";
+
+// icons
 import { FiArrowRight } from "react-icons/fi";
+
+// components
 import { MainHeader, Request } from "../components";
-import Link from "next/link";
-import { harperFetch } from "../utils/HarperFetch";
+
+import Link from "next/link"; // link
 import Head from "next/head";
+
+// utils
+import { harperFetch } from "../utils/HarperFetch";
 
 const FeatureRequests = (props) => {
   const [data, setData] = useState([]);
-  const { user } = props;
+  const { user } = props; // user
 
   useEffect(async () => {
     // fetching
