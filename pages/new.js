@@ -167,12 +167,12 @@ const New = ({ user }) => {
               Website URL
             </label>
             <div
-              className={`flex border-[1.75px] mb-3 rounded-md items-center ${
+              className={`flex border-[1.75px] mb-3 rounded-md items-center dark:bg-[#1f1f1f] ${
                 is_url(website_url) ? "border-green-500" : "border-red-500"
               }`}
             >
               <input
-                className="appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-[#1f1f1f] dark:text-white"
+                className="appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:text-white bg-transparent"
                 value={website_url}
                 onChange={handleChange("website_url")}
                 placeholder="https://hashnode.com/"
