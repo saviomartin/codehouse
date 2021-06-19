@@ -273,7 +273,7 @@ const InfoBar = ({
                   className={`${
                     isUpvoted
                       ? "bg-[#3d5eff] text-white shine"
-                      : "border border-[#3d5eff] text-[#3d5eff] duration-500 hover:bg-[#3d5eff] hover:text-white dark:border-[#777] dark:text-[#ddd]"
+                      : "border border-[#3d5eff] text-[#3d5eff] duration-500 hover:bg-[#3d5eff] hover:text-white dark:border-[#777] dark:text-[#ddd] dark:bg-[#2f2f2f]"
                   } px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover`}
                   onClick={upvoteCheatSheet}
                 >
@@ -287,7 +287,7 @@ const InfoBar = ({
                 target="_blank"
                 rel="noreferrer"
               >
-                <div className="border border-[#3d5eff] text-[#3d5eff] hover:bg-[#3d5eff] duration-500 hover:text-white px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover dark:border-[#777] dark:text-[#ddd]">
+                <div className="border border-[#3d5eff] text-[#3d5eff] hover:bg-[#3d5eff] duration-500 hover:text-white px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover dark:border-[#777] dark:text-[#ddd] dark:bg-[#2f2f2f]">
                   Visit Website
                   <FiAirplay className="text-lg ml-1 span !duration-500" />
                 </div>
@@ -304,7 +304,7 @@ const InfoBar = ({
               </div>
             </div>
             <Button className="!p-0 !w-auto !h-auto !m-0 !ml-1">
-              <div className="duration-500 px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover border dark:border-[#777] dark:text-[#ddd] text-[#3d5eff] bg-[#eee] dark:bg-[#1f1f1f] border-[#ddd]">
+              <div className="duration-500 px-3 lg:px-5 xl:px-5 py-[8px] text-md lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover border dark:border-[#777] dark:text-[#ddd] text-[#3d5eff] bg-[#eee] dark:bg-[#2f2f2f] border-[#ddd]">
                 Report
                 <FiFlag className="text-lg ml-1 span !duration-500" />
               </div>
