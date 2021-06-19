@@ -90,11 +90,11 @@ const Request = ({ data, user, setOpen, setData }) => {
         </div>
         <Btn>
           <div
-            className={`${
+            className={` ${
               isUpvoted
-                ? "text-white bg-[#3d5eff]"
-                : "bg-white text-[#3d5eff] border-[#3d5eff]"
-            } duration-500 px-4 py-2 h-full text-sm capitalize rounded-lg font-semibold border  flex items-center justify-center menu-animation-hover poppins dark:text-white`}
+                ? "text-white bg-[#3d5eff] dark:border-[#222]"
+                : "bg-white text-[#3d5eff] border-[#3d5eff] dark:text-white dark:border-[#555] dark:bg-[#1F1F1F]"
+            } duration-500 px-4 py-2 h-full text-sm capitalize rounded-lg font-semibold border  flex items-center justify-center menu-animation-hover poppins`}
             onClick={upvoteRequest}
           >
             <FiTriangle className="text-sm span duration-500" />
