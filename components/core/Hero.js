@@ -166,8 +166,11 @@ const Hero = ({ setOpen, user, setUser }) => {
               />
             ))}
           </div>
-          <div className="w-full p-7 mt-10 mb-5 flex flex-col lg:flex-row xl:flex-row">
-            <div className="w-full lg:w-4/12 xl:w-4/12" id="how-it-works">
+          <div
+            className="w-full p-7 mt-10 mb-5 flex flex-col lg:flex-row xl:flex-row"
+            id="how-it-works"
+          >
+            <div className="w-full lg:w-4/12 xl:w-4/12">
               <h3 className="text-sm lg:text-lg xl:text-lg bg-text-gradient font-bold mb-2 uppercase tracking-wider">
                 How it works
               </h3>

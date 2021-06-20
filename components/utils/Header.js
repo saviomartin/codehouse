@@ -54,12 +54,12 @@ const Header = ({ setOpen, user, setUser }) => {
       </Link>
       <div className="flex h-full items-center">
         <div className="hidden md:flex lg:flex xl:flex">
-          <a
-            href="#"
-            className="text-[13.75px] font-medium continuous-line text-white"
-          >
-            How it works
-          </a>
+          <Link href="/#how-it-works">
+            <a className="text-[13.75px] font-medium continuous-line text-white">
+              How it works
+            </a>
+          </Link>
+
           <a
             href="#"
             className="text-[13.75px] font-medium ml-[18px] continuous-line text-white"
@@ -164,7 +164,7 @@ const Header = ({ setOpen, user, setUser }) => {
       </div>
       {showNav && (
         <div className="flex lg:hidden xl:hidden md:hidden flex-col w-full text-center mt-3">
-          <Link href="/bookmarks">
+          <Link href="/#how-it-works">
             <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
               <h3 className="font-bold continuous-line text-center text-white">
                 How it works
