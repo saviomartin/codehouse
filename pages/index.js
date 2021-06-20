@@ -1,5 +1,5 @@
 import React from "react";
-import { App, Hero, NewsLetter } from "../components";
+import { App, Hero, NewsLetter, UpComingFeatures } from "../components";
 
 const index = (props) => {
   return (
