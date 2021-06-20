@@ -157,7 +157,7 @@ const Hero = ({ setOpen, user, setUser }) => {
       </div>
       <div className="h-auto w-full flex items-center justify-center p-7">
         <div className="h-auto min-h-[80vh] w-full rounded-md bg-[rgba(0,0,0,0.6)] flex items-center justify-center flex-wrap border border-[#B84F90]">
-          <div className="flex flex-wrap w-full justify-center">
+          <div className="flex flex-wrap w-full justify-center mt-10">
             {features.map((feature, key) => (
               <FeatureComponent
                 name={feature.name}
@@ -168,12 +168,12 @@ const Hero = ({ setOpen, user, setUser }) => {
             ))}
           </div>
           <div className="w-full p-7 mt-10 mb-5">
-            <div className="w-4/12">
+            <div className="w-4/12" id="how-it-works">
               <h3 className="text-lg bg-text-gradient font-bold mb-2 uppercase tracking-wider">
                 How it works
               </h3>
               <h1 className="text-2xl font-semibold">
-                3 easy steps to be a contributor and help code house grow
+                3 easy steps to be a contributor and help code house grow 🎉
               </h1>
               <Link href="/app">
                 <a>
