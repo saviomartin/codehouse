@@ -6,6 +6,7 @@ export { default as RightBar } from "./core/RightBar";
 export { default as InfoBar } from "./core/InfoBar";
 export { default as Sidebar } from "./core/Sidebar";
 export { default as MainHeader } from "./core/MainHeader";
+export { default as NewsLetter } from "./core/NewsLetter";
 
 // util components
 export { default as Header } from "./utils/Header";
