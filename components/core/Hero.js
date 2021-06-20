@@ -14,6 +14,7 @@ import Link from "next/link";
 import { Header } from "..";
 
 import Parallax from "parallax-js";
+import FeatureComponent from "../utils/FeatureComponent";
 
 const Hero = ({ setOpen, user, setUser }) => {
   useEffect(() => {
@@ -26,7 +27,7 @@ const Hero = ({ setOpen, user, setUser }) => {
       name: "Category Filter",
       description:
         "Feel free to filter using categories, it can help you find the best one.",
-      icon: <FiLayers />,
+      icon: <FiLayers className="text-4xl" />,
     },
   ];
 
@@ -93,7 +94,16 @@ const Hero = ({ setOpen, user, setUser }) => {
         </div>
       </div>
       <div className="h-screen w-full flex items-center justify-center p-10">
-        <div className="p-[1px] h-full w-full rounded-md bg-[rgba(0,0,0,0.6)] flex items-center justify-center flex-wrap border border-[#B84F90]"></div>
+        <div className="p-[1px] h-full w-full rounded-md bg-[rgba(0,0,0,0.6)] flex items-center justify-center flex-wrap border border-[#B84F90]">
+          {features.map((feature, key) => (
+            <FeatureComponent
+              name={feature.name}
+              description={feature.description}
+              icon={feature.icon}
+              key={key}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
