@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // material design
 import { Button } from "@material-ui/core";
@@ -28,7 +28,29 @@ import { Header } from "..";
 import Parallax from "parallax-js";
 import FeatureComponent from "../utils/FeatureComponent";
 
+import axios from "axios"; // axios
+
 const Hero = ({ setOpen, user, setUser }) => {
+  const [starCount, setStarCount] = useState(1);
+
+  const fetchStarCount = () => {
+    axios
+      .get("https://api.github.com/repos/saviomartin/gradientking", {
+        headers: {},
+      })
+      .then((response) => {
+        setStarCount(response.data.stargazers_count);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // fetch on load once
+  useEffect(() => {
+    fetchStarCount();
+  }, []);
+
   useEffect(() => {
     var scene = document.getElementById("scene");
     var parallaxInstance = new Parallax(scene);
@@ -129,7 +151,7 @@ const Hero = ({ setOpen, user, setUser }) => {
               rel="noreferrer"
             >
               <div className="border-2 border-[#777] text-[#ffcf5e] px-4 py-[8px] lg:text-lg xl:text-lg capitalize rounded-md font-semibold flex items-center justify-center">
-                Stars <span className="poppins ml-1">67</span>
+                Stars <span className="poppins ml-1">{starCount}</span>
                 <FiGithub className="text-lg ml-1" />
               </div>
             </Button>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // header
 import Header from "../utils/Header";
@@ -11,9 +11,30 @@ import { Button } from "@material-ui/core";
 
 // icons
 import { FiBookOpen, FiGithub, FiStar } from "react-icons/fi";
+import axios from "axios";
 
 const MainHeader = (props) => {
   const { user, setOpen, setUser } = props; // extracting from props
+
+  const [starCount, setStarCount] = useState(1);
+
+  const fetchStarCount = () => {
+    axios
+      .get("https://api.github.com/repos/saviomartin/gradientking", {
+        headers: {},
+      })
+      .then((response) => {
+        setStarCount(response.data.stargazers_count);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // fetch on load once
+  useEffect(() => {
+    fetchStarCount();
+  }, []);
 
   return (
     <div className="w-full bg-image text-white">
@@ -50,7 +71,7 @@ const MainHeader = (props) => {
           >
             <div className="border-2 border-[#F5BA31] text-[#F5BA31] px-5 py-[7px] text-base capitalize rounded-md font-semibold flex items-center justify-center">
               <FiGithub className="text-lg mr-1" />
-              <span className="poppins mr-1">46</span> Github Stars
+              <span className="poppins mr-1">{starCount}</span> Github Stars
             </div>
           </Button>
         </div>

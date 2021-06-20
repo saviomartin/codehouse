@@ -33,6 +33,7 @@ const Footer = () => {
   useEffect(() => {
     fetchStarCount();
   }, []);
+
   return (
     <div className="bg-app-gradient-2">
       <div className="w-full footer-pattern p-3 flex flex-col lg:flex-row xl:flex-row items-center justify-between border-t border-[#B84F90]">
