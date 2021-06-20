@@ -156,3 +156,8 @@
 .radio-grp * {
   font-family: "Epilogue", sans-serif !important;
 }
+.ball {
+  position: absolute;
+  border-radius: 100%;
+  opacity: 0.7;
+}

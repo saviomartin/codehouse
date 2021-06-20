@@ -1,19 +1,50 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
 import { FiSend } from "react-icons/fi";
+import { harperFetch } from "../../utils/HarperFetch";
+import ConfettiGenerator from "confetti-js";
 
 const NewsLetter = () => {
   const [email, setEmail] = useState("");
+  const confettiSettings = { target: "my-canvas", max: "200" };
+  const confetti = new ConfettiGenerator(confettiSettings);
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    // logic
-    // TODO:
+    if (email) {
+      try {
+        await harperFetch({
+          operation: "insert",
+          schema: "dev",
+          table: "subscribers",
+          records: [
+            {
+              email: email,
+            },
+          ],
+        });
+
+        // toasting success
+        toast.success("Successfully Created!");
+        confetti.render();
+
+        // making everything default
+        setEmail("");
+      } catch (err) {
+        console.log(err);
+        toast.error("Something went wrong");
+      }
+    } else {
+      toast.error("Please Fill All Fields");
+    }
   };
 
   return (
     <div className="bg-image h-auto w-full">
-      <div className="h-auto min-h-[45vh] w-full rounded-md bg-[rgba(0,0,0,0.6)] flex items-center justify-center flex-wrap flex-col">
+      <div className="h-auto min-h-[45vh] w-full rounded-md bg-[rgba(0,0,0,0.6)] flex items-center justify-center flex-wrap flex-col relative overflow-hidden">
+        <canvas id="my-canvas" className="absolute"></canvas>
         <h1 className="text-[#ECF2F5] text-2xl lg:text-4xl xl:text-4xl font-bold">
           Join Our NewsLetter
         </h1>
