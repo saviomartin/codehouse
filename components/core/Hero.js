@@ -167,7 +167,7 @@ const Hero = ({ setOpen, user, setUser }) => {
               />
             ))}
           </div>
-          <div className="w-full p-7 mt-10 mb-5">
+          <div className="w-full p-7 mt-10 mb-5 flex">
             <div className="w-4/12" id="how-it-works">
               <h3 className="text-lg bg-text-gradient font-bold mb-2 uppercase tracking-wider">
                 How it works
@@ -185,6 +185,36 @@ const Hero = ({ setOpen, user, setUser }) => {
                   </Button>
                 </a>
               </Link>
+            </div>
+            <div className="w-8/12 flex items-start justify-center pt-7">
+              <div className="w-[28%] mx-3">
+                <div className="flex w-full items-center">
+                  <h3 className="font-bold text-2xl">1</h3>
+                  <div className="w-full rounded-sm h-[1px] ml-2 bg-[#ECF2F580]"></div>
+                </div>
+                <h3 className="text-lg">
+                  Join Code House, sign In using google or github.
+                </h3>
+              </div>
+              <div className="w-[28%] mx-3">
+                <div className="flex w-full items-center">
+                  <h3 className="font-bold text-2xl">2</h3>
+                  <div className="w-full rounded-sm h-[1px] ml-2 bg-[#ECF2F580]"></div>
+                </div>
+                <h3 className="text-lg">
+                  Add a new cheatsheet if you have found one.
+                </h3>
+              </div>
+              <div className="w-[28%] mx-3">
+                <div className="flex w-full items-center">
+                  <h3 className="font-bold text-2xl">3</h3>
+                  <div className="w-full rounded-sm h-[1px] ml-2 bg-[#ECF2F580]"></div>
+                </div>
+                <h3 className="text-[0.9rem]">
+                  Your cheatsheet will be reviewed and added to the app, also
+                  see yourself in contributors.
+                </h3>
+              </div>
             </div>
           </div>
         </div>
