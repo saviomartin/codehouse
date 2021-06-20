@@ -156,7 +156,7 @@ const Hero = ({ setOpen, user, setUser }) => {
         </div>
       </div>
       <div className="h-auto w-full flex items-center justify-center p-7">
-        <div className="lg:h-[80vh] xl:h-[80vh] w-full rounded-md bg-[rgba(0,0,0,0.6)] flex items-center justify-center flex-wrap border border-[#B84F90]">
+        <div className="h-auto min-h-[80vh] w-full rounded-md bg-[rgba(0,0,0,0.6)] flex items-center justify-center flex-wrap border border-[#B84F90]">
           <div className="flex flex-wrap w-full justify-center">
             {features.map((feature, key) => (
               <FeatureComponent
@@ -166,6 +166,26 @@ const Hero = ({ setOpen, user, setUser }) => {
                 key={key}
               />
             ))}
+          </div>
+          <div className="w-full p-7 mt-10 mb-5">
+            <div className="w-4/12">
+              <h3 className="text-lg bg-text-gradient font-bold mb-2 uppercase tracking-wider">
+                How it works
+              </h3>
+              <h1 className="text-2xl font-semibold">
+                3 easy steps to be a contributor and help code house grow
+              </h1>
+              <Link href="/app">
+                <a>
+                  <Button className="!p-0 !w-auto !h-auto !m-auto shine !mt-4">
+                    <div className="bg-[#F5BA31] px-5 py-[7px] capitalize rounded-md font-semibold flex items-center justify-center">
+                      Try Now!
+                      <BsLightning className="text-lg ml-1 -mt-1" />
+                    </div>
+                  </Button>
+                </a>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
