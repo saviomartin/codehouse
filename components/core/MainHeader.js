@@ -12,6 +12,9 @@ import { Button } from "@material-ui/core";
 // icons
 import { FiBookOpen, FiGithub, FiStar } from "react-icons/fi";
 import axios from "axios";
+import BmcButton from "../utils/BmcButton";
+import TwitterBtn from "../utils/TwitterBtn";
+import Btn from "../utils/Btn";
 
 const MainHeader = (props) => {
   const { user, setOpen, setUser } = props; // extracting from props
@@ -55,25 +58,31 @@ const MainHeader = (props) => {
           popularity, dark mode, add new cheatsheets, features requests, top
           cheatsheet hunter, make the app much more amazing! 🤟
         </p>
-        <div className="flex">
-          <Button
-            className="!p-0 !w-auto !h-auto !m-auto shine"
-            href="http://savio.xyz/"
-          >
-            <div className="bg-[#F5BA31] px-5 py-2 text-base capitalize rounded-md font-semibold flex items-center justify-center">
+        <div className="flex flex-wrap">
+          <Btn>
+            <a
+              className="shine bg-[#F5BA31] px-3 py-2 text-base capitalize rounded-md font-semibold flex items-center justify-center text-[#201C4E]"
+              href="http://savio.xyz/"
+            >
               <FiBookOpen className="text-lg mr-1" />
               Read Blog
-            </div>
-          </Button>
-          <Button
-            className="!p-0 !w-auto !h-auto !m-auto !ml-2 shine"
-            href="https://github.com/saviomartin/codehouse"
-          >
-            <div className="border-2 border-[#F5BA31] text-[#F5BA31] px-5 py-[7px] text-base capitalize rounded-md font-semibold flex items-center justify-center">
+            </a>
+          </Btn>
+          <Btn>
+            <a
+              className="border-2 shine ml-2 border-[#F5BA31] text-[#F5BA31] px-3 py-[6px] text-base capitalize rounded-md font-semibold flex items-center justify-center"
+              href="https://github.com/saviomartin/codehouse"
+            >
               <FiGithub className="text-lg mr-1" />
               <span className="poppins mr-1">{starCount}</span> Github Stars
-            </div>
-          </Button>
+            </a>
+          </Btn>
+          <div className="ml-1">
+            <BmcButton />
+          </div>
+          <div className="ml-1">
+            <TwitterBtn />
+          </div>
         </div>
       </div>
     </div>
