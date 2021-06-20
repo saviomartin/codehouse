@@ -8,7 +8,7 @@ import "../styles/App.css"; // custom styles
 import { Toaster } from "react-hot-toast";
 
 // components
-import { Sidebar, SignInPopup } from "../components";
+import { Footer, Sidebar, SignInPopup } from "../components";
 
 // firebase auth
 import { auth } from "../utils/firebase";
@@ -115,6 +115,7 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} {...props} />
       <SignInPopup open={open} setOpen={setOpen} darkMode={darkMode} />
       <Sidebar {...props} />
+      <Footer />
     </div>
   );
 }
