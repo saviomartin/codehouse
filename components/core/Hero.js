@@ -166,12 +166,12 @@ const Hero = ({ setOpen, user, setUser }) => {
               />
             ))}
           </div>
-          <div className="w-full p-7 mt-10 mb-5 flex">
-            <div className="w-4/12" id="how-it-works">
-              <h3 className="text-lg bg-text-gradient font-bold mb-2 uppercase tracking-wider">
+          <div className="w-full p-7 mt-10 mb-5 flex flex-col lg:flex-row xl:flex-row">
+            <div className="w-full lg:w-4/12 xl:w-4/12" id="how-it-works">
+              <h3 className="text-sm lg:text-lg xl:text-lg bg-text-gradient font-bold mb-2 uppercase tracking-wider">
                 How it works
               </h3>
-              <h1 className="text-2xl font-semibold">
+              <h1 className="text-lg lg:text-2xl xl:text-2xl font-semibold">
                 3 easy steps to be a contributor and help code house grow 🎉
               </h1>
               <Link href="/app">
@@ -185,26 +185,26 @@ const Hero = ({ setOpen, user, setUser }) => {
                 </a>
               </Link>
             </div>
-            <div className="w-8/12 flex items-start justify-center pt-7">
-              <div className="w-[28%] mx-3">
+            <div className="w-full lg:w-8/12 xl:w-8/12 flex items-start justify-center pt-7 flex-col lg:flex-row xl:flex-row">
+              <div className="w-full lg:w-[28%] xl:w-[28%] my-3 lg:my-0 xl:my-0 lg:mx-3 xl:mx-3">
                 <div className="flex w-full items-center">
                   <h3 className="font-bold text-2xl">1</h3>
                   <div className="w-full rounded-sm h-[1px] ml-2 bg-[#ECF2F580]"></div>
                 </div>
-                <h3 className="text-lg">
+                <h3 className="text-sm lg:text-lg xl:text-lg">
                   Join Code House, sign In using google or github.
                 </h3>
               </div>
-              <div className="w-[28%] mx-3">
+              <div className="w-full lg:w-[28%] xl:w-[28%] my-3 lg:my-0 xl:my-0 lg:mx-3 xl:mx-3">
                 <div className="flex w-full items-center">
                   <h3 className="font-bold text-2xl">2</h3>
                   <div className="w-full rounded-sm h-[1px] ml-2 bg-[#ECF2F580]"></div>
                 </div>
-                <h3 className="text-lg">
+                <h3 className="text-sm lg:text-lg xl:text-lg">
                   Add a new cheatsheet if you have found one.
                 </h3>
               </div>
-              <div className="w-[28%] mx-3">
+              <div className="w-full lg:w-[28%] xl:w-[28%] my-3 lg:my-0 xl:my-0 lg:mx-3 xl:mx-3">
                 <div className="flex w-full items-center">
                   <h3 className="font-bold text-2xl">3</h3>
                   <div className="w-full rounded-sm h-[1px] ml-2 bg-[#ECF2F580]"></div>
