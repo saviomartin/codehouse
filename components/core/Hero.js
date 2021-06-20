@@ -146,7 +146,6 @@ const Hero = ({ setOpen, user, setUser }) => {
             <iframe
               src="https://www.youtube.com/embed/gdZLi9oWNZg"
               title="YouTube video player"
-              frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
               className="relative h-[189px] lg:h-[315px] w-[336px] lg:w-[560px]"
