@@ -1,9 +1,16 @@
 import React from "react";
+
+// link from next
 import Link from "next/link";
+
+// material design
 import { Button } from "@material-ui/core";
+
+// icons
 import { FiGithub } from "react-icons/fi";
-import { BmcButton } from "..";
-import TwitterBtn from "../utils/TwitterBtn";
+
+// components
+import { BmcButton, TwitterBtn } from "..";
 
 const Footer = () => {
   return (
