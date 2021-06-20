@@ -20,6 +20,7 @@ import { Btn } from "..";
 
 // toast
 import toast from "react-hot-toast";
+import BmcButton from "./BmcButton";
 
 const Header = ({ setOpen, user, setUser }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -61,10 +62,11 @@ const Header = ({ setOpen, user, setUser }) => {
           </Link>
 
           <a
-            href="#"
+            href="https://github.com/saviomartin/codehouse/blob/main/API-usage.md"
+            target="_blank"
             className="text-[13.75px] font-medium ml-[18px] continuous-line text-white"
           >
-            Upcoming Features
+            API
           </a>
           <Link href="/feature-requests">
             <a className="text-[13.75px] font-medium ml-[18px] continuous-line text-white">
@@ -97,6 +99,7 @@ const Header = ({ setOpen, user, setUser }) => {
             <span></span>
           </div>
         </Btn>
+
         <Link href="/new">
           <a>
             <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-2 lg:!ml-[18px] xl:!ml-[18px]">
@@ -161,6 +164,9 @@ const Header = ({ setOpen, user, setUser }) => {
             </div>
           </Button>
         )}
+        <div className="ml-1">
+          <BmcButton />
+        </div>
       </div>
       {showNav && (
         <div className="flex lg:hidden xl:hidden md:hidden flex-col w-full text-center mt-3">
@@ -171,13 +177,15 @@ const Header = ({ setOpen, user, setUser }) => {
               </h3>
             </a>
           </Link>
-          <Link href="/bookmarks">
-            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
-              <h3 className="font-bold continuous-line text-center text-white">
-                Upcoming Features
-              </h3>
-            </a>
-          </Link>
+          <a
+            className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]"
+            href="https://github.com/saviomartin/codehouse/blob/main/API-usage.md"
+            target="_blank"
+          >
+            <h3 className="font-bold continuous-line text-center text-white">
+              API
+            </h3>
+          </a>
           <Link href="/feature-requests">
             <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
               <h3 className="font-bold continuous-line text-center text-white">
