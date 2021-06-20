@@ -15,7 +15,7 @@ import { BmcButton, TwitterBtn } from "..";
 const Footer = () => {
   return (
     <div className="bg-app-gradient-2">
-      <div className="w-full footer-pattern p-3 flex items-center justify-between border-t border-[#B84F90]">
+      <div className="w-full footer-pattern p-3 flex flex-col lg:flex-row xl:flex-row items-center justify-between border-t border-[#B84F90]">
         <h3 className="text-white font-normal">
           Another App from{" "}
           <a
@@ -33,7 +33,7 @@ const Footer = () => {
             </a>
           </Link>
         </h3>
-        <div className="flex">
+        <div className="hidden lg:flex xl:flex">
           <Button
             className="!p-0 !w-auto !h-auto !m-auto shine !ml-1"
             href="https://github.com/saviomartin/codehouse"
