@@ -49,6 +49,15 @@ const Footer = () => {
               <FiTwitter className="text-lg ml-1" />
             </div>
           </Button>
+          <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-1">
+            <a href="https://www.buymeacoffee.com/saviomartin" target="_blank">
+              <img
+                src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                alt="Buy Me A Coffee"
+                className="h-10"
+              />
+            </a>
+          </Button>
         </div>
       </div>
     </div>
