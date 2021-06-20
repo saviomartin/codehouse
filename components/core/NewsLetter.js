@@ -7,8 +7,6 @@ import ConfettiGenerator from "confetti-js";
 
 const NewsLetter = () => {
   const [email, setEmail] = useState("");
-  const confettiSettings = { target: "my-canvas", max: "200" };
-  const confetti = new ConfettiGenerator(confettiSettings);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +26,6 @@ const NewsLetter = () => {
 
         // toasting success
         toast.success("Successfully Created!");
-        confetti.render();
 
         // making everything default
         setEmail("");
@@ -40,6 +37,14 @@ const NewsLetter = () => {
       toast.error("Please Fill All Fields");
     }
   };
+
+  useEffect(() => {
+    const confettiSettings = { target: "my-canvas", max: "200" };
+    const confetti = new ConfettiGenerator(confettiSettings);
+    confetti.render();
+
+    return () => confetti.clear();
+  });
 
   return (
     <div className="bg-image h-auto w-full">
