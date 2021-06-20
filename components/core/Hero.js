@@ -5,7 +5,7 @@ import { Button } from "@material-ui/core";
 
 // icons
 import { BsLightning } from "react-icons/bs";
-import { FiGithub } from "react-icons/fi";
+import { FiGithub, FiLayers } from "react-icons/fi";
 
 // link
 import Link from "next/link";
@@ -20,6 +20,15 @@ const Hero = ({ setOpen, user, setUser }) => {
     var scene = document.getElementById("scene");
     var parallaxInstance = new Parallax(scene);
   });
+
+  const features = [
+    {
+      name: "Category Filter",
+      description:
+        "Feel free to filter using categories, it can help you find the best one.",
+      icon: <FiLayers />,
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-image w-full text-[#ECF2F5] overflow-visible z-10">
@@ -84,11 +93,7 @@ const Hero = ({ setOpen, user, setUser }) => {
         </div>
       </div>
       <div className="h-screen w-full flex items-center justify-center p-10">
-        <div className="p-[1px] h-full w-full rounded-md bg-gradient-to-r from-[#F5BA32] to-purple-700">
-          <div className="h-full w-full bg-image rounded-md">
-            <div className="h-full w-full bg-pattern rounded-md"></div>
-          </div>
-        </div>
+        <div className="p-[1px] h-full w-full rounded-md bg-[rgba(0,0,0,0.6)] flex items-center justify-center flex-wrap border border-[#B84F90]"></div>
       </div>
     </div>
   );
