@@ -17,6 +17,7 @@
 
 /* App */
 #root,
+html,
 body {
   min-height: 100vh;
   overflow-x: hidden !important;
