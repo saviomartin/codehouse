@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // link from next
 import Link from "next/link";
@@ -11,8 +11,28 @@ import { FiGithub } from "react-icons/fi";
 
 // components
 import { BmcButton, TwitterBtn } from "..";
+import axios from "axios";
 
 const Footer = () => {
+  const [starCount, setStarCount] = useState(1);
+
+  const fetchStarCount = () => {
+    axios
+      .get("https://api.github.com/repos/saviomartin/gradientking", {
+        headers: {},
+      })
+      .then((response) => {
+        setStarCount(response.data.stargazers_count);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // fetch on load once
+  useEffect(() => {
+    fetchStarCount();
+  }, []);
   return (
     <div className="bg-app-gradient-2">
       <div className="w-full footer-pattern p-3 flex flex-col lg:flex-row xl:flex-row items-center justify-between border-t border-[#B84F90]">
@@ -41,7 +61,7 @@ const Footer = () => {
             rel="noreferrer"
           >
             <div className="bg-[#ffcf5e] px-3 py-2 capitalize rounded-md font-semibold flex items-center justify-center">
-              Stars <span className="poppins ml-1">67</span>
+              Stars <span className="poppins ml-1">{starCount}</span>
               <FiGithub className="text-lg ml-1" />
             </div>
           </Button>
