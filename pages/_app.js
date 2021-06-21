@@ -19,6 +19,9 @@ import Router from "next/router";
 // showing progress using nprogress
 import NProgress from "nprogress";
 
+// animate
+import "animate.css";
+
 function MyApp({ Component, pageProps }) {
   // views
   const [darkMode, setDarkMode] = useState(false);

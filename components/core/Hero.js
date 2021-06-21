@@ -119,7 +119,7 @@ const Hero = ({ setOpen, user, setUser }) => {
     <div className="min-h-screen bg-image w-full text-[#ECF2F5] overflow-visible z-10">
       <Header setOpen={setOpen} user={user} setUser={setUser} />
       <div className="flex items-center justify-center h-auto min-h-[90vh] lg:h-[90vh] xl:h-[90vh] w-full flex-col lg:flex-row xl:flex-row overflow-hidden">
-        <div className="w-full lg:w-6/12 xl:w-6/12 h-auto lg:h-full xl:h-full flex items-start justify-center flex-col pl-4 lg:pl-10 xl:pl-10 relative z-10 py-4 lg:py-0 xl:py-0 overflow-hidden">
+        <div className="w-full lg:w-6/12 xl:w-6/12 h-auto lg:h-full xl:h-full flex items-start justify-center flex-col pl-4 lg:pl-10 xl:pl-10 relative z-10 py-4 lg:py-0 xl:py-0 overflow-hidden animate__animated animate__fadeInLeft">
           <h3 className="text-sm lg:text-base xl:text-base bg-text-gradient font-bold mb-2 uppercase tracking-wider">
             300+ CheetSheets. Sorting. Open Source. Categories.
           </h3>
@@ -157,7 +157,7 @@ const Hero = ({ setOpen, user, setUser }) => {
             </Button>
           </div>
         </div>
-        <div className="w-full lg:w-6/12 xl:w-6/12 h-auto lg:h-full xl:h-full flex items-center justify-center flex-col relative bg-pattern-hero pb-10 lg:pb-0 xl:pb-0">
+        <div className="w-full lg:w-6/12 xl:w-6/12 h-auto lg:h-full xl:h-full flex items-center justify-center flex-col relative bg-pattern-hero pb-10 lg:pb-0 xl:pb-0 animate__animated animate__fadeInRight">
           <div className="absolute h-full w-full flex items-center justify-center">
             <img
               src="/assets/icon.svg"
