@@ -192,7 +192,7 @@ const Hero = ({ setOpen, user, setUser }) => {
             className="w-full p-7 mt-10 mb-5 flex flex-col lg:flex-row xl:flex-row"
             id="how-it-works"
           >
-            <div className="w-full lg:w-4/12 xl:w-4/12">
+            <div className="w-full lg:w-4/12 xl:w-4/12" data-aos="fade-left">
               <h3 className="text-sm lg:text-lg xl:text-lg bg-text-gradient font-bold mb-2 uppercase tracking-wider">
                 How it works
               </h3>
@@ -210,7 +210,10 @@ const Hero = ({ setOpen, user, setUser }) => {
                 </a>
               </Link>
             </div>
-            <div className="w-full lg:w-8/12 xl:w-8/12 flex items-start justify-center pt-7 flex-col lg:flex-row xl:flex-row">
+            <div
+              className="w-full lg:w-8/12 xl:w-8/12 flex items-start justify-center pt-7 flex-col lg:flex-row xl:flex-row"
+              data-aos="fade-left"
+            >
               <div className="w-full lg:w-[28%] xl:w-[28%] my-3 lg:my-0 xl:my-0 lg:mx-3 xl:mx-3">
                 <div className="flex w-full items-center">
                   <h3 className="font-bold text-2xl">1</h3>

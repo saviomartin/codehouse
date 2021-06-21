@@ -50,14 +50,23 @@ const NewsLetter = () => {
     <div className="bg-image h-auto w-full">
       <div className="h-auto min-h-[45vh] w-full rounded-md bg-[rgba(0,0,0,0.6)] flex items-center justify-center flex-wrap flex-col relative overflow-hidden">
         <canvas id="my-canvas" className="absolute"></canvas>
-        <h1 className="text-[#ECF2F5] text-2xl lg:text-4xl xl:text-4xl font-bold relative">
+        <h1
+          className="text-[#ECF2F5] text-2xl lg:text-4xl xl:text-4xl font-bold relative"
+          data-aos="fade-up"
+        >
           Join Our NewsLetter
         </h1>
-        <p className="text-xs lg:text-sm xl:text-sm text-[#aaa] text-center lg:text-left xl:text-left relative">
+        <p
+          className="text-xs lg:text-sm xl:text-sm text-[#aaa] text-center lg:text-left xl:text-left relative"
+          data-aos="fade-up"
+        >
           Never miss any new amazing cheatsheets, get them right onto your
           mails!
         </p>
-        <div className="w-11/12 lg:w-6/12 xl:w-6/12 relative">
+        <div
+          className="w-11/12 lg:w-6/12 xl:w-6/12 relative"
+          data-aos="fade-up"
+        >
           <div className="w-full p-[1px] bg-app-gradient-2 mt-4 rounded-md">
             <form
               className="bg-[#0A0719] flex duration-500 focus:border-[#3d5eff] pl-3 rounded-lg p-1 w-full items-center justify-between"
