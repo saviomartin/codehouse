@@ -169,7 +169,7 @@ const Hero = ({ setOpen, user, setUser }) => {
             <div className="flex" data-depth="0.3">
               <img
                 src="https://cdn.hashnode.com/res/hashnode/image/upload/v1614395873291/CmG_gnQr_.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress"
-                className="h-[189px] lg:h-[315px] w-[336px] lg:w-[560px]"
+                className="h-[189px] lg:h-[315px] w-[336px] lg:w-[560px] rounded-md"
               />
               <div
                 className="bg-image rounded-full p-5 absolute absolute-center transform duration-500 hover:scale-150 cursor-pointer"
