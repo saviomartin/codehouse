@@ -22,6 +22,10 @@ import NProgress from "nprogress";
 // animate
 import "animate.css";
 
+// aos
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 function MyApp({ Component, pageProps }) {
   // views
   const [darkMode, setDarkMode] = useState(false);
@@ -107,6 +111,11 @@ function MyApp({ Component, pageProps }) {
   Router.events.on("routeChangeComplete", (url) => {
     NProgress.done();
     setShowDrawer(false);
+  });
+
+  useEffect(() => {
+    // AOS
+    Aos.init();
   });
 
   return (

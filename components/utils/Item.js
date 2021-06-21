@@ -196,6 +196,7 @@ const Item = ({
         <div
           className="cursor-pointer flex items-center p-3 rounded-md duration-500 white-light-shadow bg-white m-2 w-full lg:w-10/12 min-w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale dark:border-[#555] dark:bg-[#1F1F1F] dark:text-white"
           onClick={goToCheetSheetPage}
+          data-aos="fade-left"
         >
           {loading ? (
             <div className="flex w-full h-full items-center">
@@ -312,6 +313,7 @@ const Item = ({
         <div
           className="cursor-pointer flex justify-between flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-full md:w-5/12 lg:w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale dark:border-[#555] dark:bg-[#1F1F1F] dark:text-white"
           onClick={goToCheetSheetPage}
+          data-aos="fade-left"
         >
           {loading ? (
             <>

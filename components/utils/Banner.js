@@ -31,7 +31,7 @@ const Banner = ({ text, website_url, image_url }) => {
         alt={text}
         className="h-[130px] lg:h-[160px] w-[200px] lg:w-[260px] rounded-md pixelated"
       />
-      <div className="block ml-2 lg:ml-5 mt-2 lg:mt-0 text-center">
+      <div className="block ml-2 lg:ml-5 mt-2 lg:mt-0 text-center animate__animated animate__fadeInUp">
         <h1 className="text-2xl lg:text-4xl font-bold capitalize text-[#222] dark:text-[#ddd]">
           {text} Cheatsheets
         </h1>
@@ -76,7 +76,7 @@ const Banner = ({ text, website_url, image_url }) => {
     </div>
   ) : (
     <div className="w-full py-6 my-2 relative flex items-center justify-center">
-      <div className="block ml-5 text-center">
+      <div className="block ml-5 text-center animate__animated animate__fadeInUp">
         <a
           className="text-2xl lg:text-4xl font-bold text-blue-600 continuous-line dark:text-blue-400"
           href={`https://${text}`}
