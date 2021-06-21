@@ -169,7 +169,7 @@ const Hero = ({ setOpen, user, setUser }) => {
             <div className="flex" data-depth="0.3">
               <img
                 src="/assets/codehouse-banner.png"
-                className="h-[189px] lg:h-[315px] w-[336px] lg:w-[560px] rounded-md"
+                className="h-[189px] lg:h-[315px] w-[336px] lg:w-[560px] rounded-md border border-[#B84F90]"
               />
               <div
                 className="bg-image rounded-full p-5 absolute absolute-center transform duration-500 hover:scale-150 cursor-pointer"
