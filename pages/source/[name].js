@@ -111,7 +111,7 @@ const name = (props) => {
           next={() => setCount(count + 5)}
           hasMore={count >= filteredPosts.length ? false : true}
         >
-          <div className="flex justify-center mt-5 w-full flex-wrap">
+          <div className="flex justify-center mt-5 w-full max-w-[100vw] overflow-hidden">
             {filteredPosts
               .filter((cheatsheet) => {
                 const url = new URL(cheatsheet.website_url);
