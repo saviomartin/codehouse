@@ -69,7 +69,7 @@ const Request = ({ data, user, setOpen, setData }) => {
   };
 
   return (
-    <div className="cursor-pointer flex flex-col items-center p-3 rounded-md duration-500 white-light-shadow bg-white m-2 w-full lg:w-8/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale dark:border-[#555] dark:bg-[#1F1F1F] dark:text-white">
+    <div className="cursor-pointer flex flex-col items-center p-3 rounded-md duration-500 white-light-shadow bg-white m-2 w-11/12 lg:w-8/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale dark:border-[#555] dark:bg-[#1F1F1F] dark:text-white">
       <div className="flex items-center justify-between w-full">
         <div className="flex">
           <img
