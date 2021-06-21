@@ -77,10 +77,10 @@ const MainHeader = (props) => {
               <span className="poppins mr-1">{starCount}</span> Github Stars
             </a>
           </Btn>
-          <div className="ml-1">
+          <div className="lg:ml-1 xl:ml-1 mt-2 xl:mt-0 lg:mt-0">
             <BmcButton />
           </div>
-          <div className="ml-1">
+          <div className="lg:ml-1 xl:ml-1 mt-2 xl:mt-0 lg:mt-0">
             <TwitterBtn />
           </div>
         </div>
