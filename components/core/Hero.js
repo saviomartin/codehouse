@@ -30,9 +30,11 @@ import Parallax from "parallax-js";
 import FeatureComponent from "../utils/FeatureComponent";
 
 import axios from "axios"; // axios
+import YTModal from "./YTModal";
 
 const Hero = ({ setOpen, user, setUser }) => {
   const [starCount, setStarCount] = useState(1);
+  const [showYt, setShowYt] = useState(false);
 
   const fetchStarCount = () => {
     axios
@@ -124,6 +126,7 @@ const Hero = ({ setOpen, user, setUser }) => {
   return (
     <div className="min-h-screen bg-image w-full text-[#ECF2F5] overflow-visible z-10">
       <Header setOpen={setOpen} user={user} setUser={setUser} />
+      <YTModal open={showYt} setOpen={setShowYt} />
       <div className="flex items-center justify-center h-auto min-h-[90vh] lg:h-[90vh] xl:h-[90vh] w-full flex-col lg:flex-row xl:flex-row overflow-hidden">
         <div className="w-full lg:w-6/12 xl:w-6/12 h-auto lg:h-full xl:h-full flex items-start justify-center flex-col pl-4 lg:pl-10 xl:pl-10 relative z-10 py-4 lg:py-0 xl:py-0 overflow-hidden animate__animated animate__fadeInLeft">
           <h3 className="text-sm lg:text-base xl:text-base bg-text-gradient font-bold mb-2 uppercase tracking-wider">
@@ -181,7 +184,7 @@ const Hero = ({ setOpen, user, setUser }) => {
               </div>
               <div
                 className="bg-image rounded-full p-4 absolute absolute-center transform duration-500 hover:scale-125 cursor-pointer border border-[#F5BA32]"
-                data-depth="0.8"
+                onClick={() => setShowYt(true)}
               >
                 <BsFillPlayFill className="text-white text-3xl" />
               </div>
