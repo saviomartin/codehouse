@@ -8,6 +8,7 @@ import { BsLightning } from "react-icons/bs";
 import {
   FiBookmark,
   FiCloudLightning,
+  FiDatabase,
   FiFlag,
   FiFolderPlus,
   FiGithub,
@@ -15,7 +16,6 @@ import {
   FiMoon,
   FiPackage,
   FiRss,
-  FiSmartphone,
   FiUsers,
 } from "react-icons/fi";
 
@@ -104,9 +104,9 @@ const Hero = ({ setOpen, user, setUser }) => {
       icon: <FiFlag className="text-2xl lg:text-4xl xl:text-4xl" />,
     },
     {
-      name: "Fully Responsive",
-      description: "Fully responsive, you can use it on any devices.",
-      icon: <FiSmartphone className="text-2xl lg:text-4xl xl:text-4xl" />,
+      name: "GraphQL Playground",
+      description: "A dedicated Graphql playground to access code house API",
+      icon: <FiDatabase className="text-2xl lg:text-4xl xl:text-4xl" />,
     },
     {
       name: "Dark Mode",
