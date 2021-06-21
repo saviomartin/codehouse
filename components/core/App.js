@@ -14,47 +14,47 @@ import NotFound from "../utils/NotFound";
 const App = (props) => {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(6); // count of posts that should load first
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   // filters
   const [searchTerm, setSearchTerm] = useState(""); // search
   const [sort, setSort] = useState("popular"); // sort
 
-  // useEffect(async () => {
-  //   setData([]);
-  //   setLoading(true);
+  useEffect(async () => {
+    setData([]);
+    setLoading(true);
 
-  //   // fetching
-  //   const cheatSheets = await harperFetch({
-  //     operation: "sql",
-  //     sql: "SELECT * FROM dev.cheatsheets",
-  //   });
+    // fetching
+    const cheatSheets = await harperFetch({
+      operation: "sql",
+      sql: "SELECT * FROM dev.cheatsheets",
+    });
 
-  //   // sorting
-  //   if (sort === "newest") {
-  //     cheatSheets
-  //       .sort((a, b) => {
-  //         return a.__createdtime__ - b.__createdtime__;
-  //       })
-  //       .reverse();
-  //   } else if (sort === "oldest") {
-  //     cheatSheets.sort((a, b) => {
-  //       return a.__createdtime__ - b.__createdtime__;
-  //     });
-  //   } else {
-  //     cheatSheets.sort((a, b) => {
-  //       if (a.upvotes.length > b.upvotes.length) {
-  //         return -1;
-  //       } else {
-  //         return 1;
-  //       }
-  //     });
-  //   }
+    // sorting
+    if (sort === "newest") {
+      cheatSheets
+        .sort((a, b) => {
+          return a.__createdtime__ - b.__createdtime__;
+        })
+        .reverse();
+    } else if (sort === "oldest") {
+      cheatSheets.sort((a, b) => {
+        return a.__createdtime__ - b.__createdtime__;
+      });
+    } else {
+      cheatSheets.sort((a, b) => {
+        if (a.upvotes.length > b.upvotes.length) {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
+    }
 
-  //   // data to be used
-  //   await setData(cheatSheets);
-  //   setLoading(false);
-  // }, [sort]);
+    // data to be used
+    await setData(cheatSheets);
+    setLoading(false);
+  }, [sort]);
 
   // destructuring props
   const { showLoadingButton = false, user, setOpen } = props;
@@ -121,7 +121,7 @@ const App = (props) => {
           dataLength={count} //This is important field to render the next data
           next={() => setCount(count + 5)}
           hasMore={count >= data.lenghth ? false : true}
-          loader={<h4>Loading...</h4>}
+          loader={<Loader />}
         >
           <div className="flex justify-center mt-5 w-full flex-wrap">
             {filteredPosts.slice(0, count).map((cheetsheet, key) => (

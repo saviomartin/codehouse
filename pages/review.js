@@ -7,6 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import {
   AppHeader,
   Item,
+  Loader,
   MainHeader,
   NotFound,
   SvgBanner,
@@ -99,7 +100,7 @@ const Review = (props) => {
           dataLength={count} //This is important field to render the next data
           next={() => setCount(count + 5)}
           hasMore={count >= data.lenghth ? false : true}
-          loader={data.length > count ? <h4>Loading...</h4> : ""}
+          loader={<Loader />}
         >
           <div className="flex justify-center w-full flex-wrap">
             {filteredPosts.slice(0, count).map((cheetsheet, key) => (

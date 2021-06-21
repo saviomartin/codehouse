@@ -96,6 +96,9 @@ function MyApp({ Component, pageProps }) {
     }
   });
 
+  // config nprogress
+  NProgress.configure({ showSpinner: false });
+
   // showing loading and progress
   Router.events.on("routeChangeStart", (url) => {
     setLoading(true);
