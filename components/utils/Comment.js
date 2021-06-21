@@ -7,7 +7,10 @@ import { formatRelative } from "date-fns";
 
 const Comment = ({ comment }) => {
   return (
-    <div className="rounded-md border border-[#ccc] dark:bg-[#2f2f2f] dark:border-[#555] p-2 flex items-center hover:bg-white duration-200 mt-2">
+    <div
+      className="rounded-md border border-[#ccc] dark:bg-[#2f2f2f] dark:border-[#555] p-2 flex items-center hover:bg-white duration-200 mt-2"
+      data-aos="fade-left"
+    >
       <img
         src={
           comment.photoURL

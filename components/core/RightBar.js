@@ -52,7 +52,7 @@ const RightBar = ({ currentPost }) => {
             <>
               <h1 className="text-lg font-bold text-[#ECF2F5]">From</h1>
               <a
-                className="bg-[#ECF2F5] rounded-md border border-[#ddd] dark:bg-[#1F1F1F] dark:border-[#555] p-2 flex items-center hover:bg-white duration-200"
+                className="bg-[#ECF2F5] rounded-md border border-[#ddd] dark:bg-[#1F1F1F] dark:border-[#555] p-2 flex items-center hover:bg-white duration-200 animate__animated animate__fadeIn"
                 href={`https://twitter.com/${twitter_handle}`}
                 target="_blank"
                 rel="noreferrer"
@@ -82,7 +82,7 @@ const RightBar = ({ currentPost }) => {
               <h1 className="text-lg font-bold text-[#ECF2F5] mt-3">
                 Added By
               </h1>
-              <div className="bg-[#ECF2F5] rounded-md border border-[#ddd] p-2 flex items-center hover:bg-white duration-200 dark:bg-[#1F1F1F] dark:border-[#555]">
+              <div className="bg-[#ECF2F5] rounded-md border border-[#ddd] p-2 flex items-center hover:bg-white duration-200 dark:bg-[#1F1F1F] dark:border-[#555] animate__animated animate__fadeIn">
                 <img
                   src={
                     currentPost[0].addedby.photoURL
@@ -112,7 +112,7 @@ const RightBar = ({ currentPost }) => {
               <h1 className="text-lg font-bold text-[#ECF2F5] mt-3">
                 Added By
               </h1>
-              <div className="bg-[#ECF2F5] rounded-md border border-[#ddd] p-2 flex items-center hover:bg-white duration-200 dark:bg-[#1F1F1F] dark:border-[#555]">
+              <div className="bg-[#ECF2F5] rounded-md border border-[#ddd] p-2 flex items-center hover:bg-white duration-200 dark:bg-[#1F1F1F] dark:border-[#555] animate__animated animate__fadeIn">
                 <img
                   src="https://avatars.githubusercontent.com/saviomartin"
                   alt=""
@@ -145,7 +145,7 @@ const RightBar = ({ currentPost }) => {
             ))}
           </div>
         </div>
-        <div className="py-4 px-3 w-full">
+        <div className="py-4 px-3 w-full animate__animated animate__fadeIn">
           <h1 className="text-lg font-bold text-[#ECF2F5] mb-1">
             Share Cheatsheet
           </h1>

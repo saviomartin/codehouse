@@ -251,7 +251,7 @@ const InfoBar = ({
             className="rounded-md w-full mb-4 max-h-[375px]"
           />
           <a
-            className="text-blue-500 text-base lg:text-lg xl:text-lg"
+            className="text-blue-500 text-base lg:text-lg xl:text-lg animate__animated animate__fadeInUp"
             href={url.protocol && url.hostname && url.protocol + url.hostname}
             target="_blank"
           >
@@ -259,17 +259,17 @@ const InfoBar = ({
           </a>
           <br />
           <a
-            className="font-bold text-2xl lg:text-3xl xl:text-3xl continuous-line hover:text-[#3d5eff]"
+            className="font-bold text-2xl lg:text-3xl xl:text-3xl continuous-line hover:text-[#3d5eff] animate__animated animate__fadeInUp"
             href={website_url}
           >
             {cheatsheet_name}
           </a>
-          <p className="text-[#666] mt-1 dark:text-[#aaa] text-sm lg:text-base">
+          <p className="text-[#666] mt-1 dark:text-[#aaa] text-sm lg:text-base animate__animated animate__fadeInUp">
             {meta.meta && meta.meta.description
               ? meta.meta.description.slice(0, 150)
               : "Description not found"}
           </p>
-          <div className="flex mt-4 h-full items-start justify-between">
+          <div className="flex mt-4 h-full items-start justify-between animate__animated animate__fadeInUp">
             <div className="flex">
               <Button className="!p-0 !w-auto !h-auto !m-0">
                 <div
