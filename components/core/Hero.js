@@ -168,7 +168,7 @@ const Hero = ({ setOpen, user, setUser }) => {
           <div id="scene" className="relative flex items-center justify-center">
             <div className="flex" data-depth="0.3">
               <img
-                src="https://cdn.hashnode.com/res/hashnode/image/upload/v1614395873291/CmG_gnQr_.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress"
+                src="/assets/codehouse-banner"
                 className="h-[189px] lg:h-[315px] w-[336px] lg:w-[560px] rounded-md"
               />
               <div
