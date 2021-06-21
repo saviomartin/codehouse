@@ -44,7 +44,7 @@ const contributors = (props) => {
   }, []);
 
   return (
-    <div className="bg-[#ECF2F5] dark:bg-[#2F2F2F] h-full w-full overflow-visible min-h-screen">
+    <div className="bg-[#ECF2F5] dark:bg-[#2F2F2F] h-full w-full overflow-visible min-h-screen pb-10">
       <MainHeader {...props} />
       <Head>
         <title>Contributors - Code House</title>

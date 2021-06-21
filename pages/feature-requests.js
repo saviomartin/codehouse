@@ -31,7 +31,7 @@ const FeatureRequests = (props) => {
   }, [data]);
 
   return (
-    <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f]">
+    <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f] pb-12">
       <MainHeader {...props} />
       <Head>
         <title>Feature Requests - Code House</title>

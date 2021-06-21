@@ -81,7 +81,7 @@ const Review = (props) => {
   return (
     <Fragment>
       <MainHeader {...props} />
-      <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f] min-h-screen p-6">
+      <div className="bg-[#ECF2F5] dark:bg-[#2f2f2f] min-h-screen p-6 pb-10">
         <AppHeader
           {...props}
           searchTerm={searchTerm}
