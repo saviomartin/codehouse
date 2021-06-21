@@ -27,3 +27,4 @@ export { default as Request } from "./utils/Request";
 export { default as FeatureComponent } from "./utils/FeatureComponent";
 export { default as BmcButton } from "./utils/BmcButton";
 export { default as TwitterBtn } from "./utils/TwitterBtn";
+export { default as Loader } from "./utils/Loader";

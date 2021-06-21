@@ -8,52 +8,53 @@ import { AppHeader, Btn, Item } from "..";
 
 // fetching or editing database
 import { harperFetch } from "../../utils/HarperFetch";
+import Loader from "../utils/Loader";
 import NotFound from "../utils/NotFound";
 
 const App = (props) => {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(6); // count of posts that should load first
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   // filters
   const [searchTerm, setSearchTerm] = useState(""); // search
   const [sort, setSort] = useState("popular"); // sort
 
-  useEffect(async () => {
-    setData([]);
-    setLoading(true);
+  // useEffect(async () => {
+  //   setData([]);
+  //   setLoading(true);
 
-    // fetching
-    const cheatSheets = await harperFetch({
-      operation: "sql",
-      sql: "SELECT * FROM dev.cheatsheets",
-    });
+  //   // fetching
+  //   const cheatSheets = await harperFetch({
+  //     operation: "sql",
+  //     sql: "SELECT * FROM dev.cheatsheets",
+  //   });
 
-    // sorting
-    if (sort === "newest") {
-      cheatSheets
-        .sort((a, b) => {
-          return a.__createdtime__ - b.__createdtime__;
-        })
-        .reverse();
-    } else if (sort === "oldest") {
-      cheatSheets.sort((a, b) => {
-        return a.__createdtime__ - b.__createdtime__;
-      });
-    } else {
-      cheatSheets.sort((a, b) => {
-        if (a.upvotes.length > b.upvotes.length) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
-    }
+  //   // sorting
+  //   if (sort === "newest") {
+  //     cheatSheets
+  //       .sort((a, b) => {
+  //         return a.__createdtime__ - b.__createdtime__;
+  //       })
+  //       .reverse();
+  //   } else if (sort === "oldest") {
+  //     cheatSheets.sort((a, b) => {
+  //       return a.__createdtime__ - b.__createdtime__;
+  //     });
+  //   } else {
+  //     cheatSheets.sort((a, b) => {
+  //       if (a.upvotes.length > b.upvotes.length) {
+  //         return -1;
+  //       } else {
+  //         return 1;
+  //       }
+  //     });
+  //   }
 
-    // data to be used
-    await setData(cheatSheets);
-    setLoading(false);
-  }, [sort]);
+  //   // data to be used
+  //   await setData(cheatSheets);
+  //   setLoading(false);
+  // }, [sort]);
 
   // destructuring props
   const { showLoadingButton = false, user, setOpen } = props;
@@ -98,20 +99,22 @@ const App = (props) => {
                 />
               ))}
           </div>
-          {loading
-            ? "Loading..."
-            : !searchTerm && (
-                <div className="w-full flex item-center justify-center mt-8">
-                  <Btn>
-                    <button
-                      className="bg-app-gradient border border-[#391637] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine"
-                      onClick={() => setCount(count + 20)}
-                    >
-                      Load More ...
-                    </button>
-                  </Btn>
-                </div>
-              )}
+          {loading ? (
+            <Loader />
+          ) : (
+            !searchTerm && (
+              <div className="w-full flex item-center justify-center mt-8">
+                <Btn>
+                  <button
+                    className="bg-app-gradient border border-[#391637] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline shine"
+                    onClick={() => setCount(count + 20)}
+                  >
+                    Load More ...
+                  </button>
+                </Btn>
+              </div>
+            )
+          )}
         </>
       ) : (
         <InfiniteScroll
