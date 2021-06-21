@@ -8,7 +8,7 @@ const bookmarksPage = (props) => {
   const { bookmarks, user, fetchBookmarks, darkMode } = props;
 
   return (
-    <div className="bg-[#ECF2F5] dark:bg-[#2F2F2F] h-full w-full overflow-visible">
+    <div className="bg-[#ECF2F5] dark:bg-[#2F2F2F] h-full w-full overflow-visible pb-10">
       <MainHeader {...props} />
       <Head>
         <title>Your BookMarks - Code House</title>
