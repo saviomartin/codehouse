@@ -8,7 +8,7 @@ import "../styles/App.css"; // custom styles
 import { Toaster } from "react-hot-toast";
 
 // components
-import { Footer, Sidebar, SignInPopup } from "../components";
+import { Footer, LoaderHome, Sidebar, SignInPopup } from "../components";
 
 // firebase auth
 import { auth } from "../utils/firebase";
@@ -20,9 +20,6 @@ import Router from "next/router";
 import NProgress from "nprogress";
 
 function MyApp({ Component, pageProps }) {
-  // loading state
-  const [loading, setLoading] = useState(false);
-
   // views
   const [darkMode, setDarkMode] = useState(false);
   const [listView, setListView] = useState(false);
@@ -101,12 +98,10 @@ function MyApp({ Component, pageProps }) {
 
   // showing loading and progress
   Router.events.on("routeChangeStart", (url) => {
-    setLoading(true);
     NProgress.start();
     setShowDrawer(false);
   });
   Router.events.on("routeChangeComplete", (url) => {
-    setLoading(false);
     NProgress.done();
     setShowDrawer(false);
   });
@@ -114,7 +109,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <div className={`${darkMode ? "dark" : "light"} min-h-screen`}>
       <Toaster position="bottom-right" reverseOrder={false} />
-      {loading && "Loading......"}
       <Component {...pageProps} {...props} />
       <SignInPopup open={open} setOpen={setOpen} darkMode={darkMode} />
       <Sidebar {...props} />

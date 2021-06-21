@@ -8,6 +8,7 @@ export { default as Sidebar } from "./core/Sidebar";
 export { default as MainHeader } from "./core/MainHeader";
 export { default as NewsLetter } from "./core/NewsLetter";
 export { default as Footer } from "./core/Footer";
+export { default as LoaderHome } from "./core/LoaderHome";
 
 // util components
 export { default as Header } from "./utils/Header";
