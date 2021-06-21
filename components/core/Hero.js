@@ -15,6 +15,7 @@ import {
   FiLayers,
   FiMoon,
   FiPackage,
+  FiPlay,
   FiRss,
   FiUsers,
 } from "react-icons/fi";
@@ -51,10 +52,10 @@ const Hero = ({ setOpen, user, setUser }) => {
     fetchStarCount();
   }, []);
 
-  useEffect(() => {
-    var scene = document.getElementById("scene");
-    var parallaxInstance = new Parallax(scene);
-  });
+  // useEffect(() => {
+  //   var scene = document.getElementById("scene");
+  //   var parallaxInstance = new Parallax(scene);
+  // });
 
   const features = [
     {
@@ -164,15 +165,19 @@ const Hero = ({ setOpen, user, setUser }) => {
               className="w-[320px] lg:w-[450px] xl:w-[450px] opacity-50 lg:opacity-100 xl:opacity-100"
             />
           </div>
-          <div id="scene">
-            <iframe
-              src="https://www.youtube.com/embed/gdZLi9oWNZg"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              className="relative h-[189px] lg:h-[315px] w-[336px] lg:w-[560px]"
-              data-depth="0.3"
-            ></iframe>
+          <div id="scene" className="relative flex items-center justify-center">
+            <div className="flex" data-depth="0.3">
+              <img
+                src="https://cdn.hashnode.com/res/hashnode/image/upload/v1614395873291/CmG_gnQr_.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress"
+                className="h-[189px] lg:h-[315px] w-[336px] lg:w-[560px]"
+              />
+              <div
+                className="bg-image rounded-full p-5 absolute absolute-center transform duration-500 hover:scale-150 cursor-pointer"
+                data-depth="0.8"
+              >
+                <FiPlay className="text-white text-xl" />
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -168,3 +168,11 @@
 .cookie {
   font-family: "Cookie", cursive;
 }
+.absolute-center {
+  top: 30%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
