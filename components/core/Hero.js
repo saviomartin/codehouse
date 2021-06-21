@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@material-ui/core";
 
 // icons
-import { BsLightning } from "react-icons/bs";
+import { BsFillPlayFill, BsLightning } from "react-icons/bs";
 import {
   FiBookmark,
   FiCloudLightning,
@@ -180,10 +180,10 @@ const Hero = ({ setOpen, user, setUser }) => {
                 />
               </div>
               <div
-                className="bg-image rounded-full p-5 absolute absolute-center transform duration-500 hover:scale-150 cursor-pointer border border-[#F5BA32]"
+                className="bg-image rounded-full p-4 absolute absolute-center transform duration-500 hover:scale-125 cursor-pointer border border-[#F5BA32]"
                 data-depth="0.8"
               >
-                <FiPlay className="text-white text-xl" />
+                <BsFillPlayFill className="text-white text-3xl" />
               </div>
             </div>
           </div>
