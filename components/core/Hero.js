@@ -116,6 +116,11 @@ const Hero = ({ setOpen, user, setUser }) => {
     },
   ];
 
+  useEffect(() => {
+    var scene = document.getElementById("scene");
+    var parallaxInstance = new Parallax(scene);
+  });
+
   return (
     <div className="min-h-screen bg-image w-full text-[#ECF2F5] overflow-visible z-10">
       <Header setOpen={setOpen} user={user} setUser={setUser} />
@@ -165,14 +170,17 @@ const Hero = ({ setOpen, user, setUser }) => {
               className="w-[320px] lg:w-[450px] xl:w-[450px] opacity-50 lg:opacity-100 xl:opacity-100"
             />
           </div>
-          <div id="scene" className="relative flex items-center justify-center">
-            <div className="flex" data-depth="0.3">
-              <img
-                src="/assets/codehouse-banner.png"
-                className="h-[189px] lg:h-[315px] w-[336px] lg:w-[560px] rounded-md border border-[#B84F90]"
-              />
+          <div className="relative flex items-center justify-center">
+            <div className="flex">
+              <div id="scene">
+                <img
+                  data-depth="0.3"
+                  src="/assets/codehouse-banner.png"
+                  className="h-[189px] lg:h-[315px] w-[336px] lg:w-[560px] rounded-md border border-[#B84F90]"
+                />
+              </div>
               <div
-                className="bg-image rounded-full p-5 absolute absolute-center transform duration-500 hover:scale-150 cursor-pointer"
+                className="bg-image rounded-full p-5 absolute absolute-center transform duration-500 hover:scale-150 cursor-pointer border border-[#F5BA32]"
                 data-depth="0.8"
               >
                 <FiPlay className="text-white text-xl" />
