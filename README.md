@@ -136,12 +136,23 @@ After your PR got merged, you'll be automatically appared on [contributors page]
 
 ## 🌈 What's next
 
-I'm pretty sure that I will be constantly adding more and more extrordinary features as I consider this as my biggest project till date. These all are the things I have planned to do in next days
+Code House is the biggest ever project I have made till date, I have a big idea in my mind, and you can see a lot more features coming soon.
 
-- Comments
-- Generate gradient from a website URL (in progress ⚠️)
-- Generate gradient from a word, eg: love - red gradient
-- Chrome extension which does all the features
+Here are some idea that is coming really soon 👀
+
+- Profile Page
+- PWA, **In Progress ⏳️**
+- Reply to a comment
+- Markdown support for feature requests
+- Twitter and Facebook Auth, **In Progress ⏳️**
+- Perform Operations with API
+- Create Collection when bookmarking cheatsheets
+- Featuring Cheatsheets on day basis
+- Generate Cover Image for missing ones
+- Settings page
+- Choose Secondary color
+- Pin a cheatsheets to the top
+- Hear description for posts, **In Progress ⏳️**
 
 ## 🛡️ License
 
