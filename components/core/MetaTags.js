@@ -21,11 +21,11 @@ const MetaTags = () => {
       />
       <meta
         name="keywords"
-        content="tweeter, tweets, twitter, twitter app, sharing to twitter, tweeterapp, tweeeterapp by savio, savio, savio martin, tweeter sharing, tweet, share to twitter, twitter intents, intent, twitter app, twitter intents generator, twitter intent generator, open source, tweet api, twitter api, react, next, tweeter github, tweeter saviomartin, tweeter sharing to twitter made easy"
+        content="codechef, codepen, code geass, codecademy, codeforces, codeblocks, codeigniter, codecanyon, code blocks, code m, code with harry, code compare, code of conduct, code 8, code chef, code alignment in visual studio, cheatsheet mac, cheatsheet font awesome, cheatsheet meaning, cheatsheet of html, cheat sheet bkp, cheatsheet font awesome 4.7, cheatsheet of java, cheatsheet of python, cheatsheet app, cheat sheet aws, cheat sheet android, cheatsheet app for windows, cheatsheet app ios, cheatsheet app review, cheatsheet angular, cheat sheet apple, a cheat sheet, a cheat sheet for math, a cheat sheet meaning, a cheat sheet on residential schools in canada, a cheat sheet to indian restaurant menus, make cheat sheet, how to create cheat sheet, a good cheat sheet, cheatsheet bootstrap, cheatsheet bootstrap 5, cheat sheet bgp, cheat sheet bash, cheat sheet big o, cheat sheet boi, cheat sheet blackjack, ctrl+b cheat sheet, cheat sheet css, cheat sheet creator, cheatsheet c++, cheat sheet conda, cheatsheet clojure,cheat sheet cisco,c cheat sheet,c cheat sheet pdf,c cheat sheet github,c cheat sheet pdf download,c programming cheat sheet,c sharp cheat sheet,objective c cheat sheet,c pointer cheat sheet,cheat sheet docker, sheet design, code house, codehouse, code houses, coding house, code house hashnode, code house savio, house code, coding savio, savio martin, code hashnode, hashnode codehouse, codehouse harperdb, harper db, code house, coding houses, code house by savio martin, code house by savio"
       />
       <link rel="canonical" href="https://codehouse.now.sh/" />
-      <link rel="apple-touch-icon" href="/assets/logo192.png" />
-      <link rel="icon" href="/assets/favicon.ico" />
+      <link rel="apple-touch-icon" href="/icons/logo192.png" />
+      <link rel="icon" href="/favicon.ico" />
 
       {/* Primary Meta Tags */}
       <meta
