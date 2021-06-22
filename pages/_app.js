@@ -8,7 +8,13 @@ import "../styles/App.css"; // custom styles
 import { Toaster } from "react-hot-toast";
 
 // components
-import { Footer, LoaderHome, Sidebar, SignInPopup } from "../components";
+import {
+  Footer,
+  LoaderHome,
+  MetaTags,
+  Sidebar,
+  SignInPopup,
+} from "../components";
 
 // firebase auth
 import { auth } from "../utils/firebase";
@@ -120,6 +126,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <div className={`${darkMode ? "dark" : "light"} min-h-screen`}>
+      <MetaTags />
       <Toaster position="bottom-right" reverseOrder={false} />
       <Component {...pageProps} {...props} />
       <SignInPopup open={open} setOpen={setOpen} darkMode={darkMode} />

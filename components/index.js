@@ -9,6 +9,7 @@ export { default as MainHeader } from "./core/MainHeader";
 export { default as NewsLetter } from "./core/NewsLetter";
 export { default as Footer } from "./core/Footer";
 export { default as YTModal } from "./core/YTModal";
+export { default as MetaTags } from "./core/MetaTags";
 
 // util components
 export { default as Header } from "./utils/Header";
