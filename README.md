@@ -1,6 +1,11 @@
 <p align="center">
   <a href="https://codehouse.vercel.app/">
-    <img alt="Code House" src="public/readme/codehouse-text.png" width="350" />
+    <img alt="Code House" src="public/icons/logo192.png" width="125" />
+  </a>
+</p>
+<p align="center">
+  <a href="https://codehouse.vercel.app/">
+    <img alt="Code House" src="public/readme/codehouse-text.png" width="300" />
   </a>
 </p>
 <h4 align="center">Store House of 300+ Developer cheatsheets✨️</h4>
