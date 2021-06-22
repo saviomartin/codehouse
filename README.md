@@ -186,6 +186,6 @@ If you found the app helpful, consider supporting me with a coffee.
 
 ---
 
-<p align="center">
-Developed with ❤️ and ☕️
-</p>
+<h3 align="center">
+Code House needs a 🌟 from you.
+</h3>
