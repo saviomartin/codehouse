@@ -153,21 +153,21 @@ This project is licensed under the MIT License - see the [`LICENSE`](LICENSE) fi
 [![netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/saviomartin/loficlub)
 [![Deploy to DO](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/saviomartin/loficlub)
 
-## 👨‍💻 Thanks to the Awesome Contributors
+## 👨‍💻 Thanks to the all Contributors
 
-Code House will not occur without you. Thanking all the amazing contributors. Feel free to contribute in the project 🙌
+Thanks a lot for spending your time in helping code house grow and help many developers. Thanks a lot! Keep rocking 🍻
 
-<a href="https://github.com/saviomartin/codehouse/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=saviomartin/codehouse" />
-</a>
-
-Also, check them on [gradient-king.now.sh/contributors](https://codehouse.vercel.app/contributors)
+Also, check them on [codehouse.vercel.app/contributors](https://codehouse.vercel.app/contributors)
 
 ## 🙏 Support
 
-This project needs a 🌟 from you
+This project needs a 🌟 from you. Don't forget to leave a star ⭐️
 
-<hr>
+If you found the app helpful, consider supporting me with a coffee.
+<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="40px">
+
+---
+
 <p align="center">
 Developed with ❤️ and ☕️
 </p>
