@@ -22,6 +22,7 @@
     "graphql": "^15.5.0",
     "lodash": "^4.17.21",
     "next": "^11.0.0",
+    "next-pwa": "^5.2.21",
     "nprogress": "^0.2.0",
     "parallax-js": "^3.1.0",
     "psl": "^1.8.0",
