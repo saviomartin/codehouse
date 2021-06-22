@@ -126,9 +126,20 @@ After your PR got merged, you'll be automatically appared on [contributors page]
 
 ## 💻 Built with
 
-- [React](https://reactjs.org/)
-- [Jquery](https://jquery.com/)
-- [Material UI](http://material-ui.com/): for styling and Icons
+- [Next JS](https://nextjs.org/)
+- [Harper DB](https://harperdb.io/): source for complete database
+- [lodash](https://lodash.com/): for some functions
+- [CORS](https://www.npmjs.com/package/cors): for CORS support
+- [uuid](https://www.npmjs.com/package/uuid): for generating uuids
+- [react-icons](https://react-icons.github.io/react-icons/): for icons
+- [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component): for infinite scrolling
+- [react-ripples](https://github.com/rwu823/react-ripples): for ripple effects
+- [nprogress](https://www.npmjs.com/package/nprogress): for slim progressbars
+- [parallax-js](http://matthew.wagerfield.com/parallax/): for parallax effects
+- [react-hot-toast](https://react-hot-toast.com/): for toasts
+- [firebase](https://firebase.google.com/): for authentication
+- [date-fns](https://date-fns.org/): for formatting dates
+- [Material UI](http://material-ui.com/): for components
 - [Animate.css](https://animate.style/): for smooth Animations
 - [AOS](https://michalsnik.github.io/aos/): for scroll animations
 - [react-router-dom](https://reactrouter.com/web/guides/quick-start): for routing
