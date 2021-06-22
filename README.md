@@ -56,24 +56,24 @@ Code House comes up with a whole bunch of amazing features to provide you the be
 
 > I recommend you to bookmark code house, because it will become super handy one day!
 
-- **300+ Cheatsheets**
-- **Filter by Category** (27 Cateogries)
-- **Filter By Source** (220+ Sources)
-- **Bookmark Cheatsheets**
-- **Add new Cheatsheet** (on browser itself)
-- **Seperate page for each Cheatsheet**
-- **Request for Features**
-- **API Support** [>> API Usage](API-usage.md)
-- **Report Cheatsheet**
-- **GraphQL Playground**
-- **Contributors Page**[ >>Contributing](#-contributing)
-- **Sort by time or popularity**
-- **Search Filter**
-- **Toggle View** (List View or Grid View)
-- **Dark mode**
-- **Upvote/Comment on Cheatsheets**
-- **Newsletter** (once a week)
-- **Fully Responsive**
+- 💯 **300+ Cheatsheets**
+- 🎩 **Filter by Category** (27 Cateogries)
+- 👾 **Filter By Source** (220+ Sources)
+- 🔖 **Bookmark Cheatsheets**
+- 📦 **Add new Cheatsheet** (on browser itself)
+- 🍭 **Seperate page for each Cheatsheet**
+- 🌱 **Request for Features**
+- 🥁 **API Support** [>> API Usage](API-usage.md)
+- 🧐 **Report Cheatsheet**
+- 🕊️ **GraphQL Playground**
+- 👨‍💻 **Contributors Page**[ >>Contributing](#-contributing)
+- 🕒 **Sort by time or popularity**
+- 🔎 **Search Filter**
+- 🗃️ **Toggle View** (List View or Grid View)
+- 🌘 **Dark mode**
+- 🔺 **Upvote/Comment on Cheatsheets**
+- 📬 **Newsletter** (once a week)
+- 💻 **Fully Responsive**
 
 Code House is the next revelutionary app to hunt the best cheatsheets for all types ✨️
 
@@ -178,7 +178,7 @@ Also, check them on [codehouse.vercel.app/contributors](https://codehouse.vercel
 
 ## 🙏 Support
 
-This project needs a 🌟 from you. Don't forget to leave a star ⭐️
+This project needs a ⭐️ from you. Don't forget to leave a star ⭐️
 
 If you found the app helpful, consider supporting me with a coffee.
 
@@ -187,5 +187,5 @@ If you found the app helpful, consider supporting me with a coffee.
 ---
 
 <h3 align="center">
-Code House needs a 🌟 from you.
+Code House needs a ⭐️ from you.
 </h3>
