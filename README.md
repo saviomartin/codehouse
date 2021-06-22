@@ -26,7 +26,7 @@
 
 </p>
 
-<p align="center"><img src="public/assets/codehouse.gif" alt="codehouse gif" width="600" /></p>
+<p align="center"><img src="public/assets/codehouse.gif" alt="codehouse gif" width="550" /></p>
 
 <p align="center">
     <a href="https://codehouse.vercel.app/" target="blank">View Demo</a>
@@ -198,5 +198,5 @@ If you found the app helpful, consider supporting me with a coffee.
 ---
 
 <h3 align="center">
-Code House needs a ⭐️ from you.
+Code House needs a ⭐️ from you
 </h3>

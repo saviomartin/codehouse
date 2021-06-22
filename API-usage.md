@@ -4,7 +4,7 @@
 
 We have built a super simple, easy to user, GraphQl API playground for you to test and make your own app with our API. API is available at [https://codehouse-api.herokuapp.com/](https://codehouse-api.herokuapp.com/)
 
-Here are some examples for you to get started ✌️
+Here is how you can use Graphql with `fetch`, feel free to use any of your types, axios, jquery etc.
 
 ## Example Code with `Fetch`
 
@@ -24,7 +24,18 @@ fetch("https://codehouse-api.herokuapp.com/", {
 })
 ```
 
-Here are some available types, make sure to have a visit to the playground because it is worth 🤗
+Here are some examples for you to get started ✌️
+
+- [Get Top Cheatsheets](#user-content-get-top-cheatsheets)
+- [Get Latest Cheatsheets](#user-content-get-latest-cheatsheets)
+- [Get All Categories](#user-content-get-all-categories)
+- [Get All Cheatsheets of a Category](#user-content-get-all-cheatsheets-of-a-category)
+- [Get All Sources](#user-content-get-all-sources)
+- [Get All Cheatsheets from a Source](#user-content-get-all-cheatsheets-from-a-source)
+- [Get All Cheatsheets on Review](#user-content-get-all-cheatsheets-on-review)
+- [Get Contents of a particular Cheatsheet](#user-content-get-contents-of-a-particular-cheatsheet)
+- [Get All Contributors](#user-content-get-all-contributors)
+- [Get All Feature Requests](#user-content-get-all-feature-requests)
 
 ---
 
