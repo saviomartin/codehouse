@@ -1,5 +1,7 @@
 # API Usage
 
+![](./public/readme/codehouse-graphql.png)
+
 We have built a super simple, easy to user, GraphQl API playground for you to test and make your own app with our API. API is available at [https://codehouse-api.herokuapp.com/](https://codehouse-api.herokuapp.com/)
 
 Here are some examples for you to get started ✌️
