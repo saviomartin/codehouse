@@ -97,13 +97,20 @@ cd codehouse
 npm install
 ```
 
-4. Run the app
+4. Create `.env` file in root and add your variables
 
 ```bash
-npm start
+NEXT_PUBLIC_DB_URL= YOUR_HARPER_DB_DATABASE_URL
+NEXT_PUBLIC_DB_AUTHORIZATION= YOUR_HARPER_DB_AUTHORIZATION_ID
 ```
 
-🌟 You are all set!
+5. Run the app
+
+```bash
+npm run dev
+```
+
+You are all set! Open [localhost:3000](http://localhost:3000/) to see the app.
 
 ## 🍰 Contributing
 
