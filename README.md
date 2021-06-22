@@ -142,8 +142,7 @@ After your PR got merged, you'll be automatically appared on [contributors page]
 - [Material UI](http://material-ui.com/): for components
 - [Animate.css](https://animate.style/): for smooth Animations
 - [AOS](https://michalsnik.github.io/aos/): for scroll animations
-- [react-router-dom](https://reactrouter.com/web/guides/quick-start): for routing
-- [AWS Amplify](https://aws.amazon.com/amplify/): for hosting
+- [Vercel](http://vercel.com/): for hosting
 
 ## 🌈 What's next
 
