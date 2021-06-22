@@ -36,11 +36,11 @@
     <a href="https://github.com/saviomartin/codehouse/issues/new/choose">Request Feature</a>
 </p>
 
-### Fed up with searching gradients for your app?
+### Introducing Code House ✌️
 
-Gradient king can help you. We provide a huge collection of gradients and you could easily choose one. Besides that, we also provides a gradient generator where you could upload your image and grad the gradients from it. How cool is that 🙌
+Code House is the all in one storehouse for developer cheatsheets. Code House is made up of 300+ curated cheatsheets from 230+ sources. Filter by categories, or source, sort by time or popularity, dark mode, bookmark cheatsheets, add new cheatsheets, request feature, and much more features, make the app amazing! 🤟
 
-[Read blog to understand better 📖](https://savio.xyz/introducing-gradient-king-never-again-run-out-of-gradients)
+[Read blog to understand better 📖](https://savio.xyz/)
 
 ## 🚀 Demo
 
