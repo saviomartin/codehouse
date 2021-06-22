@@ -26,7 +26,7 @@
 
 </p>
 
-<p align="center"><img src="public/assets/codehouse.gif" alt="codehouse gif" /></p>
+<p align="center"><img src="public/assets/codehouse.gif" alt="codehouse gif" width="600" /></p>
 
 <p align="center">
     <a href="https://codehouse.vercel.app/" target="blank">View Demo</a>
@@ -45,14 +45,14 @@ Code House is the all in one storehouse for developer cheatsheets. Code House is
 ## 🚀 Demo
 
 <a href="https://codehouse.vercel.app/" target="blank">
-<img src="public/assets/banner.png" />
+<img src="public/assets/codehouse-banner.png" />
 </a>
 
 Try the tool: [Gradient King](https://codehouse.vercel.app/)
 
 ## 🧐 Features
 
-Provides you a huge collection of awesome, elegant gradients. You can use it absolutely for free without attribution.
+Code House comes up with a whole bunch of amazing features to provide you the best experience, Here're some of our best features.
 
 > Also provides a gradient generator which would help you generate gradients from your local image.
 
