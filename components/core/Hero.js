@@ -133,7 +133,7 @@ const Hero = ({ setOpen, user, setUser }) => {
             300+ CheetSheets. Sorting. Open Source. Categories.
           </h3>
           <h1 className="font-bold text-3xl lg:text-[2.75rem] xl:text-[2.75rem] lg:leading-[3rem]">
-            Worl'd biggest storehouse of developer cheetsheets
+            World biggest storehouse of developer cheetsheets
           </h1>
           <p className="text-light text-[#aaa] my-2 mt-3 text-xs lg:text-sm xl:text-sm">
             Code House is the all in one storehouse for developer cheatsheets.
