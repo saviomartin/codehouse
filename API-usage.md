@@ -2,7 +2,27 @@
 
 We have built a super simple, easy to user, GraphQl API playground for you to test and make your own app with our API. API is available at [https://codehouse-api.herokuapp.com/](https://codehouse-api.herokuapp.com/)
 
-Here are some examples for you to get started:
+Here are some examples for you to get started ✌️
+
+## Example Code with `Fetch`
+
+```js
+fetch("https://codehouse-api.herokuapp.com/", {
+  method: "POST",
+  body: JSON.stringify({query: "{
+    cheatsheets(sort: popular){
+      cheatsheet_name
+      website_url
+    }
+  }"}),
+}).then((response)=> {
+  console.log(response.data)
+}).catch((error)=> {
+  error.message
+})
+```
+
+Here are some available types, make sure to have a visit to the playground because it is worth 🤗
 
 ---
 
