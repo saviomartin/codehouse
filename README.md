@@ -114,21 +114,15 @@ You are all set! Open [localhost:3000](http://localhost:3000/) to see the app.
 
 ## 🍰 Contributing
 
-Head over to [`data.json`](data.json) and add your gradient at the bottom of the list. Here is an example contribution 👇
+Pull Requests are always welcome! You can add a cheatsheet on the browser (Anonymously or Singed In). Your cheatsheet will be reviewed and added to the app, also see yourself in contributors.
 
-> Make sure that you have all the required items
+If you wish to contribute using Github, you can work on any features [codehouse.vercel.app/feature-requests](https://codehouse.vercel.app/feature-requests) or create one on your own. After adding your code, send us a Pull Request.
 
-```json
-{
-  "colors": ["#3CA55C", "#B5AC49"]
-},
-```
+After your PR got merged, you'll be automatically appared on [contributors page](https://codehouse.vercel.app/contributors). Works through Github API.
 
-After your PR got merged, you'll be automatically appared on [contributors page](https://gradient-king.vercel.app/contributors). Works through Github API.
+- Please contribute using [GitHub Flow](https://guides.github.com/introduction/flow). Create a branch, add commits, and [open a pull request](https://github.com/saviomartin/codehouse/compare).
 
-Please contribute using [GitHub Flow](https://guides.github.com/introduction/flow). Create a branch, add commits, and [open a pull request](https://github.com/saviomartin/codehouse/compare).
-
-Please read [`CONTRIBUTING`](CONTRIBUTING.md) for details on our [`CODE OF CONDUCT`](CODE_OF_CONDUCT.md), and the process for submitting pull requests to us.
+- Please read [`CONTRIBUTING`](CONTRIBUTING.md) for details on our [`CODE OF CONDUCT`](CODE_OF_CONDUCT.md), and the process for submitting pull requests to us.
 
 ## 💻 Built with
 
@@ -167,7 +161,7 @@ Code House will not occur without you. Thanking all the amazing contributors. Fe
   <img src="https://contrib.rocks/image?repo=saviomartin/codehouse" />
 </a>
 
-Also, check them on [gradient-king.now.sh/contributors](https://gradient-king.vercel.app/contributors)
+Also, check them on [gradient-king.now.sh/contributors](https://codehouse.vercel.app/contributors)
 
 ## 🙏 Support
 
@@ -175,5 +169,5 @@ This project needs a 🌟 from you
 
 <hr>
 <p align="center">
-Developed with ❤️ in India 🇮🇳 
+Developed with ❤️ and ☕️
 </p>
