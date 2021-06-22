@@ -48,31 +48,34 @@ Code House is the all in one storehouse for developer cheatsheets. Code House is
 <img src="public/assets/codehouse-banner.png" />
 </a>
 
-Try the tool: [Gradient King](https://codehouse.vercel.app/)
+Try the App: [Code House](https://codehouse.vercel.app/)
 
 ## 🧐 Features
 
 Code House comes up with a whole bunch of amazing features to provide you the best experience, Here're some of our best features.
 
-> Also provides a gradient generator which would help you generate gradients from your local image.
+> I recommend you to bookmark code house, because it will become super handy one day!
 
-- **100+ gradients**
-- **Generate your gradient local Images**
-- **Export Gradients as PNG**
-- **BookMark Gradients**
-- **Like Gradients ❤️**
-- **Search for colors**
-- **Seperate page for each gradient**
-- **Copy High Quality CSS code of gradients**
-- **Check for browser support**
-- **Contributor page, and see your name on the main page and all other pages**[ >>Contributing](#-contributing)
-- **Elegant animations**
-- **PWA, Installable app**
+- **300+ Cheatsheets**
+- **Filter by Category**
+- **Filter By Source**
+- **Bookmark Cheatsheets**
+- **Add new Cheatsheet** (on browser itself)
+- **Seperate page for each Cheatsheet**
+- **Request for Features**
+- **API Support** [>> API Usage](API-usage.md)
+- **Report Cheatsheet**
+- **GraphQL Playground**
+- **Contributors Page**[ >>Contributing](#-contributing)
+- **Sort by time or popularity**
+- **Search Filter**
+- **Toggle View** (List View or Grid View)
 - **Dark mode**
-- **Minimal UI, Lightning Fast**
+- **Upvote/Comment on Cheatsheets**
+- **Newsletter** (once a week)
 - **Fully Responsive**
 
-Gradient King is super productive enough to grab the best gradients for your next app. ✨️
+Code House is super productive enough to grab the best gradients for your next app. ✨️
 
 ## 🛠️ Installation Steps
 
@@ -151,7 +154,7 @@ This project is licensed under the MIT License - see the [`LICENSE`](LICENSE) fi
 
 ## 👨‍💻 Thanks to the Awesome Contributors
 
-Gradient King will not occur without you. Thanking all the amazing contributors. Feel free to contribute in the project 🙌
+Code House will not occur without you. Thanking all the amazing contributors. Feel free to contribute in the project 🙌
 
 <a href="https://github.com/saviomartin/codehouse/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=saviomartin/codehouse" />
