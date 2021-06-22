@@ -161,13 +161,13 @@ This project is licensed under the MIT License - see the [`LICENSE`](LICENSE) fi
 ## 🦄 Deploy
 
 <a href="https://vercel.com/new/project?template=https://github.com/saviomartin/codehouse">
-<img src="https://vercel.com/button" height="40px" />
+<img src="https://vercel.com/button" height="37.5px" />
 </a>
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/saviomartin/codehouse">
-<img src="https://www.netlify.com/img/deploy/button.svg" height="40px" />
+<img src="https://www.netlify.com/img/deploy/button.svg" height="37.5px" />
 </a>
 <a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/saviomartin/codehouse">
-<img src="https://camo.githubusercontent.com/df21703b4229f8d44f76c2d56073657a4ab450ca4566ba5d24d05bf528c298f8/68747470733a2f2f7777772e6465706c6f79746f646f2e636f6d2f646f2d62746e2d626c75652e737667" height="40px" />
+<img src="https://camo.githubusercontent.com/df21703b4229f8d44f76c2d56073657a4ab450ca4566ba5d24d05bf528c298f8/68747470733a2f2f7777772e6465706c6f79746f646f2e636f6d2f646f2d62746e2d626c75652e737667" height="37.5px" />
 </a>
 
 ## 👨‍💻 Thanks to the all Contributors
@@ -182,7 +182,7 @@ This project needs a 🌟 from you. Don't forget to leave a star ⭐️
 
 If you found the app helpful, consider supporting me with a coffee.
 
-<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="40px">
+<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50px">
 
 ---
 
