@@ -36,7 +36,7 @@ const YTModal = ({ open, setOpen, darkMode }) => {
       <Fade in={open}>
         <iframe
           className="w-10/12 h-5/12 lg:w-[896px] lg:h-[504px] xl:w-[896px] xl:h-[504px]"
-          src="https://www.youtube.com/embed/JD6nQrxT5LA"
+          src="https://www.youtube.com/embed/bFFDe6Inyno"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
