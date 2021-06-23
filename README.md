@@ -165,7 +165,8 @@ Here are some idea that is coming really soon 👀
 - Generate Cover Image for missing ones
 - Settings page
 - Choose Secondary color
-- Pin a cheatsheets to the top
+- Notification tab
+- AMP Support, **In Progress ⏳️**
 - Hear description for posts, **In Progress ⏳️**
 
 ## 🛡️ License
