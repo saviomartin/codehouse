@@ -61,8 +61,8 @@ Code House comes up with a whole bunch of amazing features to provide you the be
 > I recommend you to bookmark code house, because it will become super handy one day!
 
 - 💯 **300+ Cheatsheets**
-- 🎩 **Filter by Category** (27 Cateogries)
-- 👾 **Filter By Source** (220+ Sources)
+- 🎩 **Filter by Category** (29 Cateogries)
+- 👾 **Filter By Source** (230+ Sources)
 - 🔖 **Bookmark Cheatsheets**
 - 📦 **Add new Cheatsheet** (on browser itself)
 - 🍭 **Seperate page for each Cheatsheet**
