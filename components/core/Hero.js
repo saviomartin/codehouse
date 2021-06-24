@@ -38,7 +38,7 @@ const Hero = ({ setOpen, user, setUser }) => {
 
   const fetchStarCount = () => {
     axios
-      .get("https://api.github.com/repos/saviomartin/gradientking", {
+      .get("https://api.github.com/repos/saviomartin/codehouse", {
         headers: {},
       })
       .then((response) => {

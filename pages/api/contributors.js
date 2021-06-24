@@ -15,9 +15,7 @@ export default async (req, res) => {
 
   let githubContributors = [];
 
-  await fetch(
-    "https://api.github.com/repos/saviomartin/gradientking/contributors"
-  )
+  await fetch("https://api.github.com/repos/saviomartin/codehouse/contributors")
     .then((res) => res.json())
     .then((data) => {
       githubContributors = data.map((item) => {
