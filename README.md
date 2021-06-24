@@ -79,7 +79,7 @@ Code House comes up with a whole bunch of amazing features to provide you the be
 - 📬 **Newsletter** (once a week)
 - 💻 **Fully Responsive**
 
-Code House is the next revelutionary app to hunt the best cheatsheets for all types ✨️
+Code House is the next revolutionary app to hunt the best cheat sheets for all types ✨️
 
 ## 🛠️ Installation Steps
 
