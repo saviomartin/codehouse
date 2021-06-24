@@ -132,6 +132,7 @@ After your PR got merged, you'll be automatically appared on [contributors page]
 
 - [Next JS](https://nextjs.org/)
 - [Harper DB](https://harperdb.io/): source for complete database
+- [Tailwind](https://tailwindcss.com/): source for complete styling
 - [lodash](https://lodash.com/): for some functions
 - [CORS](https://www.npmjs.com/package/cors): for CORS support
 - [uuid](https://www.npmjs.com/package/uuid): for generating uuids
