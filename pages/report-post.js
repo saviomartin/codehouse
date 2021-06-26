@@ -45,18 +45,14 @@ const reportPost = (props) => {
     // logic
     if (id && type) {
       try {
-        await harperFetch({
-          operation: "insert",
-          schema: "dev",
-          table: "reported",
-          records: [
-            {
-              cheatsheet_id: id,
-              website_url: website_url,
-              type: type,
-              description: description,
-            },
-          ],
+        await fetch("/api/POST/reported", {
+          method: "POST",
+          body: JSON.stringify({
+            cheatsheet_id: id,
+            website_url: website_url,
+            type: type,
+            description: description,
+          }),
         });
 
         // toasting success

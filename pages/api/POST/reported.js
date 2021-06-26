@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export default async function handler(req, res) {
   req.body = JSON.parse(req.body);
-  const { title, description, type, addedby } = req.body;
+  const { cheatsheet_id, description, type, website_url } = req.body;
 
   let uuid = uuidv4().replace(/-/g, "");
 
@@ -16,10 +16,10 @@ export default async function handler(req, res) {
     body: JSON.stringify({
       operation: "insert",
       schema: "dev",
-      table: "requests",
+      table: "reported",
       records: [
         {
-          cheatsheet_id: id,
+          cheatsheet_id: cheatsheet_id,
           website_url: website_url,
           type: type,
           description: description,
