@@ -68,56 +68,59 @@ const New = (props) => {
     // logic
     if (user.email) {
       const cheatSheets = await axios.get("/api/GET/review");
+      if (is_url(website_url)) {
+        if (
+          cheatSheets.data.filter((e) => e.addedby.email === user.email)
+            .length < 3
+        ) {
+          if (cheatsheet_name && website_url && category) {
+            let uuid = uuidv4().replace(/-/g, "");
 
-      if (
-        cheatSheets.data.filter((e) => e.addedby.email === user.email).length <
-        3
-      ) {
-        if (cheatsheet_name && website_url && category) {
-          let uuid = uuidv4().replace(/-/g, "");
+            try {
+              await fetch("/api/POST/cheatsheet", {
+                method: "POST",
+                body: JSON.stringify({
+                  cheatsheet_name,
+                  website_url,
+                  category,
+                  twitter_handle,
+                  addedby: {
+                    photoURL: user.photoURL ? user.photoURL : "",
+                    displayName: user.displayName
+                      ? user.displayName
+                      : "Anonymous",
+                    email: user.email && user.email,
+                  },
+                }),
+              });
 
-          try {
-            await fetch("/api/POST/cheatsheet", {
-              method: "POST",
-              body: JSON.stringify({
-                cheatsheet_name,
-                website_url,
-                category,
-                twitter_handle,
-                addedby: {
-                  photoURL: user.photoURL ? user.photoURL : "",
-                  displayName: user.displayName
-                    ? user.displayName
-                    : "Anonymous",
-                  email: user.email && user.email,
-                },
-              }),
-            });
+              // toasting success
+              toast.success("Successfully Created!");
 
-            // toasting success
-            toast.success("Successfully Created!");
-
-            // making everything default
-            setValues({
-              cheatsheet_name: "",
-              website_url: "",
-              category: "react",
-              twitter_handle: "",
-            });
-          } catch (err) {
-            console.log(err);
-            toast.error("Something went wrong");
+              // making everything default
+              setValues({
+                cheatsheet_name: "",
+                website_url: "",
+                category: "react",
+                twitter_handle: "",
+              });
+            } catch (err) {
+              console.log(err);
+              toast.error("Something went wrong");
+            }
+          } else {
+            toast.error("Please Fill All Fields");
           }
         } else {
-          toast.error("Please Fill All Fields");
+          toast.error(
+            `Your ${
+              cheatSheets.data.filter((e) => e.addedby.email === user.email)
+                .length
+            } cheatsheets are already on review`
+          );
         }
       } else {
-        toast.error(
-          `Your ${
-            cheatSheets.data.filter((e) => e.addedby.email === user.email)
-              .length
-          } cheatsheets are already on review`
-        );
+        toast.error("URL not valid");
       }
     } else {
       toast.error("Please Sign In");
