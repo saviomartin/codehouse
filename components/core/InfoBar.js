@@ -102,7 +102,7 @@ const InfoBar = ({
         const index = upvotes.indexOf(user.email);
         upvotes.splice(index, 1);
 
-        fetch("/api/POST/cheatsheet", {
+        fetch("/api/POST/upvote-cheatsheet", {
           method: "POST",
           body: JSON.stringify({
             id: id,
@@ -113,7 +113,7 @@ const InfoBar = ({
         // fetch date again with new content
         setFetchAgain(fetchAgain + 1);
       } else {
-        fetch("/api/POST/cheatsheet", {
+        fetch("/api/POST/upvote-cheatsheet", {
           method: "POST",
           body: JSON.stringify({
             id: id,
@@ -188,25 +188,21 @@ const InfoBar = ({
         console.log("type something..."); // checking if any text is there
       } else {
         // adding comment
-        harperFetch({
-          operation: "update",
-          schema: "dev",
-          table: review ? "review" : "cheatsheets",
-          records: [
-            {
-              id: id,
-              comments: [
-                ...comments,
-                {
-                  name: user.displayName ? user.displayName : "",
-                  photoURL: user.photoURL ? user.photoURL : "",
-                  comment: text,
-                  email: user.email,
-                  time: new Date().getTime(),
-                },
-              ],
-            },
-          ],
+        fetch("/api/POST/comment-cheatsheet", {
+          method: "POST",
+          body: JSON.stringify({
+            id: id,
+            comments: [
+              ...comments,
+              {
+                name: user.displayName ? user.displayName : "",
+                photoURL: user.photoURL ? user.photoURL : "",
+                comment: text,
+                email: user.email,
+                time: new Date().getTime(),
+              },
+            ],
+          }),
         });
       }
 
