@@ -49,10 +49,8 @@ const name = (props) => {
     setData([]);
 
     // fetching
-    const cheatSheets = await harperFetch({
-      operation: "sql",
-      sql: "SELECT * FROM dev.cheatsheets",
-    });
+    const allCheatsheets = await axios.get("/api/GET/cheatsheets");
+    const cheatSheets = allCheatsheets.data;
 
     const randomImage = Math.floor(Math.random() * 9) + 1;
     setImage(`/assets/images/${randomImage}.jpg`); // random image
