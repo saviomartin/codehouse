@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 // for inifinite scroll
@@ -25,24 +26,21 @@ const App = (props) => {
     setLoading(true);
 
     // fetching
-    const cheatSheets = await harperFetch({
-      operation: "sql",
-      sql: "SELECT * FROM dev.cheatsheets",
-    });
+    const cheatSheets = await axios.get("/api/GET/cheatsheets");
 
     // sorting
     if (sort === "newest") {
-      cheatSheets
+      cheatSheets.data
         .sort((a, b) => {
           return a.__createdtime__ - b.__createdtime__;
         })
         .reverse();
     } else if (sort === "oldest") {
-      cheatSheets.sort((a, b) => {
+      cheatSheets.data.sort((a, b) => {
         return a.__createdtime__ - b.__createdtime__;
       });
     } else {
-      cheatSheets.sort((a, b) => {
+      cheatSheets.data.sort((a, b) => {
         if (a.upvotes.length > b.upvotes.length) {
           return -1;
         } else {
@@ -52,7 +50,7 @@ const App = (props) => {
     }
 
     // data to be used
-    await setData(cheatSheets);
+    await setData(cheatSheets.data);
     setLoading(false);
   }, [sort]);
 
