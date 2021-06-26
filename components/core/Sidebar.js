@@ -15,6 +15,7 @@ import _ from "lodash";
 
 // link
 import Link from "next/link";
+import axios from "axios";
 
 const Sidebar = ({ showDrawer, toggleDrawer, darkMode }) => {
   // data
@@ -49,23 +50,17 @@ const Sidebar = ({ showDrawer, toggleDrawer, darkMode }) => {
     return _.uniqBy(cheatSheets, "url"); // lodash method of removing duplicates
   };
 
-  // useEffect(async () => {
-  //   // fetching
-  //   const categories = await harperFetch({
-  //     operation: "sql",
-  //     sql: "SELECT * FROM dev.categories",
-  //   });
+  useEffect(async () => {
+    // fetching
+    const categories = await axios.get("/api/GET/categories");
 
-  //   // fetching
-  //   const cheatSheets = await harperFetch({
-  //     operation: "sql",
-  //     sql: "SELECT * FROM dev.cheatsheets",
-  //   });
+    // fetching
+    const cheatSheets = await axios.get("/api/GET/cheatsheets");
 
-  //   // data to be used
-  //   await setCategories(categories && categories);
-  //   await setCheatSheets(removeDuplicate(cheatSheets));
-  // }, []);
+    // data to be used
+    await setCategories(categories && categories.data);
+    await setCheatSheets(removeDuplicate(cheatSheets.data));
+  }, []);
 
   // filtering posts (search)
   const filterPosts = (data, query) => {
