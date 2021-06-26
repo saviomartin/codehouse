@@ -42,34 +42,50 @@ const reportPost = (props) => {
     e.preventDefault();
 
     // logic
-    if (id && type) {
-      try {
-        await fetch("/api/POST/reported", {
-          method: "POST",
-          body: JSON.stringify({
-            cheatsheet_id: id,
-            website_url: website_url,
-            type: type,
-            description: description,
-          }),
-        });
+    if (user.email) {
+      const reported = await axios.get("/api/GET/reported");
 
-        // toasting success
-        toast.success("Successfully Created!");
+      if (
+        reported.data.filter((e) => e.addedby.email === user.email).length < 3
+      ) {
+        if (id && type) {
+          try {
+            await fetch("/api/POST/reported", {
+              method: "POST",
+              body: JSON.stringify({
+                cheatsheet_id: id,
+                website_url: website_url,
+                type: type,
+                description: description,
+              }),
+            });
 
-        // making everything default
-        setValues({
-          id: id,
-          website_url: website_url,
-          type: "broken-link",
-          description: "",
-        });
-      } catch (err) {
-        console.log(err);
-        toast.error("Something went wrong");
+            // toasting success
+            toast.success("Successfully Created!");
+
+            // making everything default
+            setValues({
+              id: id,
+              website_url: website_url,
+              type: "broken-link",
+              description: "",
+            });
+          } catch (err) {
+            console.log(err);
+            toast.error("Something went wrong");
+          }
+        } else {
+          toast.error("Please Fill All Fields");
+        }
+      } else {
+        toast.error(
+          `You have already reported ${
+            reported.data.filter((e) => e.addedby.email === user.email).length
+          } cheatsheets`
+        );
       }
     } else {
-      toast.error("Please Fill All Fields");
+      toast.error("Please Sign In");
     }
   };
 
