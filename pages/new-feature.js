@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Btn, Header } from "../components";
 
-// harperFetch
-
 // uuid
 import { v4 as uuidv4 } from "uuid";
 

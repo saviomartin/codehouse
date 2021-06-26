@@ -6,10 +6,9 @@ import { useRouter } from "next/router";
 // components
 import { RightBar, InfoBar, Header } from "../../components";
 
-// utilities harperFetch
-
 // head
 import Head from "next/head";
+import axios from "axios";
 
 const Cheatsheet = (props) => {
   const router = useRouter(); // router
@@ -32,10 +31,8 @@ const Cheatsheet = (props) => {
   };
 
   useEffect(async () => {
-    const cheatSheets = await harperFetch({
-      operation: "sql",
-      sql: "SELECT * FROM dev.review",
-    });
+    const allCheatsheets = await axios.get("/api/GET/review");
+    const cheatSheets = allCheatsheets.data;
 
     setData(cheatSheets);
   }, [fetchAgain]);

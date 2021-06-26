@@ -6,8 +6,6 @@ import { useRouter } from "next/router";
 // components
 import { RightBar, InfoBar, Header } from "../../components";
 
-// harperFetch
-
 // head
 import Head from "next/head";
 import axios from "axios";
