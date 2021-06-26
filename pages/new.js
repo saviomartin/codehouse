@@ -70,7 +70,7 @@ const New = (props) => {
     if (cheatsheet_name && website_url && category) {
       let uuid = uuidv4().replace(/-/g, "");
       try {
-        await fetch("/api/cheatsheet", {
+        await fetch("/api/POST/cheatsheet", {
           method: "POST",
           body: JSON.stringify({
             cheatsheet_name,
