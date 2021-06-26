@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export default async function handler(req, res) {
   req.body = JSON.parse(req.body);
-  const { cheatsheet_id, description, type, website_url } = req.body;
+  const { cheatsheet_id, addedby, description, type, website_url } = req.body;
 
   let uuid = uuidv4().replace(/-/g, "");
 
@@ -23,6 +23,7 @@ export default async function handler(req, res) {
           website_url: website_url,
           type: type,
           description: description,
+          addedby: addedby,
         },
       ],
     }),

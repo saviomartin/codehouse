@@ -57,6 +57,9 @@ const reportPost = (props) => {
                 website_url: website_url,
                 type: type,
                 description: description,
+                addedby: {
+                  email: user.email,
+                },
               }),
             });
 
