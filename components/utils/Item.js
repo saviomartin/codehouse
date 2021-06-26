@@ -119,25 +119,45 @@ const Item = ({
         const index = upvotes.indexOf(user.email);
         upvotes.splice(index, 1);
 
-        fetch("/api/POST/upvote-cheatsheet", {
-          method: "POST",
-          body: JSON.stringify({
-            id: id,
-            upvotes,
-          }),
-        });
+        if (review) {
+          fetch("/api/POST/upvote-review-cheatsheet", {
+            method: "POST",
+            body: JSON.stringify({
+              id: id,
+              upvotes,
+            }),
+          });
+        } else {
+          fetch("/api/POST/upvote-cheatsheet", {
+            method: "POST",
+            body: JSON.stringify({
+              id: id,
+              upvotes,
+            }),
+          });
+        }
 
         // changing visual data without fetching again
         setChanged("sub");
       } else {
         // adding upvote
-        fetch("/api/POST/upvote-cheatsheet", {
-          method: "POST",
-          body: JSON.stringify({
-            id: id,
-            upvotes: [...upvotes, user.email],
-          }),
-        });
+        if (review) {
+          fetch("/api/POST/upvote-review-cheatsheet", {
+            method: "POST",
+            body: JSON.stringify({
+              id: id,
+              upvotes: [...upvotes, user.email],
+            }),
+          });
+        } else {
+          fetch("/api/POST/upvote-cheatsheet", {
+            method: "POST",
+            body: JSON.stringify({
+              id: id,
+              upvotes: [...upvotes, user.email],
+            }),
+          });
+        }
 
         // changing visual data without fetching again
         setChanged("add");
