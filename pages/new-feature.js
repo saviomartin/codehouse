@@ -37,7 +37,7 @@ const NewFeature = (props) => {
 
     // logic
     if (title && description && type) {
-      if (!user.email) {
+      if (user.email) {
         let uuid = uuidv4().replace(/-/g, "");
 
         try {

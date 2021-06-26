@@ -14,6 +14,7 @@ import Head from "next/head";
 
 // utils
 import { harperFetch } from "../utils/HarperFetch";
+import axios from "axios";
 
 const FeatureRequests = (props) => {
   const [data, setData] = useState([]);
@@ -21,13 +22,10 @@ const FeatureRequests = (props) => {
 
   useEffect(async () => {
     // fetching
-    const requests = await harperFetch({
-      operation: "sql",
-      sql: "SELECT * FROM dev.requests",
-    });
+    const requests = await axios.get("/api/GET/requests");
 
     // data to be used
-    await setData(requests);
+    await setData(requests.data);
   }, [data]);
 
   return (
