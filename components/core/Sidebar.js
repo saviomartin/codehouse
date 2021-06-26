@@ -49,23 +49,23 @@ const Sidebar = ({ showDrawer, toggleDrawer, darkMode }) => {
     return _.uniqBy(cheatSheets, "url"); // lodash method of removing duplicates
   };
 
-  useEffect(async () => {
-    // fetching
-    const categories = await harperFetch({
-      operation: "sql",
-      sql: "SELECT * FROM dev.categories",
-    });
+  // useEffect(async () => {
+  //   // fetching
+  //   const categories = await harperFetch({
+  //     operation: "sql",
+  //     sql: "SELECT * FROM dev.categories",
+  //   });
 
-    // fetching
-    const cheatSheets = await harperFetch({
-      operation: "sql",
-      sql: "SELECT * FROM dev.cheatsheets",
-    });
+  //   // fetching
+  //   const cheatSheets = await harperFetch({
+  //     operation: "sql",
+  //     sql: "SELECT * FROM dev.cheatsheets",
+  //   });
 
-    // data to be used
-    await setCategories(categories && categories);
-    await setCheatSheets(removeDuplicate(cheatSheets));
-  }, []);
+  //   // data to be used
+  //   await setCategories(categories && categories);
+  //   await setCheatSheets(removeDuplicate(cheatSheets));
+  // }, []);
 
   // filtering posts (search)
   const filterPosts = (data, query) => {

@@ -70,26 +70,9 @@ const New = (props) => {
     if (cheatsheet_name && website_url && category) {
       let uuid = uuidv4().replace(/-/g, "");
       try {
-        await harperFetch({
-          operation: "insert",
-          schema: "dev",
-          table: "review",
-          records: [
-            {
-              id: uuid,
-              cheatsheet_name: cheatsheet_name,
-              website_url: website_url,
-              category: category,
-              twitter_handle: twitter_handle,
-              upvotes: [],
-              comments: [],
-              addedby: {
-                photoURL: user.photoURL ? user.photoURL : "",
-                displayName: user.displayName ? user.displayName : "Anonymous",
-                email: user.email && user.email,
-              },
-            },
-          ],
+        await fetch("/api/cheatsheet", {
+          method: "POST",
+          body: JSON.stringify(values),
         });
 
         // toasting success
