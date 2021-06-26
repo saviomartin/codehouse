@@ -18,7 +18,6 @@ import axios from "axios";
 
 const New = (props) => {
   const { user } = props;
-  const [canAddMore, setCanAddMore] = useState(true);
 
   // default values
   const [values, setValues] = useState({
@@ -163,7 +162,7 @@ const New = (props) => {
       <Header {...props} />
       <div className="h-full min-h-screen text-[#ECF2F5] w-full p-3 flex items-center justify-center flex-col">
         <h1 className="text-2xl md:text-4xl lg:text-4xl xl:text-4xl font-bold mb-1 lg:mb-3 xl:mb-3 text-center">
-          Create New Cheatsheet {JSON.stringify(canAddMore)}
+          Create New Cheatsheet
         </h1>
         <div className="w-full lg:w-7/12 xl:w-7/12 h-full bg-white dark:bg-[#2f2f2f] rounded-xl m-1">
           <form
