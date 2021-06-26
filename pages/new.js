@@ -13,9 +13,12 @@ import { FiCheck, FiX } from "react-icons/fi";
 // material ui select
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
+import { useEffect } from "react";
+import axios from "axios";
 
 const New = (props) => {
   const { user } = props;
+  const [canAddMore, setCanAddMore] = useState(true);
 
   // default values
   const [values, setValues] = useState({
@@ -64,40 +67,61 @@ const New = (props) => {
     e.preventDefault();
 
     // logic
-    if (cheatsheet_name && website_url && category) {
-      let uuid = uuidv4().replace(/-/g, "");
-      try {
-        await fetch("/api/POST/cheatsheet", {
-          method: "POST",
-          body: JSON.stringify({
-            cheatsheet_name,
-            website_url,
-            category,
-            twitter_handle,
-            addedby: {
-              photoURL: user.photoURL ? user.photoURL : "",
-              displayName: user.displayName ? user.displayName : "Anonymous",
-              email: user.email && user.email,
-            },
-          }),
-        });
+    if (user.email) {
+      const cheatSheets = await axios.get("/api/GET/cheatsheets");
 
-        // toasting success
-        toast.success("Successfully Created!");
+      if (
+        cheatSheets.data.filter((e) => e.addedby.email === user.email).length <
+        3
+      ) {
+        if (cheatsheet_name && website_url && category) {
+          let uuid = uuidv4().replace(/-/g, "");
 
-        // making everything default
-        setValues({
-          cheatsheet_name: "",
-          website_url: "",
-          category: "react",
-          twitter_handle: "",
-        });
-      } catch (err) {
-        console.log(err);
-        toast.error("Something went wrong");
+          try {
+            await fetch("/api/POST/cheatsheet", {
+              method: "POST",
+              body: JSON.stringify({
+                cheatsheet_name,
+                website_url,
+                category,
+                twitter_handle,
+                addedby: {
+                  photoURL: user.photoURL ? user.photoURL : "",
+                  displayName: user.displayName
+                    ? user.displayName
+                    : "Anonymous",
+                  email: user.email && user.email,
+                },
+              }),
+            });
+
+            // toasting success
+            toast.success("Successfully Created!");
+
+            // making everything default
+            setValues({
+              cheatsheet_name: "",
+              website_url: "",
+              category: "react",
+              twitter_handle: "",
+            });
+          } catch (err) {
+            console.log(err);
+            toast.error("Something went wrong");
+          }
+        } else {
+          toast.error("Please Fill All Fields");
+        }
+      } else {
+        toast.error(
+          `Your ${
+            cheatSheets.data.filter((e) => e.addedby.email === user.email)
+              .length
+          } cheatsheets are already on review`
+        );
       }
     } else {
-      toast.error("Please Fill All Fields");
+      toast.error("Please Sign In");
     }
   };
 
@@ -139,7 +163,7 @@ const New = (props) => {
       <Header {...props} />
       <div className="h-full min-h-screen text-[#ECF2F5] w-full p-3 flex items-center justify-center flex-col">
         <h1 className="text-2xl md:text-4xl lg:text-4xl xl:text-4xl font-bold mb-1 lg:mb-3 xl:mb-3 text-center">
-          Create New Cheatsheet
+          Create New Cheatsheet {JSON.stringify(canAddMore)}
         </h1>
         <div className="w-full lg:w-7/12 xl:w-7/12 h-full bg-white dark:bg-[#2f2f2f] rounded-xl m-1">
           <form

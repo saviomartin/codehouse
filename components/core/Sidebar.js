@@ -48,8 +48,6 @@ const Sidebar = ({ showDrawer, toggleDrawer, darkMode }) => {
           url: url.hostname,
         });
       });
-    console.log(arr);
-
     return _.uniqBy(cheatSheets, "url"); // lodash method of removing duplicates
   };
 
