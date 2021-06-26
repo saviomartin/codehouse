@@ -37,31 +37,22 @@ const NewFeature = (props) => {
 
     // logic
     if (title && description && type) {
-      if (user.email) {
+      if (!user.email) {
         let uuid = uuidv4().replace(/-/g, "");
 
         try {
-          await harperFetch({
-            operation: "insert",
-            schema: "dev",
-            table: "requests",
-            records: [
-              {
-                id: uuid,
-                title: title,
-                description: description,
-                type: type,
-                status: "open",
-                upvotes: [],
-                addedby: {
-                  photoURL: user.photoURL ? user.photoURL : "",
-                  displayName: user.displayName
-                    ? user.displayName
-                    : "Anonymous",
-                  email: user.email && user.email,
-                },
+          await fetch("/api/POST/request", {
+            method: "POST",
+            body: JSON.stringify({
+              title,
+              description,
+              type,
+              addedby: {
+                photoURL: user.photoURL ? user.photoURL : "",
+                displayName: user.displayName ? user.displayName : "Anonymous",
+                email: user.email && user.email,
               },
-            ],
+            }),
           });
 
           // toasting success
