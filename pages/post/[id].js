@@ -11,6 +11,7 @@ import { harperFetch } from "../../utils/HarperFetch";
 
 // head
 import Head from "next/head";
+import axios from "axios";
 
 const Cheatsheet = (props) => {
   const router = useRouter(); // router
@@ -33,10 +34,8 @@ const Cheatsheet = (props) => {
   };
 
   useEffect(async () => {
-    const cheatSheets = await harperFetch({
-      operation: "sql",
-      sql: "SELECT * FROM dev.cheatsheets",
-    });
+    const allCheatsheets = await axios.get("/api/GET/cheatsheets");
+    const cheatSheets = allCheatsheets.data;
 
     setData(cheatSheets);
   }, [fetchAgain]);

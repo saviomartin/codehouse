@@ -102,32 +102,23 @@ const InfoBar = ({
         const index = upvotes.indexOf(user.email);
         upvotes.splice(index, 1);
 
-        harperFetch({
-          operation: "update",
-          schema: "dev",
-          table: review ? "review" : "cheatsheets",
-          records: [
-            {
-              id: id,
-              upvotes: upvotes,
-            },
-          ],
+        fetch("/api/POST/cheatsheet", {
+          method: "POST",
+          body: JSON.stringify({
+            id: id,
+            upvotes,
+          }),
         });
 
         // fetch date again with new content
         setFetchAgain(fetchAgain + 1);
       } else {
-        // upvoting
-        harperFetch({
-          operation: "update",
-          schema: "dev",
-          table: review ? "review" : "cheatsheets",
-          records: [
-            {
-              id: id,
-              upvotes: [...upvotes, user.email],
-            },
-          ],
+        fetch("/api/POST/cheatsheet", {
+          method: "POST",
+          body: JSON.stringify({
+            id: id,
+            upvotes: [...upvotes, user.email],
+          }),
         });
 
         // fetch date again with new content
