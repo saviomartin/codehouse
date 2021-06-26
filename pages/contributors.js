@@ -12,7 +12,6 @@ import {
 } from "../components";
 
 // utils
-import { harperFetch } from "../utils/HarperFetch";
 
 const contributors = (props) => {
   const [githubContributors, setGithubContributors] = useState([]); // github contributors

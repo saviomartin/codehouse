@@ -13,7 +13,6 @@ import {
 } from "../../components";
 
 // fetching data
-import { harperFetch } from "../../utils/HarperFetch";
 
 // for inifinite scroll
 import InfiniteScroll from "react-infinite-scroll-component";

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Btn, Header } from "../components";
 
 // harperFetch
-import { harperFetch } from "../utils/HarperFetch";
 
 // uuid
 import { v4 as uuidv4 } from "uuid";

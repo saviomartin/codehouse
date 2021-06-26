@@ -8,7 +8,6 @@ import { Tab, Tabs } from "@material-ui/core";
 import { FiChevronRight } from "react-icons/fi";
 
 // fetching data
-import { harperFetch } from "../../utils/HarperFetch";
 
 // lodash
 import _ from "lodash";

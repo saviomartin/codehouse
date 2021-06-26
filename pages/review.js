@@ -15,7 +15,6 @@ import {
 } from "../components";
 
 // fetching or editing database
-import { harperFetch } from "../utils/HarperFetch";
 
 const Review = (props) => {
   const [data, setData] = useState([]);

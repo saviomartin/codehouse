@@ -13,7 +13,7 @@ import Link from "next/link"; // link
 import Head from "next/head";
 
 // utils
-import { harperFetch } from "../utils/HarperFetch";
+
 import axios from "axios";
 
 const FeatureRequests = (props) => {

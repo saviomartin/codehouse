@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { FiSend } from "react-icons/fi";
-import { harperFetch } from "../../utils/HarperFetch";
+
 import ConfettiGenerator from "confetti-js";
 
 const NewsLetter = () => {

@@ -9,7 +9,6 @@ import { Btn } from "..";
 // icons
 import { FiTriangle } from "react-icons/fi";
 import { BiGitRepoForked } from "react-icons/bi";
-import { harperFetch } from "../../utils/HarperFetch";
 
 const Request = ({ data, user, setOpen, setData }) => {
   const [isUpvoted, setIsUpvoted] = useState(false); // check is upvoted

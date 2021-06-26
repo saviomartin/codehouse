@@ -7,8 +7,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 // components
 import { AppHeader, Btn, Item } from "..";
 
-// fetching or editing database
-import { harperFetch } from "../../utils/HarperFetch";
 import Loader from "../utils/Loader";
 import NotFound from "../utils/NotFound";
 

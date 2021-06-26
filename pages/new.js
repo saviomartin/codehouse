@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 // harperFetch
-import { harperFetch } from "../utils/HarperFetch";
 
 // uuid
 import { v4 as uuidv4 } from "uuid";

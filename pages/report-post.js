@@ -14,7 +14,6 @@ import axios from "axios"; // axios
 import toast from "react-hot-toast"; // toast
 
 // utils
-import { harperFetch } from "../utils/HarperFetch";
 
 const reportPost = (props) => {
   const { user } = props;

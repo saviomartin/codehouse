@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import { RightBar, InfoBar, Header } from "../../components";
 
 // harperFetch
-import { harperFetch } from "../../utils/HarperFetch";
 
 // head
 import Head from "next/head";

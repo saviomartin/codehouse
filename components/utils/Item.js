@@ -20,7 +20,6 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import axios from "axios";
 
 // fetching and editing data
-import { harperFetch } from "../../utils/HarperFetch";
 
 const Item = ({
   data,

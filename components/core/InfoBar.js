@@ -20,7 +20,7 @@ import { Comment } from "../index";
 import { Button } from "@material-ui/core";
 
 // fetching and editing db
-import { harperFetch } from "../../utils/HarperFetch";
+ 
 
 // link
 import Link from "next/link";
