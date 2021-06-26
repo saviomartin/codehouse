@@ -13,15 +13,11 @@ const NewsLetter = () => {
 
     if (email) {
       try {
-        await harperFetch({
-          operation: "insert",
-          schema: "dev",
-          table: "subscribers",
-          records: [
-            {
-              email: email,
-            },
-          ],
+        await fetch("/api/POST/subscribe", {
+          method: "POST",
+          body: JSON.stringify({
+            email: email,
+          }),
         });
 
         // toasting success

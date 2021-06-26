@@ -37,15 +37,19 @@ const Sidebar = ({ showDrawer, toggleDrawer, darkMode }) => {
   const removeDuplicate = (arr) => {
     const cheatSheets = []; // default state
 
-    arr.forEach((item) => {
-      const url = new URL(item.website_url);
+    arr.length > 2 &&
+      arr.forEach((item) => {
+        const url = new URL(
+          item.website_url ? item.website_url : "https://google.com"
+        );
 
-      // creating a new item
-      cheatSheets.push({
-        name: item.name,
-        url: url.hostname,
+        // creating a new item
+        cheatSheets.push({
+          name: item.name,
+          url: url.hostname,
+        });
       });
-    });
+    console.log(arr);
 
     return _.uniqBy(cheatSheets, "url"); // lodash method of removing duplicates
   };
@@ -59,7 +63,7 @@ const Sidebar = ({ showDrawer, toggleDrawer, darkMode }) => {
 
     // data to be used
     await setCategories(categories && categories.data);
-    await setCheatSheets(removeDuplicate(cheatSheets.data));
+    await setCheatSheets(removeDuplicate(cheatSheets.data && cheatSheets.data));
   }, []);
 
   // filtering posts (search)
@@ -142,8 +146,8 @@ const Sidebar = ({ showDrawer, toggleDrawer, darkMode }) => {
               ))
             : filteredCheatsheet &&
               cheatSheets.length > 1 &&
-              filteredCheatsheet.map((cheatsheet) => (
-                <Link href={`/source/${cheatsheet.url}`}>
+              filteredCheatsheet.map((cheatsheet, key) => (
+                <Link href={`/source/${cheatsheet.url}`} key={key}>
                   <a className="w-[92.5%] py-2 border border-[#ddd] duration-500 bg-white hover:border-[#4469FA] focus:border-[#4469FA] rounded-md px-3 flex justify-between items-center category-hover my-1 dark:bg-[#1f1f1f] dark:border-[#555]">
                     <div className="flex items-center w-11/12 overflow-x-hidden">
                       <img
