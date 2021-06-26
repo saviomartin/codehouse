@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 
 // for inifinite scroll
@@ -30,10 +31,8 @@ const Review = (props) => {
     setLoading(true);
 
     // fetching
-    const cheatSheets = await harperFetch({
-      operation: "sql",
-      sql: "SELECT * FROM dev.review",
-    });
+    const allCheatsheets = await axios.get("/api/GET/review");
+    const cheatSheets = allCheatsheets.data;
 
     // sorting
     if (sort === "newest") {

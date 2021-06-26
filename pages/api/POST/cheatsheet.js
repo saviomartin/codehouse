@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     body: JSON.stringify({
       operation: "insert",
       schema: "dev",
-      table: "cheatsheets",
+      table: "review",
       records: [
         {
           id: uuid,
