@@ -33,13 +33,10 @@ const contributors = (props) => {
 
   useEffect(async () => {
     // fetching
-    const contributors = await harperFetch({
-      operation: "sql",
-      sql: "SELECT * FROM dev.contributors",
-    });
+    const contributors = await axios.get("/api/GET/contributors");
 
     // obtaining data
-    setWebContributors(contributors);
+    setWebContributors(contributors.data);
     fetchContributors();
   }, []);
 
