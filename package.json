@@ -20,6 +20,7 @@
     "dotenv": "^10.0.0",
     "firebase": "^8.6.5",
     "graphql": "^15.5.0",
+    "html-metadata-parser": "^1.0.4",
     "lodash": "^4.17.21",
     "next": "^11.0.0",
     "next-pwa": "^5.2.21",
