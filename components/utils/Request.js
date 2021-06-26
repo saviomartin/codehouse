@@ -32,31 +32,23 @@ const Request = ({ data, user, setOpen, setData }) => {
         const index = upvotes.indexOf(user.email);
         upvotes.splice(index, 1);
 
-        harperFetch({
-          operation: "update",
-          schema: "dev",
-          table: "requests",
-          records: [
-            {
-              id: id,
-              upvotes: upvotes,
-            },
-          ],
+        fetch("/api/POST/upvote-request", {
+          method: "POST",
+          body: JSON.stringify({
+            id: id,
+            upvotes: upvotes,
+          }),
         });
 
         setData([]);
       } else {
         // adding upvote
-        harperFetch({
-          operation: "update",
-          schema: "dev",
-          table: "requests",
-          records: [
-            {
-              id: id,
-              upvotes: [...upvotes, user.email],
-            },
-          ],
+        fetch("/api/POST/upvote-request", {
+          method: "POST",
+          body: JSON.stringify({
+            id: id,
+            upvotes: [...upvotes, user.email],
+          }),
         });
 
         setData([]);
