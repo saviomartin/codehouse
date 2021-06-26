@@ -119,32 +119,24 @@ const Item = ({
         const index = upvotes.indexOf(user.email);
         upvotes.splice(index, 1);
 
-        harperFetch({
-          operation: "update",
-          schema: "dev",
-          table: review ? "review" : "cheatsheets",
-          records: [
-            {
-              id: id,
-              upvotes: upvotes,
-            },
-          ],
+        fetch("/api/POST/upvote-cheatsheet", {
+          method: "POST",
+          body: JSON.stringify({
+            id: id,
+            upvotes,
+          }),
         });
 
         // changing visual data without fetching again
         setChanged("sub");
       } else {
         // adding upvote
-        harperFetch({
-          operation: "update",
-          schema: "dev",
-          table: review ? "review" : "cheatsheets",
-          records: [
-            {
-              id: id,
-              upvotes: [...upvotes, user.email],
-            },
-          ],
+        fetch("/api/POST/upvote-cheatsheet", {
+          method: "POST",
+          body: JSON.stringify({
+            id: id,
+            upvotes: [...upvotes, user.email],
+          }),
         });
 
         // changing visual data without fetching again
