@@ -20,7 +20,6 @@ import { Comment } from "../index";
 import { Button } from "@material-ui/core";
 
 // fetching and editing db
- 
 
 // link
 import Link from "next/link";
@@ -70,11 +69,7 @@ const InfoBar = ({
 
     // fetching state
     axios
-      .get(
-        `https://meta-scrapper-api.herokuapp.com/api?url=${
-          website_url && website_url
-        }`
-      )
+      .get(`/api/META/parser?url=${website_url && website_url}`)
       .then(async (response) => {
         setLoading(false);
         setMetadata(response.data);

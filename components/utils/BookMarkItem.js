@@ -49,7 +49,7 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
 
     // fetching
     axios
-      .get(`https://meta-scrapper-api.herokuapp.com/api?url=${website_url}`)
+      .get(`/api/META/parser?url=${website_url}`)
       .then(async (response) => {
         if (response.request.status === 400) {
         } else {

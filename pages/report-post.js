@@ -98,7 +98,7 @@ const reportPost = (props) => {
 
       // fetching state
       axios
-        .get(`https://meta-scrapper-api.herokuapp.com/api?url=${website_url}`)
+        .get(`/api/META/parser?url=${website_url}`)
         .then(async (response) => {
           await setMetadata(response.data);
         })
