@@ -68,7 +68,7 @@ const New = (props) => {
 
     // logic
     if (user.email) {
-      const cheatSheets = await axios.get("/api/GET/cheatsheets");
+      const cheatSheets = await axios.get("/api/GET/review");
 
       if (
         cheatSheets.data.filter((e) => e.addedby.email === user.email).length <
