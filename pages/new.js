@@ -72,7 +72,17 @@ const New = (props) => {
       try {
         await fetch("/api/cheatsheet", {
           method: "POST",
-          body: JSON.stringify(values),
+          body: JSON.stringify({
+            cheatsheet_name,
+            website_url,
+            category,
+            twitter_handle,
+            addedby: {
+              photoURL: user.photoURL ? user.photoURL : "",
+              displayName: user.displayName ? user.displayName : "Anonymous",
+              email: user.email && user.email,
+            },
+          }),
         });
 
         // toasting success
@@ -115,6 +125,7 @@ const New = (props) => {
     "php",
     "angular",
     "jquery",
+    "devOps",
     "git",
     "markdown",
     "emmet",
@@ -123,6 +134,7 @@ const New = (props) => {
     "swift",
     "regex",
     "next",
+    "mongodb",
   ];
 
   return (
