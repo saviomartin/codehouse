@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import axios from "axios";
 
 const NewFeature = (props) => {
   const { user } = props;
@@ -33,43 +34,57 @@ const NewFeature = (props) => {
     e.preventDefault();
 
     // logic
-    if (title && description && type) {
-      if (user.email) {
-        let uuid = uuidv4().replace(/-/g, "");
+    if (user.email) {
+      const requests = await axios.get("/api/GET/requests");
 
-        try {
-          await fetch("/api/POST/request", {
-            method: "POST",
-            body: JSON.stringify({
-              title,
-              description,
-              type,
-              addedby: {
-                photoURL: user.photoURL ? user.photoURL : "",
-                displayName: user.displayName ? user.displayName : "Anonymous",
-                email: user.email && user.email,
-              },
-            }),
-          });
+      if (
+        requests.data.filter((e) => e.addedby.email === user.email).length < 3
+      ) {
+        if (title && description && type) {
+          let uuid = uuidv4().replace(/-/g, "");
 
-          // toasting success
-          toast.success("Successfully Created!");
+          try {
+            await fetch("/api/POST/request", {
+              method: "POST",
+              body: JSON.stringify({
+                title,
+                description,
+                type,
+                addedby: {
+                  photoURL: user.photoURL ? user.photoURL : "",
+                  displayName: user.displayName
+                    ? user.displayName
+                    : "Anonymous",
+                  email: user.email && user.email,
+                },
+              }),
+            });
 
-          // making everything default
-          setValues({
-            title: "",
-            description: "",
-            type: "feature-request",
-          });
-        } catch (err) {
-          console.log(err);
-          toast.error("Something went wrong");
+            // toasting success
+            toast.success("Successfully Created!");
+
+            // making everything default
+            setValues({
+              title: "",
+              description: "",
+              type: "feature-request",
+            });
+          } catch (err) {
+            console.log(err);
+            toast.error("Something went wrong");
+          }
+        } else {
+          toast.error("Please Fill All Fields");
         }
       } else {
-        toast.error("Please Sign In");
+        toast.error(
+          `You already have ${
+            requests.data.filter((e) => e.addedby.email === user.email).length
+          } requests`
+        );
       }
     } else {
-      toast.error("Please Fill All Fields");
+      toast.error("Please Sign In");
     }
   };
   return (
