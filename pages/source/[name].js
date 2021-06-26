@@ -20,6 +20,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 // head
 import Head from "next/head";
+import axios from "axios";
 
 const name = (props) => {
   const [data, setData] = useState([]);
@@ -37,10 +38,8 @@ const name = (props) => {
     setData([]);
 
     // fetching
-    const cheatSheets = await harperFetch({
-      operation: "sql",
-      sql: "SELECT * FROM dev.cheatsheets",
-    });
+    const allCheatsheets = await axios.get("/api/GET/cheatsheets");
+    const cheatSheets = allCheatsheets.data;
 
     // sorting
     if (sort === "newest") {
