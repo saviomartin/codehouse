@@ -174,8 +174,8 @@ const resolvers = {
             website_url,
             category,
             twitter_handle,
-            comments,
-            upvotes,
+            comments: comments.length,
+            upvotes: upvotes.length,
             addedby,
           })
         );
@@ -186,7 +186,7 @@ const resolvers = {
     cheatsheet: async (_, args) => {
       try {
         const cheatsheet = await axios.get(
-          `http://codehouse.vercel.app/api/cheatsheet/${args.id}`
+          `http://localhost:3000/api/GET/cheatsheet/${args.id}`
         );
         return {
           id: cheatsheet.data.id,
@@ -197,8 +197,8 @@ const resolvers = {
           source: cheatsheet.data.source,
           category: cheatsheet.data.category,
           twitter_handle: cheatsheet.data.twitter_handle,
-          comments: cheatsheet.data.comments.length,
-          upvotes: cheatsheet.data.upvotes.length,
+          comments: cheatsheet.data.comments,
+          upvotes: cheatsheet.data.upvotes,
           addedby: cheatsheet.data.addedby,
         };
       } catch (error) {
