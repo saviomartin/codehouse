@@ -57,7 +57,7 @@ const resolvers = {
     review: async () => {
       try {
         const cheatsheets = await axios.get(
-          "http://codehouse.vercel.app/api/review"
+          "http://codehouse.vercel.app/api/GET/review"
         );
         return cheatsheets.data.map(
           ({
@@ -75,8 +75,8 @@ const resolvers = {
             website_url,
             category,
             twitter_handle,
-            comments,
-            upvotes,
+            comments: comments.length,
+            upvotes: upvotes.length,
             addedby,
           })
         );
@@ -87,7 +87,7 @@ const resolvers = {
     categories: async () => {
       try {
         const categories = await axios.get(
-          "http://codehouse.vercel.app/api/categories"
+          "http://codehouse.vercel.app/api/GET/categories"
         );
         return categories.data.map(({ id, name }) => ({
           id,
@@ -100,7 +100,7 @@ const resolvers = {
     sources: async () => {
       try {
         const sources = await axios.get(
-          "http://codehouse.vercel.app/api/sources"
+          "http://localhost:3000/api/GET/sources"
         );
         return sources.data.map(
           ({
@@ -126,7 +126,7 @@ const resolvers = {
     source: async (_, args) => {
       try {
         const cheatsheets = await axios.get(
-          `http://codehouse.vercel.app/api/source/${args.from}`
+          `http://localhost:3000/api/GET/source/${args.from}`
         );
         return cheatsheets.data.map(
           ({
@@ -144,8 +144,8 @@ const resolvers = {
             website_url,
             category,
             twitter_handle,
-            comments,
-            upvotes,
+            comments: comments.length,
+            upvotes: upvotes.length,
             addedby,
           })
         );
@@ -156,7 +156,7 @@ const resolvers = {
     category: async (_, args) => {
       try {
         const cheatsheets = await axios.get(
-          `http://codehouse.vercel.app/api/category/${args.name}`
+          `http://localhost:3000/api/GET/category/${args.name}`
         );
         return cheatsheets.data.map(
           ({
