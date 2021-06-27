@@ -144,8 +144,8 @@ const resolvers = {
             website_url,
             category,
             twitter_handle,
-            comments: comments.length,
-            upvotes: upvotes.length,
+            comments,
+            upvotes,
             addedby,
           })
         );
@@ -174,8 +174,8 @@ const resolvers = {
             website_url,
             category,
             twitter_handle,
-            comments: comments.length,
-            upvotes: upvotes.length,
+            comments,
+            upvotes,
             addedby,
           })
         );
