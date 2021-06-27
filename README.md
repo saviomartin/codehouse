@@ -188,9 +188,7 @@ This project is licensed under the MIT License - see the [`LICENSE`](LICENSE) fi
 
 ## 👨‍💻 Author
 
-![](https://avatars.githubusercontent.com/u/61895712?s=50)
-
-#### 👤 Savio Martin
+### 👤 Savio Martin
 
 - Twitter: [@SavioMartin7](https://twitter.com/SavioMartin7)
 - Github: [@saviomartin](https://github.com/saviomartin)
