@@ -100,7 +100,7 @@ const resolvers = {
     sources: async () => {
       try {
         const sources = await axios.get(
-          "http://localhost:3000/api/GET/sources"
+          "https://codehouse.vercel.app/api/GET/sources"
         );
         return sources.data.map(
           ({
@@ -126,7 +126,7 @@ const resolvers = {
     source: async (_, args) => {
       try {
         const cheatsheets = await axios.get(
-          `http://localhost:3000/api/GET/source/${args.from}`
+          `https://codehouse.vercel.app/api/GET/source/${args.from}`
         );
         return cheatsheets.data.map(
           ({
@@ -156,7 +156,7 @@ const resolvers = {
     category: async (_, args) => {
       try {
         const cheatsheets = await axios.get(
-          `http://localhost:3000/api/GET/category/${args.name}`
+          `https://codehouse.vercel.app/api/GET/category/${args.name}`
         );
         return cheatsheets.data.map(
           ({
@@ -186,7 +186,7 @@ const resolvers = {
     cheatsheet: async (_, args) => {
       try {
         const cheatsheet = await axios.get(
-          `http://localhost:3000/api/GET/cheatsheet/${args.id}`
+          `https://codehouse.vercel.app/api/GET/cheatsheet/${args.id}`
         );
         return {
           id: cheatsheet.data.id,
