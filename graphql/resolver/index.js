@@ -208,7 +208,7 @@ const resolvers = {
     contributors: async () => {
       try {
         const contributors = await axios.get(
-          "http://codehouse.vercel.app/api/contributors"
+          "https://codehouse.vercel.app/api/GET/contributors"
         );
         return contributors.data.map(
           ({ id, displayName, email, photoURL }) => ({
@@ -225,7 +225,7 @@ const resolvers = {
     featureRequests: async () => {
       try {
         const featureRequests = await axios.get(
-          "http://codehouse.vercel.app/api/feature-requests"
+          "https://codehouse.vercel.app/api/GET/requests"
         );
         return featureRequests.data.map(
           ({ id, description, status, title, type, upvotes, addedby }) => ({
@@ -234,7 +234,7 @@ const resolvers = {
             status,
             title,
             type,
-            upvotes,
+            upvotes: upvotes.length,
             addedby,
           })
         );
