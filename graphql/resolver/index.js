@@ -7,8 +7,28 @@ const resolvers = {
     cheatsheets: async (_, args) => {
       try {
         const cheatsheets = await axios.get(
-          `http://codehouse.vercel.app/api/cheatsheets/${args.sort}`
+          "http://codehouse.vercel.app/api/GET/cheatsheets/"
         );
+        // sorting
+        if (args.sort === "newest") {
+          cheatsheets.data
+            .sort((a, b) => {
+              return a.__createdtime__ - b.__createdtime__;
+            })
+            .reverse();
+        } else if (args.sort === "oldest") {
+          cheatsheets.data.sort((a, b) => {
+            return a.__createdtime__ - b.__createdtime__;
+          });
+        } else {
+          cheatsheets.data.sort((a, b) => {
+            if (a.upvotes.length > b.upvotes.length) {
+              return -1;
+            } else {
+              return 1;
+            }
+          });
+        }
         return cheatsheets.data.map(
           ({
             id,
@@ -25,8 +45,8 @@ const resolvers = {
             website_url,
             category,
             twitter_handle,
-            comments,
-            upvotes,
+            comments: comments.length,
+            upvotes: upvotes.length,
             addedby,
           })
         );
