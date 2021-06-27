@@ -12,7 +12,7 @@ import NotFound from "../utils/NotFound";
 
 const App = (props) => {
   const [data, setData] = useState([]);
-  const [count, setCount] = useState(6); // count of posts that should load first
+  const [count, setCount] = useState(18); // count of posts that should load first
   const [loading, setLoading] = useState(false);
 
   // filters
