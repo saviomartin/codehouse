@@ -12,7 +12,7 @@ const ContributorCard = ({ data }) => {
       <img
         src={
           data.photoUrl
-            ? `${contributor.avatar_url}&s=200`
+            ? data.photoUrl
             : `https://unavatar.vercel.app/${data.email}`
         }
         alt={data.displayName && data.displayName}
