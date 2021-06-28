@@ -44,7 +44,7 @@
 
 Code House is the all in one storehouse for developer cheatsheets. Code House is made up of 300+ curated cheatsheets from 230+ sources. Filter by categories, or source, sort by time or popularity, dark mode, bookmark cheatsheets, add new cheatsheets, request feature, and much more features, make the app amazing! 🤟
 
-[Read blog to understand better 📖](https://savio.xyz/)
+[Read blog to understand better 📖](https://savio.xyz/introducing-code-house-a-whole-new-world-of-300-developer-cheatsheets)
 
 ## 🚀 Demo
 
