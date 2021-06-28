@@ -62,7 +62,7 @@ const MainHeader = (props) => {
           <Btn>
             <a
               className="shine bg-[#F5BA31] px-3 py-2 text-base capitalize rounded-md font-semibold flex items-center justify-center text-[#201C4E]"
-              href="http://savio.xyz/"
+              href="https://savio.xyz/introducing-code-house-a-whole-new-world-of-300-developer-cheatsheets"
             >
               <FiBookOpen className="text-lg mr-1" />
               Read Blog
