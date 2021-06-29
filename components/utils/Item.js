@@ -254,11 +254,7 @@ const Item = ({
                 <div className="block">
                   <a
                     className="text-blue-500 text-xs lg:text-sm"
-                    href={
-                      url.protocol &&
-                      url.hostname &&
-                      url.protocol + url.hostname
-                    }
+                    href={url.origin && url.origin}
                     target="_blank"
                   >
                     {url.hostname && url.hostname}
