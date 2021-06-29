@@ -62,7 +62,7 @@ const Header = ({ setOpen, user, setUser }) => {
           </Link>
 
           <a
-            href="https://codehouse-api.herokuapp.com/"
+            href="https://codehouse-graphql-api.herokuapp.com/"
             target="_blank"
             className="text-[13.75px] font-medium ml-[18px] continuous-line text-white"
           >
@@ -186,7 +186,7 @@ const Header = ({ setOpen, user, setUser }) => {
           </Link>
           <a
             className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]"
-            href="https://codehouse-api.herokuapp.com/"
+            href="https://codehouse-graphql-api.herokuapp.com/"
             target="_blank"
           >
             <h3 className="font-bold continuous-line text-center text-white">
