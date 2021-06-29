@@ -2,14 +2,14 @@
 
 ![](./public/readme/codehouse-graphql.png)
 
-We have built a super simple, easy to user, GraphQl API playground for you to test and make your own app with our API. API is available at [https://codehouse-api.herokuapp.com/](https://codehouse-api.herokuapp.com/)
+We have built a super simple, easy to user, GraphQl API playground for you to test and make your own app with our API. API is available at [https://codehouse-graphql-api.herokuapp.com/](https://codehouse-graphql-api.herokuapp.com/)
 
 Here is how you can use Graphql with `fetch`, feel free to use any of your types, axios, jquery etc.
 
 ## Example Code with `Fetch`
 
 ```js
-fetch("https://codehouse-api.herokuapp.com/", {
+fetch("https://codehouse-graphql-api.herokuapp.com/", {
   method: "POST",
   body: JSON.stringify({query: "{
     cheatsheets(sort: popular){
