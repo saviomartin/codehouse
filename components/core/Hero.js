@@ -130,10 +130,10 @@ const Hero = ({ setOpen, user, setUser }) => {
       <div className="flex items-center justify-center h-auto min-h-[90vh] lg:h-[90vh] xl:h-[90vh] w-full flex-col lg:flex-row xl:flex-row overflow-hidden">
         <div className="w-full lg:w-6/12 xl:w-6/12 h-auto lg:h-full xl:h-full flex items-start justify-center flex-col pl-4 lg:pl-10 xl:pl-10 relative z-10 py-4 lg:py-0 xl:py-0 overflow-hidden animate__animated animate__fadeInLeft">
           <h3 className="text-sm lg:text-base xl:text-base bg-text-gradient font-bold mb-2 uppercase tracking-wider">
-            300+ CheetSheets. Sorting. Open Source. Categories.
+            300+ CheatSheets. Sorting. Open Source. Categories.
           </h3>
           <h1 className="font-bold text-3xl lg:text-[2.75rem] xl:text-[2.75rem] lg:leading-[3rem]">
-            World biggest storehouse of developer cheetsheets
+            World biggest storehouse of developer cheatsheets
           </h1>
           <p className="text-light text-[#aaa] my-2 mt-3 text-xs lg:text-sm xl:text-sm">
             Code House is the all in one storehouse for developer cheatsheets.
