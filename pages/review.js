@@ -101,9 +101,9 @@ const Review = (props) => {
           loader={<Loader />}
         >
           <div className="flex justify-center w-full flex-wrap">
-            {filteredPosts.slice(0, count).map((cheetsheet, key) => (
+            {filteredPosts.slice(0, count).map((cheatsheet, key) => (
               <Item
-                data={cheetsheet}
+                data={cheatsheet}
                 key={key}
                 {...props}
                 setOpen={setOpen}

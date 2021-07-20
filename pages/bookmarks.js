@@ -23,9 +23,9 @@ const bookmarksPage = (props) => {
               dark={darkMode}
             />
             <div className="flex w-full justify-center flex-wrap">
-              {bookmarks.map((cheetsheet, key) => (
+              {bookmarks.map((cheatsheet, key) => (
                 <BookMarkItem
-                  data={cheetsheet}
+                  data={cheatsheet}
                   key={key}
                   bookmarks={bookmarks}
                   fetchBookmarks={fetchBookmarks}

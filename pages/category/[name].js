@@ -131,9 +131,9 @@ const name = (props) => {
                 return cheatsheetName.includes(name && name.toLowerCase());
               })
               .slice(0, count)
-              .map((cheetsheet, key) => (
+              .map((cheatsheet, key) => (
                 <Item
-                  data={cheetsheet}
+                  data={cheatsheet}
                   key={key}
                   {...props}
                   setOpen={setOpen}
