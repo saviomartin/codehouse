@@ -86,7 +86,7 @@ const Item = ({
   const url = new URL(website_url);
 
   // going to its own page
-  const goToCheetSheetPage = () => {
+  const goToCheatSheetPage = () => {
     router.push(`/${review ? "review" : "post"}/${id}`);
   };
 
@@ -206,7 +206,7 @@ const Item = ({
       {listView ? (
         <div
           className="cursor-pointer flex items-center p-3 rounded-md duration-500 white-light-shadow bg-white m-2 w-full lg:w-10/12 min-w-10/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale dark:border-[#555] dark:bg-[#1F1F1F] dark:text-white"
-          onClick={goToCheetSheetPage}
+          onClick={goToCheatSheetPage}
           data-aos="fade-left"
         >
           {loading ? (
@@ -319,7 +319,7 @@ const Item = ({
       ) : (
         <div
           className="cursor-pointer flex justify-between flex-col p-5 rounded-md duration-500 white-light-shadow bg-white m-2 w-full lg:w-3/12 xl:w-[20%] border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale dark:border-[#555] dark:bg-[#1F1F1F] dark:text-white"
-          onClick={goToCheetSheetPage}
+          onClick={goToCheatSheetPage}
           data-aos="fade-left"
         >
           {loading ? (

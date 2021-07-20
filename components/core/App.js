@@ -84,9 +84,9 @@ const App = (props) => {
           <div className="flex justify-center mt-5 w-full flex-wrap">
             {filteredPosts
               .slice(0, searchTerm ? 25 : count)
-              .map((cheetsheet, key) => (
+              .map((cheatsheet, key) => (
                 <Item
-                  data={cheetsheet}
+                  data={cheatsheet}
                   key={key}
                   {...props}
                   setOpen={setOpen}
@@ -120,9 +120,9 @@ const App = (props) => {
           loader={<Loader />}
         >
           <div className="flex justify-center mt-5 w-full flex-wrap">
-            {filteredPosts.slice(0, count).map((cheetsheet, key) => (
+            {filteredPosts.slice(0, count).map((cheatsheet, key) => (
               <Item
-                data={cheetsheet}
+                data={cheatsheet}
                 key={key}
                 {...props}
                 setOpen={setOpen}

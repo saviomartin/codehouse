@@ -104,7 +104,7 @@ const Header = ({ setOpen, user, setUser }) => {
           <a>
             <Button className="!p-0 !w-auto !h-auto !m-auto shine !ml-2 lg:!ml-[18px] xl:!ml-[18px] !hidden lg:!block xl:!block md:!block">
               <div className="border-2 border-[#ffcf5e] text-[#ffcf5e] px-2 py-[4px] text-md capitalize rounded-md font-semibold flex items-center justify-center">
-                New CheetSheet
+                New CheatSheet
               </div>
             </Button>
           </a>
@@ -173,7 +173,7 @@ const Header = ({ setOpen, user, setUser }) => {
           <Link href="/new">
             <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
               <h3 className="font-bold continuous-line text-center text-white">
-                Add New CheetSheet
+                Add New CheatSheet
               </h3>
             </a>
           </Link>
