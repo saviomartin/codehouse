@@ -39,8 +39,8 @@ function Replies({toggleReplies, setToggleReplies, replies}) {
                     Replies ({replies && replies.length})
                 </h1>
                 <span className="text-xs text-[#3d5eff] font-semibold continuous-line cursor-pointer" onClick={() => setToggleReplies(!toggleReplies)}>
-                    {toggleReplies && <>Show</>}
-                    {!toggleReplies && <>Hide</>}
+                    {!toggleReplies && <>Show</>}
+                    {toggleReplies && <>Hide</>}
                 </span>
             </div>
             {toggleReplies && replies.map((reply, index) => (
@@ -59,7 +59,7 @@ function ReplyButton({toggleReplyBox, setToggleReplyBox}) {
     )
 }
 
-function ReplyBox({id, toggleReplyBox, user, comments, comment, review, index}) {
+function ReplyBox({id, toggleReplyBox, user, comments, comment, review, index, fetchAgain, setFetchAgain}) {
     const [reply, setReply] = React.useState('');
     const sendReply = () => {
         const url = `/api/POST/${review ? `comment-review-cheatsheet` : `comment-cheatsheet`}`;
@@ -80,6 +80,9 @@ function ReplyBox({id, toggleReplyBox, user, comments, comment, review, index}) 
                   comments: [...temp],
                 }),
             });
+
+            setFetchAgain(fetchAgain + 1);
+            setReply('');
         }
     }
     return (
