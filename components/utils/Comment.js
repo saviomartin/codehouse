@@ -14,7 +14,7 @@ const Comment = ({ comment }) => {
       className="rounded-md border border-[#ccc] dark:bg-[#2f2f2f] dark:border-[#555]"
       data-aos="fade-left"
     >
-      <div className="p-2 flex items-center hover:bg-white duration-200 mt-2">
+      <div className="p-2 flex items-center hover:bg-white duration-200">
         <img
           src={
             comment.photoURL
@@ -35,7 +35,7 @@ const Comment = ({ comment }) => {
         </div>
       </div>
       <Replies />
-      <ReplyBox />
+      <ReplyBox toggleReplyBox={toggleReplyBox} setToggleReplyBox={setToggleReplyBox} comment={comment}/>
     </div>
   );
 };
