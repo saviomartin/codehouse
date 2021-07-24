@@ -7,14 +7,15 @@ import {ReplyButton, Replies, ReplyBox} from "./ReplyComment";
 import { formatRelative } from "date-fns";
 
 const Comment = ({ id, user, comments, comment, review, index }) => {
-  const [toggleReplyBox, setToggleReplyBox] = useState(false);
+  const [toggleReplyBox, setToggleReplyBox] = useState(false),
+    [toggleReplies, setToggleReplies] = useState(true);
 
   return (
     <div
-      className="rounded-md border border-[#ccc] dark:bg-[#2f2f2f] dark:border-[#555] hover:bg-white mt-2"
+      className="rounded-md border border-[#ccc] dark:bg-[#2f2f2f] dark:border-[#555] hover:bg-white p-2 mt-2"
       data-aos="fade-left"
     >
-      <div className="p-2 flex items-center duration-200">
+      <div className="flex items-center duration-200">
         <img
           src={
             comment.photoURL
@@ -34,7 +35,7 @@ const Comment = ({ id, user, comments, comment, review, index }) => {
           </h4>
         </div>
       </div>
-      {comment?.replies && <Replies replies={comment.replies} />}
+      {comment?.replies && <Replies toggleReplies={toggleReplies} setToggleReplies={setToggleReplies} replies={comment.replies} />}
       <ReplyBox id={id} toggleReplyBox={toggleReplyBox} user={user} comments={comments} comment={comment} review={review} index={index} />
     </div>
   );
