@@ -94,8 +94,8 @@ function ReplyBox({id, toggleReplyBox, user, comments, comment, review, index, f
                         type="text"
                         value={reply}
                         onChange={e => setReply(e.target.value)}
-                        placeholder={`Reply to ${comment.name}`}
-                        className="h-full py-1 pl-1 w-full bg-transparent"
+                        placeholder={`Replying to ${comment.name}...`}
+                        className="h-full py-1 pl-2 w-full bg-transparent"
                         onKeyDown={e => {if(e.keyCode === 13) {sendReply()}}}
                     />        
                     <div
