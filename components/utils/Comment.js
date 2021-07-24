@@ -6,15 +6,15 @@ import {ReplyButton, Replies, ReplyBox} from "./ReplyComment";
 // https://www.epochconverter.com/
 import { formatRelative } from "date-fns";
 
-const Comment = ({ comment }) => {
+const Comment = ({ id, user, comments, comment, review, index }) => {
   const [toggleReplyBox, setToggleReplyBox] = useState(false);
 
   return (
     <div
-      className="rounded-md border border-[#ccc] dark:bg-[#2f2f2f] dark:border-[#555]"
+      className="rounded-md border border-[#ccc] dark:bg-[#2f2f2f] dark:border-[#555] hover:bg-white mt-2"
       data-aos="fade-left"
     >
-      <div className="p-2 flex items-center hover:bg-white duration-200">
+      <div className="p-2 flex items-center duration-200">
         <img
           src={
             comment.photoURL
@@ -34,8 +34,8 @@ const Comment = ({ comment }) => {
           </h4>
         </div>
       </div>
-      <Replies />
-      <ReplyBox toggleReplyBox={toggleReplyBox} setToggleReplyBox={setToggleReplyBox} comment={comment}/>
+      {comment?.replies && <Replies replies={comment.replies} />}
+      <ReplyBox id={id} toggleReplyBox={toggleReplyBox} user={user} comments={comments} comment={comment} review={review} index={index} />
     </div>
   );
 };

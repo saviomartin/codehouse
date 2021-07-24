@@ -251,6 +251,8 @@ const InfoBar = ({
     }
   };
 
+  console.log(comments);
+
   return (
     <div className="w-full lg:w-[65%] xl:w-[65%] h-full min-h-[90vh] bg-white rounded-md white-light-shadow border border-[#ddd] p-7 dark:bg-[#1F1F1F] dark:border-[#555] dark:text-white">
       {loading ? (
@@ -373,8 +375,8 @@ const InfoBar = ({
           </div>
 
           {comments &&
-            comments.map((comment, key) => (
-              <Comment key={key} comment={comment} />
+            comments.map((comment, index) => (
+              <Comment key={index} id={id} index={index} user={user} comments={comments} comment={comment} review={review} />
             ))}
         </>
       )}
