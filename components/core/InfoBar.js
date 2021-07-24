@@ -376,7 +376,7 @@ const InfoBar = ({
 
           {comments &&
             comments.map((comment, index) => (
-              <Comment key={index} id={id} index={index} user={user} comments={comments} comment={comment} review={review} fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
+              <Comment key={index} id={id} index={index} user={user} comments={comments} comment={comment} review={review} fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} setOpen={setOpen}/>
             ))}
         </>
       )}

@@ -6,7 +6,7 @@ import {ReplyButton, Replies, ReplyBox} from "./ReplyComment";
 // https://www.epochconverter.com/
 import { formatRelative } from "date-fns";
 
-const Comment = ({ id, user, comments, comment, review, index, fetchAgain, setFetchAgain }) => {
+const Comment = ({ id, user, comments, comment, review, index, fetchAgain, setFetchAgain, setOpen }) => {
   const [toggleReplyBox, setToggleReplyBox] = useState(false),
     [toggleReplies, setToggleReplies] = useState(true);
 
@@ -37,7 +37,7 @@ const Comment = ({ id, user, comments, comment, review, index, fetchAgain, setFe
         </div>
       </div>
       {comment?.replies && <Replies toggleReplies={toggleReplies} setToggleReplies={setToggleReplies} replies={comment.replies} />}
-      <ReplyBox id={id} toggleReplyBox={toggleReplyBox} user={user} comments={comments} comment={comment} review={review} index={index} fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
+      <ReplyBox id={id} toggleReplyBox={toggleReplyBox} user={user} comments={comments} comment={comment} review={review} index={index} fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} setOpen={setOpen} />
     </div>
   );
 };

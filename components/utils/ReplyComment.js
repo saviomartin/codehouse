@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { formatRelative } from "date-fns";
 import {
     FiSend,
@@ -59,31 +58,33 @@ function ReplyButton({toggleReplyBox, setToggleReplyBox}) {
     )
 }
 
-function ReplyBox({id, toggleReplyBox, user, comments, comment, review, index, fetchAgain, setFetchAgain}) {
+function ReplyBox({id, toggleReplyBox, user, comments, comment, review, index, fetchAgain, setFetchAgain, setOpen}) {
     const [reply, setReply] = React.useState('');
     const sendReply = () => {
         const url = `/api/POST/${review ? `comment-review-cheatsheet` : `comment-cheatsheet`}`;
-        if(reply.trim()) {
-            const temp = [...comments];
-            temp[index].replies = comments[index].replies ? [...comments[index].replies] : [];
-            temp[index].replies.unshift({
-                name: user.displayName ? user.displayName : "",
-                photoURL: user.photoURL ? user.photoURL : "",
-                reply: reply,
-                email: user.email,
-                time: new Date().getTime(),
-            });
-            fetch(url, {
-                method: "POST",
-                body: JSON.stringify({
-                  id: id,
-                  comments: [...temp],
-                }),
-            });
+        if(user?.email){
+            if(reply.trim()) {
+                const temp = [...comments];
+                temp[index].replies = comments[index].replies ? [...comments[index].replies] : [];
+                temp[index].replies.unshift({
+                    name: user.displayName ? user.displayName : "",
+                    photoURL: user.photoURL ? user.photoURL : "",
+                    reply: reply,
+                    email: user.email,
+                    time: new Date().getTime(),
+                });
+                fetch(url, {
+                    method: "POST",
+                    body: JSON.stringify({
+                    id: id,
+                    comments: [...temp],
+                    }),
+                });
 
-            setFetchAgain(fetchAgain + 1);
-            setReply('');
-        }
+                setFetchAgain(fetchAgain + 1);
+                setReply('');
+            } 
+        } else setOpen(true);
     }
     return (
         <>
