@@ -78,6 +78,7 @@ Code House comes up with a whole bunch of amazing features to provide you the be
 - 🔺 **Upvote/Comment on Cheatsheets**
 - 📬 **Newsletter** (once a week)
 - 💻 **Fully Responsive**
+- 🔤 **Reply to a comment**
 
 Code House is the next revolutionary app to hunt the best cheat sheets for all types ✨️
 
@@ -157,7 +158,6 @@ Here are some idea that is coming really soon 👀
 
 - Profile Page
 - PWA, **In Progress ⏳️**
-- Reply to a comment
 - Markdown support for feature requests
 - Twitter and Facebook Auth, **In Progress ⏳️**
 - Perform Operations with API
