@@ -7,7 +7,7 @@ import Collection from "./dnd-components/collection";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, resetServerContext } from "react-beautiful-dnd";
 
 export default function Collections(props) {
   const { bookmarks, user, fetchBookmarks, darkMode } = props;
@@ -19,7 +19,7 @@ export default function Collections(props) {
       { id: "bookmark-3", title: "Task 3" },
       { id: "bookmark-4", title: "Task 4" },
     ],
-    collectionOrder: ["collection-0", "collection-1"],
+    collectionOrder: ["collection-0", "collection-1", "collection-2"],
     collections: {
       "collection-0": {
         id: "collection-0",
@@ -28,9 +28,14 @@ export default function Collections(props) {
       },
       "collection-1": {
         id: "collection-1",
+        title: "In Progress",
+        bookmarkIDs: ["bookmark-4"]
+      },
+      "collection-2": {
+        id: "collection-2",
         title: "Done",
-        bookmarkIDs: ["bookmark-3", "bookmark-4"]
-      }
+        bookmarkIDs: ["bookmark-3"]
+      },
     },
   });
   const onDragStart = (e) => {
@@ -71,6 +76,10 @@ export default function Collections(props) {
         }
   }
 
+  useEffect(() => {
+    resetServerContext();
+  },[])
+
   return(
     <div className="bg-image">
       <Head>
@@ -96,6 +105,7 @@ export default function Collections(props) {
                       <Collection key={collectionId} entities={entities} setEntities={setEntities} collectionId={collectionId} index={index} />
                     ))
                   }
+                  {provided.placeholder}
                 </div>
               )
             }

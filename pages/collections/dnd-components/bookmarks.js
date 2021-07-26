@@ -8,7 +8,7 @@ export default function BookmarksItem({collectionId, bookmarkData, bookmarkIDs, 
         {
           provided => (
             <div
-              className="overflow-x-auto overflow-y-hidden whitespace-nowrap"
+              className="overflow-x-auto overflow-y-hidden whitespace-nowrap w-full h-full"
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
