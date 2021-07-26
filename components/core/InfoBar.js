@@ -51,11 +51,12 @@ const InfoBar = ({
 
   // fetching bookmarked cheatsheets and check if already bookmarked or not
   const fetchBookmarkedCheatsheets = () => {
-    if (bookmarks.some((cheatsheet) => cheatsheet.id === id)) {
-      setIsBookMarked(true);
-    } else {
-      setIsBookMarked(false);
+    let bookmarked = false;
+    for(let bookmark of bookmarks) {
+      if(bookmark.id === id)
+        bookmarked = true;
     }
+    setIsBookMarked(bookmarked);
   };
 
   // use effect to handle it
