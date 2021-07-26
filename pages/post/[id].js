@@ -44,7 +44,7 @@ const Cheatsheet = (props) => {
     <div className="bg-image">
       <Head>
         <title>
-          {currentPost[0] && currentPost[0].cheatsheet_name}- Code House
+          {currentPost[0] && currentPost[0].cheatsheet_name} - Code House
         </title>
       </Head>
       <Header {...props} />
