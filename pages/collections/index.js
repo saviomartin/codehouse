@@ -30,7 +30,7 @@ export default function Collections(props) {
       </Head>
       <Header {...props} />
       <SvgBanner
-        text="Your Collections"
+        text={`Your Collections (${entities ? entities.collectionOrder.length : 0})`}
         description="These are the collections of your bookmarked cheatsheets, you can move stuff around by dragging and dropping them 🤟"
         image_url="/assets/3d/bookmarks.png"
         dark={darkMode}

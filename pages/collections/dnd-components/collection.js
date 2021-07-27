@@ -38,7 +38,7 @@ export default function Collection({entities, setEntities, collectionId, index, 
                 <div className="h-full w-full p-4">
                   <div className="flex items-center justify-between">
                     <div className="" {...provided.dragHandleProps}>
-                      <MdApps className="mb-1 mr-2 text-white text-xl" style={{transform: 'rotate(90deg)'}} />
+                      <MdApps className="mb-1 mr-2 text-white text-xl" />
                     </div>
                     <input spellCheck={false} value={collectionTitle} onChange={(e) => setCollectionTitle(e.target.value)} className="text-2xl w-full font-bold text-[#fff] bg-transparent cursor-text" />
                     <div className="flex items-center justify-between">
