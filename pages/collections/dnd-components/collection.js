@@ -7,7 +7,7 @@ import BookMarksItem from "./bookmarks.js";
 import {FiPlus, FiTrash2} from "react-icons/fi";
 import {MdApps} from "react-icons/md";
 
-export default function Collection({entities, setEntities, collectionId, index}) {
+export default function Collection({entities, setEntities, collectionId, index, showBookmarks, setShowBookmarks}) {
   const [collectionTitle, setCollectionTitle] = useState(entities.collections[collectionId].title),
     collectionTitleRef = useRef();
 
@@ -31,7 +31,7 @@ export default function Collection({entities, setEntities, collectionId, index})
   return (
     <>
       {
-        entities.collections[collectionId].id && <Draggable draggableId={entities.collections[collectionId].id} index={index} isDragDisabled={false}>
+        entities?.collections[collectionId]?.id && <Draggable draggableId={entities.collections[collectionId].id} index={index} isDragDisabled={false}>
           {
             provided => (
               <div className="h-[305px] mb-8 rounded-lg bg-[#ffffff20] dark:bg-[#ffffff20] border-b-[1px] border-[#eeeeee30]" {...provided.draggableProps} ref={provided.innerRef} style={provided.draggableProps.style}>
@@ -43,7 +43,7 @@ export default function Collection({entities, setEntities, collectionId, index})
                     <input spellCheck={false} value={collectionTitle} onChange={(e) => setCollectionTitle(e.target.value)} className="text-2xl w-full font-bold text-[#fff] bg-transparent cursor-text" />
                     <div className="flex items-center justify-between">
                       <FiTrash2 className="text-white text-lg cursor-pointer ml-2" onClick={deleteCollection} />
-                      <FiPlus className="text-white text-lg cursor-pointer ml-2" />
+                      <FiPlus className="text-white text-lg cursor-pointer ml-2" onClick={() => {setShowBookmarks(collectionId)}}/>
                     </div>
                   </div>
                   <div className="h-full w-full">

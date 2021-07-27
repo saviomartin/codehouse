@@ -6,11 +6,11 @@ import {updateLocalStorage, getLocalStorage} from "./dnd-ls";
 
 import { FiPlus } from "react-icons/fi";
 
-export default function Dnd() {
-  const [collectionName, setCollectionName] = useState(""),
-    [entities, setEntities] = useState(getLocalStorage());
+export default function Dnd({entities, setEntities, showBookmarks, setShowBookmarks}) {
+  const [collectionName, setCollectionName] = useState("");
 
   const addNewCollection = (e) => {
+    console.log(entities)
     if(collectionName.trim()) {
       const newCollectionID = `collection-${Object.keys(entities.collections).length + 1}`;
       let collections = entities.collections;
@@ -66,7 +66,13 @@ export default function Dnd() {
   }
 
   useEffect(() => {
-    updateLocalStorage(entities);
+    setEntities(getLocalStorage());
+  }, []);
+
+  useEffect(() => {
+    if(entities)
+      updateLocalStorage(entities);
+      console.log(entities, getLocalStorage());
   }, [entities]);
 
   return(
@@ -78,13 +84,13 @@ export default function Dnd() {
               <div {...provided.droppableProps} ref={provided.innerRef}>
                 <div className="flex items-center justify-between w-full bg-[#ffffff20] dark:bg-[#ffffff20] rounded-lg p-4 mb-8 border-b-[1px] border-[#eeeeee30]">
                   <input type="text" placeholder="Add new collection..." className="bg-transparent text-[#fff] w-full" onKeyDown={(e) => {if(e.keyCode === 13) addNewCollection();}} value={collectionName} onChange={(e) => setCollectionName(e.target.value)} />
-                  <div className="bg-[#3d5eff] p-2 cursor-pointer shine rounded-lg" onClick={addNewCollection}>
+                  <div className="bg-[#3d5eff] active:bg-[#000] p-2 cursor-pointer shine rounded-lg" onClick={addNewCollection}>
                     <FiPlus className="text-white" />
                   </div>
                 </div>
                 {
-                  entities.collectionOrder.map((collectionId, index) => (
-                    <Collection key={collectionId} entities={entities} setEntities={setEntities} collectionId={collectionId} index={index} />
+                  entities?.collectionOrder && entities.collectionOrder.map((collectionId, index) => (
+                    <Collection key={collectionId} entities={entities} setEntities={setEntities} collectionId={collectionId} index={index} showBookmarks={showBookmarks} setShowBookmarks={setShowBookmarks} />
                   ))
                 }
                 {provided.placeholder}

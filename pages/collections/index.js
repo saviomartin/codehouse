@@ -1,6 +1,4 @@
 import React, {useEffect, useState } from "react";
-import 'tailwindcss/tailwind.css';
-
 import dynamic from "next/dynamic";
 
 //components
@@ -10,17 +8,21 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 const Dnd = dynamic(import("./dnd-components/dnd"));
+const BookmarksDialog = dynamic(import("./bookmarks-dialog"));
+
 export default function Collections(props) {
   const { bookmarks, user, fetchBookmarks, darkMode } = props,
-    [winReady, setWinReady] = useState(false);
+    [winReady, setWinReady] = useState(false),
+    [showBookmarks, setShowBookmarks] = useState(null),
+    [entities, setEntities] = useState(null);
 
   useEffect(() => {
-    setWinReady(true);
+    return setWinReady(true);
   },[]);
 
   return(
-    <div className="divider relative bg-image">
-      <div className=" fixed inset-0"></div>
+    <div className="relative bg-image">
+      {winReady && <BookmarksDialog entities={entities} setEntities={setEntities} showBookmarks={showBookmarks} setShowBookmarks={setShowBookmarks} {...props}/>}
       <Head>
         <title>
           Collections - Code House
@@ -33,7 +35,7 @@ export default function Collections(props) {
         image_url="/assets/3d/bookmarks.png"
         dark={darkMode}
       />
-      {winReady ? <Dnd /> : null}
+    {winReady && <Dnd entities={entities} setEntities={setEntities} showBookmarks={showBookmarks} setShowBookmarks={setShowBookmarks} />}
     </div>
   )
 }
