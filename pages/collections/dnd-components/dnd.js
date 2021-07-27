@@ -6,7 +6,7 @@ import {updateLocalStorage, getLocalStorage} from "./dnd-ls";
 
 import { FiPlus } from "react-icons/fi";
 
-export default function Dnd({entities, setEntities, showBookmarks, setShowBookmarks}) {
+export default function Dnd({bookmarks, fetchBookmarks, entities, setEntities, showBookmarks, setShowBookmarks}) {
   const [collectionName, setCollectionName] = useState("");
 
   const addNewCollection = (e) => {
@@ -90,7 +90,7 @@ export default function Dnd({entities, setEntities, showBookmarks, setShowBookma
                 </div>
                 {
                   entities?.collectionOrder && entities.collectionOrder.map((collectionId, index) => (
-                    <Collection key={collectionId} entities={entities} setEntities={setEntities} collectionId={collectionId} index={index} showBookmarks={showBookmarks} setShowBookmarks={setShowBookmarks} />
+                    <Collection key={collectionId} entities={entities} setEntities={setEntities} collectionId={collectionId} index={index} showBookmarks={showBookmarks} setShowBookmarks={setShowBookmarks} bookmarks={bookmarks} fetchBookmarks={fetchBookmarks} />
                   ))
                 }
                 {provided.placeholder}

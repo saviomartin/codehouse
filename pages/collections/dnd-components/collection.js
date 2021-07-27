@@ -7,7 +7,7 @@ import BookMarksItem from "./bookmarks.js";
 import {FiPlus, FiTrash2} from "react-icons/fi";
 import {MdApps} from "react-icons/md";
 
-export default function Collection({entities, setEntities, collectionId, index, showBookmarks, setShowBookmarks}) {
+export default function Collection({entities, setEntities, collectionId, index, showBookmarks, setShowBookmarks, bookmarks, fetchBookmarks}) {
   const [collectionTitle, setCollectionTitle] = useState(entities.collections[collectionId].title),
     collectionTitleRef = useRef();
 
@@ -34,7 +34,7 @@ export default function Collection({entities, setEntities, collectionId, index, 
         entities?.collections[collectionId]?.id && <Draggable draggableId={entities.collections[collectionId].id} index={index} isDragDisabled={false}>
           {
             provided => (
-              <div className="h-[305px] mb-8 rounded-lg bg-[#ffffff20] dark:bg-[#ffffff20] border-b-[1px] border-[#eeeeee30]" {...provided.draggableProps} ref={provided.innerRef} style={provided.draggableProps.style}>
+              <div className="mb-8 rounded-lg bg-[#ffffff20] dark:bg-[#ffffff20] border-b-[1px] border-[#eeeeee30]" {...provided.draggableProps} ref={provided.innerRef} style={provided.draggableProps.style}>
                 <div className="h-full w-full p-4">
                   <div className="flex items-center justify-between">
                     <div className="" {...provided.dragHandleProps}>
@@ -47,7 +47,7 @@ export default function Collection({entities, setEntities, collectionId, index, 
                     </div>
                   </div>
                   <div className="h-full w-full">
-                    <BookMarksItem collectionId={collectionId} bookmarkData={entities.bookmarks} bookmarkIDs={entities.collections[collectionId].bookmarkIDs} entities={entities} setEntities={setEntities}/>
+                    <BookMarksItem collectionId={collectionId} bookmarkData={entities.bookmarks} bookmarkIDs={entities.collections[collectionId].bookmarkIDs} entities={entities} setEntities={setEntities} bookmarks={bookmarks} fetchBookmarks={fetchBookmarks}/>
                   </div>
                 </div>
               </div>

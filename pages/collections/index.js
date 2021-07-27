@@ -35,7 +35,7 @@ export default function Collections(props) {
         image_url="/assets/3d/bookmarks.png"
         dark={darkMode}
       />
-    {winReady && <Dnd entities={entities} setEntities={setEntities} showBookmarks={showBookmarks} setShowBookmarks={setShowBookmarks} />}
+    {winReady && <Dnd bookmarks={bookmarks} fetchBookmarks={fetchBookmarks} entities={entities} setEntities={setEntities} showBookmarks={showBookmarks} setShowBookmarks={setShowBookmarks} />}
     </div>
   )
 }

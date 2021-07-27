@@ -8,17 +8,22 @@ export default function BookmarksDialog({entities, setEntities, bookmarks, fetch
   const addToCollection = (data) => {
     const newBookmarkID = `bookmark-${Object.keys(entities.bookmarks).length + 1}`;
     let bookmarks = entities.bookmarks;
-    const emptyBookmark = {
+    const newBookmark = {
         id: newBookmarkID,
         content: data
     }
-    bookmarks[newBookmarkID] = emptyBookmark;
+    bookmarks.push(newBookmark);
 
     let collections = entities.collections;
     if(!collections[showBookmarks].bookmarkIDs) collections[showBookmarks].bookmarkIDs = [];
 
+    let bookmarkIDs = collections[showBookmarks].bookmarkIDs;
+    bookmarkIDs.push(newBookmarkID);
+
     setEntities({ ...entities, bookmarks, collections });
+    setShowBookmarks(null);
   }
+
   return (
     <Backdrop open={!!showBookmarks} className="z-[100000] flex items-center justify-center bg-[#00000042]" onClick={() => setShowBookmarks(false)}>
       <div className="glassmorphism rounded-lg h-3/4 w-3/4 p-6 overflow-y-auto" onClick={(e) => e.stopPropagation()}>

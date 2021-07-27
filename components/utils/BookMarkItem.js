@@ -120,7 +120,7 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks, animated, interactive }
 
   return (
     <div
-      className={`cursor-pointer flex justify-start items-center flex-col p-5 px-4 rounded-md duration-500 white-light-shadow bg-white mr-2 mb-2 w-[340px] border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale h-[325px] parent-for-image-scale dark:border-[#555] dark:bg-[#1F1F1F] dark:text-white ${interactive ? "pointer-events-auto" : "pointer-events-none"}`}
+      className={`cursor-pointer flex justify-start items-center flex-col p-5 px-4 rounded-md duration-500 white-light-shadow bg-white w-[340px] border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale h-[325px] parent-for-image-scale dark:border-[#555] dark:bg-[#1F1F1F] dark:text-white ${interactive ? "pointer-events-auto" : "pointer-events-none"}`}
       onClick={goToCheatSheetPage}
       data-aos={animated ? "fade-left" : "none"}
     >
