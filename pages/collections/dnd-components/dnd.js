@@ -76,18 +76,18 @@ export default function Dnd() {
           {
             provided => (
               <div {...provided.droppableProps} ref={provided.innerRef}>
+                <div className="flex items-center justify-between w-full bg-[#ffffff20] dark:bg-[#ffffff20] rounded-lg p-4 mb-8 border-b-[1px] border-[#eeeeee30]">
+                  <input type="text" placeholder="Add new collection..." className="bg-transparent text-[#fff] w-full" onKeyDown={(e) => {if(e.keyCode === 13) addNewCollection();}} value={collectionName} onChange={(e) => setCollectionName(e.target.value)} />
+                  <div className="bg-[#3d5eff] p-2 cursor-pointer shine rounded-lg" onClick={addNewCollection}>
+                    <FiPlus className="text-white" />
+                  </div>
+                </div>
                 {
                   entities.collectionOrder.map((collectionId, index) => (
                     <Collection key={collectionId} entities={entities} setEntities={setEntities} collectionId={collectionId} index={index} />
                   ))
                 }
                 {provided.placeholder}
-                <div className="flex items-center justify-between w-24 bg-[#ffffff20] dark:bg-[#ffffff20] rounded-lg p-4 border-b-[1px] border-[#eeeeee30]">
-                  <input type="text" placeholder="Add new collection..." className="bg-transparent text-[#fff] w-full" onKeyDown={(e) => {if(e.keyCode === 13) addNewCollection();}} value={collectionName} onChange={(e) => setCollectionName(e.target.value)} />
-                  <div className="bg-[#3d5eff] p-2 cursor-pointer shine rounded-lg" onClick={addNewCollection}>
-                    <FiPlus className="text-white" />
-                  </div>
-                </div>
               </div>
             )
           }

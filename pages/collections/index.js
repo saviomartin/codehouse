@@ -1,4 +1,6 @@
 import React, {useEffect, useState } from "react";
+import 'tailwindcss/tailwind.css';
+
 import dynamic from "next/dynamic";
 
 //components
@@ -17,7 +19,8 @@ export default function Collections(props) {
   },[]);
 
   return(
-    <div className="bg-image">
+    <div className="divider relative bg-image">
+      <div className=" fixed inset-0"></div>
       <Head>
         <title>
           Collections - Code House

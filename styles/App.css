@@ -8,6 +8,10 @@
 @import url(./animations.css);
 @import url(./components.css);
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Root */
 * {
   font-family: "Epilogue", sans-serif;
