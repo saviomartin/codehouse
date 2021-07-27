@@ -33,7 +33,7 @@ export default function BookmarksDialog({entities, setEntities, bookmarks, fetch
         </div>
         <div className="mt-4 flex flex-wrap items-center justify-start">
           {bookmarks.map((cheatsheet, key) => (
-            <div className="cursor-pointer" onClick={() => addToCollection(cheatsheet)}>
+            <div className="cursor-pointer mb-4 mr-4" onClick={() => addToCollection(cheatsheet)}>
               <BookMarkItem
                 data={cheatsheet}
                 key={key}

@@ -10,7 +10,6 @@ export default function Dnd({bookmarks, fetchBookmarks, entities, setEntities, s
   const [collectionName, setCollectionName] = useState("");
 
   const addNewCollection = (e) => {
-    console.log(entities)
     if(collectionName.trim()) {
       const newCollectionID = `collection-${Object.keys(entities.collections).length + 1}`;
       let collections = entities.collections;
@@ -72,7 +71,6 @@ export default function Dnd({bookmarks, fetchBookmarks, entities, setEntities, s
   useEffect(() => {
     if(entities)
       updateLocalStorage(entities);
-      console.log(entities, getLocalStorage());
   }, [entities]);
 
   return(

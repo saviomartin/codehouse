@@ -8,12 +8,15 @@ import {FiPlus, FiTrash2} from "react-icons/fi";
 import {MdApps} from "react-icons/md";
 
 export default function BookmarksItem({collectionId, bookmarkData, bookmarkIDs, entities, setEntities, bookmarks, fetchBookmarks}) {
-    const deleteBookmark = (index, collectionIndex) => {
+    const deleteBookmark = (index) => {
       let collections = entities.collections;
       let bookmarks = entities.bookmarks;
-      bookmarks.splice(index, 1);
-      collections[collectionId].bookmarkIDs.splice(collectionIndex, 1);
-      setEntities({ ...entities, collections, bookmarks });
+      delete bookmarks[collections[collectionId].bookmarkIDs[index]];
+
+      collections[collectionId].bookmarkIDs.splice(index, 1);
+
+      console.log(collections, bookmarks);
+      setEntities({ ...entities, collections, bookmarks })
     }
 
     return (
@@ -39,7 +42,7 @@ export default function BookmarksItem({collectionId, bookmarkData, bookmarkIDs, 
                               <div {...provided.dragHandleProps}>
                                 <MdApps className="mx-2 text-white text-xl" />
                               </div>
-                              <FiTrash2 className="mx-2 text-white text-lg cursor-pointer" onClick={() => deleteBookmark(contentIndex, index)} />
+                              <FiTrash2 className="mx-2 text-white text-lg cursor-pointer" onClick={() => deleteBookmark(index)} />
                             </div>
                             <BookMarkItem
                               data={content}

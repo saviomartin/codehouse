@@ -25,7 +25,7 @@ export default function Collections(props) {
       {winReady && <BookmarksDialog entities={entities} setEntities={setEntities} showBookmarks={showBookmarks} setShowBookmarks={setShowBookmarks} {...props}/>}
       <Head>
         <title>
-          Collections - Code House
+          {`Collections (${entities ? entities.collectionOrder.length : 0})`} - Code House
         </title>
       </Head>
       <Header {...props} />
