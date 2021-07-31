@@ -83,6 +83,11 @@ const Header = ({ setOpen, user, setUser }) => {
               On Review
             </a>
           </Link>
+          <Link href="/collections">
+            <a className="text-[13.75px] font-medium ml-[18px] continuous-line text-white">
+              Collections
+            </a>
+          </Link>
           <Link href="/bookmarks">
             <a className="text-[13.75px] font-medium ml-[18px] continuous-line text-white">
               Bookmarks
@@ -211,6 +216,13 @@ const Header = ({ setOpen, user, setUser }) => {
             <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
               <h3 className="font-bold continuous-line text-center text-white">
                 On Review
+              </h3>
+            </a>
+          </Link>
+          <Link href="/collections">
+            <a className="p-2 w-full flex items-center justify-center border border-[#764dff] bg-pattern rounded-md my-[3px]">
+              <h3 className="font-bold continuous-line text-center text-white">
+                Collections
               </h3>
             </a>
           </Link>
