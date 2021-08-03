@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import {Droppable, Draggable} from "react-beautiful-dnd";
 
-import {BookMarkItem} from "../../../components";
+import BookMarkItem from "./BookMarkItem";
 
 import {FiPlus, FiTrash2} from "react-icons/fi";
 import {MdApps} from "react-icons/md";

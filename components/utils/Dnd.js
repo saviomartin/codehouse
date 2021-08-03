@@ -1,12 +1,36 @@
 import React, {useEffect, useState } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import Collection from "./collection";
-
-import {updateLocalStorage, getLocalStorage} from "./dnd-ls";
+import Collection from "./Collection";
 
 import { FiPlus } from "react-icons/fi";
 
-export default function Dnd({bookmarks, fetchBookmarks, entities, setEntities, showBookmarks, setShowBookmarks}) {
+function updateLocalStorage(data) {
+  if(window.localStorage !== null) {
+    window.localStorage.setItem("codehouse-collections", null);
+    window.localStorage.setItem("codehouse-collections", JSON.stringify(data));
+  }
+}
+
+function getLocalStorage() {
+  // window.localStorage.setItem("codehouse-collections", null);
+
+  let data = {};
+  if(window.localStorage !== null) {
+    if(JSON.parse(window?.localStorage?.getItem("codehouse-collections")))
+      data = JSON.parse(window.localStorage.getItem("codehouse-collections"));
+    else {
+      data = {
+        bookmarks: [],
+        collectionOrder: [],
+        collections: {},
+      };
+      updateLocalStorage(data);
+    }
+  }
+  return data;
+}
+
+function Dnd({bookmarks, fetchBookmarks, entities, setEntities, showBookmarks, setShowBookmarks}) {
   const [collectionName, setCollectionName] = useState("");
 
   const addNewCollection = (e) => {
@@ -100,3 +124,5 @@ export default function Dnd({bookmarks, fetchBookmarks, entities, setEntities, s
     </div>
   )
 }
+
+export default Dnd;

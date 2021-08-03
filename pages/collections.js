@@ -2,15 +2,15 @@ import React, {useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 //components
-import { RightBar, InfoBar, Header, SvgBanner } from "../../components";
+import { RightBar, InfoBar, Header, SvgBanner } from "../components";
 
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-const Dnd = dynamic(import("./dnd-components/dnd"));
-const BookmarksDialog = dynamic(import("./bookmarks-dialog"));
+const Dnd = dynamic(import("../components/utils/Dnd"));
+const BookmarksDialog = dynamic(import("../components/utils/BookmarksDialog"));
 
-export default function Collections(props) {
+function Collections(props) {
   const { bookmarks, user, fetchBookmarks, darkMode } = props,
     [winReady, setWinReady] = useState(false),
     [showBookmarks, setShowBookmarks] = useState(null),
@@ -39,3 +39,5 @@ export default function Collections(props) {
     </div>
   )
 }
+
+export default Collections;

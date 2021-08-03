@@ -1,7 +1,7 @@
 import React, {useEffect, useState } from "react";
 
 import {Backdrop} from "@material-ui/core";
-import {BookMarkItem} from '../../components';
+import BookMarkItem from './BookMarkItem';
 import {FiX} from 'react-icons/fi';
 
 export default function BookmarksDialog({entities, setEntities, bookmarks, fetchBookmarks, showBookmarks, setShowBookmarks}) {

@@ -2,7 +2,7 @@ import React, {useEffect, useState, useRef} from "react";
 
 import {Draggable} from "react-beautiful-dnd";
 
-import BookMarksItem from "./bookmarks.js";
+import BookmarksItem from "./Bookmarks";
 
 import {FiPlus, FiTrash2} from "react-icons/fi";
 import {MdApps} from "react-icons/md";
@@ -47,7 +47,7 @@ export default function Collection({entities, setEntities, collectionId, index, 
                     </div>
                   </div>
                   <div className="h-full w-full">
-                    <BookMarksItem collectionId={collectionId} bookmarkData={entities.bookmarks} bookmarkIDs={entities.collections[collectionId].bookmarkIDs} entities={entities} setEntities={setEntities} bookmarks={bookmarks} fetchBookmarks={fetchBookmarks}/>
+                    <BookmarksItem collectionId={collectionId} bookmarkData={entities.bookmarks} bookmarkIDs={entities.collections[collectionId].bookmarkIDs} entities={entities} setEntities={setEntities} bookmarks={bookmarks} fetchBookmarks={fetchBookmarks}/>
                   </div>
                 </div>
               </div>
