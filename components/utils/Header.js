@@ -83,7 +83,7 @@ const Header = ({ setOpen, user, setUser }) => {
               On Review
             </a>
           </Link>
-          <Link href="/collections">
+          <Link href="/collections">   
             <a className="text-[13.75px] font-medium ml-[18px] continuous-line text-white">
               Collections
             </a>
