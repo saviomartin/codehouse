@@ -79,6 +79,8 @@ Code House comes up with a whole bunch of amazing features to provide you the be
 - 📬 **Newsletter** (once a week)
 - 💻 **Fully Responsive**
 - 🔤 **Reply to a comment**
+- 📩 **Create Collections with Bookmarks**
+- 📱  **Drag and Drop to arrange collections** 
 
 Code House is the next revolutionary app to hunt the best cheat sheets for all types ✨️
 
@@ -148,6 +150,7 @@ After your PR got merged, you'll be automatically appared on [contributors page]
 - [Material UI](http://material-ui.com/): for components
 - [Animate.css](https://animate.style/): for smooth Animations
 - [AOS](https://michalsnik.github.io/aos/): for scroll animations
+- [React Beautiful DND](https://react-beautiful-dnd.netlify.app/): For Drag and Drop support on Collections Page
 - [Vercel](http://vercel.com/): for hosting
 
 ## 🌈 What's next
@@ -161,7 +164,6 @@ Here are some idea that is coming really soon 👀
 - Markdown support for feature requests
 - Twitter and Facebook Auth, **In Progress ⏳️**
 - Perform Operations with API
-- Create Collection when bookmarking cheatsheets
 - Featuring Cheatsheets on day basis
 - Generate Cover Image for missing ones
 - Settings page
