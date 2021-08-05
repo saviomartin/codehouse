@@ -46,22 +46,31 @@ const InfoBar = ({
   const [text, setText] = useState("");
 
   // destructuring currentPost[0]
-  const { id, cheatsheet_name, website_url, upvotes, comments } =
+  let { id, cheatsheet_name, website_url, upvotes, comments } =
     currentPost.length > 0 && currentPost[0];
 
   // fetching bookmarked cheatsheets and check if already bookmarked or not
   const fetchBookmarkedCheatsheets = () => {
-    if (bookmarks.some((cheatsheet) => cheatsheet.id === id)) {
-      setIsBookMarked(true);
-    } else {
-      setIsBookMarked(false);
+    let bookmarked = false;
+    for(let bookmark of bookmarks) {
+      if(bookmark.id === id){
+        bookmarked = true;
+      }
     }
+    setIsBookMarked(bookmarked);
   };
 
   // use effect to handle it
   useEffect(() => {
-    fetchBookmarkedCheatsheets();
-  }, [bookmarks]);
+    if(currentPost.length > 0) {
+        id = currentPost[0].id;
+        cheatsheet_name = currentPost[0].cheatsheet_name;
+        website_url = currentPost[0].website_url;
+        upvotes = currentPost[0].upvotes;
+        comments = currentPost[0].comments;
+    }
+    return fetchBookmarkedCheatsheets();
+  }, [bookmarks, currentPost]);
 
   useEffect(() => {
     // normal state
@@ -250,8 +259,6 @@ const InfoBar = ({
       setOpen(true);
     }
   };
-
-  console.log(comments);
 
   return (
     <div className="w-full lg:w-[65%] xl:w-[65%] h-full min-h-[90vh] bg-white rounded-md white-light-shadow border border-[#ddd] p-7 dark:bg-[#1F1F1F] dark:border-[#555] dark:text-white">

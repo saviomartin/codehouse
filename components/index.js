@@ -30,3 +30,7 @@ export { default as FeatureComponent } from "./utils/FeatureComponent";
 export { default as BmcButton } from "./utils/BmcButton";
 export { default as TwitterBtn } from "./utils/TwitterBtn";
 export { default as Loader } from "./utils/Loader";
+export { default as Dnd } from "./utils/Dnd";
+export { default as BookmarksItem} from "./utils/Bookmarks";
+export { default as BookmarksDialog } from "./utils/BookmarksDialog";
+export { default as Collection } from "./utils/Collection";

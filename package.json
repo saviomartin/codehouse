@@ -28,6 +28,7 @@
     "parallax-js": "^3.1.0",
     "psl": "^1.8.0",
     "react": "^17.0.2",
+    "react-beautiful-dnd": "^13.1.0",
     "react-content-loader": "^6.0.3",
     "react-device-detect": "^1.17.0",
     "react-dom": "^17.0.2",

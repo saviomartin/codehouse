@@ -14,7 +14,9 @@ import { Btn } from "..";
 // axios for data fetching
 import axios from "axios";
 
-const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
+const BookMarkItem = ({ data, bookmarks, fetchBookmarks, animated, interactive }) => {
+  if(animated === undefined || animated === null) animated = true;
+  if(interactive === undefined || interactive === null) interactive = true;
   const [meta, setMetadata] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -118,9 +120,9 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
 
   return (
     <div
-      className="cursor-pointer flex justify-start items-center flex-col p-5 px-4 rounded-md duration-500 white-light-shadow bg-white m-2 w-10/12 md:w-5/12 lg:w-3/12 border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale h-[325px] parent-for-image-scale dark:border-[#555] dark:bg-[#1F1F1F] dark:text-white"
+      className={`whitespace-normal cursor-pointer flex justify-start items-center flex-col p-5 px-4 rounded-md duration-500 white-light-shadow bg-white w-[340px] border border-[#ddd] hover:border-[#3d5eff98] item-hover-text parent-for-image-scale h-[325px] parent-for-image-scale dark:border-[#555] dark:bg-[#1F1F1F] dark:text-white ${interactive ? "pointer-events-auto" : "pointer-events-none"}`}
       onClick={goToCheatSheetPage}
-      data-aos="fade-left"
+      data-aos={animated ? "fade-left" : "none"}
     >
       {loading ? (
         <div className="w-full h-full">
@@ -164,7 +166,7 @@ const BookMarkItem = ({ data, bookmarks, fetchBookmarks }) => {
             >
               {url.hostname && url.hostname}
             </a>
-            <a href={website_url} target="_blank">
+            <a href={website_url} target="_blank" className="font-bold text-lg duration-500 hover:text-[#3d5eff]">
               <h1 className="font-bold text-lg duration-500 hover:text-[#3d5eff]">
                 {cheatsheet_name.length > 50
                   ? cheatsheet_name.slice(0, 50) + "..."

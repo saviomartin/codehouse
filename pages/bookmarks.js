@@ -24,12 +24,14 @@ const bookmarksPage = (props) => {
             />
             <div className="flex w-full justify-center flex-wrap">
               {bookmarks.map((cheatsheet, key) => (
-                <BookMarkItem
-                  data={cheatsheet}
-                  key={key}
-                  bookmarks={bookmarks}
-                  fetchBookmarks={fetchBookmarks}
-                />
+                <div className="m-4">
+                  <BookMarkItem
+                    data={cheatsheet}
+                    key={key}
+                    bookmarks={bookmarks}
+                    fetchBookmarks={fetchBookmarks}
+                  />
+                </div>
               ))}
             </div>
           </>
