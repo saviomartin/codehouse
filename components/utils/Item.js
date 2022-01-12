@@ -233,7 +233,7 @@ const Item = ({
                       src={meta.og && image()}
                       alt=""
                       width="270"
-                      className="rounded-md w-full h-[150px] scale-on-hover duration-500"
+                      className="rounded-md w-full h-[150px] object-cover scale-on-hover duration-500"
                     />
                   </a>
                 </Link>
@@ -345,7 +345,7 @@ const Item = ({
                         src={meta.og && image()}
                         alt=""
                         width="300"
-                        className="rounded-md w-full mb-2 h-[157.5px] scale-on-hover duration-500"
+                        className="rounded-md w-full mb-2 h-[157.5px] object-cover scale-on-hover duration-500"
                       />
                     </a>
                   </Link>
