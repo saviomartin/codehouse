@@ -20,6 +20,12 @@
   outline: none !important;
 }
 
+/* Body */
+body {
+  /* Prevent modal shifting content */
+  padding-right: 0 !important;
+}
+
 /* App */
 #root,
 html,
